@@ -19,7 +19,7 @@ namespace Harvesting
 
         public void Equip(Player player)
         {
-            player.Equip(this);
+            //player.Equip(this, EquipmentSlotthis.EquipmentSlotType);
         }
     }
 }

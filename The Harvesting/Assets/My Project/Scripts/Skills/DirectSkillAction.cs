@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    //[CreateAssetMenu(fileName = "new damage skill action", menuName = "Data/Skills/Skill Actions/Damage")]
+   // [CreateAssetMenu(fileName = "new direct skill action", menuName = "Data/Skills/Skill Actions/Direct Skill Action")]
     public class DirectSkillAction : SkillAction
     {
         [Tooltip("This action uses the Multiplier and the Attribute fields.")]

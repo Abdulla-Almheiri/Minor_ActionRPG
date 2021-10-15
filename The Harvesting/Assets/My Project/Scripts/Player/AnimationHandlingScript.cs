@@ -45,6 +45,7 @@ namespace Harvesting
             {
                 Animator.SetTrigger("Block2");
             }
+
         }
 
         private void HandleStates()
@@ -181,7 +182,7 @@ namespace Harvesting
 
         private bool IsRunning()
         {
-            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+            if (navMeshAgent.isStopped || (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance))
             {
                 return false;
             }

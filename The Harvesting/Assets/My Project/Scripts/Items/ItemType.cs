@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Harvesting
 {
     /// <summary>
-    /// Item Type Scriptable Object.
+    /// Item Data Scriptable Object.
     /// </summary>
     [CreateAssetMenu(fileName ="new item type", menuName ="Data/Items/Item Type")]
     public class ItemType : ScriptableObject

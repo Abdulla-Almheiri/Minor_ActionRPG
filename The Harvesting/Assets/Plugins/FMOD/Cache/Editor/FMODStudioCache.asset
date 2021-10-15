@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8499740967020220631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Game SFX/ShieldBurst
+  m_EditorClassIdentifier: 
+  Path: event:/Game SFX/ShieldBurst
+  guid: e5bbc8d48fb5c64c8461155bf1acb59a
+  Banks:
+  - {fileID: 8198727982755841842}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1057
 --- !u!114 &-7052778325290694291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +38,10 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637689654867948422
+  lastModified: 637699359474614692
   FileSizes:
   - Name: 
-    Value: 746
+    Value: 808
   Exists: 1
 --- !u!114 &-4816294755455937945
 MonoBehaviour:
@@ -60,12 +83,13 @@ MonoBehaviour:
   - {fileID: 8198727982755841842}
   EditorEvents:
   - {fileID: -4816294755455937945}
+  - {fileID: -8499740967020220631}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8198727982755841842}
   StringsBanks:
   - {fileID: -7052778325290694291}
-  stringsBankWriteTime: 637689654867948422
+  stringsBankWriteTime: 637699359474614692
   cacheVersion: 8
 --- !u!114 &8198727982755841842
 MonoBehaviour:
@@ -82,6 +106,6 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637689654867898571
+  lastModified: 637699359474525176
   FileSizes: []
   Exists: 1

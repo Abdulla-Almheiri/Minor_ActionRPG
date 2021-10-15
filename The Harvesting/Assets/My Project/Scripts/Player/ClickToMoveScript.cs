@@ -12,6 +12,7 @@ namespace Harvesting
         void Start()
         {
             navAgent = gameObject.GetComponent<NavMeshAgent>();
+            navAgent.updateRotation = true;
         }
 
         // Update is called once per frame
@@ -24,6 +25,7 @@ namespace Harvesting
         {
             if (Input.GetMouseButton(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
             {
+                navAgent.isStopped = false;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                 RaycastHit rayHit;

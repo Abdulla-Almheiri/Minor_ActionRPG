@@ -11,9 +11,10 @@ namespace Harvesting
     {
 
         public List<Attribute> Attributes;
+        private CharacterState combatState;
         public abstract void Initialize();
         public abstract void UseItem(Item item);
-        public abstract void PerformSkillAction(SkillAction skillAction);
+        public abstract void ActivateSkill(SkillAction skillAction);
         public abstract void ReceiveSkillAction(SkillAction skillAction);
     }
 }

@@ -9,11 +9,11 @@ namespace Harvesting
     {
         public Image Icon;
         public string Name;
-        public ItemType Type;
+        public ItemType ItemData;
         public bool Stackable;
         public bool Consumable;
         public bool Equipable;
-
+        public EquipmentSlotType EquipmentSlotType;
         public int Price;
         public ItemQuality Quality;
         public abstract void Interact(Character character);

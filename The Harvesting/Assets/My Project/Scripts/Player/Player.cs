@@ -7,14 +7,14 @@ namespace Harvesting
 {
     public class Player : Character
     {
-
-
+        private Inventory inventory;
+        private EquipmentContainer equipment;
         public override void Initialize()
         {
             throw new System.NotImplementedException();
         }
 
-        public override void PerformSkillAction(SkillAction skillAction)
+        public override void ActivateSkill(SkillAction skillAction)
         {
             throw new System.NotImplementedException();
         }
@@ -29,14 +29,21 @@ namespace Harvesting
             throw new System.NotImplementedException();
         }
 
-        public void Equip(Item item)
+        public bool Equip(Item item, EquipmentSlot slot)
         {
-            if(item.Equipable == false)
+            if(item.Equipable == false || item.EquipmentSlotType != slot.EquipmentSlotType)
             {
-                return;
+                return false;
             }
 
+            return true;
 
+        }
+
+        public bool AddItemToInventory(Item item, int quantity)
+        {
+            var amount = item.Stackable ? quantity : 0;
+            return inventory.AddItem(item, amount);
         }
     }
 }
