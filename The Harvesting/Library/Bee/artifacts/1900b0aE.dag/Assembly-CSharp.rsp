@@ -339,6 +339,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
+"Assets/MoveInDirectionScript.cs"
 "Assets/My Project/Data/Skill System/Combat States/CharacterState.cs"
 "Assets/My Project/Scripts/Camera/CamFollowPlayerScript.cs"
 "Assets/My Project/Scripts/Interfaces/IDamageable.cs"

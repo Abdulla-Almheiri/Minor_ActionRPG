@@ -93,12 +93,14 @@ m_ResolvedPackages:
     - 2.8.0-exp.2
     - 2.8.0-pre.1
     - 2.8.0
+    - 2.8.1
     compatible:
     - 2.7.8
     - 2.8.0-exp.1
     - 2.8.0-exp.2
     - 2.8.0-pre.1
     - 2.8.0
+    - 2.8.1
     verified: 2.7.8
   dependencies: []
   resolvedDependencies: []

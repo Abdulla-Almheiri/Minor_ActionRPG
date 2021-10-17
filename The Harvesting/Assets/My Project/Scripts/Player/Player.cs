@@ -5,8 +5,15 @@ using UnityEngine;
 
 namespace Harvesting
 {
+    
     public class Player : Character
     {
+        public Skill Skill1;
+        public Skill Skill2;
+        public Skill Skill3;
+        public Skill Skill4;
+        public Skill Skill5;
+
         private Inventory inventory;
         private EquipmentContainer equipment;
         public override void Initialize()

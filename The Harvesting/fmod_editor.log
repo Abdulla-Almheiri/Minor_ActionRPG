@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001EB216AE298 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001871E60E758 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -23,14 +23,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 170304
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 8320
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000007ECC5FF488
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000058AD40F128
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF89A8260E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF89A8260B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF89A8261B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF89A826270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001EA8F4DDD48
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8890D60E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8890D60B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8890D61B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8890D6270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000018859CCB788
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='556693__nachtmahrtv__metal-impact', format=5, channels=2, frequency=48000, lengthbytes=45376, lengthpcm=422519, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.538856.
@@ -39,14 +39,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 170304
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 8320
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000007ECC5FF488
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000058AD40F128
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF89A8260E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF89A8260B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF89A8261B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF89A826270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001EA8F4DDD48
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8890D60E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8890D60B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8890D61B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8890D6270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000018859CCB788
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='540831__eminyildirim__fire-fuse-ignite-flame-mid(attribute)', format=5, channels=2, frequency=48000, lengthbytes=36672, lengthpcm=147200, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.304964.
@@ -55,14 +55,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 170304
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 8320
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000007ECC5FF488
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000058AD40F128
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF89A8260E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF89A8260B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF89A8261B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF89A826270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001EA8F4DDD48
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8890D60E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8890D60B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8890D61B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8890D6270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000018859CCB788
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='547441__mango777__lazercannon', format=5, channels=1, frequency=48000, lengthbytes=8928, lengthpcm=50780, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
@@ -71,25 +71,25 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 170304
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 8320
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000007ECC5FF488
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000058AD40F128
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF89A8260E0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF89A8260B0
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF89A8261B0
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF89A826270
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001EA8F4DDD48
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8890D60E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8890D60B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8890D61B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8890D6270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000018859CCB788
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='427396__erokia__plasma-lazer-pistol-gun-shot-1(attribute)', format=5, channels=2, frequency=48000, lengthbytes=60480, lengthpcm=280428, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.957980.
-[LOG] SoundI::release                          :  (000001E889C9A948)
-[LOG] SoundI::release                          :     427396__erokia__plasma-lazer-pistol-gun-shot-1(attribute) (000001EA9AA9BAB8)
-[LOG] SoundI::release                          :  (000001E889C9AAB8)
-[LOG] SoundI::release                          :     547441__mango777__lazercannon (000001EA9AA9B778)
-[LOG] SoundI::release                          :  (000001E889C9A388)
-[LOG] SoundI::release                          :     540831__eminyildirim__fire-fuse-ignite-flame-mid(attribute) (000001EA9AA9B5D8)
-[LOG] SoundI::release                          :  (000001E889C9A7D8)
-[LOG] SoundI::release                          :     556693__nachtmahrtv__metal-impact (000001EA9AA9B0F8)
+[LOG] SoundI::release                          :  (00000188734FE9F8)
+[LOG] SoundI::release                          :     427396__erokia__plasma-lazer-pistol-gun-shot-1(attribute) (0000018703EB39B8)
+[LOG] SoundI::release                          :  (0000018873500548)
+[LOG] SoundI::release                          :     547441__mango777__lazercannon (0000018703EB3CF8)
+[LOG] SoundI::release                          :  (0000018873502D88)
+[LOG] SoundI::release                          :     540831__eminyildirim__fire-fuse-ignite-flame-mid(attribute) (0000018703EB2CB8)
+[LOG] SoundI::release                          :  (0000018873502C18)
+[LOG] SoundI::release                          :     556693__nachtmahrtv__metal-impact (0000018703EB08F8)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients

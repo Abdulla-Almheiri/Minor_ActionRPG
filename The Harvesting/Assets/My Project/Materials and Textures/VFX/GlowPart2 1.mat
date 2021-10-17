@@ -37,7 +37,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: c4edd00ff2db5b24391a4fcb1762e459, type: 3}
   m_ShaderKeywords: _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 0
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap:
@@ -93,14 +93,14 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
     - _AlphaClip: 0
-    - _AlphaCutoff: 0.5
+    - _AlphaCutoff: 0.185
     - _AlphaCutoffEnable: 0
-    - _AlphaDstBlend: 1
+    - _AlphaDstBlend: 10
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
     - _Blend: 0
-    - _BlendMode: 1
+    - _BlendMode: 0
     - _BlendOp: 0
     - _BumpScale: 1
     - _CameraFadingEnabled: 0
@@ -109,7 +109,7 @@ Material:
     - _ColorMode: 4
     - _Cull: 2
     - _CullMode: 2
-    - _Cutoff: 0.5
+    - _Cutoff: 0.185
     - _DistortionBlend: 0.5
     - _DistortionBlendMode: 0
     - _DistortionBlurBlendMode: 0
@@ -130,11 +130,11 @@ Material:
     - _DistortionVectorBias: -1
     - _DistortionVectorScale: 2
     - _DoubleSidedEnable: 0
-    - _DstBlend: 1
+    - _DstBlend: 10
     - _EmissionEnabled: 0
     - _EmissiveExposureWeight: 1
-    - _EmissiveIntensity: 1
-    - _EmissiveIntensityUnit: 0
+    - _EmissiveIntensity: 161368.47
+    - _EmissiveIntensityUnit: 1
     - _EnableFogOnTransparent: 0
     - _EnvironmentReflections: 1
     - _FlipbookBlending: 0
@@ -170,7 +170,7 @@ Material:
     - _TransparentCullMode: 2
     - _TransparentSortPriority: 0
     - _TransparentZWrite: 0
-    - _UseEmissiveIntensity: 0
+    - _UseEmissiveIntensity: 1
     - _WorkflowMode: 1
     - _ZTestDepthEqualForOpaque: 8
     - _ZTestModeDistortion: 4
@@ -180,13 +180,13 @@ Material:
     - _BaseColor: {r: 0.9811321, g: 0.68115443, b: 0.0786757, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0.8490566, g: 0.7724778, b: 0.38047343, a: 1}
+    - _Color: {r: 0.9716981, g: 0.97049195, b: 0.9029459, a: 0.6039216}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColor: {r: 111399.26, g: 96762.195, b: 27873.334, a: 161368.47}
+    - _EmissiveColorLDR: {r: 0.8490566, g: 0.79752153, b: 0.45256317, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _UnlitColor: {r: 0.8490566, g: 0.7724778, b: 0.38047346, a: 1}
+    - _UnlitColor: {r: 0.9716981, g: 0.97049195, b: 0.9029459, a: 0.6039216}
     - _UnlitColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
