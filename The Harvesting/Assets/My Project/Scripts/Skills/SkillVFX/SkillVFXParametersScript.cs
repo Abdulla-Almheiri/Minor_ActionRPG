@@ -11,6 +11,7 @@ namespace Harvesting
         private Color color;
         private float duration;
 
+
         void Start()
         {
             color = new Color(50f, 50f, 50f);

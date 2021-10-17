@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f51a85394bce84f45b179bfe128c7036, type: 3}
-  m_Name: Intellect
+  m_Name: Strength
   m_EditorClassIdentifier: 

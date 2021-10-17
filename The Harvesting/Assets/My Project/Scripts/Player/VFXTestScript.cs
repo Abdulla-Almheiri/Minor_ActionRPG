@@ -43,6 +43,7 @@ namespace Harvesting {
 
             if(Input.GetKeyDown(KeyCode.Alpha1))
             {
+                RotateToMouseDirection();
                 var spawn = Instantiate(PrefabToSpawn2, Loc1);
                 spawn.transform.parent = null;
                 Destroy(spawn, 10f);

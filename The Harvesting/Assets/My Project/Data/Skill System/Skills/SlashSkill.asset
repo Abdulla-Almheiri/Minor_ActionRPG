@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fc8e5c9f4dd6344b8d538f85e98318, type: 3}
   m_Name: SlashSkill
   m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
   Name: Slash
-  Type: {fileID: 11400000, guid: e1e005df2880f384baa288e6b7d88f27, type: 2}
   Actions:
-  - ActionType: {fileID: 0}
+  - ActionType: {fileID: 11400000, guid: b83b1710f942db5458bb04692f46b5cf, type: 2}
     Modifier:
       Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
       MaxValue: 0
       Value: 0
       Duration: 0
-      Multiplier: 0
+      Percentage: 0
+    SkillVFX: {fileID: 0}

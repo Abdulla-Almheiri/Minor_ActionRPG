@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace Harvesting
 { 
-    public abstract class SkillActionType : ScriptableObject
+    [CreateAssetMenu(fileName ="new skill action type", menuName ="Data/Skills/Skill Action Type")]
+    public  class SkillActionType : ScriptableObject
     {
 
     }

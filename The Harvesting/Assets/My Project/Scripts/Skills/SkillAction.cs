@@ -8,13 +8,17 @@ namespace Harvesting
     /// Skill Actions are the individual effects of Skills. 
     /// </summary>
 
-    public abstract class SkillAction
+    [System.Serializable]
+    public  class SkillAction
     {
         public SkillActionType ActionType;
         public Modifier Modifier;
         public SkillPrefab SkillVFX;
 
-        public abstract void Activate(Character attacker, Character receiver);
+        public void Activate(Character attacker, Character receiver)
+        {
+
+        }
     }
 
 
