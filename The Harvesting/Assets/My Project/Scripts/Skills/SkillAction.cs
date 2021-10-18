@@ -15,8 +15,21 @@ namespace Harvesting
         public Modifier Modifier;
         public SkillPrefab SkillVFX;
 
-        public void Activate(Character attacker, Character receiver)
+        public float Value(Character attacker, Monster receiver)
         {
+            if(attacker == null)
+            {
+                return 0;
+            }
+
+            var modifier = attacker.Attributes.Find(x => x.Attribute == Modifier.Attribute);
+            if (modifier != null)
+            {
+                return Modifier.Percentage * modifier.Value / 100f;
+            } else
+            {
+                return 0;
+            }
 
         }
     }

@@ -10,16 +10,22 @@ namespace Harvesting
     {
         public Image Icon;
         public string Name;
+        [TextArea(10,20)]
+        public string Description;
 
         public List<SkillAction> Actions;
-
-
-        public void Perform(Character attacker, Character receiver)
+        
+        public float Activate(Character attacker, Monster receiver)
         {
+            float amount = 0f;
             foreach (SkillAction action in Actions)
             {
-                action.Activate(attacker, receiver);
+                amount += action.Value(attacker, receiver);
             }
+
+            UnityEngine.Debug.Log("The Damage is :     " + amount);
+            return amount;
         }
+
     }
 }

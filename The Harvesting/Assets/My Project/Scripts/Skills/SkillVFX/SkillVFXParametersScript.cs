@@ -10,7 +10,7 @@ namespace Harvesting
         public List<ParticleSystem> ParticleSystems;
         private Color color;
         private float duration;
-
+        private Skill skill;
 
         void Start()
         {
@@ -52,11 +52,10 @@ namespace Harvesting
 
         public void OnTriggerEnter(Collider other)
         {
-            Debug.Log("First Layer.");
             if (other.GetComponent<Monster>())
             {
-                other.gameObject.GetComponent<Monster>().TakeDamage(Random.Range(2f, 20f));
-                Debug.Log("Monster HIT!!!!");
+                //other.gameObject.GetComponent<Monster>().TakeDamage(Random.Range(2f, 20f));
+
             }
         }
     }

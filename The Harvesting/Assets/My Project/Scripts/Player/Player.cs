@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    
+    [CreateAssetMenu(fileName ="new player data", menuName ="Data/Player/Player Data")]
     public class Player : Character
     {
         public Skill Skill1;

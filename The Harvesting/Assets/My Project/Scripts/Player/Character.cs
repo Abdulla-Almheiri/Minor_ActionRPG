@@ -7,10 +7,11 @@ namespace Harvesting
     /// <summary>
     /// Base class for Player and Monster classes.
     /// </summary>
-    public abstract class Character : ScriptableObject
+
+    public abstract class Character: ScriptableObject
     {
 
-        public List<Attribute> Attributes;
+        public List<Modifier> Attributes;
         private CharacterState combatState;
         public abstract void Initialize();
         public abstract void UseItem(Item item);

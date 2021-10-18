@@ -14636,8 +14636,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7117666245843546415}
-  - component: {fileID: 2915421254540876982}
   - component: {fileID: 4029099840385916057}
+  - component: {fileID: 1892500994542042962}
   m_Layer: 0
   m_Name: Flameburst
   m_TagString: Untagged
@@ -14664,24 +14664,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2915421254540876982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7117666245843546412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d13ac2779a75b304f925187262d92d43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 0.26
-  ParticleSystems:
-  - {fileID: 7117666244535432259}
-  - {fileID: 7117666245629525975}
-  - {fileID: 5196149405176039777}
-  - {fileID: 4285847944312486842}
 --- !u!136 &4029099840385916057
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14696,6 +14678,38 @@ CapsuleCollider:
   m_Height: 8.12
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 3.39}
+--- !u!114 &1892500994542042962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7117666245843546412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36baae7092a9f0847a6135283063b4c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Performer: {fileID: 0}
+  SkillAction:
+    ActionType: {fileID: 0}
+    Modifier:
+      Attribute: {fileID: 0}
+      MaxValue: 0
+      Value: 0
+      Duration: 0
+      Percentage: 0
+    SkillVFX: {fileID: 0}
+  Duration: 5
+  Speed: 0.072
+  Direction: {x: 0, y: 0, z: 1}
+  Piercing: 1
+  RotationSpeed: 0.5
+  RotationDirection: {x: 0, y: 0, z: 1}
+  OnImpact: {fileID: 0}
+  ImpactEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9103362316059470107
 GameObject:
   m_ObjectHideFlags: 0

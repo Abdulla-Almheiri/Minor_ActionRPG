@@ -44,9 +44,45 @@ namespace Harvesting {
             if(Input.GetKeyDown(KeyCode.Alpha1))
             {
                 RotateToMouseDirection();
-                var spawn = Instantiate(PrefabToSpawn2, Loc1);
-                spawn.transform.parent = null;
-                Destroy(spawn, 10f);
+                foreach (SkillAction action in Player.Skill1.Actions)
+                {
+                    var spawn = Instantiate(action.SkillVFX, Loc1);
+                    spawn.GetComponent<SkillPrefab>().SkillAction = action;
+                    spawn.GetComponent<SkillPrefab>().Performer = Player;
+                    
+                    spawn.transform.parent = null;
+                    //Destroy(spawn, 10f);
+                }
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                RotateToMouseDirection();
+                foreach (SkillAction action in Player.Skill2.Actions)
+                {
+                    var spawn = Instantiate(action.SkillVFX, Loc1);
+                    spawn.GetComponent<SkillPrefab>().SkillAction = action;
+                    spawn.GetComponent<SkillPrefab>().Performer = Player;
+
+                    spawn.transform.parent = null;
+                    //Destroy(spawn, 10f);
+                }
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                //RotateToMouseDirection();
+                foreach (SkillAction action in Player.Skill3.Actions)
+                {
+                    var spawn = Instantiate(action.SkillVFX, transform);
+                    spawn.GetComponent<SkillPrefab>().SkillAction = action;
+                    spawn.GetComponent<SkillPrefab>().Performer = Player;
+
+                    spawn.transform.parent = null;
+                    //Destroy(spawn, 10f);
+                }
             }
         }
 

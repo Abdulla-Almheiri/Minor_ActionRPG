@@ -13,7 +13,13 @@ namespace Harvesting
 
         public void TakeDamage(float amount)
         {
+            Debug.Log("Damage taken :    " + amount);
             health -= amount;
+        }
+
+        public void TakeDamage(SkillAction action, Character attacker)
+        {
+                TakeDamage(action.Value(attacker, this));
         }
 
         // Start is called before the first frame update
