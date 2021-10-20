@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 9f3582c19e4c0614b86cdb49a6fd62b9
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Scheherazade New
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3c14c8f88d0b8fd42a2c3c4592e0342c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

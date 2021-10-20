@@ -95,7 +95,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Performer: {fileID: 0}
-  Skill: {fileID: 0}
+  SkillAction:
+    ActionType: 0
+    Modifier:
+      Attribute: {fileID: 0}
+      MaxValue: 0
+      Value: 0
+      Duration: 0
+      Percentage: 0
+    SkillVFX: {fileID: 0}
   Duration: 10
   Speed: 0.152
   Direction: {x: 0, y: 0, z: -1}

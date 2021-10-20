@@ -9,15 +9,15 @@ namespace Harvesting
         public int ItemLevel;
         public int RequiredLevel = 1;
         public List<Attribute> Attributes = new List<Attribute>();
-        public override void Interact(Character character)
+        public override void Interact(CharacterData character)
         {
-            if (character is Player)
+            if (character is PlayerData)
             {
-                Equip((Player)character);
+                Equip((PlayerData)character);
             }
         }
 
-        public void Equip(Player player)
+        public void Equip(PlayerData player)
         {
             //player.Equip(this, EquipmentSlotthis.EquipmentSlotType);
         }

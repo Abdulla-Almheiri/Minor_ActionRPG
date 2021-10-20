@@ -9,13 +9,13 @@ namespace Harvesting
     /// </summary>
 
     [System.Serializable]
-    public  class SkillAction
+    public class SkillAction
     {
-        public SkillActionType ActionType;
+        public ActionType ActionType = ActionType.Damage ;
         public Modifier Modifier;
         public SkillPrefab SkillVFX;
 
-        public float Value(Character attacker, Monster receiver)
+        public float Value(CharacterData attacker, Monster receiver)
         {
             if(attacker == null)
             {
@@ -32,7 +32,32 @@ namespace Harvesting
             }
 
         }
+
+        public void Trigger(CharacterData attacker, Monster monster)
+        {
+            switch(ActionType)
+            {
+                case ActionType.Damage:
+                    var modifier = attacker.Attributes.Find(x => x.Attribute == Modifier.Attribute);
+                    if (modifier != null)
+                    {
+                       monster.TakeDamage(Modifier.Percentage * modifier.Value / 100f);
+                    }
+                    else
+                    {
+                        Debug.Log("Attribute not found SkillAction:Trigger().");
+                        return ;
+                    }
+                    break;
+            }
+        }
     }
 
+    public enum ActionType
+    {
+        Damage,
+        Healing,
+        StatusEffect
+    }
 
 }

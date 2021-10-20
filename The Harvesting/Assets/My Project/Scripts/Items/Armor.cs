@@ -9,7 +9,7 @@ namespace Harvesting
         public int ItemLevel;
         public int RequiredLevel = 1;
         public List<Attribute> Attributes = new List<Attribute>();
-        public override void Interact(Character character)
+        public override void Interact(CharacterData character)
         {
             character.UseItem(this);
         }

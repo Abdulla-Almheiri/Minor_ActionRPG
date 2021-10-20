@@ -8,23 +8,33 @@ namespace Harvesting
     [CreateAssetMenu(fileName ="new skill", menuName ="Data/Skills/Skill")]
     public class Skill : ScriptableObject
     {
-        public Image Icon;
+        public Sprite Icon;
         public string Name;
+      
         [TextArea(10,20)]
         public string Description;
 
+        public bool FaceDirection = true;
+        public bool IsMelee = false;
+        public int Cost = 0;
+        public float RechargeTime = 0f;
+
         public List<SkillAction> Actions;
         
-        public float Activate(Character attacker, Monster receiver)
+        public void Activate(CharacterData activator, Transform location)
         {
-            float amount = 0f;
             foreach (SkillAction action in Actions)
             {
-                amount += action.Value(attacker, receiver);
+                if(action.SkillVFX != null)
+                {
+                    var vfx = Instantiate(action.SkillVFX, location);
+                    vfx.transform.parent = null;
+                    vfx.SkillAction = action;
+                    vfx.Performer = activator;
+                }
             }
 
-            UnityEngine.Debug.Log("The Damage is :     " + amount);
-            return amount;
+
         }
 
     }

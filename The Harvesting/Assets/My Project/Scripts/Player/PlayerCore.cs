@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Harvesting {
     public class PlayerCore : MonoBehaviour
     {
-        public Character Player;
+        public PlayerData PlayerData;
         public CharacterAnimationController AnimationController;
         public Inventory Inventory;
         // Start is called before the first frame update

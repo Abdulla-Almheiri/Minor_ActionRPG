@@ -20,11 +20,18 @@ MonoBehaviour:
     Percentage: 0
   - Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
     MaxValue: 0
-    Value: 5
+    Value: 30
+    Duration: 0
+    Percentage: 0
+  - Attribute: {fileID: 11400000, guid: d44ad0cb712860f48a976b6890183737, type: 2}
+    MaxValue: 0
+    Value: 12
     Duration: 0
     Percentage: 0
   Skill1: {fileID: 11400000, guid: 1fbd50631c7a37642ba5e346c0206c89, type: 2}
   Skill2: {fileID: 11400000, guid: 4010c75d19a96714f9cc457692e04894, type: 2}
   Skill3: {fileID: 11400000, guid: b4c19fffaa6ed7742a3fedbe14edca1b, type: 2}
-  Skill4: {fileID: 0}
+  Skill4: {fileID: 11400000, guid: 634ec154e4c3da3418070e502290d01b, type: 2}
   Skill5: {fileID: 0}
+  Skill6: {fileID: 0}
+  Skill7: {fileID: 0}

@@ -7,17 +7,18 @@ namespace Harvesting
 {
     public class Monster : MonoBehaviour, IDamageable
     {
+        public FloatingCombatTextManager CombatText;
         public Slider Slider;
         public float MaxHealth = 100f;
         private float health = 100f;
 
         public void TakeDamage(float amount)
         {
-            Debug.Log("Damage taken :    " + amount);
+            CombatText.PlaceDamageText(transform.position, amount, 1f);
             health -= amount;
         }
 
-        public void TakeDamage(SkillAction action, Character attacker)
+        public void TakeDamage(SkillAction action, CharacterData attacker)
         {
                 TakeDamage(action.Value(attacker, this));
         }

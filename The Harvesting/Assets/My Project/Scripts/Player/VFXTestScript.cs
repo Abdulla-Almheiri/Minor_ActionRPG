@@ -6,7 +6,7 @@ using UnityEngine.AI;
 namespace Harvesting {
     public class VFXTestScript : MonoBehaviour
     {
-        public Player Player;
+        public PlayerData Player;
         public LayerMask Layer;
         public GameObject PrefabToSpawn;
         public Transform Loc1, Loc2, Loc3;
@@ -30,20 +30,26 @@ namespace Harvesting {
                 Destroy(spawn1, 2f);
                 spawn1.transform.parent = null;
 
-                var spawn2 = Instantiate(PrefabToSpawn, Loc2);
+               /* var spawn2 = Instantiate(PrefabToSpawn, Loc2);
                 Destroy(spawn2, 2f);
                 spawn2.transform.parent = null;
 
 
                 var spawn3 = Instantiate(PrefabToSpawn, Loc3);
                 Destroy(spawn3, 2f);
-                spawn3.transform.parent = null;
+                spawn3.transform.parent = null;*/
 
             }
 
             if(Input.GetKeyDown(KeyCode.Alpha1))
             {
-                RotateToMouseDirection();
+                if(Player.Skill1.FaceDirection)
+                {
+                    RotateToMouseDirection();
+                }
+                Player.Skill1.Activate(Player, Loc1);
+
+               /* RotateToMouseDirection();
                 foreach (SkillAction action in Player.Skill1.Actions)
                 {
                     var spawn = Instantiate(action.SkillVFX, Loc1);
@@ -52,7 +58,7 @@ namespace Harvesting {
                     
                     spawn.transform.parent = null;
                     //Destroy(spawn, 10f);
-                }
+                }*/
             }
 
 
@@ -84,6 +90,21 @@ namespace Harvesting {
                     //Destroy(spawn, 10f);
                 }
             }
+
+
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                //RotateToMouseDirection();
+                foreach (SkillAction action in Player.Skill4.Actions)
+                {
+                    var spawn = Instantiate(action.SkillVFX, transform);
+                    spawn.GetComponent<SkillPrefab>().SkillAction = action;
+                    spawn.GetComponent<SkillPrefab>().Performer = Player;
+
+                    //spawn.transform.parent = null;
+                    //Destroy(spawn, 10f);
+                }
+            }
         }
 
         public void RotateToMouseDirection()
@@ -104,5 +125,9 @@ namespace Harvesting {
                 }
             }
         }
+
+
+
+
     }
 }

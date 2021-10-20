@@ -10,7 +10,7 @@ namespace Harvesting
         public List<ParticleSystem> ParticleSystems;
         private Color color;
         private float duration;
-        private Skill skill;
+        private SkillAction skill;
 
         void Start()
         {

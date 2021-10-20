@@ -16,7 +16,7 @@ namespace Harvesting
         public EquipmentSlotType EquipmentSlotType;
         public int Price;
         public ItemQuality Quality;
-        public abstract void Interact(Character character);
+        public abstract void Interact(CharacterData character);
 
 
     }

@@ -6,6 +6,7 @@ using FMOD;
 using FMODUnity;
 
 namespace Harvesting {
+    [RequireComponent(typeof(Collider))]
     public class ProjectileSkillPrefab : SkillPrefab
     {
         
@@ -32,7 +33,6 @@ namespace Harvesting {
         void Start()
         {
             Destroy(gameObject, Duration);
-            UnityEngine.Debug.Log("SkillAction  is    :     " + SkillAction);
             ImpactSound.start();
         }
 
@@ -62,7 +62,10 @@ namespace Harvesting {
                 Destroy(gameObject);
             }
             var monster = other.GetComponent<Monster>();
-            TriggerSkillAction(Performer, monster);
+            if (monster != null)
+            {
+                TriggerSkillAction(Performer, monster);
+            }
         }
     }
 }

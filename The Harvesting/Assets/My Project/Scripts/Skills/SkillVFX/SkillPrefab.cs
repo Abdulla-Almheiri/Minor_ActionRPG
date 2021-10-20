@@ -5,17 +5,17 @@ using UnityEngine;
 namespace Harvesting
 {
     //[RequireComponent(typeof(SkillVFXParametersScript))]
-    [RequireComponent(typeof(Collider))]
+   
     public abstract class SkillPrefab : MonoBehaviour
     {
         [HideInInspector]
-        public Character Performer;
-        //public float Duration;
+        public CharacterData Performer;
+
 
         [HideInInspector]
         public SkillAction SkillAction;
 
-        public void TriggerSkillAction(Character attacker, Monster monster)
+        public void TriggerSkillAction(CharacterData attacker, Monster monster)
         {
            // var monster = other.GetComponent<Monster>();
             if (monster != null)
@@ -23,7 +23,8 @@ namespace Harvesting
                 if (SkillAction != null)
                 {
                     if (Performer == null) UnityEngine.Debug.Log("Performer is NULL");
-                    monster.TakeDamage(SkillAction, Performer);
+                    SkillAction.Trigger(attacker, monster);
+                    //monster.TakeDamage(SkillAction, Performer);
                 }
 
                 //UnityEngine.Debug.Log("Monster HIT!!!!");

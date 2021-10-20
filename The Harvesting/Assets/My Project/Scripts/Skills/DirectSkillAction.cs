@@ -10,7 +10,7 @@ namespace Harvesting
         [Tooltip("This action uses the Multiplier and the Attribute fields.")]
         public SkillElement Element;
 
-        public  void Activate(Character attacker, Character receiver)
+        public  void Activate(CharacterData attacker, CharacterData receiver)
         {
             throw new System.NotImplementedException();
         }

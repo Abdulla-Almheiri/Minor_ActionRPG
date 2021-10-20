@@ -38,10 +38,10 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637701155685179147
+  lastModified: 637702876436663040
   FileSizes:
   - Name: 
-    Value: 860
+    Value: 900
   Exists: 1
 --- !u!114 &-4816294755455937945
 MonoBehaviour:
@@ -85,13 +85,37 @@ MonoBehaviour:
   - {fileID: -4816294755455937945}
   - {fileID: -8499740967020220631}
   - {fileID: 3943466850352334004}
+  - {fileID: 2854747107506587998}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8198727982755841842}
   StringsBanks:
   - {fileID: -7052778325290694291}
-  stringsBankWriteTime: 637701155685179147
+  stringsBankWriteTime: 637702876436663040
   cacheVersion: 8
+--- !u!114 &2854747107506587998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Game SFX/Holy Light
+  m_EditorClassIdentifier: 
+  Path: event:/Game SFX/Holy Light
+  guid: 47e724035ccbed478a188a58d49e25a2
+  Banks:
+  - {fileID: 8198727982755841842}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2566
 --- !u!114 &3943466850352334004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +154,6 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637701155685079408
+  lastModified: 637702876436596397
   FileSizes: []
   Exists: 1
