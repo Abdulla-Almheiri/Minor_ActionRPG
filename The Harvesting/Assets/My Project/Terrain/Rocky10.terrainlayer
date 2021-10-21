@@ -7,15 +7,15 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rocky10
-  m_DiffuseTexture: {fileID: 2800000, guid: 41dfc68d4901f924ea85dc9e7dcfb5dc, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: 5509ded9297dad54785f6adfae502923, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: 092dca7a8192dd548a017b0eb2af8d4e, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: 2a0dc6caeaf9cb64dae4372302735b69, type: 3}
   m_MaskMapTexture: {fileID: 0}
-  m_TileSize: {x: 10, y: 10}
+  m_TileSize: {x: 8, y: 8}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}
   m_Metallic: 0
   m_Smoothness: 0
-  m_NormalScale: -0.31
+  m_NormalScale: 0
   m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
   m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
   m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}

@@ -20,14 +20,29 @@ namespace Harvesting
 
             }
 
-            Destroy(gameObject, 3f);
+            Destroy(gameObject, 5f);
         }
 
+        public void Update()
+        {
+            
+        }
 
         public void OnTriggerEnter(Collider other)
         {
-            var monster = other.GetComponent<Monster>();
-            TriggerSkillAction(Performer, monster);
+            if (other.gameObject.GetComponent<Monster>())
+            {
+                monstersInCollider.Add(other.gameObject.GetComponent<Monster>());
+            }
+            TriggerSkillActions(Performer, other.gameObject.GetComponent<Monster>());
+        }
+
+        public void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.GetComponent<Monster>())
+            {
+                monstersInCollider.Remove(other.gameObject.GetComponent<Monster>());
+            }
         }
     }
 }

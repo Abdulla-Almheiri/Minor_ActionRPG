@@ -15,8 +15,21 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 63057396d58d9684a97809afea1d3808, type: 3}
   Name: Holy Light
   Description: Heals yourself!
+  FaceDirection: 1
+  IsMelee: 0
+  IsCastOnSelf: 1
+  Cost: 0
+  RechargeTime: 0
+  TriggerChance: 100
+  TriggerCondition: {fileID: 0}
+  ImpactSkill: {fileID: 0}
+  DefaultVFXPrefab: {fileID: 0}
   Actions:
-  - ActionType: {fileID: 0}
+  - ContinousDamage: 0
+    TickRatePerSecond: 1
+    TriggerCondition: {fileID: 0}
+    TriggerChance: 100
+    ActionType: 0
     Modifier:
       Attribute: {fileID: 11400000, guid: d44ad0cb712860f48a976b6890183737, type: 2}
       MaxValue: 0

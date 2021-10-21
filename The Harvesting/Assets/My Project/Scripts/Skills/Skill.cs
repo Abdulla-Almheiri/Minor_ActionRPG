@@ -16,21 +16,56 @@ namespace Harvesting
 
         public bool FaceDirection = true;
         public bool IsMelee = false;
+        public bool IsCastOnSelf = false;
         public int Cost = 0;
         public float RechargeTime = 0f;
-
+        [Range(0,100)]
+        public float TriggerChance = 100f;
+        public SkillTriggerCondition TriggerCondition;
+        public Skill ImpactSkill;
+        public SkillPrefab DefaultVFXPrefab;
+        private SkillPrefab defaultVFX = null;
+        [Header("If Action's VFX Prefab is empty, then default one is used.")]
         public List<SkillAction> Actions;
         
         public void Activate(CharacterData activator, Transform location)
         {
+            if(Random.Range(0,100) > TriggerChance && !TriggerCondition.Evaluate(activator))
+            {
+                return;
+            }
+
+            if (DefaultVFXPrefab != null)
+            {
+                defaultVFX = Instantiate(DefaultVFXPrefab, location);
+                if (!IsCastOnSelf)
+                {
+                    defaultVFX.transform.SetParent(null);
+                }
+                defaultVFX.Performer = activator;
+                defaultVFX.ImpactSkills.Add(ImpactSkill);
+            }
+
             foreach (SkillAction action in Actions)
             {
-                if(action.SkillVFX != null)
+                if (Random.Range(0, 100) > action.TriggerChance && !action.TriggerCondition.Evaluate(action, activator ))
+                {
+                    continue;
+                }
+                if (action.SkillVFX != null)
                 {
                     var vfx = Instantiate(action.SkillVFX, location);
-                    vfx.transform.parent = null;
-                    vfx.SkillAction = action;
+                    if (!IsCastOnSelf)
+                    {
+                        vfx.transform.parent = null;
+                    }
+
+                    vfx.SkillActions.Add(action);
                     vfx.Performer = activator;
+                    vfx.ImpactSkills.Add(ImpactSkill);
+                } else if(defaultVFX != null)
+                {
+                    defaultVFX.SkillActions.Add(action);
                 }
             }
 

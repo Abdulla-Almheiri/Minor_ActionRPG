@@ -11,7 +11,7 @@ namespace Harvesting
     public abstract class CharacterData: ScriptableObject
     {
 
-        public List<Modifier> Attributes;
+        public List<Modifier> BaseAttributes;
         private CharacterState combatState;
         public abstract void Initialize();
         public abstract void UseItem(Item item);

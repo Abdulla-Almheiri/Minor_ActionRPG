@@ -8,14 +8,7 @@ namespace Harvesting
     [CreateAssetMenu(fileName ="new player data", menuName ="Data/Player/Player Data")]
     public class PlayerData : CharacterData
     {
-        public Skill Skill1;
-        public Skill Skill2;
-        public Skill Skill3;
-        public Skill Skill4;
-        public Skill Skill5;
-        public Skill Skill6;
-        public Skill Skill7;
-
+        public List<Skill> Skills;
         private Inventory inventory;
         private EquipmentContainer equipment;
         public override void Initialize()
@@ -54,5 +47,7 @@ namespace Harvesting
             var amount = item.Stackable ? quantity : 0;
             return inventory.AddItem(item, amount);
         }
+
+
     }
 }

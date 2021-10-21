@@ -12,11 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fc8e5c9f4dd6344b8d538f85e98318, type: 3}
   m_Name: Slash
   m_EditorClassIdentifier: 
+  AttributesList: {fileID: 11400000, guid: 5f089c56a1d55ea4fb2127fef2826348, type: 2}
   Icon: {fileID: 21300000, guid: f986e7a83dc27ae4981fca2f43fe8b75, type: 3}
   Name: Slash
   Description: Slash!
+  FaceDirection: 1
+  IsMelee: 0
+  Cost: 0
+  RechargeTime: 0
+  DefaultVFXPrefab: {fileID: 0}
   Actions:
-  - ActionType: {fileID: 0}
+  - AttributesList: {fileID: 0}
+    ContinousDamage: 1
+    TickRatePerSecond: 2
+    ActionType: 0
     Modifier:
       Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
       MaxValue: 0

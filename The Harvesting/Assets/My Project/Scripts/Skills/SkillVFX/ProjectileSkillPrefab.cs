@@ -25,22 +25,17 @@ namespace Harvesting {
 
 
         [Header("Impact Events")]
-        public SkillPrefab OnImpact;
+        //public List<Skill> OnImpactSkills;
         public FMOD.Studio.EventInstance ImpactSound;
         public UnityEvent ImpactEvent;
 
 
-        void Start()
+        public void Start()
         {
             Destroy(gameObject, Duration);
             ImpactSound.start();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
         public void FixedUpdate()
         {
             gameObject.transform.Translate(Direction * Speed * Time.deltaTime * 50f);
@@ -50,10 +45,12 @@ namespace Harvesting {
 
         public void OnTriggerEnter(Collider other)
         {
-            if (OnImpact != null)
+            if (ImpactSkills.Count != 0 && other.gameObject.GetComponent<Monster>())
             {
-                var spawn = Instantiate(OnImpact, transform);
-                spawn.transform.parent = null;
+                foreach(Skill skill in ImpactSkills)
+                {
+                    skill.Activate(Performer, other.gameObject.transform);
+                }
             }
 
 
@@ -64,7 +61,8 @@ namespace Harvesting {
             var monster = other.GetComponent<Monster>();
             if (monster != null)
             {
-                TriggerSkillAction(Performer, monster);
+                UnityEngine.Debug.Log("TRIGGERED IN PROJECTILESKILLPREFAB");
+                TriggerSkillActions(Performer, monster);
             }
         }
     }

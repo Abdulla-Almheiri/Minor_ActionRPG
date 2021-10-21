@@ -11,6 +11,11 @@ namespace Harvesting
     [System.Serializable]
     public class SkillAction
     {
+        public bool ContinousDamage = false;
+        public float TickRatePerSecond = 1f;
+        public SkillActionTriggerCondition TriggerCondition;
+        [Range(0,100)]
+        public float TriggerChance = 100f;
         public ActionType ActionType = ActionType.Damage ;
         public Modifier Modifier;
         public SkillPrefab SkillVFX;
@@ -22,7 +27,7 @@ namespace Harvesting
                 return 0;
             }
 
-            var modifier = attacker.Attributes.Find(x => x.Attribute == Modifier.Attribute);
+            var modifier = attacker.BaseAttributes.Find(x => x.Attribute == Modifier.Attribute);
             if (modifier != null)
             {
                 return Modifier.Percentage * modifier.Value / 100f;
@@ -35,13 +40,28 @@ namespace Harvesting
 
         public void Trigger(CharacterData attacker, Monster monster)
         {
+
+            bool isCritical = false;
             switch(ActionType)
             {
                 case ActionType.Damage:
-                    var modifier = attacker.Attributes.Find(x => x.Attribute == Modifier.Attribute);
+                    var modifier = attacker.BaseAttributes.Find(x => x.Attribute == Modifier.Attribute);
                     if (modifier != null)
                     {
-                       monster.TakeDamage(Modifier.Percentage * modifier.Value / 100f);
+                        var amount = Modifier.Percentage * modifier.Value / 100f;
+
+
+                        // Critical 
+
+                        if (Random.Range(0, 100) < attacker.BaseAttributes.Find(x => x.Attribute.name == "CriticalChance").Percentage)
+                        {
+                            var multiplier = 1f + (attacker.BaseAttributes.Find(x => x.Attribute.name == "CriticalDamage").Percentage / 100f);
+                            amount *= multiplier;
+                            isCritical = true;
+                        }
+
+
+                       monster.TakeDamage(amount, isCritical);
                     }
                     else
                     {
@@ -51,6 +71,7 @@ namespace Harvesting
                     break;
             }
         }
+        
     }
 
     public enum ActionType

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4199924403130360903}
   - component: {fileID: 4199924403130360896}
   - component: {fileID: 4199924403130360902}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MeleeSkillPrefabTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.67
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4199924403130360902
 MonoBehaviour:
@@ -59,16 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Performer: {fileID: 0}
-  SkillAction:
-    ActionType: {fileID: 0}
-    Modifier:
-      Attribute: {fileID: 0}
-      MaxValue: 0
-      Value: 0
-      Duration: 0
-      Percentage: 0
-    SkillVFX: {fileID: 0}
-  Radius: 0.58
+  SkillActions: []
+  Radius: 4.42
   IsFrontal: 1
 --- !u!1 &5675694484629627172
 GameObject:
@@ -82,7 +74,7 @@ GameObject:
   - component: {fileID: 7487477385993336795}
   - component: {fileID: 5979716395726900155}
   - component: {fileID: 7584140257906388093}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 5675694484629627172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 4199924403130360903}
   m_RootOrder: 0

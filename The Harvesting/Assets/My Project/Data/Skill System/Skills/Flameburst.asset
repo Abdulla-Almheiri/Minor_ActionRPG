@@ -12,11 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fc8e5c9f4dd6344b8d538f85e98318, type: 3}
   m_Name: Flameburst
   m_EditorClassIdentifier: 
+  AttributesList: {fileID: 11400000, guid: 5f089c56a1d55ea4fb2127fef2826348, type: 2}
   Icon: {fileID: 21300000, guid: 43c7bfc380f193b4493e2f32eaf2844c, type: 3}
   Name: Flameburst
   Description: Send fireballs in all directions
+  FaceDirection: 1
+  IsMelee: 0
+  Cost: 0
+  RechargeTime: 0
+  DefaultVFXPrefab: {fileID: 0}
   Actions:
-  - ActionType: {fileID: 0}
+  - AttributesList: {fileID: 0}
+    ContinousDamage: 0
+    TickRatePerSecond: 1
+    ActionType: 0
     Modifier:
       Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
       MaxValue: 0

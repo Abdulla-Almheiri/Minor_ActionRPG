@@ -12,10 +12,5 @@ namespace Harvesting
             Destroy(gameObject, Duration);
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     }
 }

@@ -22,11 +22,20 @@ namespace Harvesting {
             {
                 Animator.Play(animationHash);
             }
+
         }
 
         public void OnEnable()
         {
-            animationHash = Animator.StringToHash(Animation.name);
+            if (Animator != null)
+            {
+                animationHash = Animator.StringToHash(Animation.name);
+            }
+        }
+
+        public int AnimationHash()
+        {
+            return animationHash;
         }
     }
 }

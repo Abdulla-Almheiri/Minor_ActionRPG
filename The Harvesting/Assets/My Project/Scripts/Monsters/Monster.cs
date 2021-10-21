@@ -5,31 +5,30 @@ using UnityEngine.UI;
 
 namespace Harvesting
 {
-    public class Monster : MonoBehaviour, IDamageable
+    public class Monster : MonoBehaviour
     {
         public FloatingCombatTextManager CombatText;
         public Slider Slider;
         public float MaxHealth = 100f;
         private float health = 100f;
 
-        public void TakeDamage(float amount)
+        public void TakeDamage(float amount, bool isCritical)
         {
-            CombatText.PlaceDamageText(transform.position, amount, 1f);
+            
+            CombatText.PlaceDamageText(transform.position, amount, 1f, isCritical );
             health -= amount;
         }
 
-        public void TakeDamage(SkillAction action, CharacterData attacker)
+        public void TakeDamage(SkillAction action, CharacterData attacker, bool isCritical)
         {
-                TakeDamage(action.Value(attacker, this));
+                TakeDamage(action.Value(attacker, this), isCritical);
         }
 
-        // Start is called before the first frame update
         void Start()
         {
             health = MaxHealth;
         }
 
-        // Update is called once per frame
         void Update()
         {
             Slider.value = health / MaxHealth;
