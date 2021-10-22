@@ -25,7 +25,6 @@ namespace Harvesting {
 
 
         [Header("Impact Events")]
-        //public List<Skill> OnImpactSkills;
         public FMOD.Studio.EventInstance ImpactSound;
         public UnityEvent ImpactEvent;
 
@@ -49,19 +48,18 @@ namespace Harvesting {
             {
                 foreach(Skill skill in ImpactSkills)
                 {
-                    skill.Activate(Performer, other.gameObject.transform);
+                    skill?.Activate(Performer, other.gameObject.transform);
                 }
             }
 
-
-            if(!Piercing)
+            if (!Piercing)
             {
                 Destroy(gameObject);
             }
+
             var monster = other.GetComponent<Monster>();
             if (monster != null)
             {
-                UnityEngine.Debug.Log("TRIGGERED IN PROJECTILESKILLPREFAB");
                 TriggerSkillActions(Performer, monster);
             }
         }

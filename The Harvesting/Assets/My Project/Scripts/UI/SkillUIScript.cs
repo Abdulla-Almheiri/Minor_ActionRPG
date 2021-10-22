@@ -10,13 +10,13 @@ namespace Harvesting
         public PlayerData PlayerData;
         public Sprite DefaultSprite;
         public List<Image> Icons;
-
+        public PlayerSkillController SkillController;
         void Start()
         {
             var skills = PlayerData.Skills;
             for (int i = 0; i < skills.Count; i++)
             {
-                if(skills[i].Icon != null)
+                if(skills[i]?.Icon != null)
                 {
                     Icons[i].sprite = skills[i].Icon;
                 } else
@@ -25,6 +25,19 @@ namespace Harvesting
                 }
             }
 
+        }
+
+        public void Update()
+        {
+            UpdateSkillsRechargeUI();
+        }
+
+        private void UpdateSkillsRechargeUI()
+        {
+            for(int i =0; i< Icons.Count; i++)
+            {
+                Icons[i].fillAmount = SkillController.SkillRecharge(i);
+            }
         }
     }
 }

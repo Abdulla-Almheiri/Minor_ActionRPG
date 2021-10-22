@@ -7,6 +7,7 @@ namespace Harvesting
     public class MeleeSkillPrefab : SkillPrefab
     {
         public float Radius;
+        public float ScalingSpeed = 0f;
         public bool IsFrontal = true;
         private SphereCollider myCollider;
 
@@ -16,16 +17,15 @@ namespace Harvesting
             if (IsFrontal)
             {
                 myCollider.radius = Radius;
-                myCollider.transform.Translate(new Vector3(Radius, 0f, 0f));
+                myCollider.transform.Translate(new Vector3(Radius/2, 0f, 0f));
 
             }
 
             Destroy(gameObject, 5f);
         }
 
-        public void Update()
+        public void FixedUpdate()
         {
-            
         }
 
         public void OnTriggerEnter(Collider other)
@@ -39,10 +39,7 @@ namespace Harvesting
 
         public void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.GetComponent<Monster>())
-            {
-                monstersInCollider.Remove(other.gameObject.GetComponent<Monster>());
-            }
+            monstersInCollider.Remove(other.gameObject.GetComponent<Monster>());
         }
     }
 }

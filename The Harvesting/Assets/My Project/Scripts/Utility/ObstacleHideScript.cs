@@ -72,7 +72,6 @@ namespace Harvesting
 
         public void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Camera entered object.");
             if (other.name == Camera.main.name)
             {
 

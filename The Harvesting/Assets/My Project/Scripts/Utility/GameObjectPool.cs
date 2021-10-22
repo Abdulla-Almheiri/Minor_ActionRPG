@@ -32,7 +32,6 @@ namespace Harvesting
 
             if (prefab != null)
             {
-                Debug.Log("PREFABS PREPARED");
                 for (int i = 0; i < MAX_SIZE; i++)
                 {
                     var spawn = Instantiate(prefab);

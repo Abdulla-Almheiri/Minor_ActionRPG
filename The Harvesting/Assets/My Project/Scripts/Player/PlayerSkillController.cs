@@ -4,27 +4,38 @@ using UnityEngine;
 using UnityEngine.AI;
 
 namespace Harvesting {
+    [RequireComponent(typeof(PlayerCore))]
     public class PlayerSkillController : MonoBehaviour
     {
+        public PlayerCore PlayerCore;
+        private PlayerCombatController combatController;
+        private PlayerAnimationController animationController;
+
         public PlayerData Player;
         public LayerMask Layer;
-        public GameObject PrefabToSpawn;
         public Transform Loc1, Loc2, Loc3;
         public SkillUIScript SkillUI;
-
-        public GameObject PrefabToSpawn2;
-
+        public float SkillCooldownCheckRate = 0.2f;
+        private float skillCheckTimer;
+        public float GlobalCooldown = 0.5f;
+        private float GlobalSkillTimer = 0f;
         private NavMeshAgent navMeshAgent;
-
+        private float[] cooldowns;
 
         void Start()
         {
+            combatController = GetComponent<PlayerCombatController>();
+            animationController = GetComponent<PlayerAnimationController>();
+
             navMeshAgent = GetComponent<NavMeshAgent>();
+            cooldowns = new float[20];
+            skillCheckTimer = SkillCooldownCheckRate;
         }
 
         void Update()
         {
             HandleInput();
+            HandleCooldown();
         }
 
         public void RotateToMouseDirection()
@@ -48,23 +59,121 @@ namespace Harvesting {
 
         public void ActivateSkill(int number)
         {
+            if (cooldowns[number] > 0)
+            {
+                return;
+            }
+
+
+            // TO DO : Character state and Animation checks
+            CharacterState characterState = combatController.CurrentCharacterState();
+
+
+
+
             var skill = Player.Skills[number];
             var location = transform;
-            if (skill.DefaultVFXPrefab != null)
+
+
+
+            if (skill.IsMelee && characterState.CanAttack == false)
+            {
+                return;
+            }
+
+            if (skill.IsSpell && characterState.CanCast == false)
+            {
+                return;
+            }
+
+            if (skill.IsMovementSkill && characterState.CanMove == false)
+            {
+                return;
+            }
+
+            animationController.Animator.SetBool("Running", false);
+            animationController.Animator.SetTrigger("Cast4");
+
+
+
+            if (skill?.FaceDirection == true)
+            {
+                RotateToMouseDirection();
+            }
+
+            if (skill?.DefaultVFXPrefab != null)
             {
                 if (skill.DefaultVFXPrefab is ProjectileSkillPrefab)
                 {
                     location = Loc1;
                 }
             }
-            skill.Activate(Player, location);
-            if(skill.FaceDirection == true)
+
+            cooldowns[number] = skill.RechargeTime;
+            
+            skill?.Activate(Player, location);
+
+        }
+        private IEnumerator ActivationEnumerator(int number)
+        {
+            
+            if (cooldowns[number] > 0)
+            {
+                yield break;
+            }
+
+
+            // TO DO : Character state and Animation checks
+            CharacterState characterState = combatController.CurrentCharacterState();
+
+            
+
+
+            var skill = Player.Skills[number];
+            var location = transform;
+
+            
+
+            if (skill.IsMelee && characterState.CanAttack == false)
+            {
+                yield break;
+            }
+
+            if (skill.IsSpell && characterState.CanCast == false)
+            {
+                yield break;
+            }
+
+            if (skill.IsMovementSkill && characterState.CanMove == false)
+            {
+                yield break;
+            }
+
+            animationController.Animator.SetBool("Running", false);
+            animationController.Animator.SetTrigger("Cast4");
+            
+            
+
+            if (skill?.FaceDirection == true)
             {
                 RotateToMouseDirection();
             }
+
+            if (skill?.DefaultVFXPrefab != null)
+            {
+                if (skill.DefaultVFXPrefab is ProjectileSkillPrefab)
+                {
+                    location = Loc1;
+                }
+            }
+
+            cooldowns[number] = skill.RechargeTime;
+            yield return new WaitForSeconds(skill.PlayerAnimation.ImpactPointSeconds()/animationController.Animator.speed);
+            skill?.Activate(Player, location);
+            
         }
 
-        public void HandleInput()
+        private void HandleInput()
         {
             for (int i = 0; i < Player.Skills.Count; i++)
             {
@@ -75,5 +184,43 @@ namespace Harvesting {
             }
         }
 
+
+        private void HandleCooldown()
+        {
+            skillCheckTimer -= Time.deltaTime;
+            if (skillCheckTimer <= 0)
+            {
+                for (int i = 0; i < cooldowns.Length; i++)
+                {
+                    cooldowns[i] -= SkillCooldownCheckRate - skillCheckTimer;
+                }
+                skillCheckTimer = SkillCooldownCheckRate;
+            }
+        }
+
+        /// <summary>
+        /// Returns skill cooldown progress. Values 0 to 1 or -1 for incorrect input.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public float SkillRecharge(int number)
+        {
+            if (number > cooldowns.Length || Player.Skills.Count <= number || Player.Skills[number] == null)
+            {
+                return -1f;
+            }
+            float recharge = Player.Skills[number].RechargeTime;
+
+            if (recharge == 0)
+            {
+                return 1f;
+            }
+
+            return Mathf.Clamp((recharge - cooldowns[number]) / recharge, 0f , 1f);
+        }
     }
+
+    
+    
+
 }

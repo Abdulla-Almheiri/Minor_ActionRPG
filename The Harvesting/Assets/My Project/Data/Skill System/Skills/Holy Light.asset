@@ -19,7 +19,7 @@ MonoBehaviour:
   IsMelee: 0
   IsCastOnSelf: 1
   Cost: 0
-  RechargeTime: 0
+  RechargeTime: 12
   TriggerChance: 100
   TriggerCondition: {fileID: 0}
   ImpactSkill: {fileID: 0}

@@ -17,11 +17,19 @@ MonoBehaviour:
   Description: Throws a ball of fire that travels forward burning all in its path.
   FaceDirection: 1
   IsMelee: 0
+  IsSpell: 1
+  IsMovementSkill: 0
+  RemovesRoot: 0
+  RemovesStun: 0
+  CanBeUsedWhileStunned: 0
+  RemovesSilence: 0
   IsCastOnSelf: 0
+  PlayerAnimation: {fileID: 11400000, guid: 4680b3bd397b0704da19eb9cbe003492, type: 2}
   Cost: 0
-  RechargeTime: 0
+  RechargeTime: 2
   TriggerChance: 100
-  ImpactSkill: {fileID: 11400000, guid: 32ac3c0d5ed475a44873f99f93d32681, type: 2}
+  TriggerCondition: {fileID: 0}
+  ImpactSkill: {fileID: 0}
   DefaultVFXPrefab: {fileID: -5410691425302844247, guid: e24bdfdb8d9e59e40b0cde62ce44dc08, type: 3}
   Actions:
   - ContinousDamage: 0

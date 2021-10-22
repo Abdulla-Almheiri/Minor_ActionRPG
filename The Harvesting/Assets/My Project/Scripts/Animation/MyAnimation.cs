@@ -3,39 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Harvesting {
-    public class MyAnimation : MonoBehaviour
+    [CreateAssetMenu(fileName ="new myAnimation", menuName = "Data/Animation/My Animation")]
+    public class MyAnimation : ScriptableObject
     {
-        public Animator Animator;
         public AnimationClip Animation;
+        [Range(0,1)]
+        public float ImpactPoint = 0f;
         private int animationHash;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                Animator.Play(animationHash);
-            }
-
-        }
 
         public void OnEnable()
         {
-            if (Animator != null)
-            {
                 animationHash = Animator.StringToHash(Animation.name);
-            }
         }
 
         public int AnimationHash()
         {
             return animationHash;
+        }
+
+        public float ImpactPointSeconds()
+        {
+            return ImpactPoint * Animation.length;
         }
     }
 }

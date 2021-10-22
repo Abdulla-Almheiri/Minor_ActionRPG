@@ -7,18 +7,13 @@ namespace Harvesting {
     public class PlayerCore : MonoBehaviour
     {
         public PlayerData PlayerData;
-        public CharacterAnimationController AnimationController;
+        public PlayerAnimationController AnimationController;
+        public PlayerCombatController CombatController;
+        public PlayerSkillController SkillController;
         public Inventory Inventory;
-        // Start is called before the first frame update
-        void Start()
-        {
 
-        }
+        public List<Modifier> Stats;
+        public List<Modifier> TemporaryEnhancements;
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     }
 }

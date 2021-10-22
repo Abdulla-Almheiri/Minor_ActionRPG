@@ -16,7 +16,15 @@ namespace Harvesting
 
         public bool FaceDirection = true;
         public bool IsMelee = false;
+        public bool IsSpell = true;
+        public bool IsMovementSkill = false;
+        public bool RemovesRoot = false;
+        public bool RemovesStun = false;
+        public bool CanBeUsedWhileStunned = false;
+        public bool RemovesSilence = false;
+
         public bool IsCastOnSelf = false;
+        public MyAnimation PlayerAnimation;
         public int Cost = 0;
         public float RechargeTime = 0f;
         [Range(0,100)]
@@ -37,6 +45,7 @@ namespace Harvesting
 
             if (DefaultVFXPrefab != null)
             {
+
                 defaultVFX = Instantiate(DefaultVFXPrefab, location);
                 if (!IsCastOnSelf)
                 {
@@ -71,6 +80,7 @@ namespace Harvesting
 
 
         }
+
 
     }
 }

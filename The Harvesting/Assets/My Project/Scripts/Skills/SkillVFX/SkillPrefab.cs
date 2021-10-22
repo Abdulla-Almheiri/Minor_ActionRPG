@@ -18,12 +18,11 @@ namespace Harvesting
 
         public void TriggerSkillActions(CharacterData attacker, Monster monster)
         {
-           // var monster = other.GetComponent<Monster>();
             if (monster != null)
             {
                 if (SkillActions.Count != 0)
                 {
-                    if (Performer == null) UnityEngine.Debug.Log("Performer is NULL");
+                    
                     foreach (SkillAction action in SkillActions)
                     {
                         action.Trigger(attacker, monster);
@@ -32,10 +31,8 @@ namespace Harvesting
                             StartCoroutine(TriggerContinuous(action));
                         }
                     }
-                    //monster.TakeDamage(SkillAction, Performer);
                 }
 
-                //UnityEngine.Debug.Log("Monster HIT!!!!");
             }
         }
 
@@ -51,7 +48,6 @@ namespace Harvesting
                 foreach (Monster monster in monstersInCollider)
                 {
                     action.Trigger(Performer, monster);
-                    Debug.Log("YEILDING IN RANGE");
                 }
                 yield return new WaitForSeconds(1f / action.TickRatePerSecond);
 
