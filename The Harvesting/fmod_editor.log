@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000019632A31948 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000015FE2CC4888 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -18,6 +18,624 @@
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000001461AAEE48
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF88B4860E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF88B4860B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF88B4861B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF88B486270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000015F51DEECE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='550267__eminyildirim__magic-ice-impact-skill-spell(Attribute)', format=5, channels=2, frequency=48000, lengthbytes=31232, lengthpcm=83200, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.988556.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000001461AAEE48
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF88B4860E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF88B4860B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF88B4861B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF88B486270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000015F51DEECE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='550266__eminyildirim__ice-frost-spell-skill(Attribute)', format=5, channels=2, frequency=48000, lengthbytes=50688, lengthpcm=124800, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.451111.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000001461AAEE48
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF88B4860E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF88B4860B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF88B4861B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF88B486270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000015F51DEECE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='550264__eminyildirim__frozen-ice-spell-skill(Attribute)', format=5, channels=2, frequency=48000, lengthbytes=95744, lengthpcm=262400, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.521210.
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] Thread::initThread                       : Init FMOD nonblocking thread (0). Affinity: 0x8000000000000003, Priority: 0xFFFF7FFC, Stack Size: 114688, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
+[LOG] SystemI::createSound                     : setdata soundi = 0000015F00DFBD58 : node = 0000015FCCB54330
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015F00DFBD58
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015FCCB54440
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] Thread::initThread                       :     Init FMOD file thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFC, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015F00DFBD58
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FEAC2E8D8 : node = 0000015F730FE590
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FEAC2E8D8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F730FE6A0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FEAC2E8D8
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FE89BBF88 : node = 0000015F7FEFE510
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FE89BBF88
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F7FEFE620
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSound                     :     filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSound                     :     setdata soundi = 0000015FE89C18F8 : node = 0000015F7FEFF050
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] SystemI::createSound                     :     filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0000015FE89BF078 : node = 0000015F7FEFF410
+[LOG] SystemI::createSound                     :     add node to async list : head = 0000015FE8832EC8.  list count = 1
+[LOG] SystemI::createSound                     :     filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0000015FE89BF588 : node = 0000015F7FF010D0
+[LOG] SystemI::createSound                     :     add node to async list : head = 0000015FE8832EC8.  list count = 2
+[LOG] SystemI::createSound                     :     filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0000015FE89C13E8 : node = 0000015F7FF02250
+[LOG] SystemI::createSound                     :     add node to async list : head = 0000015FE8832EC8.  list count = 3
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FE89BBF88
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FE89C18F8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F7FEFF160
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FE89C18F8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FE89BF078
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F7FEFF520
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FE89BF078
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FE89BF588
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F7FF011E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FE89BF588
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FE89C13E8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F7FF02360
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FE89C13E8
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FE89BBF88)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FBD14E138)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FAB546908)
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FE89C18F8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FBD14DAB8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FAB546AB8)
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015F00DFBD58)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F051BE328)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015EB20538A8)
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FEAC2E8D8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F5257C0E8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F00DFAFD8)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015F5BA0B0A8 : node = 0000015F720EB150
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015F5BA0B0A8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F720EB260
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015F5BA0B0A8
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FE89C13E8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FBD14DF98)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FAB547328)
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FE89BF588)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FBD14FE78)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FAB546C68)
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FE89BF078)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FBD14DDF8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FAB547D48)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015F5BA0A688 : node = 0000015F720EB510
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015F5BA0A688
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F720EB620
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0000015F5BA0B5B8 : node = 0000015F720ECB90
+[LOG] SystemI::createSound                     :     add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] SystemI::createSound                     :     filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0000015FAB53DF08 : node = 0000015F720ECA50
+[LOG] SystemI::createSound                     :     add node to async list : head = 0000015FE8832EC8.  list count = 1
+[LOG] SystemI::createSound                     :     filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0000015FAB53D698 : node = 0000015F720EB790
+[LOG] SystemI::createSound                     :     add node to async list : head = 0000015FE8832EC8.  list count = 2
+[LOG] SystemI::createSound                     :     filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0000015FAB53DBA8 : node = 0000015F720EA110
+[LOG] SystemI::createSound                     :     add node to async list : head = 0000015FE8832EC8.  list count = 3
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015F5BA0A688
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015F5BA0B5B8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F720ECCA0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F5BA0A688)
+[LOG] SoundI::release                          :         234548__electroviolence__bonfire-flames (0000015DEC4AFC98)
+[LOG] SoundI::release                          :         234548__electroviolence__bonfire-flames (0000015FCC4311D8)
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015F5BA0B5B8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FAB53DF08
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F720ECB60
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FAB53DF08
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FAB53D698
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F720EB8A0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FAB53D698
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FAB53DBA8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F720EA220
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FAB53DBA8
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015F5BA0B5B8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015DEC4AF618)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FCC42F018)
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015F5BA0B0A8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F5257C0E8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F00DFC268)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015F00DFC5C8 : node = 0000015FCCB54AB0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015F00DFC5C8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015FCCB54BC0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015F00DFC5C8
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FAB53DBA8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015DEC4B07F8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FCC432618)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FE89C0818 : node = 0000015F7FF024D0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FE89C0818
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F7FF025E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FE89C0818
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FAB53DF08)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015DEC4AFC98)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FCC4331E8)
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FAB53D698)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015DEC4B1D18)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FCC432468)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FAB547B98 : node = 0000015C4DF306E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FAB547B98
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015C4DF307F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FAB547B98
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FCC431898 : node = 0000015FE7F3A950
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FCC431898
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015FE7F3AA60
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FCC431898
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015F00DFC5C8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F051C0A28)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015EB20538A8)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000001461AAEE48
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF88B4860E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF88B4860B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF88B4861B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF88B486270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000015F51DEE088
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='427396__erokia__plasma-lazer-pistol-gun-shot-1(attribute)', format=5, channels=2, frequency=48000, lengthbytes=60480, lengthpcm=280428, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.957980.
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015EB2053DB8 : node = 0000015DDF7FA260
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015EB2053DB8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSound                     :     setdata soundi = 0000015EB2044FC8 : node = 0000015DDF7FC420
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSound                     :     add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015DDF7FA370
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='197266__qubodup__wind-water-aura(Attribute)', format=5, channels=2, frequency=48000, lengthbytes=256992, lengthpcm=960000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.998850.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015EB2053DB8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015EB2044FC8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015DDF7FC530
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='333967__ihitokage__rasengan', format=5, channels=2, frequency=48000, lengthbytes=178016, lengthpcm=674586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015EB2044FC8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015F00DFAC78
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015F00DFAC78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015F00DFC268
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015F00DFC268
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FE89C0818)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F50327CB8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FAB53D9F8)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FEA5B3D28 : node = 0000015F034C2BE0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FEA5B3D28
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F034C2CF0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FEA5B3D28
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FAB547B98)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015C46526DF8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FD50A0318)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FBEB4BBA8 : node = 0000015F01808B60
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FBEB4BBA8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F01808C70
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 3000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='333967__ihitokage__rasengan', format=5, channels=2, frequency=48000, lengthbytes=178016, lengthpcm=674586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FBEB4BBA8
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FAB53DD58 : node = 0000015F720EB3D0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FAB53DD58
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F720EB4E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FAB53DD58
+[LOG] SoundI::release                          : 333967__ihitokage__rasengan (0000015EB2044FC8)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (0000015F5257DC88)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (0000015F00DFC268)
+[LOG] SoundI::release                          : 333967__ihitokage__rasengan (0000015FBEB4BBA8)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (0000015F5C24A8C8)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (0000015FE89BCEB8)
+[LOG] SoundI::release                          : 197266__qubodup__wind-water-aura(Attribute) (0000015EB2053DB8)
+[LOG] SoundI::release                          :     197266__qubodup__wind-water-aura(Attribute) (0000015F5257CDE8)
+[LOG] SoundI::release                          :     197266__qubodup__wind-water-aura(Attribute) (0000015F00DFAC78)
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FCC431898)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FC9CF8B18)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F70189EB8)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FEA5B2588 : node = 0000015F034C21E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FEA5B2588
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F034C22F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FEA5B2588
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FBEB48908 : node = 0000015F01808F20
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FBEB49178 : node = 0000015F01809420
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FBEB48908
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F01809030
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='197266__qubodup__wind-water-aura(Attribute)', format=5, channels=2, frequency=48000, lengthbytes=256992, lengthpcm=960000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.998850.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FBEB48908
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FBEB49178
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F01809530
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='333967__ihitokage__rasengan', format=5, channels=2, frequency=48000, lengthbytes=178016, lengthpcm=674586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FBEB49178
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FAB53DF08
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FAB53DF08
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FAB53D9F8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FAB53D9F8
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FEA5B3D28)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F50327CB8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FAB53D4E8)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FEA5B3308 : node = 0000015F034C2820
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FEA5B3308
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F034C2930
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FEA5B3308
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FAB53DD58)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F5257B0A8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F00DFC5C8)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000015FAB53E268 : node = 0000015F720E9350
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015FE8832EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015FAB53E268
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1136416
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 19776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015F720E9460
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 3000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='333967__ihitokage__rasengan', format=5, channels=2, frequency=48000, lengthbytes=178016, lengthpcm=674586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015FAB53E268
+[LOG] SoundI::release                          : 333967__ihitokage__rasengan (0000015FBEB49178)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (0000015F50327498)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (0000015FAB53D9F8)
+[LOG] SoundI::release                          : 333967__ihitokage__rasengan (0000015FAB53E268)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (0000015C4EA372E8)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (0000015FBEB4AAC8)
+[LOG] SoundI::release                          : 197266__qubodup__wind-water-aura(Attribute) (0000015FBEB48908)
+[LOG] SoundI::release                          :     197266__qubodup__wind-water-aura(Attribute) (0000015F50325278)
+[LOG] SoundI::release                          :     197266__qubodup__wind-water-aura(Attribute) (0000015FAB53DF08)
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FEA5B2588)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F5257D948)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F00DFBD58)
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (0000015FEA5B3308)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015F5C24ADA8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (0000015FE89BE9B8)
+[LOG] SoundI::release                          :  (0000015F732EB308)
+[LOG] SoundI::release                          :     550267__eminyildirim__magic-ice-impact-skill-spell(Attribute) (0000015FE8B03D38)
+[LOG] SoundI::release                          :  (0000015F732E91F8)
+[LOG] SoundI::release                          :     550264__eminyildirim__frozen-ice-spell-skill(Attribute) (0000015FE8B03858)
+[LOG] SoundI::release                          :  (0000015F732EB758)
+[LOG] SoundI::release                          :     550266__eminyildirim__ice-frost-spell-skill(Attribute) (0000015FE8B04078)
+[LOG] SoundI::release                          :  (0000015F732ED868)
+[LOG] SoundI::release                          :     427396__erokia__plasma-lazer-pistol-gun-shot-1(attribute) (0000015FE8B03378)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
@@ -28,3 +646,7 @@
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] SystemI::close                           : Closed.
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6

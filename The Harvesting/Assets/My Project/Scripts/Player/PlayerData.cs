@@ -13,7 +13,7 @@ namespace Harvesting
         private EquipmentContainer equipment;
         public override void Initialize()
         {
-            throw new System.NotImplementedException();
+
         }
 
         public override void ActivateSkill(SkillAction skillAction)
@@ -42,11 +42,11 @@ namespace Harvesting
 
         }
 
-        public bool AddItemToInventory(Item item, int quantity)
+        /*public bool AddItemToInventory(Item item, int quantity)
         {
             var amount = item.Stackable ? quantity : 0;
             return inventory.AddItem(item, amount);
-        }
+        }*/
 
 
     }

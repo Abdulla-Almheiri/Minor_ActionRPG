@@ -24,6 +24,7 @@ namespace Harvesting {
 
         void Start()
         {
+            Player.Initialize();
             combatController = GetComponent<PlayerCombatController>();
             animationController = GetComponent<PlayerAnimationController>();
 
@@ -40,8 +41,8 @@ namespace Harvesting {
 
         public void RotateToMouseDirection()
         {
-            navMeshAgent.isStopped = true;
-            if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            animationController.Animator.SetBool("Running", false);
+            if (/*!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()*/ true)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -73,7 +74,7 @@ namespace Harvesting {
 
             var skill = Player.Skills[number];
             var location = transform;
-
+            skill.Initialize();
 
 
             if (skill.IsMelee && characterState.CanAttack == false)
@@ -107,11 +108,17 @@ namespace Harvesting {
                 {
                     location = Loc1;
                 }
+                else if (skill.DefaultVFXPrefab is MeleeSkillPrefab)
+                {
+                    location = transform;
+                }
             }
 
             cooldowns[number] = skill.RechargeTime;
             
-            skill?.Activate(Player, location);
+
+            /// FIX HERE
+            skill?.Activate(Player, location?location:transform);
 
         }
         private IEnumerator ActivationEnumerator(int number)
@@ -164,7 +171,11 @@ namespace Harvesting {
                 if (skill.DefaultVFXPrefab is ProjectileSkillPrefab)
                 {
                     location = Loc1;
+                } else if(skill.DefaultVFXPrefab is MeleeSkillPrefab)
+                {
+                    location = transform;
                 }
+
             }
 
             cooldowns[number] = skill.RechargeTime;

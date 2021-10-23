@@ -47,7 +47,7 @@ namespace Harvesting
 
             if(Input.GetKeyDown(KeyCode.S))
             {
-                AddState2(TestState1, TestDuration1);
+                AddState(TestState1, TestDuration1);
                 //currentState.PrintDebugValues();
             }
 
@@ -60,108 +60,15 @@ namespace Harvesting
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                AddState2(TestState2, TestDuration2);
+                AddState(TestState2, TestDuration2);
 
             }
 
 
            // HandleStates();
-            HandleStates2();
+            HandleStates();
         }
 
-        /// <summary>
-        /// Attempts to add a CharacterState or update it if it already exists. Returns true if state is added or updated, false if it fails.
-        /// </summary>
-        /// <param name="state"></param>
-        /// <param name="duration"></param>
-        public bool AddState(CharacterState state, float duration)
-        {
-            int index = characterStates.IndexOf(state);
-            if(index >= stateDurations.Length-1)
-            {
-                return false;
-            }
-
-            if (index != -1)
-            {
-                if (stateDurations[index] < duration)
-                {
-                    stateDurations[index] = duration;
-                }
-                UpdateCharacterState(state, duration);
-                return true;
-            }
-
-            characterStates.Add(state);
-            stateDurations[index+1] = duration;
-            UpdateCharacterState(state, duration);
-            Debug.Log("State " + state.name + " with a duration of " + stateDurations[index+1]);
-            return true;
-
-        }
-
-        /// <summary>
-        /// Checks if a CharacterState is currently active and returns its index. Outputs duration.
-        /// </summary>
-        /// <param name="state"></param>
-        /// <param name="duration"></param>
-        /// <returns></returns>
-        public int CheckStateExists(CharacterState state, out float duration)
-        {
-            int index = characterStates.IndexOf(state);
-            if(index == -1)
-            {
-                duration = 0;
-                return index;
-            }
-            duration = stateDurations[index];
-            return index;
-        }
-
-
-        /// <summary>
-        /// Attempts to change CharacterState duration. Returns true if successful, otherwise returns false.
-        /// </summary>
-        /// <param name="state"></param>
-        /// <param name="newDuration"></param>
-        /// <returns></returns>
-        public bool ChangeStateDuration(CharacterState state, float newDuration)
-        {
-            int index = CheckStateExists(state, out _);
-            if (index != -1)
-            {
-                stateDurations[index] = newDuration;
-                return true;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Handle CharacterStates. Runs every frame.
-        /// </summary>
-        private void HandleStates()
-        {
-            stateCheckTimer -= Time.deltaTime;
-            int i = 0;
-            if(stateCheckTimer <=0)
-            {
-                foreach(var item in characterStates)
-                {
-                    stateDurations[i] -= (StateCheckRate - stateCheckTimer);
-
-
-                    if(stateDurations[i] < 0)
-                    {
-                        stateDurations[i] = 0;
-                    }
-
-                    //Debug.Log("UPDATED : State " + item.name + " with remaining duration of " + stateDurations[i]);
-                    i++;
-
-                }
-                stateCheckTimer = StateCheckRate;
-            }
-        }
 
         /// <summary>
         /// Returns the current CharacterState.
@@ -181,34 +88,21 @@ namespace Harvesting
         }
 
 
-        private void UpdateCharacterState(CharacterState newState, float duration)
-        {
-            var array = newState.GetArray();
-            for(int i = 0; i< currentStateDurations.Length; i++)
-            {   
-                if(array[i] && currentStateDurations[i] < duration)
-                {
-                    currentStateDurations[i] = duration;
 
-                }
-            }
-
-        }
-
-        public void AddState2(CharacterState state, float duration)
+        public void AddState(CharacterState state, float duration)
         {
             timers[0] = (timers[0] < duration && state.CanMove == false) ? duration : timers[0];
             timers[1] = (timers[1] < duration && state.CanInteract == false) ? duration : timers[1];
             timers[2] = (timers[2] < duration && state.CanAttack == false) ? duration : timers[2];
             timers[3] = (timers[3] < duration && state.CanCast == false) ? duration : timers[3];
-            timers[4] = (timers[4] < duration) ? duration : timers[4];
-            timers[5] = (timers[5] < duration) ? duration : timers[5];
-            timers[6] = (timers[6] < duration) ? duration : timers[6];
+            timers[4] = (timers[4] < duration && state.CanBlock == false) ? duration : timers[4];
+            timers[5] = (timers[5] < duration && state.CanTakeDamage == false) ? duration : timers[5];
+            timers[6] = (timers[6] < duration && state.CanBeHealed == false) ? duration : timers[6];
 
             Debug.Log("State " + state.name + " with a duration of " + duration);
         }
 
-        public void HandleStates2()
+        public void HandleStates()
         {
             for(int i = 0; i< timers.Length; i++)
             {

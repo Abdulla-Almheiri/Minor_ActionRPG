@@ -27,7 +27,6 @@ namespace Harvesting
             movementController = GetComponent<PlayerMovementController>();
         }
 
-        // Update is called once per frame
         void Update()
         {
             if(movementController.IsRunning())
@@ -37,29 +36,6 @@ namespace Harvesting
             {
                 Animator.SetBool("Running", false);
             }
-        }
-
-        public void TryPlayAnimation(MyAnimation animation)
-        {
-            Animator.Play(animation.AnimationHash());
-        }
-
-        private void PlayAnimation(MyAnimation animation)
-        {
-            if (animation != null)
-            {
-                Animator.Play(animation.AnimationHash());
-            }
-        }
-
-        public void FreezeAnimation()
-        {
-            Animator.speed = 0;
-        }
-
-        public void UnfreezeAnimation()
-        {
-            Animator.speed = 1;
         }
     }
 }

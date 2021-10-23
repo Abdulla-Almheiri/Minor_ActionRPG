@@ -17,11 +17,11 @@ namespace Harvesting
             if (IsFrontal)
             {
                 myCollider.radius = Radius;
-                myCollider.transform.Translate(new Vector3(Radius/2, 0f, 0f));
+                //myCollider.transform.Translate(new Vector3(Radius/2, 0f, 0f));
 
             }
 
-            Destroy(gameObject, 5f);
+            Destroy(gameObject, 6f);
         }
 
         public void FixedUpdate()
@@ -33,8 +33,9 @@ namespace Harvesting
             if (other.gameObject.GetComponent<Monster>())
             {
                 monstersInCollider.Add(other.gameObject.GetComponent<Monster>());
+                TriggerSkillActions(Performer, other.gameObject.GetComponent<Monster>());
             }
-            TriggerSkillActions(Performer, other.gameObject.GetComponent<Monster>());
+            
         }
 
         public void OnTriggerExit(Collider other)

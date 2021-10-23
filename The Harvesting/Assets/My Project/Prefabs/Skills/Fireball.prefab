@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8800717761374965836}
-  - component: {fileID: 4630552260113930896}
   - component: {fileID: 6788005006789680387}
   - component: {fileID: -8023699371038093179}
   - component: {fileID: -5410691425302844247}
@@ -41,21 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!114 &4630552260113930896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853465951131609533}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2281b4a9ce75814caec0ab4b7a55fa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Direction: {x: 0, y: 0, z: -1}
-  Speed: 10.38
-  RotationSpeed: 10
 --- !u!135 &6788005006789680387
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -96,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Performer: {fileID: 0}
+  ImpactSkills: []
   SkillActions: []
   Duration: 10
   Speed: 0.152
@@ -103,8 +88,6 @@ MonoBehaviour:
   Piercing: 1
   RotationSpeed: 0.5
   RotationDirection: {x: 0, y: 0, z: 1}
-  OnImpactSkills:
-  - {fileID: 11400000, guid: 32ac3c0d5ed475a44873f99f93d32681, type: 2}
   ImpactEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -126,7 +109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2727555351240101897
 Transform:
   m_ObjectHideFlags: 0
@@ -5264,7 +5247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3640256370562645450
 Transform:
   m_ObjectHideFlags: 0

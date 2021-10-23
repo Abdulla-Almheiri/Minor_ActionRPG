@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 namespace Harvesting
 {
-    public abstract class Item : ScriptableObject
+    [CreateAssetMenu(fileName ="new item", menuName ="Data/Items/Item")]
+    public  class Item : ScriptableObject
     {
-        public Image Icon;
+        public Sprite Icon;
         public string Name;
         public ItemType ItemData;
         public bool Stackable;
@@ -16,7 +17,7 @@ namespace Harvesting
         public EquipmentSlotType EquipmentSlotType;
         public int Price;
         public ItemQuality Quality;
-        public abstract void Interact(CharacterData character);
+        //public abstract void Interact(CharacterData character);
 
 
     }

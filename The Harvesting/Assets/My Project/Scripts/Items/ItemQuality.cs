@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace Harvesting
 {
+    [CreateAssetMenu(fileName ="new item quality", menuName ="Data/Items/Item Quality")]
     public class ItemQuality : ScriptableObject
     {
-        public Color Color;
+        public Color Color = Color.red;
     }
 }

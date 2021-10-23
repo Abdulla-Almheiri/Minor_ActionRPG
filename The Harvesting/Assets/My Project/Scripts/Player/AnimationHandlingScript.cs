@@ -182,7 +182,7 @@ namespace Harvesting
 
         private bool IsRunning()
         {
-            if (navMeshAgent.isStopped || (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance))
+            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
             {
                 return false;
             }

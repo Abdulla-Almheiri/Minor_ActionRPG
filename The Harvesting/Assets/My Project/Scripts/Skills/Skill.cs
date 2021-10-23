@@ -82,5 +82,9 @@ namespace Harvesting
         }
 
 
+        public void Initialize()
+        {
+
+        }
     }
 }

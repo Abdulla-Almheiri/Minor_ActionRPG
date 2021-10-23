@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fc8e5c9f4dd6344b8d538f85e98318, type: 3}
+  m_Name: FrostNova
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: e0dc90fd24122154caa3938a89a6d160, type: 3}
+  Name: FrostNova
+  Description: Freezes all enemies around you.
+  FaceDirection: 0
+  IsMelee: 0
+  IsSpell: 1
+  IsMovementSkill: 0
+  RemovesRoot: 0
+  RemovesStun: 0
+  CanBeUsedWhileStunned: 0
+  RemovesSilence: 0
+  IsCastOnSelf: 0
+  PlayerAnimation: {fileID: 11400000, guid: 4680b3bd397b0704da19eb9cbe003492, type: 2}
+  Cost: 0
+  RechargeTime: 8
+  TriggerChance: 100
+  TriggerCondition: {fileID: 0}
+  ImpactSkill: {fileID: 0}
+  DefaultVFXPrefab: {fileID: 4821720722939792474, guid: 43ed69177e5d90a4c99c74732442da87, type: 3}
+  Actions:
+  - ContinousDamage: 0
+    TickRatePerSecond: 0
+    TriggerCondition: {fileID: 0}
+    TriggerChance: 100
+    ActionType: 0
+    StatusEffect: {fileID: 0}
+    Modifier:
+      Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
+      MaxValue: 0
+      Value: 0
+      Duration: 0
+      Percentage: 50
+    SkillVFX: {fileID: 0}
+  - ContinousDamage: 0
+    TickRatePerSecond: 0
+    TriggerCondition: {fileID: 0}
+    TriggerChance: 100
+    ActionType: 2
+    StatusEffect: {fileID: 11400000, guid: fda32bbbebb8a5c438709538b65e7c91, type: 2}
+    Modifier:
+      Attribute: {fileID: 0}
+      MaxValue: 0
+      Value: 0
+      Duration: 5
+      Percentage: 0
+    SkillVFX: {fileID: 0}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 namespace Harvesting
 {
@@ -11,17 +12,27 @@ namespace Harvesting
         public Slider Slider;
         public float MaxHealth = 100f;
         private float health = 100f;
+        public MonsterCore MonsterCore;
 
+        private bool killed = false;
         public void TakeDamage(float amount, bool isCritical)
         {
-            
-            CombatText.PlaceDamageText(transform.position, amount, 1f, isCritical );
+            if (killed)
+            {
+                return;
+            }
+
+            CombatText.PlaceDamageText(transform.position, amount, 1f, isCritical);
             health -= amount;
         }
 
         public void TakeDamage(SkillAction action, CharacterData attacker, bool isCritical)
         {
-                TakeDamage(action.Value(attacker, this), isCritical);
+            if(killed)
+            {
+                return;
+            }
+            TakeDamage(action.Value(attacker, this), isCritical);
         }
 
         void Start()
@@ -32,6 +43,20 @@ namespace Harvesting
         void Update()
         {
             Slider.value = health / MaxHealth;
+
+            if(health <= 0 && killed == false)
+            {
+                killed = true;
+                MonsterCore.DropItems();
+                MonsterCore.CombatController.AddState(MonsterCore.DeadState, 999999f);
+                Slider.gameObject.SetActive(false);
+            }
+        }
+
+        public bool Alive()
+        {
+            return !killed;
         }
     }
+
 }

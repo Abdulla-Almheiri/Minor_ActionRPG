@@ -19,10 +19,10 @@ namespace Harvesting
             {
                 if(equipedItem != null)
                 {
-                    if(!player.AddItemToInventory(equipedItem, 1))
+                    /*if(!player.AddItemToInventory(equipedItem, 1))
                     {
                         return false;
-                    }
+                    }*/
                 }
                 equipedItem = item;
                 return true;

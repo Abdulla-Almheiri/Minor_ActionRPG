@@ -45,9 +45,9 @@ namespace Harvesting
 
 
 
-            if (Input.GetMouseButton(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            if (Input.GetMouseButton(0))
             {
-                navAgent.isStopped = false;
+                //navAgent.isStopped = false;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                 RaycastHit rayHit;

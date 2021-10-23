@@ -30,17 +30,31 @@ MonoBehaviour:
   TriggerChance: 100
   TriggerCondition: {fileID: 0}
   ImpactSkill: {fileID: 0}
-  DefaultVFXPrefab: {fileID: 0}
+  DefaultVFXPrefab: {fileID: 7859346219454047193, guid: 08cc3ec6549e6094da74407b79c3a119, type: 3}
   Actions:
   - ContinousDamage: 0
     TickRatePerSecond: 1
     TriggerCondition: {fileID: 0}
     TriggerChance: 100
     ActionType: 0
+    StatusEffect: {fileID: 0}
     Modifier:
       Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
       MaxValue: 0
       Value: 0
       Duration: 0
-      Percentage: 100
-    SkillVFX: {fileID: 7859346219454047193, guid: 08cc3ec6549e6094da74407b79c3a119, type: 3}
+      Percentage: 200
+    SkillVFX: {fileID: 0}
+  - ContinousDamage: 0
+    TickRatePerSecond: 1
+    TriggerCondition: {fileID: 0}
+    TriggerChance: 100
+    ActionType: 2
+    StatusEffect: {fileID: 11400000, guid: 4eee0666cc406c34e885284e3e66359e, type: 2}
+    Modifier:
+      Attribute: {fileID: 0}
+      MaxValue: 0
+      Value: 0
+      Duration: 3
+      Percentage: 0
+    SkillVFX: {fileID: 0}

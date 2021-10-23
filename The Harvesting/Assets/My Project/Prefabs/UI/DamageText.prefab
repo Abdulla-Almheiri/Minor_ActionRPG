@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2373429607419890748}
   - component: {fileID: 2373429607419890749}
   - component: {fileID: 2106208816028737757}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: DamageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,4 +182,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362ae8efabd396142aad83b869535ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsCritical: 0

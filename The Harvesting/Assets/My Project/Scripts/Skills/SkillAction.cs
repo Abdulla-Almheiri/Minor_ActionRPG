@@ -17,6 +17,7 @@ namespace Harvesting
         [Range(0,100)]
         public float TriggerChance = 100f;
         public ActionType ActionType = ActionType.Damage ;
+        public CharacterState StatusEffect;
         public Modifier Modifier;
         public SkillPrefab SkillVFX;
 
@@ -40,6 +41,10 @@ namespace Harvesting
 
         public void Trigger(CharacterData attacker, Monster monster)
         {
+            if(Random.Range(0, 100) > TriggerChance)
+            {
+                return;
+            }
 
             bool isCritical = false;
             switch(ActionType)
@@ -69,6 +74,13 @@ namespace Harvesting
                         return ;
                     }
                     break;
+                case ActionType.StatusEffect:
+                    if(StatusEffect != null && monster.MonsterCore != null)
+                    {
+                        monster.MonsterCore.CombatController.AddState(StatusEffect, Modifier.Duration);
+                    }
+                    break;
+
             }
         }
         
