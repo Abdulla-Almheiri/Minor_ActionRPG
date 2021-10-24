@@ -10,6 +10,6 @@ namespace Harvesting
     [CreateAssetMenu(fileName ="new item type", menuName ="Data/Items/Item Type")]
     public class ItemType : ScriptableObject
     {
-        public string UnidentifiedName = "Unidentified Item";
+        public string UnidentifiedName = "";
     }
 }

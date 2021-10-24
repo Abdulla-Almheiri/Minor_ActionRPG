@@ -12,7 +12,7 @@ namespace Harvesting
         public int DirtySlot = -1;
         public int AddItem(Item item, int quantity)
         {
-            if(Items.Count >= MaxSize)
+            if(Items.Count > MaxSize)
             {
                 return -1;
             }
@@ -24,11 +24,21 @@ namespace Harvesting
         }
         public int RemoveItem(Item item, int quantity)
         {
-            Items.Remove(item);
+            int index= Items.IndexOf(item);
+            if(index >= 0)
+            {
+                Items[index] = null;
+            }
             DirtySlot = Items.Count - 1;
             return Items.Count-1;
         }
 
-        
+        /*public void Fill(Item item)
+        {
+            for(int i = Items.Count; i< MaxSize; i++)
+            {
+                Items[i] = item;
+            }
+        }*/
     }
 }

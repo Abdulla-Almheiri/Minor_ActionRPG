@@ -9,7 +9,10 @@ namespace Harvesting
     public class Monster : MonoBehaviour
     {
         public FloatingCombatTextManager CombatText;
-        public Slider Slider;
+        public Canvas DynamicCanvas;
+        public GameObject HealthBarUIPrefab;
+        private Slider slider;
+        private GameObject sliderSpawn;
         public float MaxHealth = 100f;
         private float health = 100f;
         public MonsterCore MonsterCore;
@@ -37,19 +40,21 @@ namespace Harvesting
 
         void Start()
         {
+            sliderSpawn = Instantiate(HealthBarUIPrefab, DynamicCanvas.transform);
+            slider =sliderSpawn.GetComponentInChildren<Slider>();
             health = MaxHealth;
         }
 
         void Update()
         {
-            Slider.value = health / MaxHealth;
-
+            slider.value = health / MaxHealth;
+            sliderSpawn.transform.position = Camera.main.WorldToScreenPoint(transform.position);
             if(health <= 0 && killed == false)
             {
                 killed = true;
                 MonsterCore.DropItems();
                 MonsterCore.CombatController.AddState(MonsterCore.DeadState, 999999f);
-                Slider.gameObject.SetActive(false);
+                slider.gameObject.SetActive(false);
             }
         }
 

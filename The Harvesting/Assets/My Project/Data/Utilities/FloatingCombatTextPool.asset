@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 2373429607419890749, guid: dc50a1a05d2f0074da10b15c04618e86, type: 3}
   HideInactiveInHierarchy: 1
   HideActiveInHierarchy: 1
-  MAX_SIZE: 64
+  MAX_SIZE: 128

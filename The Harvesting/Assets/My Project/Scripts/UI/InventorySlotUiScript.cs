@@ -15,5 +15,11 @@ namespace Harvesting
             Item = item;
             Image.sprite = Item.Icon;
         }
+
+        public void Clear()
+        {
+            Item = null;
+            Image.sprite = null;
+        }
     }
 }

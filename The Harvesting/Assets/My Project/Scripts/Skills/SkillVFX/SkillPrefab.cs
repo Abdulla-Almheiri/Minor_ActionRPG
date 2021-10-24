@@ -43,18 +43,19 @@ namespace Harvesting
 
         public IEnumerator TriggerContinuous(SkillAction action)
         {
+            float tickRate = action.TickRatePerSecond;
             while (true)
             {
                 foreach (Monster monster in monstersInCollider)
                 {
-                    action.Trigger(Performer, monster);
+                    if(Performer != null && monster != null) action?.Trigger(Performer, monster);
                 }
-                yield return new WaitForSeconds(1f / action.TickRatePerSecond);
+                yield return new WaitForSeconds(1f / tickRate);
 
             }
         }
 
-        public void OnDisable()
+        public void OnDestroy()
         {
             StopAllCoroutines();
         }

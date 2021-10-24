@@ -26,7 +26,7 @@ MonoBehaviour:
   IsCastOnSelf: 0
   PlayerAnimation: {fileID: 0}
   Cost: 0
-  RechargeTime: 3
+  RechargeTime: 8
   TriggerChance: 100
   TriggerCondition: {fileID: 0}
   ImpactSkill: {fileID: 0}

@@ -16,7 +16,14 @@ namespace Harvesting
         {
             if(Item != null)
             {
-                TextUI.SetText(Item.ItemData.UnidentifiedName);
+                if (Item.ItemData.UnidentifiedName != "")
+                {
+                    TextUI.SetText(Item.ItemData.UnidentifiedName);
+                } else
+                {
+                    TextUI.SetText(Item.Name);
+                }
+
                 TextUI.color = Item.Quality.Color;
             }
             MaintainPosition();
@@ -31,6 +38,21 @@ namespace Harvesting
         public void MaintainPosition()
         {
             transform.position = Camera.main.WorldToScreenPoint(WorldPosition);
+        }
+
+        public bool PickUp(PlayerCore playerCore)
+        {
+            if (playerCore.Inventory.AddItem(Item, 1) != -1)
+            {
+                Debug.Log("INVENTORY ADD IS FINE");
+                if (Vector3.Distance(playerCore.transform.position, WorldPosition) < 2f)
+                {
+
+                    Destroy(gameObject);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -19,11 +19,12 @@ namespace Harvesting
         public MonsterSkillController SkillController;
         public Canvas DynamicCanvas;
         public ItemGroundPrefab ItemGroundUIPrefab;
-        public Item Loot;
+        public List<ItemDrop> Loot = new List<ItemDrop>();
 
         public CharacterState DeadState;
         public void Start()
         {
+            
             AnimationController = GetComponent<MonsterAnimationController>();
             CombatController = GetComponent<MonsterCombatController>();
             MovementController = GetComponent<MonsterMovementController>();
@@ -33,9 +34,18 @@ namespace Harvesting
 
         public void DropItems()
         {
-            var spawn = Instantiate(ItemGroundUIPrefab, DynamicCanvas.transform);
-            //spawn.transform.SetParent(null);
-            spawn.WorldPosition = transform.position;
+            int i = 0;
+            foreach (ItemDrop item in Loot)
+            {
+                if (Random.Range(0, 100) <= item.Chance)
+                {
+                    var spawn = Instantiate(ItemGroundUIPrefab, DynamicCanvas.transform);
+                    spawn.GetComponent<ItemGroundPrefab>().Item = item.Item;
+                    //spawn.transform.SetParent(null);
+                    spawn.WorldPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                    i++;
+                }
+            }
         }
     }
 }

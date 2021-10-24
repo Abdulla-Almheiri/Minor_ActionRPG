@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb033428102c2d147ba1923a088caf24, type: 3}
+  m_Name: Freezing
+  m_EditorClassIdentifier: 
+  Modifier:
+    Attribute: {fileID: 0}
+    MaxValue: 0
+    Value: 0
+    Duration: 0
+    Percentage: 0
+  CharacterState: {fileID: 11400000, guid: 61b33e983a25c2e48837c26f1a0c81da, type: 2}

@@ -115,10 +115,14 @@ namespace Harvesting {
             }
 
             cooldowns[number] = skill.RechargeTime;
-            
+
 
             /// FIX HERE
-            skill?.Activate(Player, location?location:transform);
+
+            if (Player != null)
+            {
+                skill?.Activate(Player, location ? location : transform);
+            }
 
         }
         private IEnumerator ActivationEnumerator(int number)

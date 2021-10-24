@@ -38,10 +38,10 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637705622334731488
+  lastModified: 637706434098967119
   FileSizes:
   - Name: 
-    Value: 990
+    Value: 1124
   Exists: 1
 --- !u!114 &-4816294755455937945
 MonoBehaviour:
@@ -66,6 +66,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 500
+--- !u!114 &-4667980924784980943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Game SFX/ItemPickup
+  m_EditorClassIdentifier: 
+  Path: event:/Game SFX/ItemPickup
+  guid: 74ef93d6a5ec7b4786ae4ae0e5ff2a19
+  Banks:
+  - {fileID: 8198727982755841842}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650
+--- !u!114 &-3937266684335182914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Game SFX/Forest Ambient
+  m_EditorClassIdentifier: 
+  Path: event:/Game SFX/Forest Ambient
+  guid: 63076badefed904c8a4a35006e13fbe8
+  Banks:
+  - {fileID: 8198727982755841842}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 87421
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,12 +134,15 @@ MonoBehaviour:
   - {fileID: 2854747107506587998}
   - {fileID: 7826485116212674835}
   - {fileID: 130814885328174247}
+  - {fileID: 5339919951993196188}
+  - {fileID: -3937266684335182914}
+  - {fileID: -4667980924784980943}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8198727982755841842}
   StringsBanks:
   - {fileID: -7052778325290694291}
-  stringsBankWriteTime: 637705622334731488
+  stringsBankWriteTime: 637706434098967119
   cacheVersion: 8
 --- !u!114 &130814885328174247
 MonoBehaviour:
@@ -164,6 +213,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 11500
+--- !u!114 &5339919951993196188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Game SFX/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Game SFX/Footsteps
+  guid: 3160b4114306394196a5d75aeef6aa67
+  Banks:
+  - {fileID: 8198727982755841842}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2300
 --- !u!114 &7826485116212674835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +274,6 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637705622334656517
+  lastModified: 637706434098917248
   FileSizes: []
   Exists: 1

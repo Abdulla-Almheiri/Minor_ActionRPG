@@ -13,15 +13,18 @@ namespace Harvesting
         public MonsterMovementController MovementController;
         public MonsterSkillController SkillController;
         private CharacterState currentState;
+        [HideInInspector]
+        public List<StatusEffect> StatusEffects = new List<StatusEffect>();
         private float[] currentStateDurations;
         private float[] timers;
-
+        private float[] statusEffectTimers;
         // Start is called before the first frame update
         void Start()
         {
             currentState = ScriptableObject.CreateInstance<CharacterState>();
             currentStateDurations = new float[7];
             timers = new float[7];
+            statusEffectTimers = new float[64];
 
             AnimationController = GetComponent<MonsterAnimationController>();
             MovementController = GetComponent<MonsterMovementController>();
@@ -92,6 +95,17 @@ namespace Harvesting
                     //Debug.Log("TIMERS    :   " + timers[i]);
                 }
             }
+        }
+
+        public void AddStatusEffect(StatusEffect statusEffect)
+        {
+            StatusEffects.Add(statusEffect);
+            statusEffectTimers[StatusEffects.Count - 1] = statusEffect.Modifier.Duration;
+        }
+
+        private void HandleStatusEffects()
+        {
+
         }
     }
 }

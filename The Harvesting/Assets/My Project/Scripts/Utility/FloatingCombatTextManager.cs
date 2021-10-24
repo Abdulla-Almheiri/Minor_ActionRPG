@@ -12,6 +12,10 @@ namespace Harvesting {
         private float averageDamage = 0;
         private float fontSize = 0;
 
+        public void Start()
+        {
+            Pool.Init();
+        }
         public void PlaceDamageText(Vector3 pos, float amount, float spreadAmount, bool isCritical)
         {
             if (Pool == null)
@@ -19,7 +23,7 @@ namespace Harvesting {
                 return;
             }
 
-            Pool.Init();
+            
 
             if(averageDamage ==0)
             {

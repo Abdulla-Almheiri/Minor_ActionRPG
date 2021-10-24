@@ -25,7 +25,7 @@ MonoBehaviour:
     Percentage: 0
   - Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
     MaxValue: 0
-    Value: 2
+    Value: 3
     Duration: 0
     Percentage: 0
   - Attribute: {fileID: 11400000, guid: d44ad0cb712860f48a976b6890183737, type: 2}
@@ -37,7 +37,7 @@ MonoBehaviour:
     MaxValue: 0
     Value: 0
     Duration: 0
-    Percentage: 50
+    Percentage: 20
   - Attribute: {fileID: 11400000, guid: bec4acdb77964404989f67257526da1d, type: 2}
     MaxValue: 0
     Value: 0
@@ -50,4 +50,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 634ec154e4c3da3418070e502290d01b, type: 2}
   - {fileID: 11400000, guid: 8d023105b8cdd8e43ae9513c43ac8e7a, type: 2}
   - {fileID: 11400000, guid: 96b6f5e31d0b06241b627968791aa7cc, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 02657eef768282d4691e3d11b520933d, type: 2}

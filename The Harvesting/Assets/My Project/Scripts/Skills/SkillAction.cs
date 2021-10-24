@@ -17,7 +17,10 @@ namespace Harvesting
         [Range(0,100)]
         public float TriggerChance = 100f;
         public ActionType ActionType = ActionType.Damage ;
-        public CharacterState StatusEffect;
+        public SkillElement Element;
+        public CharacterState CharacterStatusEffect;
+        public StatusEffect DamageStatusEffect;
+        public GameObject OnMonsterEffect;
         public Modifier Modifier;
         public SkillPrefab SkillVFX;
 
@@ -75,9 +78,19 @@ namespace Harvesting
                     }
                     break;
                 case ActionType.StatusEffect:
-                    if(StatusEffect != null && monster.MonsterCore != null)
+                    if(CharacterStatusEffect != null && monster.MonsterCore != null)
                     {
-                        monster.MonsterCore.CombatController.AddState(StatusEffect, Modifier.Duration);
+                        monster.MonsterCore.CombatController.AddState(CharacterStatusEffect, Modifier.Duration);
+                        if (OnMonsterEffect != null)
+                        {
+                            monster.MonsterCore.AnimationController.AddEffect(OnMonsterEffect, Modifier.Duration);
+                        }
+
+                        // FIX STATUS EFFECTS HERE
+                        if(DamageStatusEffect != null)
+                        {
+
+                        }
                     }
                     break;
 

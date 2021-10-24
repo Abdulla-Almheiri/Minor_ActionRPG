@@ -8,29 +8,35 @@ namespace Harvesting
     {
         public PlayerCore PlayerCore;
         public Inventory Inventory;
-        private List<InventorySlotUiScript> slots = new List<InventorySlotUiScript>();
+        private InventorySlotUiScript[] slots;
 
         void Start()
         {
             Inventory = PlayerCore.Inventory;
-            int i = 0;
-            foreach(InventorySlotUiScript slotUI in GetComponentsInChildren<InventorySlotUiScript>())
-            {
-                if(i == Inventory.Items.Count)
-                {
-                    break;
-                }
-                slotUI.PutItem(Inventory.Items[i]);
-                i++;
-            }
+            slots = GetComponentsInChildren<InventorySlotUiScript>();
+            UpdateUI();
         }
 
         void Update()
         {
-            if (Inventory.DirtySlot != -1)
+        }
+
+        public void UpdateUI()
+        {
+            int i = 0;
+            foreach (Item item in Inventory.Items)
             {
-                slots[Inventory.DirtySlot].PutItem(Inventory.Items[Inventory.DirtySlot]);
-                Inventory.DirtySlot = -1;
+                if(i >= slots.Length)
+                {
+                    break;
+                }
+                slots[i].PutItem(item);
+                if(item == null)
+                {
+                    slots[i].Clear();
+                }
+
+                i++;
             }
         }
 

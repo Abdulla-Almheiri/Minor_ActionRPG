@@ -48,5 +48,14 @@ namespace Harvesting
             
         }
 
+        public void AddEffect(GameObject effect, float duration)
+        {
+            if(effect != null)
+            {
+                var spawn = Instantiate(effect, transform);
+                Destroy(spawn, duration);
+            }
+        }
+
     }
 }

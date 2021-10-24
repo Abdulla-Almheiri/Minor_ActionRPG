@@ -37,20 +37,26 @@ MonoBehaviour:
     TriggerCondition: {fileID: 0}
     TriggerChance: 100
     ActionType: 0
-    StatusEffect: {fileID: 0}
+    Element: {fileID: 0}
+    CharacterStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
     Modifier:
       Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
       MaxValue: 0
       Value: 0
       Duration: 0
-      Percentage: 200
+      Percentage: 300
     SkillVFX: {fileID: 0}
   - ContinousDamage: 0
     TickRatePerSecond: 0
     TriggerCondition: {fileID: 0}
     TriggerChance: 10
     ActionType: 2
-    StatusEffect: {fileID: 11400000, guid: 4eee0666cc406c34e885284e3e66359e, type: 2}
+    Element: {fileID: 0}
+    CharacterStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
     Modifier:
       Attribute: {fileID: 0}
       MaxValue: 0

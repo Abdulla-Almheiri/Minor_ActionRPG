@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163a2a3f6e8d8f741b86de3077d5ee1e, type: 3}
   m_Name: WarrokAI
   m_EditorClassIdentifier: 
-  DetectRange: 10
+  DetectRange: 20
+  MeleeRange: 2
