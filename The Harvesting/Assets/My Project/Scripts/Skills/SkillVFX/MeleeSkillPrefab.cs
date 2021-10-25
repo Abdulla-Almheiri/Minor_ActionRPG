@@ -9,6 +9,7 @@ namespace Harvesting
         public float Radius;
         public float ScalingSpeed = 0f;
         public bool IsFrontal = true;
+        public float Duration = 6f;
         private SphereCollider myCollider;
 
         public void Start()
@@ -21,7 +22,7 @@ namespace Harvesting
 
             }
 
-            Destroy(gameObject, 6f);
+            Destroy(gameObject, Duration);
         }
 
         public void FixedUpdate()

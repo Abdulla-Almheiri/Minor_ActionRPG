@@ -26,7 +26,7 @@ MonoBehaviour:
   IsCastOnSelf: 0
   PlayerAnimation: {fileID: 11400000, guid: 4680b3bd397b0704da19eb9cbe003492, type: 2}
   Cost: 0
-  RechargeTime: 60
+  RechargeTime: 15
   TriggerChance: 100
   TriggerCondition: {fileID: 0}
   ImpactSkill: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
       MaxValue: 0
       Value: 0
       Duration: 0
-      Percentage: 600
+      Percentage: 400
     SkillVFX: {fileID: 0}
   - ContinousDamage: 0
     TickRatePerSecond: 0

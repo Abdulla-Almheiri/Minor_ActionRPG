@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9145777708106246320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/BattleMusic
+  m_EditorClassIdentifier: 
+  Path: event:/Music/BattleMusic
+  guid: 26d599d1c7b2774ba7681de67358e54c
+  Banks:
+  - {fileID: 8198727982755841842}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 178573
 --- !u!114 &-8499740967020220631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,10 +61,10 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637706434098967119
+  lastModified: 637707288621526587
   FileSizes:
   - Name: 
-    Value: 1124
+    Value: 1172
   Exists: 1
 --- !u!114 &-4816294755455937945
 MonoBehaviour:
@@ -137,12 +160,13 @@ MonoBehaviour:
   - {fileID: 5339919951993196188}
   - {fileID: -3937266684335182914}
   - {fileID: -4667980924784980943}
+  - {fileID: -9145777708106246320}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8198727982755841842}
   StringsBanks:
   - {fileID: -7052778325290694291}
-  stringsBankWriteTime: 637706434098967119
+  stringsBankWriteTime: 637707288621526587
   cacheVersion: 8
 --- !u!114 &130814885328174247
 MonoBehaviour:
@@ -274,6 +298,6 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637706434098917248
+  lastModified: 637707288621466727
   FileSizes: []
   Exists: 1
