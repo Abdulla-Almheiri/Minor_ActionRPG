@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 
 namespace Harvesting
 {
@@ -37,7 +37,12 @@ namespace Harvesting
 
             if(CombatController.Dead(CombatController.CurrentCharacterState()))
             {
-                
+                var monsterNavMesh = GetComponent<NavMeshAgent>();
+                monsterNavMesh.enabled = false;
+                /*var rigidBody = GetComponentInChildren<Rigidbody>();
+                var collider = GetComponentInChildren<Collider>();
+                Destroy(rigidBody);
+                Destroy(collider);*/
                 animator.SetTrigger("Death");
                 deathAnimationPlayed = true;
                 return;

@@ -27,12 +27,16 @@ namespace Harvesting
         // Update is called once per frame
         void Update()
         {
-            if(!CombatController.CanMove(CombatController.CurrentCharacterState()))
+            if (!CombatController.Dead(CombatController.CurrentCharacterState()))
             {
-                navMeshAgent.isStopped = true;
-            } else
-            {
-                navMeshAgent.isStopped = false;
+                if (!CombatController.CanMove(CombatController.CurrentCharacterState()))
+                {
+                    navMeshAgent.isStopped = true;
+                }
+                else
+                {
+                    navMeshAgent.isStopped = false;
+                }
             }
         }
 
