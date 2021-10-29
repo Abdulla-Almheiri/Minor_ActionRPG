@@ -20,7 +20,7 @@ namespace Harvesting
         {
             navAgent = gameObject.GetComponent<NavMeshAgent>();
             navAgent.updateRotation = true;
-
+            navAgent.autoRepath = true;
             combatController = GetComponent<PlayerCombatController>();
             skillController = GetComponent<PlayerSkillController>();
             animationController = GetComponent<PlayerAnimationController>();

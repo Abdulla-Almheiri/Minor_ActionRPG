@@ -25,7 +25,7 @@ namespace Harvesting {
 
             
 
-            if(averageDamage ==0)
+            if(averageDamage == 0)
             {
                 averageDamage = amount;
             } else

@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 namespace Harvesting {
-    public class CharacterAnimationController : MonoBehaviour
+    public class CharacterAnimationControllerOld : MonoBehaviour
     {
         private Animator animator;
         void Start()
