@@ -15,7 +15,7 @@ namespace Harvesting
     public class CharacterCore : MonoBehaviour
     {
         //Skills
-
+        public CharacterTemplate BaseCharacter;
 
 
         //Combat Attributes
@@ -38,8 +38,6 @@ namespace Harvesting
         void Start()
         {
             Initialize();
-
-
         }
 
 

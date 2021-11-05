@@ -25,7 +25,7 @@ MonoBehaviour:
     Percentage: 0
   - Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
     MaxValue: 0
-    Value: 3
+    Value: 10
     Duration: 0
     Percentage: 0
   - Attribute: {fileID: 11400000, guid: d44ad0cb712860f48a976b6890183737, type: 2}

@@ -9,12 +9,22 @@ namespace Harvesting
     /// </summary>
     public class Character 
     {
-        private int Level = 1;
-        private float totalExperiencePoints = 0;
+        private int level = 1;
+        private Modifier health;
+        private Modifier criticalChance;
+        private float criticalDamage;
 
-        private Inventory inventory;
-        private List<Skill> skills = new List<Skill>();
-        
+        public int Level { get => level; }
+        public float Health { get => level; }
 
+        public void ReceiveSkillAction(Character performer, SkillAction skillAction)
+        {
+
+        }
+
+        public Character()
+        {
+
+        }
     }
 }
