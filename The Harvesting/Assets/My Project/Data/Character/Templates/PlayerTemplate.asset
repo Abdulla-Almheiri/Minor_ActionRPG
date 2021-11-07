@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: PlayerTemplate
   m_EditorClassIdentifier: 
   BaseAttributes: {fileID: 11400000, guid: beada438842288946a90f73d13deb753, type: 2}
-  Animations: []
+  Animations:
+  - {fileID: 11400000, guid: 4680b3bd397b0704da19eb9cbe003492, type: 2}
