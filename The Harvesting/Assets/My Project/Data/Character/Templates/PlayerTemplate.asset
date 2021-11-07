@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2f7ccd1ac900b47921d09bc2eb53bc, type: 3}
   m_Name: PlayerTemplate
   m_EditorClassIdentifier: 
-  Animator: {fileID: 9100000, guid: 1652469daa117a241a9ea027829015d0, type: 2}
-  BaseAttributes: []
+  BaseAttributes: {fileID: 11400000, guid: beada438842288946a90f73d13deb753, type: 2}
   Animations: []
