@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Core Attributes
   m_EditorClassIdentifier: 
   Attributes:
+  - {fileID: 11400000, guid: ebb43f14a22425b43937e130b6275d00, type: 2}
   - {fileID: 11400000, guid: 1b6042619a7de634b901d88129c96298, type: 2}
   - {fileID: 11400000, guid: 1f5ab68538f7edc46a0afcec22196e83, type: 2}
   - {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
