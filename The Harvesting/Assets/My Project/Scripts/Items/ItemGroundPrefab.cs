@@ -9,7 +9,7 @@ namespace Harvesting
     public class ItemGroundPrefab : MonoBehaviour
     {
         public TMP_Text TextUI;
-        public Item Item;
+        public ItemTemplate Item;
         public Vector3 WorldPosition;
         // Start is called before the first frame update
         void Start()

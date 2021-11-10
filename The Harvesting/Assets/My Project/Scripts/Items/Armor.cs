@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public class Armor : Item
+    public class Armor : ItemTemplate
     {
         public int ItemLevel;
         public int RequiredLevel = 1;

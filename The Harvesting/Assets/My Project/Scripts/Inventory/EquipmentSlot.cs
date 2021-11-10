@@ -10,10 +10,10 @@ namespace Harvesting
     {
         [SerializeField]
         private Image icon;
-        private Item equipedItem;
+        private ItemTemplate equipedItem;
         public EquipmentSlotType EquipmentSlotType;
 
-        public bool Equip(Item item, PlayerData player)
+        public bool Equip(ItemTemplate item, PlayerData player)
         {
             if(EquipmentSlotType != null && EquipmentSlotType == item.EquipmentSlotType)
             {

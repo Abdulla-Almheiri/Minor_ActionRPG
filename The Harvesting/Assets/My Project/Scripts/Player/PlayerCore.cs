@@ -23,7 +23,7 @@ namespace Harvesting {
         public PlayerSkillController SkillController;
         public PlayerMovementController MovementController;
         public Inventory Inventory;
-        public Item StartingItem;
+        public ItemTemplate StartingItem;
         public List<Modifier> Stats;
         public List<Modifier> TemporaryEnhancements;
 

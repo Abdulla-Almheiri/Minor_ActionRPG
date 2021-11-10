@@ -26,12 +26,12 @@ namespace Harvesting
             throw new System.NotImplementedException();
         }
 
-        public override void UseItem(Item item)
+        public override void UseItem(ItemTemplate item)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool Equip(Item item, EquipmentSlot slot)
+        public bool Equip(ItemTemplate item, EquipmentSlot slot)
         {
             if(item.Equipable == false || item.EquipmentSlotType != slot.EquipmentSlotType)
             {

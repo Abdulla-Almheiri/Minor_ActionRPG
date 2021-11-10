@@ -7,7 +7,7 @@ namespace Harvesting
     [System.Serializable]
     public class ItemDrop
     {
-        public Item Item;
+        public ItemTemplate Item;
         [Range(0,100)]
         public float Chance;
 
