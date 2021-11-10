@@ -11,11 +11,29 @@ namespace Harvesting
     [System.Serializable]
     public class SkillAction
     {
+        //Activation
+        [Header("Activation")]
+        public SkillActionTriggerCondition TriggerCondition;
+        [Range(0, 100)]
+        public float TriggerChance = 100f;
+        [Space(20)]
+
+
+        //Execution
+
+
+        //Impact Event
+
+
+        //VFX
+
+
+        //SFX
+
+
         public bool ContinousDamage = false;
         public float TickRatePerSecond = 1f;
-        public SkillActionTriggerCondition TriggerCondition;
-        [Range(0,100)]
-        public float TriggerChance = 100f;
+
         public ActionType ActionType = ActionType.Damage ;
         public SkillElement Element;
         public CharacterState CharacterStatusEffect;

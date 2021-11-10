@@ -10,8 +10,8 @@ namespace Harvesting
     public class Character
     {
 
-        public Dictionary<Attribute, Modifier> Attributes;
-
+        public Dictionary<Attribute, CharacterModifier> Attributes;
+        public Dictionary<SkillTriggerCondition, List<SkillAction>> TriggerSkills;
 
         /*public void ReceiveSkillAction(Character performer, SkillAction skillAction)
         {
@@ -22,14 +22,14 @@ namespace Harvesting
         {
             foreach(Attribute attribute in coreAttributes.Attributes)
             {
-                Attributes[attribute] = new Modifier();
+                Attributes[attribute] = new CharacterModifier();
             }
         }
 
         public float Attribute(Attribute attribute)
         {
-            Modifier mod = Attributes[attribute];
-            return mod.Value * ((100 + mod.Percentage) / 100);
+            CharacterModifier mod = Attributes[attribute];
+            return mod.Value();
         }
     }
 }
