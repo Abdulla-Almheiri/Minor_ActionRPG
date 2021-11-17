@@ -10,7 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8acf17939aea1544f848553fbb846be0, type: 3}
-  m_Name: Core Attributes
+  m_Name: Core Attributes 1
   m_EditorClassIdentifier: 
   Attributes: []
-  MyHealth: {fileID: 0}

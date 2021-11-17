@@ -12,6 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f087923377434bb45879b4310bde390b, type: 3}
   m_Name: Stormcaller
   m_EditorClassIdentifier: 
+  Curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.09467316
+      value: 0.507843
+      inSlope: 0.030619225
+      outSlope: 0.030619225
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 7.454273
+      value: 0.7389859
+      inSlope: 0.058640163
+      outSlope: 0.058640163
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1568925
+      outWeight: 0.041369982
+    - serializedVersion: 3
+      time: 20
+      value: 0.978775
+      inSlope: 0.019113211
+      outSlope: 0.019113211
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   Icon: {fileID: 21300000, guid: da6971a9d9977034eb0132827d174a32, type: 3}
   Name: Stormcaller
   ItemData: {fileID: 11400000, guid: b5c81fb5a708a3f49b23108a04ecac77, type: 2}

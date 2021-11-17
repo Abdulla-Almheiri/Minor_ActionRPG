@@ -43,6 +43,8 @@ namespace Harvesting {
             MovementController = GetComponent<PlayerMovementController>();
             /*Inventory = new Inventory();
             Inventory.AddItem(StartingItem, 0);*/
+
+            Debug.Log("The name of the Attribute is :   " + CoreAttributes.Health.name);
         }
 
         public void ToggleCharacterScreen()

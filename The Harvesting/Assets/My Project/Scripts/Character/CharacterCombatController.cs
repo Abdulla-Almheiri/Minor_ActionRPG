@@ -20,12 +20,12 @@ namespace Harvesting
 
         }
 
-        private void Initiliaze()
+       /* private void Initiliaze()
         {
             foreach(Attribute attr in CoreAttributes.Attributes)
             {
                 Attributes[attr] = 0f;
             }
-        }
+        }*/
     }
 }

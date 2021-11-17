@@ -20,7 +20,7 @@ namespace Harvesting
 
         public Character(CoreAttributes coreAttributes)
         {
-            foreach(Attribute attribute in coreAttributes.Attributes)
+            foreach(Attribute attribute in coreAttributes.AdditionalAttributes)
             {
                 Attributes[attribute] = new CharacterModifier();
             }

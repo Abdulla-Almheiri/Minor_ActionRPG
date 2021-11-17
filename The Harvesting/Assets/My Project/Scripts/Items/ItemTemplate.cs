@@ -8,6 +8,7 @@ namespace Harvesting
     [CreateAssetMenu(fileName ="new item template", menuName ="Data/Items/Item Template")]
     public  class ItemTemplate : ScriptableObject
     {
+        public AnimationCurve Curve;
         public Sprite Icon;
         public string Name;
         public ItemType ItemData;
@@ -18,5 +19,8 @@ namespace Harvesting
         public int Price;
         public ItemQuality Quality;
         //public abstract void Interact(CharacterData character);
+
+
+      
     }
 }

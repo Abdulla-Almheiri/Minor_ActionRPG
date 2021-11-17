@@ -11,7 +11,7 @@ namespace Harvesting
         public MyModifier Base, Equipment, Skills;
         public float Value()
         {
-            var value = Base.Base + Equipment.Base + Skills.Base;
+            var value = Base.BaseValue + Equipment.BaseValue + Skills.BaseValue;
             value *= (100f + Base.Percentage) / 100f;
             value *= (100f + Equipment.Percentage) / 100f;
             value *= (100f + Skills.Percentage) / 100f;
@@ -23,7 +23,7 @@ namespace Harvesting
 
     public struct MyModifier
     {
-        public float Base;
+        public float BaseValue;
         public float Percentage;
     }
 }
