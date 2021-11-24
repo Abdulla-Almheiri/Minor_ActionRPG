@@ -42,6 +42,12 @@ namespace Harvesting
         public Modifier Modifier;
         public SkillPrefab SkillVFX;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="attacker"> Performer </param>
+        /// <param name="receiver"></param>
+        /// <returns></returns>
         public float Value(CharacterData attacker, Monster receiver)
         {
             if(attacker == null)
@@ -59,9 +65,10 @@ namespace Harvesting
             }
 
         }
-
+        
         public void Trigger(CharacterData attacker, Monster monster)
         {
+
             if(Random.Range(0, 100) > TriggerChance)
             {
                 return;

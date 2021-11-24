@@ -9,14 +9,13 @@ namespace Harvesting
     /// </summary>
     public class Character
     {
-
+        public CharacterModifier Health;
         public Dictionary<Attribute, CharacterModifier> Attributes;
-        public Dictionary<SkillTriggerCondition, List<SkillAction>> TriggerSkills;
 
-        /*public void ReceiveSkillAction(Character performer, SkillAction skillAction)
+        public void ReceiveSkillAction(Character performer, SkillAction skillAction)
         {
 
-        }*/
+        }
 
         public Character(CoreAttributes coreAttributes)
         {
@@ -31,5 +30,6 @@ namespace Harvesting
             CharacterModifier mod = Attributes[attribute];
             return mod.Value();
         }
+     
     }
 }

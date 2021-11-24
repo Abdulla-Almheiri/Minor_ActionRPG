@@ -11,6 +11,7 @@ namespace Harvesting
 
     public class MonsterCore : MonoBehaviour
     {
+        [SerializeField] private GameCore _gameCore;
         public PlayerCore PlayerCore;
         public CharacterData MonsterData;
         public MonsterAnimationController AnimationController;
@@ -24,11 +25,7 @@ namespace Harvesting
         public CharacterState DeadState;
         public void Start()
         {
-            
-            AnimationController = GetComponent<MonsterAnimationController>();
-            CombatController = GetComponent<MonsterCombatController>();
-            MovementController = GetComponent<MonsterMovementController>();
-            SkillController = GetComponent<MonsterSkillController>();
+            Initialize();
         }
 
 
@@ -46,6 +43,15 @@ namespace Harvesting
                     i++;
                 }
             }
+        }
+
+        private void Initialize()
+        {
+            _gameCore = _gameCore ? _gameCore : FindObjectOfType<GameCore>();
+            AnimationController = GetComponent<MonsterAnimationController>();
+            CombatController = GetComponent<MonsterCombatController>();
+            MovementController = GetComponent<MonsterMovementController>();
+            SkillController = GetComponent<MonsterSkillController>();
         }
     }
 }

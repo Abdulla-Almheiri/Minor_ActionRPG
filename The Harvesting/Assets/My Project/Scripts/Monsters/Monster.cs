@@ -8,6 +8,7 @@ namespace Harvesting
 {
     public class Monster : MonoBehaviour
     {
+
         public FloatingCombatTextManager CombatText;
         public Canvas DynamicCanvas;
         public GameObject HealthBarUIPrefab;
