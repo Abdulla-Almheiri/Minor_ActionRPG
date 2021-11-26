@@ -10,7 +10,7 @@ namespace Harvesting
     {
         public CoreAttributes BaseAttributes;
         public List<ProgressionSkill> CharacterProgression;
-        public List<MyAnimation> Animations;
+        public List<CharacterAnimationData> Animations;
 
         public void OnEnable()
         {

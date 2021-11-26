@@ -18,12 +18,12 @@ namespace Harvesting {
 
         }
 
-        public void TryPlayAnimation(MyAnimation animation)
+        public void TryPlayAnimation(CharacterAnimationData animation)
         {
 
         }
 
-        private void PlayAnimation(MyAnimation animation)
+        private void PlayAnimation(CharacterAnimationData animation)
         {
             animator.Play(animation.AnimationHash());
         }

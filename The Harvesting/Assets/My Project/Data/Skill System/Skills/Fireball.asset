@@ -46,7 +46,7 @@ MonoBehaviour:
       MaxValue: 0
       Value: 0
       Duration: 0
-      Percentage: 20
+      Percentage: 50
     SkillVFX: {fileID: 0}
   - TriggerCondition: {fileID: 0}
     TriggerChance: 10

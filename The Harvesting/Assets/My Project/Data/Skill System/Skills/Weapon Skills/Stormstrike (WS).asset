@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fc8e5c9f4dd6344b8d538f85e98318, type: 3}
+  m_Name: Stormstrike (WS)
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: da6971a9d9977034eb0132827d174a32, type: 3}
+  Name: Stormstrike
+  Description: 
+  ManaCost: 2
+  RechargeTime: 3
+  DefaultVFXPrefab: {fileID: 0}
+  TriggerChance: 100
+  TriggerCondition: {fileID: 0}
+  FaceDirection: 1
+  IsMelee: 1
+  IsSpell: 0
+  IsMovementSkill: 0
+  RemovesRoot: 0
+  RemovesStun: 0
+  CanBeUsedWhileStunned: 0
+  RemovesSilence: 0
+  IsCastOnSelf: 0
+  PlayerAnimation: {fileID: 11400000, guid: 5cdfb96ef14ade94791cd5a579168b61, type: 2}
+  ImpactSkill: {fileID: 0}
+  Actions:
+  - TriggerCondition: {fileID: 0}
+    TriggerChance: 100
+    ContinousDamage: 0
+    TickRatePerSecond: 0
+    ActionType: 0
+    Element: {fileID: 11400000, guid: bf78762d8c80eee49a895e97acfb34f7, type: 2}
+    CharacterStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
+    Modifier:
+      Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
+      MaxValue: 0
+      Value: 7
+      Duration: 0
+      Percentage: 50
+    SkillVFX: {fileID: 0}
