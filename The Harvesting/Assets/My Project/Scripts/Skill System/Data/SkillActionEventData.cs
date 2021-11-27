@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public struct SkillActionEvent
+    public class SkillActionEventData
     {
-
+        public Skill Skill;
+        public CharacterCore Performer;
     }
 }
 

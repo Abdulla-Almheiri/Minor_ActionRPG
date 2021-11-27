@@ -9,7 +9,7 @@ namespace Harvesting
     {
         public float StateCheckRate = 0.2f;
         private float stateCheckTimer = 0f;
-        private PlayerCore playerCore;
+        private PlayerCore _playerCore;
         private PlayerAnimationController animationController;
         private PlayerSkillController skillController;
         public CharacterState TestState1;
@@ -24,15 +24,19 @@ namespace Harvesting
         private List<CharacterState> characterStates = new List<CharacterState>();
         private float[] stateDurations;
 
+        private void Awake()
+        {
+            _playerCore = GetComponent<PlayerCore>();
+        }
         void Start()
         {
             currentState = ScriptableObject.CreateInstance<CharacterState>();
             currentStateDurations = new float[7];
             timers = new float[7];
 
-            playerCore = GetComponent<PlayerCore>();
-            animationController = playerCore.GetComponent<PlayerAnimationController>();
-            skillController = playerCore.GetComponent<PlayerSkillController>();
+
+            //animationController = _playerCore.GetComponent<PlayerAnimationController>();
+           // skillController = _playerCore.GetComponent<PlayerSkillController>();
 
             stateDurations = new float[32];
 

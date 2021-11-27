@@ -15,6 +15,11 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: e0dc90fd24122154caa3938a89a6d160, type: 3}
   Name: FrostNova
   Description: Freezes all enemies around you.
+  ManaCost: 0
+  RechargeTime: 8
+  DefaultVFXPrefab: {fileID: 4821720722939792474, guid: 43ed69177e5d90a4c99c74732442da87, type: 3}
+  TriggerChance: 100
+  TriggerCondition: {fileID: 0}
   FaceDirection: 0
   IsMelee: 0
   IsSpell: 1
@@ -24,18 +29,13 @@ MonoBehaviour:
   CanBeUsedWhileStunned: 0
   RemovesSilence: 0
   IsCastOnSelf: 0
-  PlayerAnimation: {fileID: 11400000, guid: 4680b3bd397b0704da19eb9cbe003492, type: 2}
-  Cost: 0
-  RechargeTime: 8
-  TriggerChance: 100
-  TriggerCondition: {fileID: 0}
+  PlayerAnimation: {fileID: 11400000, guid: d9d1563a9e2cbb44081c2e873b238667, type: 2}
   ImpactSkill: {fileID: 0}
-  DefaultVFXPrefab: {fileID: 4821720722939792474, guid: 43ed69177e5d90a4c99c74732442da87, type: 3}
   Actions:
-  - ContinousDamage: 0
-    TickRatePerSecond: 0
-    TriggerCondition: {fileID: 0}
+  - TriggerCondition: {fileID: 0}
     TriggerChance: 100
+    ContinousDamage: 0
+    TickRatePerSecond: 0
     ActionType: 0
     Element: {fileID: 0}
     CharacterStatusEffect: {fileID: 0}
@@ -48,10 +48,10 @@ MonoBehaviour:
       Duration: 0
       Percentage: 50
     SkillVFX: {fileID: 0}
-  - ContinousDamage: 0
-    TickRatePerSecond: 0
-    TriggerCondition: {fileID: 0}
+  - TriggerCondition: {fileID: 0}
     TriggerChance: 100
+    ContinousDamage: 0
+    TickRatePerSecond: 0
     ActionType: 2
     Element: {fileID: 0}
     CharacterStatusEffect: {fileID: 11400000, guid: fda32bbbebb8a5c438709538b65e7c91, type: 2}

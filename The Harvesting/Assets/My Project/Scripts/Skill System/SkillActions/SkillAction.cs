@@ -48,7 +48,7 @@ namespace Harvesting
         /// <param name="attacker"> Performer </param>
         /// <param name="receiver"></param>
         /// <returns></returns>
-        public float Value(CharacterData attacker, Monster receiver)
+        public float Value(CharacterData attacker, MonsterNEW receiver)
         {
             if(attacker == null)
             {
@@ -66,7 +66,7 @@ namespace Harvesting
 
         }
         
-        public void Trigger(CharacterData attacker, Monster monster)
+        public void Trigger(CharacterData attacker, MonsterNEW monster)
         {
 
             if(Random.Range(0, 100) > TriggerChance)

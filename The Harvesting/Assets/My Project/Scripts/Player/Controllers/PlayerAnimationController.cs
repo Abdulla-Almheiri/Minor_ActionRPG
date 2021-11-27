@@ -9,39 +9,47 @@ namespace Harvesting
     [RequireComponent(typeof(PlayerCore))]
     public class PlayerAnimationController : MonoBehaviour
     {
-        public PlayerCore PlayerCore;
-        public Animator Animator;
+        private PlayerCore _playerCore;
+        private Animator _animator;
         private PlayerCombatController combatController;
         private PlayerSkillController skillController;
         private PlayerMovementController movementController;
 
         private NavMeshAgent navMeshAgent;
 
-        void Start()
+        public Animator Animator { get => _animator; }
+
+        void Awake()
         {
 
-            Animator = GetComponentInChildren<Animator>();
-            PlayerCore = GetComponent<PlayerCore>();
+            Initialize();
+        }
+
+        void Update()
+        {
+            HandleRunningAnimation();
+        }
+
+        private void Initialize()
+        {
+            _animator = GetComponentInChildren<Animator>();
+            _playerCore = GetComponent<PlayerCore>();
             combatController = GetComponent<PlayerCombatController>();
             skillController = GetComponent<PlayerSkillController>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             movementController = GetComponent<PlayerMovementController>();
         }
 
-        void Update()
+        private void HandleRunningAnimation()
         {
-            if(movementController.IsRunning())
+            if (movementController.IsRunning())
             {
                 Animator.SetBool("Running", true);
-            } else
+            }
+            else
             {
                 Animator.SetBool("Running", false);
             }
-        }
-
-        private void Initialize()
-        {
-
         }
     }
 }

@@ -11,13 +11,13 @@ namespace Harvesting
         [HideInInspector]
         public CharacterData Performer;
         public List<Skill> ImpactSkills;
-        protected List<Monster> monstersInCollider = new List<Monster>();
+        protected List<MonsterNEW> monstersInCollider = new List<MonsterNEW>();
         protected int NumberOfEnemiesHit = 0;
 
         [HideInInspector]
         public List<SkillAction> SkillActions = new List<SkillAction>();
 
-        public void TriggerSkillActions(CharacterData attacker, Monster monster)
+        public void TriggerSkillActions(CharacterData attacker, MonsterNEW monster)
         {
             if (monster != null)
             {
@@ -40,7 +40,7 @@ namespace Harvesting
             }
         }
 
-        public void TriggerSkillAction(SkillAction action, CharacterData attacker, Monster monster)
+        public void TriggerSkillAction(SkillAction action, CharacterData attacker, MonsterNEW monster)
         {
             action.Trigger(attacker, monster);
         }
@@ -50,7 +50,7 @@ namespace Harvesting
             float tickRate = action.TickRatePerSecond;
             while (true)
             {
-                foreach (Monster monster in monstersInCollider)
+                foreach (MonsterNEW monster in monstersInCollider)
                 {
                     if(Performer != null && monster != null) action?.Trigger(Performer, monster);
                 }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 namespace Harvesting
 {
-
-    public class PlayerTemplate : CharacterTemplate
+    [CreateAssetMenu(fileName = "new player template", menuName = "Data/Player/Player Template")]
+    public class PlayerTemplate : ScriptableObject
     {
+        public List<ProgressionSkill> Progression;
+        public CharacterTemplate CharacterTemplate;
 
     }
 }

@@ -8,23 +8,36 @@ namespace Harvesting
     [RequireComponent(typeof(MonsterCombatController))]
     [RequireComponent(typeof(MonsterSkillController))]
     [RequireComponent(typeof(MonsterMovementController))]
+    [RequireComponent(typeof(MonsterUIController))]
+    [RequireComponent(typeof(MonsterSFXController))]
 
     public class MonsterCore : MonoBehaviour
     {
         [SerializeField] private GameCore _gameCore;
         public PlayerCore PlayerCore;
         public CharacterData MonsterData;
-        public MonsterAnimationController AnimationController;
-        public MonsterCombatController CombatController;
-        public MonsterMovementController MovementController;
-        public MonsterSkillController SkillController;
         public Canvas DynamicCanvas;
         public ItemGroundPrefab ItemGroundUIPrefab;
         public List<ItemDrop> Loot = new List<ItemDrop>();
         private int level;
 
+        private MonsterAnimationController _animationController;
+        private MonsterCombatController _combatController;
+        private MonsterSkillController _skillController;
+        private MonsterMovementController _movementController;
+        private MonsterUIController _UIController;
+        private MonsterSFXController _SFXController;
+
 
         public CharacterState DeadState;
+
+        public MonsterAnimationController AnimationController { get => _animationController; }
+        public MonsterCombatController CombatController { get => _combatController;}
+        public MonsterSkillController SkillController { get => _skillController; }
+        public MonsterMovementController MovementController { get => _movementController; }
+        public MonsterUIController UIController { get => _UIController; }
+        public MonsterSFXController SFXController { get => _SFXController; }
+
         public void Start()
         {
             Initialize();
@@ -50,10 +63,13 @@ namespace Harvesting
         private void Initialize()
         {
             _gameCore = _gameCore ? _gameCore : FindObjectOfType<GameCore>();
-            AnimationController = GetComponent<MonsterAnimationController>();
-            CombatController = GetComponent<MonsterCombatController>();
-            MovementController = GetComponent<MonsterMovementController>();
-            SkillController = GetComponent<MonsterSkillController>();
+
+            _animationController = GetComponent<MonsterAnimationController>();
+            _combatController = GetComponent<MonsterCombatController>();
+            _skillController = GetComponent<MonsterSkillController>();
+            _movementController = GetComponent<MonsterMovementController>();
+            _UIController = GetComponent<MonsterUIController>();
+            _SFXController = GetComponent<MonsterSFXController>();
         }
     }
 }

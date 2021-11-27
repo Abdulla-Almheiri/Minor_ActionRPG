@@ -44,7 +44,7 @@ namespace Harvesting {
 
         public void OnTriggerEnter(Collider other)
         {
-            if (ImpactSkills.Count != 0 && other.gameObject.GetComponent<Monster>())
+            if (ImpactSkills.Count != 0 && other.gameObject.GetComponent<MonsterNEW>())
             {
                 foreach(Skill skill in ImpactSkills)
                 {
@@ -57,7 +57,7 @@ namespace Harvesting {
                 Destroy(gameObject);
             }
 
-            var monster = other.GetComponent<Monster>();
+            var monster = other.GetComponent<MonsterNEW>();
             if (monster != null)
             {
                 TriggerSkillActions(Performer, monster);

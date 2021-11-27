@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace Harvesting
 {
-    public class Monster : MonoBehaviour
+    public class MonsterNEW : MonoBehaviour
     {
 
         public FloatingCombatTextManager CombatText;

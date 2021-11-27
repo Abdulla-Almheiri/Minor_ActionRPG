@@ -10,140 +10,79 @@ namespace Harvesting {
     [RequireComponent(typeof(PlayerAnimationController))]
     [RequireComponent(typeof(PlayerCombatController))]
     [RequireComponent(typeof(PlayerSkillController))]
+    [RequireComponent(typeof(PlayerItemController))]
     [RequireComponent(typeof(PlayerMovementController))]
     [RequireComponent(typeof(PlayerUIController))]
     [RequireComponent(typeof(PlayerSFXController))]
 
     public class PlayerCore : MonoBehaviour
     {
+        [SerializeField] private PlayerTemplate _playerTemplate;
+        private GameCore _gameCore;
+        private PlayerAnimationController _playerAnimationController;
+        private PlayerCombatController _playerCombatController;
+        private PlayerSkillController _playerSkillController;
+        private PlayerItemController _playerItemController;
+        private PlayerMovementController _playerMovementController;
+        private PlayerUIController _playerUIController;
+        private PlayerSFXController _playerSFXController;
+
+        private Player _player;
+
         public PlayerData PlayerData;
         public GameObject CharacterScreen;
         public LayerMask ItemUILayer;
-        [EventRef, SerializeField]
-        public string FootStepsSound = default;
-        [EventRef, SerializeField]
-        public string ItemPickupSound = default;
-        private FMOD.Studio.EventInstance footstepSoundEvent;
-        private FMOD.Studio.EventInstance itemPickupSoundEvent;
 
-        public PlayerAnimationController AnimationController;
-        public PlayerCombatController CombatController;
-        public PlayerSkillController SkillController;
-        public PlayerMovementController MovementController;
-        public PlayerUIController UIController;
         public Inventory Inventory;
         public ItemTemplate StartingItem;
-        public List<Modifier> Stats;
-        public List<Modifier> TemporaryEnhancements;
 
-        private float itemPickupCooldown = 0.1f;
-        private float itemPickupTimer = 0.1f;
+        private bool _initialized = false;
+
+        public PlayerAnimationController PlayerAnimationController { get => _playerAnimationController; }
+        public PlayerCombatController PlayerCombatController { get => _playerCombatController; }
+        public PlayerSkillController PlayerSkillController { get => _playerSkillController; }
+        public PlayerItemController PlayerItemController { get => _playerItemController; }
+        public PlayerMovementController PlayerMovementController { get => _playerMovementController; }
+        public PlayerUIController PlayerUIController { get => _playerUIController; }
+        public PlayerSFXController PlayerSFXController { get => _playerSFXController; }
 
         public void Start()
         {
-            footstepSoundEvent  = RuntimeManager.CreateInstance(FootStepsSound);
-            itemPickupSoundEvent = RuntimeManager.CreateInstance(ItemPickupSound);
-            // FMODUnity.RuntimeManager.AttachInstanceToGameObject(sound, gameObject.transform);
-            footstepSoundEvent.start();
-            
-
-            itemPickupTimer = itemPickupCooldown;
-            //Inventory.Fill(null);
-            MovementController = GetComponent<PlayerMovementController>();
-            /*Inventory = new Inventory();
-            Inventory.AddItem(StartingItem, 0);*/
-
-            Debug.Log("The name of the Attribute is :   " + CoreAttributes.Health.name);
-        }
-
-        public void ToggleCharacterScreen()
-        {
-            CharacterScreen?.SetActive(!CharacterScreen.activeSelf);
+            Initialize();
         }
 
         public void Update()
         {
-            if(MovementController.IsRunning())
+            if(!_initialized)
             {
-                footstepSoundEvent.setVolume(1f);
-            } else
-            {
-                footstepSoundEvent.setVolume(0f);
+                Initialize();
+                _initialized = true;
             }
-
-            if(MovementController.IsRunning())
-            {
-
-            }
-            if (itemPickupTimer > 0)
-            {
-                itemPickupTimer -= Time.deltaTime;
-            }
+            UpdatePlayerUI();
 
 
-            if(Input.GetKeyUp(KeyCode.I))
-            {
-                ToggleCharacterScreen();
-            }
-            //Debug.Log("PICKIP ::           " + PickUpItem());
-            HandleItemsPickup();
-        }
-        public bool HandleItemsPickup()
-        {
-            if(itemPickupTimer> 0)
-            {
-                return false;
-            }
-
-            if (Input.GetMouseButton(0))
-            {
-                
-                var pointerEventData = new PointerEventData(EventSystem.current);
-                pointerEventData.position = Input.mousePosition;
-                var raycastResults = new List<RaycastResult>();
-                EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-
-                if (raycastResults.Count > 0)
-                {
-                    
-                    foreach (RaycastResult result in raycastResults)
-                    {
-                        if(result.gameObject.GetComponentInChildren<ItemGroundPrefab>() != null && Vector3.Distance(result.gameObject.GetComponent<ItemGroundPrefab>().WorldPosition, transform.position) < 2f)
-                        {
-                            //Debug.Log("ITEM GROUND FOUND!!!!");
-                            if (result.gameObject.GetComponent<ItemGroundPrefab>().PickUp(this) == true)
-                            {
-                                CharacterScreen.GetComponentInChildren<InventoryUIScript>().UpdateUI();
-                                itemPickupTimer = itemPickupCooldown;
-                                PlayItemSound();
-                                return true;
-                            }
-                            return false;
-                        }
-                    }
-                       
-                }
-                /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                RaycastHit rayHit;
-
-                if (Physics.Raycast(ray, out rayHit, ItemUILayer))
-                {
-                    Debug.Log("RAYCAST ITEM HIT");
-                    var itemPrefab = rayHit.collider.GetComponent<ItemGroundPrefab>();
-                    if (itemPrefab != null)
-                    {
-                        return itemPrefab.PickUp(this);
-                    }
-                }*/
-            }
-            return false;
         }
 
 
-        private void PlayItemSound()
+        private void UpdatePlayerUI()
         {
-            itemPickupSoundEvent.start();
+            //UIController.UpdateHealthPercentage(_character.HealthPercentage());
+            //print("Health Percentage is  :   " + _player.HealthPercentage());
+        }
+
+        private void Initialize()
+        {
+            _gameCore = FindObjectOfType<GameCore>();
+            _player = new Player(_playerTemplate);
+            _playerAnimationController = GetComponent<PlayerAnimationController>();
+            _playerCombatController = GetComponent<PlayerCombatController>();
+            _playerSkillController = GetComponent<PlayerSkillController>();
+            _playerItemController = GetComponent<PlayerItemController>();
+            _playerMovementController = GetComponent<PlayerMovementController>();
+            _playerUIController = GetComponent<PlayerUIController>();
+            _playerSFXController = GetComponent<PlayerSFXController>();
+
+            //_player.TakeDamage(30f);
         }
     }
 }

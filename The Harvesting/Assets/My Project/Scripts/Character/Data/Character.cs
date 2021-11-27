@@ -7,18 +7,62 @@ namespace Harvesting
     /// <summary>
     /// Character Class. Contains Character game data.
     /// </summary>
-    public class Character
+    public abstract class Character
     {
-        public int Level;
-        public CharacterModifier Health;
-        public CharacterModifier Mana;
+        private bool dead = false;
+        private int _level;
+        public CharacterModifier _health;
+        private float _currentHealth;
+        public CharacterModifier _mana;
+        private float _currentMana;
+
+        private CharacterModifier _healthRegen;
+        private CharacterModifier _manaRegen;
+
+        private CharacterModifier _attackSpeed;
+        private CharacterModifier _movementSpeed;
+
+        private CharacterModifier _criticalChance;
+        private CharacterModifier _criticalDamage;
+
+        private CharacterModifier _damageTakenReduction;
+        private CharacterModifier _damageDoneIncrease;
+
 
         public Dictionary<Attribute, CharacterModifier> Attributes;
-        public Dictionary<EquipmentSlotType, Item> Equipments;
 
-        private float health;
-        private float mana;
+        
+        protected Character()
+        {
 
+        }
+        
+       public Character(CharacterTemplate characterTemplate)
+        {
+            _health.Base.FlatValue = characterTemplate.Health;
+            _mana.Base.FlatValue = characterTemplate.Mana;
+
+            _healthRegen.Base.FlatValue = characterTemplate.HealthRegen;
+            _manaRegen.Base.FlatValue = characterTemplate.ManaRegen;
+
+            _attackSpeed.Base.FlatValue = characterTemplate.AttackSpeed;
+            _movementSpeed.Base.FlatValue = characterTemplate.MovementSpeed;
+
+            _criticalChance.Base.FlatValue = characterTemplate.CriticalChance;
+            _criticalDamage.Base.FlatValue = characterTemplate.CriticalDamage;
+
+            _damageTakenReduction.Base.FlatValue = characterTemplate.DamageTakenReduction;
+            _damageDoneIncrease.Base.FlatValue = characterTemplate.DamageDoneIncrease;
+
+            foreach(AttributeFloat mod in characterTemplate.Attributes)
+            {
+                Attributes[mod.Attribute] = new CharacterModifier(mod.Value);
+            }
+
+            BoundHealth();
+            BoundMana();
+        }
+       
         public void ReceiveSkillAction(Character performer, SkillAction skillAction)
         {
            
@@ -28,7 +72,7 @@ namespace Harvesting
         {
             foreach(Attribute attribute in coreAttributes.AdditionalAttributes)
             {
-                Attributes[attribute] = new CharacterModifier();
+                Attributes[attribute] = new CharacterModifier(0);
             }
         }
 
@@ -38,46 +82,49 @@ namespace Harvesting
             return mod.FinalValue();
         }
 
-        private void TakeDamage(float amount)
+        public void TakeDamage(float amount)
         {
-            health -= amount;
+            _currentHealth -= amount;
             BoundHealth();
         }
 
         private void GetHealed(float amount)
         {
-            health += amount;
+            _currentHealth += amount;
             BoundHealth();
         }
 
         private void BoundHealth()
         {
-            var value = Health.FinalValue();
+            var value = _health.FinalValue();
 
-            if(health > value)
+            if(_currentHealth > value)
             {
-                health = value;
-            } else if(health < 0)
+                _currentHealth = value;
+            } else if(_currentHealth < 0)
             {
-                health = 0;
+                _currentHealth = 0;
             }
         }
 
         private void BoundMana()
         {
-            var value = Mana.FinalValue();
+            var value = _mana.FinalValue();
 
-            if (mana > value)
+            if (_currentMana > value)
             {
-                mana= value;
+                _currentMana= value;
             }
-            else if (mana < 0)
+            else if (_currentMana < 0)
             {
-                mana = 0;
+                _currentMana = 0;
             }
         }
 
-
+        public float HealthPercentage()
+        {
+            return _currentHealth / _health.FinalValue();
+        }
      
     }
 }

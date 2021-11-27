@@ -9,39 +9,32 @@ namespace Harvesting
     public class PlayerMovementController : MonoBehaviour
     {
         
-        private PlayerCore playerCore;
+        private PlayerCore _playerCore;
         private PlayerCombatController combatController;
         private PlayerSkillController skillController;
         private PlayerAnimationController animationController;
         private Animator animator;
         private NavMeshAgent navAgent;
         public LayerMask Layer;
-        void Start()
+        private void Awake()
         {
-            navAgent = gameObject.GetComponent<NavMeshAgent>();
-            navAgent.updateRotation = true;
-            navAgent.autoRepath = true;
-            combatController = GetComponent<PlayerCombatController>();
-            skillController = GetComponent<PlayerSkillController>();
-            animationController = GetComponent<PlayerAnimationController>();
-
-            animator = GetComponentInChildren<Animator>();
+            Initialize();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
             MoveToMouse();
         }
 
         public void MoveToMouse()
         {
-            var currentState = combatController.CurrentCharacterState();
+            var currentState = _playerCore?.PlayerCombatController?.CurrentCharacterState();
+
             //currentState.PrintDebugValues();
-            if(!currentState.CanMove)
+           /* if(!currentState.CanMove)
             {
                 return;
-            }
+            }*/
 
 
 
@@ -66,6 +59,19 @@ namespace Harvesting
         public bool IsRunning()
         {
             return (navAgent.remainingDistance >= navAgent.stoppingDistance);
+        }
+
+        private void Initialize()
+        {
+            _playerCore = GetComponent<PlayerCore>();
+            navAgent = gameObject.GetComponent<NavMeshAgent>();
+            navAgent.updateRotation = true;
+            navAgent.autoRepath = true;
+            combatController = _playerCore.PlayerCombatController;
+            skillController = GetComponent<PlayerSkillController>();
+            animationController = GetComponent<PlayerAnimationController>();
+
+            animator = GetComponentInChildren<Animator>();
         }
     }
 }

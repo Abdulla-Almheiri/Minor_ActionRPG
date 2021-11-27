@@ -16,20 +16,47 @@ namespace Harvesting
 
         private FloatingCombatTextManager _combatTextManager;
 
+        private GameDialogueController _gameDialogueController;
+        private GameInputController _gameInputController;
+        private GameItemsController _gameItemsController;
+        private GameLevelController _gameLevelController;
+        private GameMonsterSpawnController _gameMonsterSpawnController;
+        private GameNPCController _gameNPCController;
+        private GameQuestController _gameQuestController;
+        private GameSaveLoadController _gameSaveLoadController;
+        private GameTutorialController _gameTutorialController;
+        private GameUIController _gameUIController;
+
+
+
         public Camera Camera { get => _camera; }
         public Canvas StaticCanvas { get => _staticCanvas; }
         public Canvas DynamicCanvas { get => _dynamicCanvas; }
         public PlayerCore PlayerCore { get => _playerCore; }
         public CoreAttributes CoreAttributes { get => _coreAttributes; }
 
+
+        public GameDialogueController GameDialogueController { get => _gameDialogueController; }
+        public GameInputController GameInputController { get => _gameInputController; }
+        public GameItemsController GameItemsController { get => _gameItemsController; }
+        public GameLevelController GameLevelController { get => _gameLevelController; }
+        public GameMonsterSpawnController GameMonsterSpawnController { get => _gameMonsterSpawnController; }
+        public GameNPCController GameNPCController { get => _gameNPCController; }
+        public GameQuestController GameQuestController { get => _gameQuestController; }
+        public GameSaveLoadController GameSaveLoadController { get => _gameSaveLoadController; }
+        public GameTutorialController GameTutorialController { get => _gameTutorialController; }
+        public GameUIController GameUIController { get => _gameUIController; }
+
+
         void Awake()
         {
-            InitializeAwake();
+            //InitializeAwake();
         }
 
         private void Start()
         {
-            InitializeStart();
+            Initialize();
+            //InitializeStart();
         }
 
         void Update()
@@ -48,6 +75,26 @@ namespace Harvesting
         private void InitializeStart()
         {
             _playerCore = _playerCore ? _playerCore : FindObjectOfType<PlayerCore>();
+        }
+
+        private void Initialize()
+        {
+            _playerCore = _playerCore ? _playerCore : FindObjectOfType<PlayerCore>();
+
+            _camera = _camera ? _camera : Camera.main;
+            _combatTextManager = GetComponent<FloatingCombatTextManager>();
+            _coreAttributes = _coreAttributes ? _coreAttributes : FindObjectOfType<CoreAttributes>();
+
+            _gameDialogueController = GetComponent<GameDialogueController>();
+            _gameInputController = GetComponent<GameInputController>();
+            _gameItemsController = GetComponent<GameItemsController>();
+            _gameLevelController = GetComponent<GameLevelController>();
+            _gameMonsterSpawnController = GetComponent<GameMonsterSpawnController>();
+            _gameNPCController = GetComponent<GameNPCController>();
+            _gameQuestController = GetComponent<GameQuestController>();
+            _gameSaveLoadController = GetComponent<GameSaveLoadController>();
+            _gameTutorialController = GetComponent<GameTutorialController>();
+            _gameUIController = GetComponent<GameUIController>();
         }
     }
 }

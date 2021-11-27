@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Harvesting
 {
     [System.Serializable]
-    public struct CharacterModifier
+    public class CharacterModifier
     {
         public MyModifier Base, Equipment, Skills;
         public float FinalValue()
@@ -17,6 +17,11 @@ namespace Harvesting
             value *= (100f + Skills.Percentage) / 100f;
 
             return value;
+        }
+
+        public CharacterModifier(float baseValue)
+        {
+            Base.FlatValue = baseValue;
         }
 
     }

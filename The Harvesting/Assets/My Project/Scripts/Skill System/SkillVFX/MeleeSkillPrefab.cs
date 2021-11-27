@@ -31,17 +31,17 @@ namespace Harvesting
 
         public void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.GetComponentInChildren<Monster>())
+            if (other.gameObject.GetComponentInChildren<MonsterNEW>())
             {
-                monstersInCollider.Add(other.gameObject.GetComponentInChildren<Monster>());
-                TriggerSkillActions(Performer, other.gameObject.GetComponentInChildren<Monster>());
+                monstersInCollider.Add(other.gameObject.GetComponentInChildren<MonsterNEW>());
+                TriggerSkillActions(Performer, other.gameObject.GetComponentInChildren<MonsterNEW>());
             }
             
         }
 
         public void OnTriggerExit(Collider other)
         {
-            monstersInCollider.Remove(other.gameObject.GetComponentInChildren<Monster>());
+            monstersInCollider.Remove(other.gameObject.GetComponentInChildren<MonsterNEW>());
         }
     }
 }

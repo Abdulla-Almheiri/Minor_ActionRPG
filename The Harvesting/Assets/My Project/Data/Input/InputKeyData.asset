@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d2f7ccd1ac900b47921d09bc2eb53bc, type: 3}
-  m_Name: PlayerTemplate
+  m_Script: {fileID: 11500000, guid: 102c6f47eb6268a4a857f908da32093d, type: 3}
+  m_Name: InputKeyData
   m_EditorClassIdentifier: 
-  BaseAttributes: {fileID: 11400000, guid: beada438842288946a90f73d13deb753, type: 2}
-  Animations:
-  - {fileID: 11400000, guid: 4680b3bd397b0704da19eb9cbe003492, type: 2}
+  CharacterScreen: 105
+  Skill1: 49
+  Skill2: 50
+  Skill3: 51
+  Skill4: 52
+  Skill5: 53

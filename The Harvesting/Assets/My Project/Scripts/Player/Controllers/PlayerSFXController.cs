@@ -7,6 +7,7 @@ namespace Harvesting
 {
     public class PlayerSFXController : MonoBehaviour
     {
+        private PlayerCore _playerCore;
         [EventRef, SerializeField]
         public string FootStepsSound = default;
         [EventRef, SerializeField]
@@ -15,21 +16,51 @@ namespace Harvesting
         private FMOD.Studio.EventInstance itemPickupSoundEvent;
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
-
+            Initialize();
         }
 
         // Update is called once per frame
         void Update()
         {
+            /*if (_playerCore.PlayerMovementController.IsRunning())
+            {
+                footstepSoundEvent.setVolume(1f);
+            }
+            else
+            {
+                footstepSoundEvent.setVolume(0f);
+            }
 
+            if (_playerCore.PlayerMovementController.IsRunning())
+            {
+
+            }*/
         }
 
-        private void InitilizeSFX()
+        private void InitializeSFX()
         {
             footstepSoundEvent = RuntimeManager.CreateInstance(FootStepsSound);
             itemPickupSoundEvent = RuntimeManager.CreateInstance(ItemPickupSound);
+            footstepSoundEvent.start();
+
+        }
+
+        public void PlayItemSound()
+        {
+            itemPickupSoundEvent.start();
+        }
+
+        private void Initialize()
+        {
+            _playerCore = GetComponent<PlayerCore>();
+            if (_playerCore == null) print("Player Core is NULL!!!!!!");
+
+            footstepSoundEvent = RuntimeManager.CreateInstance(FootStepsSound);
+            itemPickupSoundEvent = RuntimeManager.CreateInstance(ItemPickupSound);
+            // FMODUnity.RuntimeManager.AttachInstanceToGameObject(sound, gameObject.transform);
+            footstepSoundEvent.start();
         }
     }
 }

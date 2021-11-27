@@ -7,7 +7,7 @@ namespace Harvesting {
     [RequireComponent(typeof(PlayerCore))]
     public class PlayerSkillController : MonoBehaviour
     {
-        public PlayerCore PlayerCore;
+        private PlayerCore _playerCore;
         private PlayerCombatController combatController;
         private PlayerAnimationController animationController;
 
@@ -22,8 +22,20 @@ namespace Harvesting {
         private NavMeshAgent navMeshAgent;
         private float[] cooldowns;
 
-        void Start()
+        void Awake()
         {
+            Initialize();
+        }
+
+        void Update()
+        {
+           // HandleInput();
+            HandleCooldown();
+        }
+
+        public void Initialize()
+        {
+            _playerCore = GetComponent<PlayerCore>();
             Player.Initialize();
             combatController = GetComponent<PlayerCombatController>();
             animationController = GetComponent<PlayerAnimationController>();
@@ -33,13 +45,8 @@ namespace Harvesting {
             skillCheckTimer = SkillCooldownCheckRate;
         }
 
-        void Update()
-        {
-            HandleInput();
-            HandleCooldown();
-        }
 
-        public void RotateToMouseDirection()
+        private void RotateToMouseDirection()
         {
             animationController.Animator.SetBool("Running", false);
             if (/*!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()*/ true)
@@ -93,7 +100,7 @@ namespace Harvesting {
             }
 
             animationController.Animator.SetBool("Running", false);
-            animationController.Animator.SetTrigger("Cast4");
+            animationController.Animator.SetTrigger(skill.PlayerAnimation.AnimationHash());
 
 
 

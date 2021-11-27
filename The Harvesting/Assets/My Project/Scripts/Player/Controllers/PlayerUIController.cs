@@ -4,18 +4,27 @@ using UnityEngine;
 
 namespace Harvesting
 {
+    [RequireComponent(typeof(PlayerCore))]
     public class PlayerUIController : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        [SerializeField] private PlayerStatsUIScript _playerStatsUI;
+        [SerializeField] private GameObject _characterScreen;
 
+        public GameObject CharacterScreen { get => _characterScreen; }
+
+        public void UpdateHealthPercentage(float percentage)
+        {
+            _playerStatsUI.UpdateHealthPercentage(percentage);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void UpdateManaPercentage(float percentage)
         {
+            _playerStatsUI.UpdateManaPercentage(percentage);
+        }
 
+        public void ToggleCharacterScreen()
+        {
+            _characterScreen?.SetActive(!_characterScreen.activeSelf);
         }
     }
 }
