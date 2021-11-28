@@ -15,7 +15,7 @@ namespace Harvesting
     {
         [SerializeField] private GameCore _gameCore;
         public PlayerCore PlayerCore;
-        public CharacterData MonsterData;
+        public CharacterStats MonsterData;
         public Canvas DynamicCanvas;
         public ItemGroundPrefab ItemGroundUIPrefab;
         public List<ItemDrop> Loot = new List<ItemDrop>();

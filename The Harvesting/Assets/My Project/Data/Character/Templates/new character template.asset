@@ -13,20 +13,39 @@ MonoBehaviour:
   m_Name: new character template
   m_EditorClassIdentifier: 
   Level: 1
+  AttributePercentageIncrementPerLevel: 20
   Health: 100
   Mana: 30
   HealthRegen: 0
   ManaRegen: 0
+  Strength: 5
+  Intellect: 5
+  Faith: 5
+  Dexterity: 5
+  Power: 5
   AttackSpeed: 0
   MovementSpeed: 1
   CriticalChance: 5
   CriticalDamage: 100
-  DamageTakenReduction: 0
-  DamageDoneIncrease: 0
-  Attributes: []
+  AllDamageTakenReduction: 0
+  AllDamageDoneIncrease: 0
+  Attributes:
+  - Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
+    Value: 5
+  - Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
+    Value: 5
+  - Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
+    Value: 5
+  - Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
+    Value: 5
+  - Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
+    Value: 5
+  - Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
+    Value: 5
   InteractAnimation: {fileID: 0}
   WalkAnimation: {fileID: 0}
   DeathAnimation: {fileID: 0}
   AttackAnimations: []
+  CastAnimations: []
   HitAnimations: []
   BlockAnimations: []

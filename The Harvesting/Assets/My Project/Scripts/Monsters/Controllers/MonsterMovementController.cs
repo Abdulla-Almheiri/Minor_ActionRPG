@@ -7,7 +7,7 @@ namespace Harvesting
 {
     public class MonsterMovementController : MonoBehaviour
     {
-        public CharacterData MonsterData;
+        public CharacterStats MonsterData;
         public MonsterAnimationController AnimationController;
         public MonsterCombatController CombatController;
         public MonsterSkillController SkillController;

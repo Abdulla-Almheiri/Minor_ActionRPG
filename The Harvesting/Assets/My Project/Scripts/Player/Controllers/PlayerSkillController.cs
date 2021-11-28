@@ -5,11 +5,16 @@ using UnityEngine.AI;
 
 namespace Harvesting {
     [RequireComponent(typeof(PlayerCore))]
+    [RequireComponent(typeof(PlayerAnimationController))]
+    [RequireComponent(typeof(PlayerCombatController))]
+    [RequireComponent(typeof(PlayerMovementController))]
+
     public class PlayerSkillController : MonoBehaviour
     {
         private PlayerCore _playerCore;
-        private PlayerCombatController combatController;
-        private PlayerAnimationController animationController;
+        private PlayerCombatController _playerCombatController;
+        private PlayerAnimationController _playerAnimationController;
+        private PlayerMovementController _playerMovementController;
 
         public PlayerData Player;
         public LayerMask Layer;
@@ -19,10 +24,9 @@ namespace Harvesting {
         private float skillCheckTimer;
         public float GlobalCooldown = 0.5f;
         private float GlobalSkillTimer = 0f;
-        private NavMeshAgent navMeshAgent;
         private float[] cooldowns;
 
-        void Awake()
+        void Start()
         {
             Initialize();
         }
@@ -36,11 +40,11 @@ namespace Harvesting {
         public void Initialize()
         {
             _playerCore = GetComponent<PlayerCore>();
-            Player.Initialize();
-            combatController = GetComponent<PlayerCombatController>();
-            animationController = GetComponent<PlayerAnimationController>();
+            _playerCombatController = GetComponent<PlayerCombatController>();
+            _playerAnimationController = GetComponent<PlayerAnimationController>();
+            _playerMovementController = GetComponent<PlayerMovementController>();
 
-            navMeshAgent = GetComponent<NavMeshAgent>();
+            //Player.Initialize();
             cooldowns = new float[20];
             skillCheckTimer = SkillCooldownCheckRate;
         }
@@ -48,7 +52,7 @@ namespace Harvesting {
 
         private void RotateToMouseDirection()
         {
-            animationController.Animator.SetBool("Running", false);
+            _playerAnimationController.Animator.SetBool("Running", false);
             if (/*!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()*/ true)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -74,7 +78,7 @@ namespace Harvesting {
 
 
             // TO DO : Character state and Animation checks
-            CharacterState characterState = combatController.CurrentCharacterState();
+            CharacterState characterState = _playerCombatController.CurrentCharacterState();
 
 
 
@@ -99,8 +103,9 @@ namespace Harvesting {
                 return;
             }
 
-            animationController.Animator.SetBool("Running", false);
-            animationController.Animator.SetTrigger(skill.PlayerAnimation.AnimationHash());
+            _playerAnimationController.Animator.SetBool("Running", false);
+            var animationHash = skill.PlayerAnimation.AnimationHash();
+            _playerAnimationController.Animator.SetTrigger(animationHash);
 
 
 
@@ -128,7 +133,7 @@ namespace Harvesting {
 
             if (Player != null)
             {
-                skill?.Activate(Player, location ? location : transform);
+                skill?.Activate(_playerCore.Player, location ? location : transform);
             }
 
         }
@@ -142,7 +147,7 @@ namespace Harvesting {
 
 
             // TO DO : Character state and Animation checks
-            CharacterState characterState = combatController.CurrentCharacterState();
+            CharacterState characterState = _playerCombatController.CurrentCharacterState();
 
             
 
@@ -167,8 +172,8 @@ namespace Harvesting {
                 yield break;
             }
 
-            animationController.Animator.SetBool("Running", false);
-            animationController.Animator.SetTrigger("Cast4");
+            _playerAnimationController.Animator.SetBool("Running", false);
+            _playerAnimationController.Animator.SetTrigger("Cast4");
             
             
 
@@ -190,8 +195,8 @@ namespace Harvesting {
             }
 
             cooldowns[number] = skill.RechargeTime;
-            yield return new WaitForSeconds(skill.PlayerAnimation.ImpactPointSeconds()/animationController.Animator.speed);
-            skill?.Activate(Player, location);
+            yield return new WaitForSeconds(skill.PlayerAnimation.ImpactPointSeconds()/_playerAnimationController.Animator.speed);
+            skill?.Activate(_playerCore.Player, location);
             
         }
 

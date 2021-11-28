@@ -12,30 +12,33 @@ namespace Harvesting
         public float AttributeAmount;
         public bool IsPercentage = true;
         public Attribute Attribute;
-        public override bool Evaluate(CharacterData performer)
+        public override bool Evaluate(Character character)
         {
-            var modifier = performer.BaseAttributes.Find(x => x.Attribute == Attribute);
-            if(modifier != null)
+            if(IsPercentage)
             {
-                if(IsPercentage == true)
+                var percent = character.HealthPercentage();
+
+                if (AttributeComparison == AttributeComparison.Above)
                 {
-                    var percentage = modifier.Value / modifier.MaxValue;
-                    if(AttributeComparison == AttributeComparison.Above && percentage > AttributeAmount)
-                    {
-                        return true;
-                    } else if (AttributeComparison == AttributeComparison.Below && percentage < AttributeAmount)
-                    {
-                        return true;
-                    }
-                } else if (AttributeComparison == AttributeComparison.Above)
-                {
-                    return modifier.Value > AttributeAmount;
+                    return percent >= AttributeAmount;
                 } else
                 {
-                    return modifier.Value < AttributeAmount;
+                    return character.HealthPercentage() < AttributeAmount;
+                }
+            } else
+            {
+                var amount = character.Attributes[Attribute].FinalValue();
+
+                if (AttributeComparison == AttributeComparison.Above)
+                {
+                    return amount >= AttributeAmount;
+                }
+                else
+                {
+                    return amount < AttributeAmount;
                 }
             }
-            return false;
+
         }
     }
 

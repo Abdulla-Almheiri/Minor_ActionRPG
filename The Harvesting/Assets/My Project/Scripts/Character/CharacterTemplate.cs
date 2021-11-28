@@ -5,8 +5,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-   [System.Serializable]
-    public class CharacterTemplate 
+    public class CharacterTemplate : ScriptableObject
     {
         [Header("Primary Attributes")]
         public int Level = 1;
@@ -30,8 +29,8 @@ namespace Harvesting
         public float CriticalChance = 5f;
         public float CriticalDamage = 100f;
 
-        public float DamageTakenReduction = 0f;
-        public float DamageDoneIncrease = 0f;
+        public float AllDamageTakenReduction = 0f;
+        public float AllDamageDoneIncrease = 0f;
 
         [Header("Secondary Attributes")]
         public List<AttributeFloat> Attributes;

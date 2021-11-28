@@ -9,7 +9,7 @@ namespace Harvesting
     public abstract class SkillPrefab : MonoBehaviour
     {
         [HideInInspector]
-        public CharacterData Performer;
+        public Character Performer;
         public List<Skill> ImpactSkills;
         protected List<MonsterNEW> monstersInCollider = new List<MonsterNEW>();
         protected int NumberOfEnemiesHit = 0;
@@ -17,7 +17,7 @@ namespace Harvesting
         [HideInInspector]
         public List<SkillAction> SkillActions = new List<SkillAction>();
 
-        public void TriggerSkillActions(CharacterData attacker, MonsterNEW monster)
+        public void TriggerSkillActions(Character attacker, MonsterNEW monster)
         {
             if (monster != null)
             {
@@ -40,7 +40,7 @@ namespace Harvesting
             }
         }
 
-        public void TriggerSkillAction(SkillAction action, CharacterData attacker, MonsterNEW monster)
+        public void TriggerSkillAction(SkillAction action, Character attacker, MonsterNEW monster)
         {
             action.Trigger(attacker, monster);
         }

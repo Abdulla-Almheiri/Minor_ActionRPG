@@ -8,10 +8,12 @@ namespace Harvesting
     public class PlayerInputController : MonoBehaviour
     {
         private PlayerCore _playerCore;
+        private PlayerSkillController _playerSkillController;
+
         [SerializeField] private InputKeyData _inputKeyData;
 
         private KeyCode _characterScreenKeyCode = KeyCode.I;
-        private void Awake()
+        private void Start()
         {
             Initialize();
 
@@ -30,10 +32,10 @@ namespace Harvesting
 
             if(Input.GetKeyDown(_inputKeyData.Skill1))
             {
-                _playerCore?.PlayerSkillController?.ActivateSkill(1);
+                _playerSkillController.ActivateSkill(1);
             }
 
-            if (Input.GetKeyDown(_inputKeyData.Skill2))
+           /* if (Input.GetKeyDown(_inputKeyData.Skill2))
             {
                 _playerCore.PlayerSkillController.ActivateSkill(2);
             }
@@ -61,12 +63,13 @@ namespace Harvesting
             if (Input.GetKeyDown(_inputKeyData.Skill7))
             {
                 _playerCore.PlayerSkillController.ActivateSkill(7);
-            }
+            }*/
         }
 
         public void Initialize()
         {
             _playerCore = GetComponent<PlayerCore>();
+            _playerSkillController = GetComponent<PlayerSkillController>();
         }
     }
 }

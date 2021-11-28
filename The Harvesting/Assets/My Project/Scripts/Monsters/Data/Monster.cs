@@ -30,7 +30,7 @@ namespace Harvesting
             health -= amount;
         }
 
-        public void TakeDamage(SkillAction action, CharacterData attacker, bool isCritical)
+        public void TakeDamage(SkillAction action, CharacterStats attacker, bool isCritical)
         {
             if(killed)
             {

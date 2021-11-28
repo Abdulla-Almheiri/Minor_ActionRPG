@@ -6,6 +6,7 @@ namespace Harvesting
 {
     public interface IDamageable 
     {
-        public void TakeDamage(float amount);
+        float Health { get; }
+        bool ReceiveDamage(SkillAction skillAction);
     }
 }

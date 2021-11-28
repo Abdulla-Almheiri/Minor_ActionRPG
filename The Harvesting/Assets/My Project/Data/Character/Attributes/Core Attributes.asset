@@ -12,5 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acf17939aea1544f848553fbb846be0, type: 3}
   m_Name: Core Attributes
   m_EditorClassIdentifier: 
-  Attributes: []
-  MyHealth: {fileID: 0}
+  _level: {fileID: 11400000, guid: ebb43f14a22425b43937e130b6275d00, type: 2}
+  _experiencePoints: {fileID: 11400000, guid: bd2c2010805a52849890b1a314f129a7, type: 2}
+  _health: {fileID: 11400000, guid: 1b6042619a7de634b901d88129c96298, type: 2}
+  _mana: {fileID: 11400000, guid: 1f5ab68538f7edc46a0afcec22196e83, type: 2}
+  _healthRegen: {fileID: 11400000, guid: 18424ae73539f2142b3ed868c1ea4176, type: 2}
+  _manaRegen: {fileID: 11400000, guid: a365f676c0ecb5743926539ac15f1dde, type: 2}
+  _strength: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
+  _intellect: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
+  _dexterity: {fileID: 11400000, guid: 57cd4647891c1574eab5f783414cae03, type: 2}
+  _faith: {fileID: 11400000, guid: d44ad0cb712860f48a976b6890183737, type: 2}
+  _power: {fileID: 11400000, guid: 566de4f2d355935459b4cb8c0f6d92b9, type: 2}
+  _criticalChance: {fileID: 11400000, guid: 6509e36426e1bec4fa39088109f8d6d9, type: 2}
+  _criticalDamage: {fileID: 11400000, guid: bec4acdb77964404989f67257526da1d, type: 2}
+  _attackSpeed: {fileID: 11400000, guid: a6c78051dc28dfe4095c7d3514c47597, type: 2}
+  _movementSpeed: {fileID: 11400000, guid: 3e10785a6c2fafe47a20d7562a422d91, type: 2}
+  _allDamageTakenReduction: {fileID: 11400000, guid: 8dde60065ba9ba04185e6dda9c0d2204, type: 2}
+  _allDamageDoneIncrease: {fileID: 11400000, guid: 560a8555c4f334448913afe5c33271c2, type: 2}
+  _secondaryAttributes:
+  - {fileID: 11400000, guid: a2e167ded6b1f3a4ca2e0aa2b3587ab6, type: 2}

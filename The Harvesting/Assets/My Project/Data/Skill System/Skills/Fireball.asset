@@ -39,7 +39,7 @@ MonoBehaviour:
     ActionType: 0
     Element: {fileID: 0}
     CharacterStatusEffect: {fileID: 0}
-    DamageStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 11400000, guid: a6c81f59cfc5ac6488dd02303d30010c, type: 2}
     OnMonsterEffect: {fileID: 0}
     Modifier:
       Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}

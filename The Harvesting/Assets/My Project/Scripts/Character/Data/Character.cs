@@ -9,74 +9,44 @@ namespace Harvesting
     /// </summary>
     public abstract class Character
     {
-        private bool dead = false;
-        private int _level;
-        public CharacterModifier _health;
-        private float _currentHealth;
-        public CharacterModifier _mana;
-        private float _currentMana;
+        public CoreAttributes CoreAttributes;
+        protected bool dead = false;
+        protected int _level;
+        protected CharacterModifier _health;
+        protected float _currentHealth;
+        protected CharacterModifier _mana;
+        protected float _currentMana;
 
-        private CharacterModifier _healthRegen;
-        private CharacterModifier _manaRegen;
+        protected CharacterModifier _healthRegen;
+        protected CharacterModifier _manaRegen;
 
-        private CharacterModifier _attackSpeed;
-        private CharacterModifier _movementSpeed;
+        protected CharacterModifier _attackSpeed;
+        protected CharacterModifier _movementSpeed;
 
-        private CharacterModifier _criticalChance;
-        private CharacterModifier _criticalDamage;
+        protected CharacterModifier _criticalChance;
+        protected CharacterModifier _criticalDamage;
 
-        private CharacterModifier _damageTakenReduction;
-        private CharacterModifier _damageDoneIncrease;
+        protected CharacterModifier _damageTakenReduction;
+        protected CharacterModifier _damageDoneIncrease;
 
 
         public Dictionary<Attribute, CharacterModifier> Attributes;
-
-        
-        protected Character()
+        protected Dictionary<SkillAction, StatusEffectSource> _statusEffects;
+        protected Character(CharacterCore characterCore, CoreAttributes coreAttributes, CharacterTemplate characterTemplate)
         {
-
+            coreAttributes.InitializeCharacter(this, characterTemplate);
         }
         
-       public Character(CharacterTemplate characterTemplate)
-        {
-            _health.Base.FlatValue = characterTemplate.Health;
-            _mana.Base.FlatValue = characterTemplate.Mana;
-
-            _healthRegen.Base.FlatValue = characterTemplate.HealthRegen;
-            _manaRegen.Base.FlatValue = characterTemplate.ManaRegen;
-
-            _attackSpeed.Base.FlatValue = characterTemplate.AttackSpeed;
-            _movementSpeed.Base.FlatValue = characterTemplate.MovementSpeed;
-
-            _criticalChance.Base.FlatValue = characterTemplate.CriticalChance;
-            _criticalDamage.Base.FlatValue = characterTemplate.CriticalDamage;
-
-            _damageTakenReduction.Base.FlatValue = characterTemplate.DamageTakenReduction;
-            _damageDoneIncrease.Base.FlatValue = characterTemplate.DamageDoneIncrease;
-
-            foreach(AttributeFloat mod in characterTemplate.Attributes)
-            {
-                Attributes[mod.Attribute] = new CharacterModifier(mod.Value);
-            }
-
-            BoundHealth();
-            BoundMana();
-        }
+ 
        
         public void ReceiveSkillAction(Character performer, SkillAction skillAction)
         {
            
         }
 
-        public Character(CoreAttributes coreAttributes, CharacterTemplate characterTemplate)
-        {
-            foreach(Attribute attribute in coreAttributes.AdditionalAttributes)
-            {
-                Attributes[attribute] = new CharacterModifier(0);
-            }
-        }
 
-        public float Attribute(Attribute attribute)
+
+        public float AttributeValue(Attribute attribute)
         {
             CharacterModifier mod = Attributes[attribute];
             return mod.FinalValue();
@@ -88,13 +58,18 @@ namespace Harvesting
             BoundHealth();
         }
 
-        private void GetHealed(float amount)
+        public bool Equip(Item item)
+        {
+            return false;
+        }
+
+        protected void GetHealed(float amount)
         {
             _currentHealth += amount;
             BoundHealth();
         }
 
-        private void BoundHealth()
+        protected void BoundHealth()
         {
             var value = _health.FinalValue();
 
@@ -107,7 +82,7 @@ namespace Harvesting
             }
         }
 
-        private void BoundMana()
+        protected void BoundMana()
         {
             var value = _mana.FinalValue();
 
@@ -124,6 +99,18 @@ namespace Harvesting
         public float HealthPercentage()
         {
             return _currentHealth / _health.FinalValue();
+        }
+
+        public bool AddStatusEffect(StatusEffect statusEffect, Character character, SkillAction skillAction)
+        {
+            StatusEffectSource source = new StatusEffectSource(character, skillAction);
+
+            return false;
+        }
+
+        public void Update()
+        {
+
         }
      
     }

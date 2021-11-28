@@ -291,7 +291,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCore: {fileID: 0}
   PlayerCore: {fileID: 1923106486}
-  MonsterData: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -314,7 +313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f2c55ba22179545bba9da9b56eeaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   AnimationController: {fileID: 0}
   CombatController: {fileID: 0}
   SkillController: {fileID: 0}
@@ -343,7 +341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a897089fd985c0b4280e7fa315bec995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   MonsterCore: {fileID: 57994967}
   MonsterAI: {fileID: 11400000, guid: 973dddf9cbe350943bfcec4c890ae233, type: 2}
   AnimationController: {fileID: 0}
@@ -480,7 +477,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCore: {fileID: 0}
   PlayerCore: {fileID: 1923106486}
-  MonsterData: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -503,7 +499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f2c55ba22179545bba9da9b56eeaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   AnimationController: {fileID: 0}
   CombatController: {fileID: 0}
   SkillController: {fileID: 0}
@@ -532,7 +527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a897089fd985c0b4280e7fa315bec995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   MonsterCore: {fileID: 62671092}
   MonsterAI: {fileID: 11400000, guid: 973dddf9cbe350943bfcec4c890ae233, type: 2}
   AnimationController: {fileID: 0}
@@ -567,15 +561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54ef59fec0cf2747a0f606e14cac416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatText: {fileID: 337809952}
-  DynamicCanvas: {fileID: 1381770594}
-  HealthBarUIPrefab: {fileID: 0}
-  slider: {fileID: 0}
-  sliderSpawn: {fileID: 0}
-  MaxHealth: 100
-  health: 100
-  MonsterCore: {fileID: 62671092}
-  killed: 0
 --- !u!135 &62671098
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -635,15 +620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54ef59fec0cf2747a0f606e14cac416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatText: {fileID: 337809952}
-  DynamicCanvas: {fileID: 1381770594}
-  HealthBarUIPrefab: {fileID: 1356394733488356834, guid: 14af7e25234ff4a40842d6f4a68e6c71, type: 3}
-  slider: {fileID: 0}
-  sliderSpawn: {fileID: 0}
-  MaxHealth: 100
-  health: 100
-  MonsterCore: {fileID: 1064599318}
-  killed: 0
 --- !u!95 &88027288
 Animator:
   serializedVersion: 3
@@ -1284,7 +1260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCore: {fileID: 0}
   PlayerCore: {fileID: 1923106486}
-  MonsterData: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -1307,7 +1282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f2c55ba22179545bba9da9b56eeaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   AnimationController: {fileID: 0}
   CombatController: {fileID: 0}
   SkillController: {fileID: 0}
@@ -1336,7 +1310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a897089fd985c0b4280e7fa315bec995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   MonsterCore: {fileID: 164765895}
   MonsterAI: {fileID: 11400000, guid: 973dddf9cbe350943bfcec4c890ae233, type: 2}
   AnimationController: {fileID: 0}
@@ -2321,7 +2294,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCore: {fileID: 0}
   PlayerCore: {fileID: 1923106486}
-  MonsterData: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -2344,7 +2316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f2c55ba22179545bba9da9b56eeaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   AnimationController: {fileID: 0}
   CombatController: {fileID: 0}
   SkillController: {fileID: 0}
@@ -2373,7 +2344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a897089fd985c0b4280e7fa315bec995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   MonsterCore: {fileID: 388522814}
   MonsterAI: {fileID: 11400000, guid: 973dddf9cbe350943bfcec4c890ae233, type: 2}
   AnimationController: {fileID: 0}
@@ -2724,15 +2694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54ef59fec0cf2747a0f606e14cac416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatText: {fileID: 337809952}
-  DynamicCanvas: {fileID: 1381770594}
-  HealthBarUIPrefab: {fileID: 1356394733488356834, guid: 14af7e25234ff4a40842d6f4a68e6c71, type: 3}
-  slider: {fileID: 0}
-  sliderSpawn: {fileID: 0}
-  MaxHealth: 100
-  health: 100
-  MonsterCore: {fileID: 388522814}
-  killed: 0
 --- !u!95 &519972845
 Animator:
   serializedVersion: 3
@@ -2880,7 +2841,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCore: {fileID: 0}
   PlayerCore: {fileID: 1923106486}
-  MonsterData: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -2903,7 +2863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f2c55ba22179545bba9da9b56eeaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   AnimationController: {fileID: 0}
   CombatController: {fileID: 0}
   SkillController: {fileID: 0}
@@ -2932,7 +2891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a897089fd985c0b4280e7fa315bec995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   MonsterCore: {fileID: 571605718}
   MonsterAI: {fileID: 11400000, guid: 973dddf9cbe350943bfcec4c890ae233, type: 2}
   AnimationController: {fileID: 0}
@@ -3207,15 +3165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54ef59fec0cf2747a0f606e14cac416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatText: {fileID: 337809952}
-  DynamicCanvas: {fileID: 1381770594}
-  HealthBarUIPrefab: {fileID: 1356394733488356834, guid: 14af7e25234ff4a40842d6f4a68e6c71, type: 3}
-  slider: {fileID: 0}
-  sliderSpawn: {fileID: 0}
-  MaxHealth: 100
-  health: 100
-  MonsterCore: {fileID: 1310579161}
-  killed: 0
 --- !u!95 &678310886
 Animator:
   serializedVersion: 3
@@ -3615,15 +3564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54ef59fec0cf2747a0f606e14cac416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatText: {fileID: 337809952}
-  DynamicCanvas: {fileID: 1381770594}
-  HealthBarUIPrefab: {fileID: 1356394733488356834, guid: 14af7e25234ff4a40842d6f4a68e6c71, type: 3}
-  slider: {fileID: 0}
-  sliderSpawn: {fileID: 0}
-  MaxHealth: 100
-  health: 100
-  MonsterCore: {fileID: 571605718}
-  killed: 0
 --- !u!95 &814717002
 Animator:
   serializedVersion: 3
@@ -5761,7 +5701,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCore: {fileID: 0}
   PlayerCore: {fileID: 1923106486}
-  MonsterData: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -5784,7 +5723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f2c55ba22179545bba9da9b56eeaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   AnimationController: {fileID: 0}
   CombatController: {fileID: 0}
   SkillController: {fileID: 0}
@@ -5813,7 +5751,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a897089fd985c0b4280e7fa315bec995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   MonsterCore: {fileID: 1064599318}
   MonsterAI: {fileID: 11400000, guid: 973dddf9cbe350943bfcec4c890ae233, type: 2}
   AnimationController: {fileID: 0}
@@ -6092,7 +6029,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCore: {fileID: 0}
   PlayerCore: {fileID: 1923106486}
-  MonsterData: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -6115,7 +6051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f2c55ba22179545bba9da9b56eeaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   AnimationController: {fileID: 0}
   CombatController: {fileID: 0}
   SkillController: {fileID: 0}
@@ -6144,7 +6079,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a897089fd985c0b4280e7fa315bec995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   MonsterCore: {fileID: 1140117710}
   MonsterAI: {fileID: 11400000, guid: 973dddf9cbe350943bfcec4c890ae233, type: 2}
   AnimationController: {fileID: 0}
@@ -6433,7 +6367,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCore: {fileID: 0}
   PlayerCore: {fileID: 1923106486}
-  MonsterData: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -6456,7 +6389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f2c55ba22179545bba9da9b56eeaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   AnimationController: {fileID: 0}
   CombatController: {fileID: 0}
   SkillController: {fileID: 0}
@@ -6485,7 +6417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a897089fd985c0b4280e7fa315bec995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterData: {fileID: 0}
   MonsterCore: {fileID: 1310579161}
   MonsterAI: {fileID: 11400000, guid: 973dddf9cbe350943bfcec4c890ae233, type: 2}
   AnimationController: {fileID: 0}
@@ -7120,15 +7051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54ef59fec0cf2747a0f606e14cac416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatText: {fileID: 337809952}
-  DynamicCanvas: {fileID: 1381770594}
-  HealthBarUIPrefab: {fileID: 1356394733488356834, guid: 14af7e25234ff4a40842d6f4a68e6c71, type: 3}
-  slider: {fileID: 0}
-  sliderSpawn: {fileID: 0}
-  MaxHealth: 100
-  health: 100
-  MonsterCore: {fileID: 62671092}
-  killed: 0
 --- !u!135 &1412851205
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8078,15 +8000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54ef59fec0cf2747a0f606e14cac416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatText: {fileID: 337809952}
-  DynamicCanvas: {fileID: 1381770594}
-  HealthBarUIPrefab: {fileID: 1356394733488356834, guid: 14af7e25234ff4a40842d6f4a68e6c71, type: 3}
-  slider: {fileID: 0}
-  sliderSpawn: {fileID: 0}
-  MaxHealth: 100
-  health: 100
-  MonsterCore: {fileID: 57994967}
-  killed: 0
 --- !u!95 &1622206278
 Animator:
   serializedVersion: 3
@@ -8157,15 +8070,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54ef59fec0cf2747a0f606e14cac416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatText: {fileID: 337809952}
-  DynamicCanvas: {fileID: 1381770594}
-  HealthBarUIPrefab: {fileID: 1356394733488356834, guid: 14af7e25234ff4a40842d6f4a68e6c71, type: 3}
-  slider: {fileID: 0}
-  sliderSpawn: {fileID: 0}
-  MaxHealth: 100
-  health: 100
-  MonsterCore: {fileID: 164765895}
-  killed: 0
 --- !u!95 &1656047065
 Animator:
   serializedVersion: 3
@@ -8252,15 +8156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54ef59fec0cf2747a0f606e14cac416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatText: {fileID: 337809952}
-  DynamicCanvas: {fileID: 1381770594}
-  HealthBarUIPrefab: {fileID: 1356394733488356834, guid: 14af7e25234ff4a40842d6f4a68e6c71, type: 3}
-  slider: {fileID: 0}
-  sliderSpawn: {fileID: 0}
-  MaxHealth: 100
-  health: 100
-  MonsterCore: {fileID: 1140117710}
-  killed: 0
 --- !u!95 &1724271206
 Animator:
   serializedVersion: 3
@@ -8404,7 +8299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab34251e6e08a384a82b0e9366104b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerData: {fileID: 11400000, guid: e400a413d413ef6488e0fc4753334b51, type: 2}
   DefaultSprite: {fileID: 21300000, guid: 4577422e0179c3c4bb926c5afc0e1dfc, type: 3}
   Icons:
   - {fileID: 1116181941}
@@ -9196,7 +9090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d42dac94578a54f8e4085889cf8894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 11400000, guid: e400a413d413ef6488e0fc4753334b51, type: 2}
   Layer:
     serializedVersion: 2
     m_Bits: 16640
@@ -9250,7 +9143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTemplate: {fileID: 11400000, guid: 7dfc2b069f2aa5641acfb8a46216fa7b, type: 2}
-  PlayerData: {fileID: 11400000, guid: e400a413d413ef6488e0fc4753334b51, type: 2}
   CharacterScreen: {fileID: 845669238}
   ItemUILayer:
     serializedVersion: 2
@@ -9272,7 +9164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerStatsUI: {fileID: 1719979653}
-  _characterScreen: {fileID: 0}
+  _characterScreen: {fileID: 845669238}
 --- !u!114 &1923106488
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,11 +45,13 @@ namespace Harvesting {
         public PlayerMovementController PlayerMovementController { get => _playerMovementController; }
         public PlayerUIController PlayerUIController { get => _playerUIController; }
         public PlayerSFXController PlayerSFXController { get => _playerSFXController; }
+        public Player Player { get => _player; }
 
         public void Start()
         {
             Initialize();
         }
+
 
         public void Update()
         {
@@ -73,7 +75,7 @@ namespace Harvesting {
         private void Initialize()
         {
             _gameCore = FindObjectOfType<GameCore>();
-            _player = new Player(_playerTemplate);
+            //_player = new Player (_playerTemplate.CharacterTemplate);
             _playerAnimationController = GetComponent<PlayerAnimationController>();
             _playerCombatController = GetComponent<PlayerCombatController>();
             _playerSkillController = GetComponent<PlayerSkillController>();

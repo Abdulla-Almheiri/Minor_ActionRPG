@@ -48,17 +48,17 @@ namespace Harvesting
         /// <param name="attacker"> Performer </param>
         /// <param name="receiver"></param>
         /// <returns></returns>
-        public float Value(CharacterData attacker, MonsterNEW receiver)
+        public float Value(CharacterStats attacker, MonsterNEW receiver)
         {
             if(attacker == null)
             {
                 return 0;
             }
 
-            var modifier = attacker.BaseAttributes.Find(x => x.Attribute == Modifier.Attribute);
+            var modifier = attacker.Attributes[Modifier.Attribute];
             if (modifier != null)
             {
-                return Modifier.Percentage * modifier.Value / 100f;
+                return Modifier.Percentage * modifier.FinalValue() / 100f;
             } else
             {
                 return 0;
@@ -66,7 +66,7 @@ namespace Harvesting
 
         }
         
-        public void Trigger(CharacterData attacker, MonsterNEW monster)
+        public void Trigger(Character attacker, MonsterNEW monster)
         {
 
             if(Random.Range(0, 100) > TriggerChance)
@@ -78,10 +78,10 @@ namespace Harvesting
             switch(ActionType)
             {
                 case ActionType.Damage:
-                    var modifier = attacker.BaseAttributes.Find(x => x.Attribute == Modifier.Attribute);
+                    var modifier = attacker.Attributes[Modifier.Attribute];
                     if (modifier != null)
                     {
-                        var amount = Modifier.Value + (Modifier.Percentage * modifier.Value / 100f);
+                        var amount = Modifier.Value + (Modifier.Percentage * modifier.FinalValue() / 100f);
                         if(Modifier.MaxValue != 0 && amount > Modifier.MaxValue)
                         {
                             amount = Modifier.MaxValue;
@@ -89,9 +89,9 @@ namespace Harvesting
 
                         // Critical 
 
-                        if (Random.Range(0, 100) < attacker.BaseAttributes.Find(x => x.Attribute.name == "CriticalChance").Percentage)
+                        if (Random.Range(0, 100) < attacker.Attributes[attacker.CoreAttributes.CriticalChance].FinalValue())
                         {
-                            var multiplier = 1f + (attacker.BaseAttributes.Find(x => x.Attribute.name == "CriticalDamage").Percentage / 100f);
+                            var multiplier = 1f + (attacker.Attributes[attacker.CoreAttributes.CriticalDamage].FinalValue() / 100f);
                             amount *= multiplier;
                             isCritical = true;
                         }

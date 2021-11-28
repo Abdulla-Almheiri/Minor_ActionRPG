@@ -6,11 +6,16 @@ namespace Harvesting
 {
     public class Player : Character
     {
+        private PlayerCore _playerCore;
+
         private Dictionary<EquipmentSlotType, Item> _equipment;
         private List<ProgressionSkill> _progressionSkills;
-        public Player(PlayerTemplate playerTemplate) : base(playerTemplate.CharacterTemplate)
+        private Dictionary<object, StatusEffect> _StatusEffects;
+        public Player(PlayerCore playerCore, CoreAttributes coreAttributes, PlayerTemplate playerTemplate) : base(null, coreAttributes, playerTemplate)
         {
             
+            BoundHealth();
+            BoundMana();
         }
 
     }
