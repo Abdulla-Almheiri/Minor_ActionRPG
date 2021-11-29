@@ -21,6 +21,7 @@ namespace Harvesting
 
         private Animator _animator;
 
+        public LayerMask Layer { get => _layer; }
 
         private void Start()
         {

@@ -13,6 +13,8 @@ namespace Harvesting
         [SerializeField] private Canvas _dynamicCanvas;
         [SerializeField] private PlayerCore _playerCore;
         [SerializeField] private CoreAttributes _coreAttributes;
+        [SerializeField] private CombatSettings _combatSettings;
+
 
         private FloatingCombatTextManager _combatTextManager;
 
@@ -46,7 +48,7 @@ namespace Harvesting
         public GameSaveLoadController GameSaveLoadController { get => _gameSaveLoadController; }
         public GameTutorialController GameTutorialController { get => _gameTutorialController; }
         public GameUIController GameUIController { get => _gameUIController; }
-
+        public CombatSettings CombatSettings { get => _combatSettings; }
 
         void Awake()
         {

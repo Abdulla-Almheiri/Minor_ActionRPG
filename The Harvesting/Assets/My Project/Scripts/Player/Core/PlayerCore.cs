@@ -18,7 +18,7 @@ namespace Harvesting {
     public class PlayerCore : CharacterCore
     {
         [SerializeField] private PlayerTemplate _playerTemplate;
-        private GameManager _gameManager;
+        [SerializeField] private GameManager _gameManager;
         private PlayerAnimationController _playerAnimationController;
         private PlayerCombatController _playerCombatController;
         private PlayerSkillController _playerSkillController;
@@ -46,7 +46,12 @@ namespace Harvesting {
         public PlayerUIController PlayerUIController { get => _playerUIController; }
         public PlayerSFXController PlayerSFXController { get => _playerSFXController; }
         public Player Player { get => _player; }
+        public GameManager GameManager { get => _gameManager; }
 
+        protected void Awake()
+        {
+            _player = new Player(this, _gameManager.CoreAttributes, _playerTemplate);
+        }
         public void Start()
         {
             Initialize();
@@ -77,6 +82,7 @@ namespace Harvesting {
 
         private void Initialize()
         {
+            
             _playerAnimationController = GetComponent<PlayerAnimationController>();
             _playerCombatController = GetComponent<PlayerCombatController>();
             _playerSkillController = GetComponent<PlayerSkillController>();
@@ -85,7 +91,7 @@ namespace Harvesting {
             _playerUIController = GetComponent<PlayerUIController>();
             _playerSFXController = GetComponent<PlayerSFXController>();
 
-            _player = new Player(this, _coreAttributes, _playerTemplate);
+            
 
             _playerUIController.DisplaySkillsUI();
 

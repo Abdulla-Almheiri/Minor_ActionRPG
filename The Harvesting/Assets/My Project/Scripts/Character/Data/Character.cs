@@ -9,7 +9,7 @@ namespace Harvesting
     /// </summary>
     public abstract class Character
     {
-        public CoreAttributes CoreAttributes;
+        protected CoreAttributes _coreAttributes;
         protected bool dead = false;
         protected CharacterModifier _level;
         protected CharacterModifier _health;
@@ -35,18 +35,22 @@ namespace Harvesting
         protected CharacterModifier _allDamageTakenReduction;
         protected CharacterModifier _allDamageDoneIncrease;
 
+        protected List<Skill> _abilities = new List<Skill>();
+        public List<Skill> Abilities { get => _abilities; }
 
-        private Dictionary<Attribute, CharacterModifier> _attributes = new Dictionary<Attribute, CharacterModifier>();
+        protected Dictionary<Attribute, CharacterModifier> _attributes = new Dictionary<Attribute, CharacterModifier>();
         protected Dictionary<SkillAction, SkillActionSource> _statusEffects;
 
         protected CharacterModifier Level { get => _level; }
         public Dictionary<Attribute, CharacterModifier> Attributes { get => _attributes; }
+        public CoreAttributes CoreAttributes { get => _coreAttributes; }
 
         protected Character(CharacterCore characterCore, CoreAttributes coreAttributes, CharacterTemplate characterTemplate)
         {
             //coreAttributes.InitializeCharacter(this, characterTemplate);
+            _coreAttributes = coreAttributes;
 
-            /*_attributes[coreAttributes.Level] = new CharacterModifier(characterTemplate.Level, coreAttributes.Level);
+            _attributes[coreAttributes.Level] = new CharacterModifier(characterTemplate.Level, coreAttributes.Level);
             _attributes[coreAttributes.Health] = new CharacterModifier(characterTemplate.Health, coreAttributes.Health);
             _attributes[coreAttributes.Mana] = new CharacterModifier(characterTemplate.Mana, coreAttributes.Mana);
 
@@ -66,15 +70,17 @@ namespace Harvesting
             _attributes[coreAttributes.MovementSpeed] = new CharacterModifier(characterTemplate.MovementSpeed, coreAttributes.MovementSpeed);
 
             _attributes[coreAttributes.AllDamageTakenReduction] = new CharacterModifier(characterTemplate.AllDamageTakenReduction, coreAttributes.AllDamageTakenReduction);
-            _attributes[coreAttributes.AllDamageDoneIncrease] = new CharacterModifier(characterTemplate.AllDamageDoneIncrease, coreAttributes.AllDamageDoneIncrease);*/
+            _attributes[coreAttributes.AllDamageDoneIncrease] = new CharacterModifier(characterTemplate.AllDamageDoneIncrease, coreAttributes.AllDamageDoneIncrease);
 
+            _currentHealth = _attributes[coreAttributes.Health].FinalValue();
+            _currentMana = _attributes[coreAttributes.Mana].FinalValue();
 
+            /*
             _level = new CharacterModifier(characterTemplate.Level, coreAttributes.Level);
             _health = new CharacterModifier(characterTemplate.Health, coreAttributes.Health);
             _mana = new CharacterModifier(characterTemplate.Mana, coreAttributes.Mana);
 
-            _currentHealth = _health.FinalValue();
-            _currentMana = _mana.FinalValue();
+
             Debug.Log("Health  :   " + _currentHealth + " / " + _health.FinalValue());
             _strength = new CharacterModifier(characterTemplate.Strength, coreAttributes.Strength);
             _intellect = new CharacterModifier(characterTemplate.Intellect, coreAttributes.Intellect);
@@ -93,8 +99,8 @@ namespace Harvesting
 
             _allDamageTakenReduction = new CharacterModifier(characterTemplate.AllDamageTakenReduction, coreAttributes.AllDamageTakenReduction);
             _allDamageDoneIncrease = new CharacterModifier(characterTemplate.AllDamageDoneIncrease, coreAttributes.AllDamageDoneIncrease);
-
-
+            */
+            
             BoundHealth();
             BoundMana();
         }
@@ -130,7 +136,7 @@ namespace Harvesting
 
         protected void BoundHealth()
         {
-            var value = _health.FinalValue();
+            var value = _attributes[_coreAttributes.Health].FinalValue();
 
             if(_currentHealth > value)
             {
@@ -143,7 +149,7 @@ namespace Harvesting
 
         protected void BoundMana()
         {
-            var value = _mana.FinalValue();
+            var value = _attributes[_coreAttributes.Mana].FinalValue();
 
             if (_currentMana > value)
             {
@@ -157,12 +163,12 @@ namespace Harvesting
 
         public float HealthPercentage()
         {
-            return _currentHealth / _health.FinalValue();
+            return _currentHealth / _attributes[_coreAttributes.Health].FinalValue();
         }
 
         public float ManaPercentage()
         {
-            return _currentMana / _mana.FinalValue();
+            return _currentMana / _attributes[_coreAttributes.Mana].FinalValue();
         }
 
         public bool AddStatusEffect(StatusEffect statusEffect, Character character, SkillAction skillAction)

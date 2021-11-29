@@ -8,6 +8,7 @@ namespace Harvesting
     public abstract class CharacterAnimationController : MonoBehaviour
     {
         protected Animator _animator;
+        protected LayerMask _layer;
 
         public Animator Animator { get => _animator; }
 
@@ -21,5 +22,24 @@ namespace Harvesting
         }
 
         protected abstract void HandleRunningAnimation();
+
+        public void RotateToMouseDirection()
+        {
+            _animator.SetBool("Running", false);
+            if (/*!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()*/ true)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                RaycastHit rayHit;
+
+                if (Physics.Raycast(ray, out rayHit, _layer))
+                {
+                    var direction = (rayHit.point - transform.position);
+                    direction.y = 0;
+                    direction = direction.normalized;
+                    transform.rotation = Quaternion.LookRotation(direction);
+                }
+            }
+        }
     }
 }

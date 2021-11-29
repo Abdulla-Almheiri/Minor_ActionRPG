@@ -48,7 +48,7 @@ namespace Harvesting {
             {
                 foreach(Skill skill in ImpactSkills)
                 {
-                    skill?.Activate(Performer, other.gameObject.transform);
+                    skill?.Spawn(Performer, other.gameObject.transform);
                 }
             }
 

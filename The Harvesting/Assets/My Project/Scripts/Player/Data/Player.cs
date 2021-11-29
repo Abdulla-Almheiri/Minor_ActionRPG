@@ -12,11 +12,12 @@ namespace Harvesting
         private Dictionary<EquipmentSlotType, Item> _equipment;
         private Dictionary<object, StatusEffect> _StatusEffects;
 
-        protected Skill _primaryWeaponSkill;
-        protected Skill _secondaryWeaponSkill;
-        private List<Skill> _abilities = new List<Skill>();
+        private Skill primaryWeaponSkill;
 
-        public List<Skill> Abilities { get => _abilities; }
+        private Skill secondaryWeaponSkill;
+
+        public Skill PrimaryWeaponSkill { get => primaryWeaponSkill; }
+        public Skill SecondaryWeaponSkill { get => secondaryWeaponSkill; }
 
         public Player(PlayerCore playerCore, CoreAttributes coreAttributes, PlayerTemplate playerTemplate) : base(playerCore, coreAttributes, playerTemplate)
         {
@@ -35,19 +36,21 @@ namespace Harvesting
 
         public void LevelUp(int newLevel)
         {
-            if(newLevel <= _level.FinalValue())
+            var attribute = _attributes[_coreAttributes.Level];
+
+            if (newLevel <= attribute.FinalValue())
             {
                 return;
             }
 
-            _level.BaseAdd = newLevel;
+            attribute.BaseAdd = newLevel;
         }
 
         protected void UpdateAbilities()
         {
             foreach (ProgressionSkill progressionSkill in _playerTemplate.Progression)
             {
-                if(progressionSkill.Level <= _level.FinalValue())
+                if(progressionSkill.Level <= _attributes[_coreAttributes.Level].FinalValue())
                 {
                     _abilities.Add(progressionSkill.Skill);
                 }

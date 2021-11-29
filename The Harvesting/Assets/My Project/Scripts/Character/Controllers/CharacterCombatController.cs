@@ -148,6 +148,11 @@ namespace Harvesting
                     //Debug.Log("TIMERS    :   " + _timers[i]);
                 }
             }
+
+            /*foreach(float duration in _characterStates.Values)
+            {
+
+            }*/
         }
 
         protected void RemoveAllStatesOfType(CharacterState characterState)

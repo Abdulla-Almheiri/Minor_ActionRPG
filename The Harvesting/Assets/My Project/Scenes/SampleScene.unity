@@ -2518,7 +2518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 485620417}
   m_Layer: 2
-  m_Name: VFXLocation3
+  m_Name: SpawnPointCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2532,7 +2532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485620416}
   m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -0.321, y: 1.353, z: 1.387}
+  m_LocalPosition: {x: 0, y: 0.979, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1923106479}
@@ -2744,7 +2744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &561679887
 Transform:
   m_ObjectHideFlags: 0
@@ -3079,7 +3079,7 @@ GameObject:
   - component: {fileID: 640071637}
   - component: {fileID: 640071638}
   m_Layer: 0
-  m_Name: GameCore
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3101,7 +3101,8 @@ MonoBehaviour:
   _staticCanvas: {fileID: 1540416572}
   _dynamicCanvas: {fileID: 1381770594}
   _playerCore: {fileID: 1923106486}
-  _coreAttributes: {fileID: 0}
+  _coreAttributes: {fileID: 11400000, guid: beada438842288946a90f73d13deb753, type: 2}
+  _combatSettings: {fileID: 11400000, guid: d0efeb5d4369de942a0e78ff624a3f6a, type: 2}
 --- !u!114 &640071638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7248,7 +7249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1539446287}
   m_Layer: 2
-  m_Name: VFXLocation
+  m_Name: SpawnPointHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7262,7 +7263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539446286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.321, y: 1.232, z: 1.387}
+  m_LocalPosition: {x: 0.28, y: 1.397, z: 1.485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1923106479}
@@ -9078,14 +9079,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d42dac94578a54f8e4085889cf8894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skillSpawnLocations:
+  - Location: {fileID: 1539446287}
+    LocationType: 0
+  - Location: {fileID: 485620417}
+    LocationType: 3
   Layer:
     serializedVersion: 2
     m_Bits: 16640
-  Loc1: {fileID: 1539446287}
-  Loc2: {fileID: 1502944946}
-  Loc3: {fileID: 485620417}
-  SkillCooldownCheckRate: 0
-  GlobalCooldown: 0.5
 --- !u!114 &1923106484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9125,10 +9126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc6c798706480d49b2960c4f8f8a02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coreAttributes: {fileID: 11400000, guid: beada438842288946a90f73d13deb753, type: 2}
-  _characterTemplate: {fileID: 0}
-  BaseCharacter: {fileID: 0}
   _playerTemplate: {fileID: 11400000, guid: 7dfc2b069f2aa5641acfb8a46216fa7b, type: 2}
+  _gameManager: {fileID: 640071637}
   CharacterScreen: {fileID: 845669238}
   ItemUILayer:
     serializedVersion: 2

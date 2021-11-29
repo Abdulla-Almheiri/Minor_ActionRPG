@@ -11,6 +11,7 @@ namespace Harvesting
 
         public SkillRechargeData(Skill skill, float rechargeTime)
         {
+            Skill = skill;
             RemainingRechargeTime = rechargeTime;
         }
     }

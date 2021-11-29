@@ -72,15 +72,14 @@ namespace Harvesting
 
         private void HandleSkillInput()
         {
-            for(int i = 0; i<_inputKeyData.AbilityInputKeyList.Length; i++) 
+            for(int i = 0;  i < Mathf.Min(_inputKeyData.AbilityInputKeyList.Length, _playerCore.Player.Abilities.Count);  i++ )
             {
-
-                if(Input.GetKeyDown(_inputKeyData.AbilityInputKeyList[i]))
+                if (Input.GetKeyDown(_inputKeyData.AbilityInputKeyList[i]))
                 {
-                    _playerSkillController.ActivateSkill(i);
+                    _playerSkillController.ActivateSkill(_playerCore.Player.Abilities[i]);
                 }
-
             }
         }
+
     }
 }

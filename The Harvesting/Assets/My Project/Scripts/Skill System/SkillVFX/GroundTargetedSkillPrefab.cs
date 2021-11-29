@@ -37,8 +37,6 @@ namespace Harvesting
         {
             spawn = Instantiate(TargetingCircle);
 
-
-
         }
 
         

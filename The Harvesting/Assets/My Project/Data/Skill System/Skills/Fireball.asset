@@ -18,6 +18,7 @@ MonoBehaviour:
   ManaCost: 0
   RechargeTime: 2
   DefaultVFXPrefab: {fileID: -5410691425302844247, guid: e24bdfdb8d9e59e40b0cde62ce44dc08, type: 3}
+  PlayerSpawnLocation: 0
   TriggerChance: 100
   TriggerCondition: {fileID: 0}
   FaceDirection: 1
@@ -29,7 +30,7 @@ MonoBehaviour:
   CanBeUsedWhileStunned: 0
   RemovesSilence: 0
   IsCastOnSelf: 0
-  PlayerAnimation: {fileID: 11400000, guid: d9d1563a9e2cbb44081c2e873b238667, type: 2}
+  PlayerAnimation: {fileID: 11400000, guid: f6bba69a63de2fd438d70c5b7e8dd899, type: 2}
   ImpactSkill: {fileID: 0}
   Actions:
   - TriggerCondition: {fileID: 0}

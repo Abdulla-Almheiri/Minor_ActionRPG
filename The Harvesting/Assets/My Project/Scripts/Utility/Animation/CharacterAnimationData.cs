@@ -6,14 +6,18 @@ namespace Harvesting {
     [CreateAssetMenu(fileName ="new animation data", menuName = "Data/Animation/Character Animation Data")]
     public class CharacterAnimationData : ScriptableObject
     {
+        public Animator AnimatorController;
         public AnimationClip Animation;
-        [Range(0,1)]
-        public float ImpactPoint = 0f;
+        public Transform SkillVFXSpawnPoint;
+        /*[Range(0.1f, 5f)]
+        public float AnimationSpeed = 1f;*/
+        [Range(0,1f)]
+        public float AnimationHitFramePoint = 0f;
         private int animationHash;
 
         public void OnEnable()
         {
-                animationHash = Animator.StringToHash(Animation.name);
+            animationHash = Animator.StringToHash(Animation.name);
         }
 
         public int AnimationHash()
@@ -21,9 +25,9 @@ namespace Harvesting {
             return animationHash;
         }
 
-        public float ImpactPointSeconds()
+        public float AnimationHitFrameInSeconds()
         {
-            return ImpactPoint * Animation.length;
+            return AnimationHitFramePoint * Animation.length;
         }
     }
 }

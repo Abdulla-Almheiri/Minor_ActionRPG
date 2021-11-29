@@ -32,13 +32,13 @@ namespace Harvesting
             }
         }
 
-        private void UpdateSkillsRechargeUI()
+        /*private void UpdateSkillsRechargeUI()
         {
             for(int i = 0; i< Icons.Count; i++)
             {
-                Icons[i].fillAmount = SkillController.SkillRecharge(i);
+                Icons[i].fillAmount = SkillController.SkillRecharge(i, out _);
             }
-        }
+        }*/
 
     }
 }

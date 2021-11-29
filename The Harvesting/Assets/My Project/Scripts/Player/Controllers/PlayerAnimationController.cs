@@ -16,7 +16,7 @@ namespace Harvesting
         private PlayerCombatController combatController;
         private PlayerSkillController skillController;
         private PlayerMovementController _playerMovementController;
-
+        
 
         void Awake()
         {
@@ -36,6 +36,7 @@ namespace Harvesting
             combatController = GetComponent<PlayerCombatController>();
             skillController = GetComponent<PlayerSkillController>();
             _playerMovementController = GetComponent<PlayerMovementController>();
+            _layer = _playerMovementController.Layer;
         }
 
         protected override void HandleRunningAnimation()
@@ -48,6 +49,11 @@ namespace Harvesting
             {
                 Animator.SetBool("Running", false);
             }
+        }
+
+        public void PlaySkillAnimation(Skill skill)
+        {
+            Animator.SetTrigger(skill.PlayerAnimation.AnimationHash());
         }
     }
 }

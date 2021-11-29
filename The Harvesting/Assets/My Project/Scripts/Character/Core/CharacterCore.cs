@@ -9,18 +9,8 @@ namespace Harvesting
     /// </summary>
     public abstract class CharacterCore : Core
     {
-        [SerializeField] protected CoreAttributes _coreAttributes;
-        [SerializeField] private CharacterTemplate _characterTemplate;
-
-        public CharacterTemplate BaseCharacter;
-
-
-        //Combat Attributes
-
-
-
-        //
-
+        protected CoreAttributes _coreAttributes;
+        private CharacterTemplate _characterTemplate;
 
         public CharacterAnimationController AnimationController { get => animationController;  }
         public CharacterCombatController CombatController { get => combatController;  }
@@ -43,9 +33,6 @@ namespace Harvesting
 
         }
 
-        /// <summary>
-        /// Caching the controllers. To be called in the Start() callback.
-        /// </summary>
         private void Initialize()
         {
             animationController = GetComponent<CharacterAnimationController>();

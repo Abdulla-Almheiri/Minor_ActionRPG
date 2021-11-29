@@ -2,255 +2,203 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Threading.Tasks;
 
 namespace Harvesting {
     [RequireComponent(typeof(PlayerCore))]
     [RequireComponent(typeof(PlayerAnimationController))]
     [RequireComponent(typeof(PlayerCombatController))]
     [RequireComponent(typeof(PlayerMovementController))]
+    [RequireComponent(typeof(PlayerInputController))]
 
     public class PlayerSkillController : CharacterSkillController
     {
         private PlayerCore _playerCore;
+        private Player _player;
+        private CoreAttributes _coreAttributes;
+        [SerializeField] private List<SkillSpawnLocationData> _skillSpawnLocations;
+
+        private PlayerInputController _playerInputController;
         private PlayerCombatController _playerCombatController;
         private PlayerAnimationController _playerAnimationController;
         private PlayerMovementController _playerMovementController;
 
+        protected float _elapsedTimeWeaponSkills;
+        private float _primaryWeaponSkillRechargeTimer;
+        private float _secondaryWeaponSkillRechargeTimer;
+        private bool _bothWeaponSkillsReady;
 
         public PlayerData Player;
         public LayerMask Layer;
-        public Transform Loc1, Loc2, Loc3;
-        //public SkillUIScript SkillUI;
-        public float SkillCooldownCheckRate = 0.2f;
-        private float skillCheckTimer;
-        public float GlobalCooldown = 0.5f;
-        private float GlobalSkillTimer = 0f;
-        private float[] cooldowns;
 
         void Start()
         {
             Initialize();
         }
 
-        void Update()
+        protected void Update()
         {
-           // HandleInput();
-            HandleCooldown();
+            HandleAbilityCooldownTimers();
+            HandleWeaponSkillsCooldownTimers();
         }
 
-        public void Initialize()
+        protected void Initialize()
         {
+
             _playerCore = GetComponent<PlayerCore>();
+            
+            _coreAttributes = _playerCore.GameManager.CoreAttributes;
+            _combatSettings = _playerCore.GameManager.CombatSettings;
+
             _playerCombatController = GetComponent<PlayerCombatController>();
             _playerAnimationController = GetComponent<PlayerAnimationController>();
             _playerMovementController = GetComponent<PlayerMovementController>();
+            _playerInputController = GetComponent<PlayerInputController>();
 
-            //Player.Initialize();
-            cooldowns = new float[20];
-            skillCheckTimer = SkillCooldownCheckRate;
+            _player = _playerCore.Player;
+
         }
 
 
-        private void RotateToMouseDirection()
+        public override bool ActivateSkill(Skill skill)
         {
-            _playerAnimationController.Animator.SetBool("Running", false);
-            if (/*!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()*/ true)
+            if(CanActivateSkill(skill) == false)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                RaycastHit rayHit;
-
-                if (Physics.Raycast(ray, out rayHit, Layer))
-                {
-                    var direction = (rayHit.point - transform.position);
-                    direction.y = 0;
-                    direction = direction.normalized;
-                    transform.rotation = Quaternion.LookRotation(direction);
-                }
+                return false;
             }
+
+            PutSkillOnRecharge(skill);
+
+            if (skill.FaceDirection)
+            {
+                _playerAnimationController.RotateToMouseDirection();
+            }
+
+            _playerAnimationController.PlaySkillAnimation(skill);
+            StartCoroutine(ActivateSkillCoroutine(skill, skill.PlayerAnimation.AnimationHitFrameInSeconds()));
+
+            return true;
         }
 
-        public void ActivateSkill(int number)
+        private IEnumerator ActivateSkillCoroutine(Skill skill, float delay)
         {
-            if (cooldowns[number] > 0)
+            yield return new WaitForSeconds(delay);
+            if(CanActivateSkill(skill, true) == false)
+            {
+                MakeSkillReady(skill);
+                yield break;
+            }
+
+            var spawnLocation = _skillSpawnLocations.Find(x => x.LocationType == skill.PlayerSpawnLocation).Location;
+            skill.Spawn(_player, spawnLocation);
+
+        }
+
+
+        /*private async Task WaitForTargetedSkillInput()
+        {
+
+        }*/
+
+
+        private void PutSkillOnRecharge(Skill skill)
+        {
+            var rechargeData = _usedSkills.Find(x => x.Skill == skill);
+            if (rechargeData == null)
+            {
+                _usedSkills.Add(new SkillRechargeData(skill, skill.RechargeTime));
+                return;
+            }
+
+            rechargeData.Skill = skill;
+            rechargeData.RemainingRechargeTime = skill.RechargeTime;
+        }
+
+        private void MakeSkillReady(Skill skill)
+        {
+            if (SkillRecharge(skill, out _) > MyMaths.NearZero)
             {
                 return;
             }
 
+            var result = _usedSkills.Find(x => x.Skill == skill);
+            if (result != null)
+            {
+                result.RemainingRechargeTime = 0f;
+            }
+        }
 
-            // TO DO : Character state and Animation checks
-            CharacterState characterState = _playerCombatController.CurrentCharacterState();
+        protected override bool CanActivateSkill(Skill skill, bool ignoreRecharge = false)
+        {
+            if(skill == null)
+            {
+                return false;
+            }
+            
+            if(skill.IsMovementSkill == true && _playerCombatController.CanMove() == false)
+            {
+                return false;
+            }
 
+            var isSkillReady =  SkillRecharge(skill, out _) <= MyMaths.NearZero;
+            var isPlayerAble = _playerCombatController.CanAttack();
+            return (isSkillReady || ignoreRecharge) && isPlayerAble;
+        }
 
+        public override float SkillRecharge(Skill skill, out float seconds)
+        {
 
+            if (skill == _player.PrimaryWeaponSkill)
+            {
+                seconds = skill.RechargeTime - _primaryWeaponSkillRechargeTimer;
+                return  seconds / skill.RechargeTime;
+            }
 
-            var skill = Player.Skills[number];
-            var location = transform;
-            skill.Initialize();
+            if (skill == _player.SecondaryWeaponSkill)
+            {
+                seconds = skill.RechargeTime - _primaryWeaponSkillRechargeTimer;
+                return seconds / skill.RechargeTime;
+            }
 
+            return base.SkillRecharge(skill, out seconds);
+        }
 
-            if (skill.IsMelee && characterState.CanAttack == false)
+        protected void HandleWeaponSkillsCooldownTimers()
+        {
+            if(_bothWeaponSkillsReady)
             {
                 return;
             }
 
-            if (skill.IsSpell && characterState.CanCast == false)
+            var primaryWeaponSkillCheck = _primaryWeaponSkillRechargeTimer > 0f;
+            var secondaryWeaponSkillCheck = _secondaryWeaponSkillRechargeTimer > 0f;
+
+            if (primaryWeaponSkillCheck == false && secondaryWeaponSkillCheck == false)
             {
+                _bothWeaponSkillsReady = true;
                 return;
             }
 
-            if (skill.IsMovementSkill && characterState.CanMove == false)
+            _elapsedTimeWeaponSkills += Time.deltaTime;
+
+            if (_elapsedTimeWeaponSkills >= _combatSettings.WeaponSkillCooldownCheckRate)
             {
-                return;
-            }
 
-            _playerAnimationController.Animator.SetBool("Running", false);
-            var animationHash = skill.PlayerAnimation.AnimationHash();
-            _playerAnimationController.Animator.SetTrigger(animationHash);
-
-
-
-            if (skill?.FaceDirection == true)
-            {
-                RotateToMouseDirection();
-            }
-
-            if (skill?.DefaultVFXPrefab != null)
-            {
-                if (skill.DefaultVFXPrefab is ProjectileSkillPrefab)
+                if (primaryWeaponSkillCheck)
                 {
-                    location = Loc1;
-                }
-                else if (skill.DefaultVFXPrefab is MeleeSkillPrefab)
-                {
-                    location = transform;
-                }
-            }
-
-            cooldowns[number] = skill.RechargeTime;
-
-
-            /// FIX HERE
-
-            if (Player != null)
-            {
-                skill?.Activate(_playerCore.Player, location ? location : transform);
-            }
-
-        }
-        private IEnumerator ActivationEnumerator(int number)
-        {
-            
-            if (cooldowns[number] > 0)
-            {
-                yield break;
-            }
-
-
-            // TO DO : Character state and Animation checks
-            CharacterState characterState = _playerCombatController.CurrentCharacterState();
-
-            
-
-
-            var skill = Player.Skills[number];
-            var location = transform;
-
-            
-
-            if (skill.IsMelee && characterState.CanAttack == false)
-            {
-                yield break;
-            }
-
-            if (skill.IsSpell && characterState.CanCast == false)
-            {
-                yield break;
-            }
-
-            if (skill.IsMovementSkill && characterState.CanMove == false)
-            {
-                yield break;
-            }
-
-            _playerAnimationController.Animator.SetBool("Running", false);
-            _playerAnimationController.Animator.SetTrigger("Cast4");
-            
-            
-
-            if (skill?.FaceDirection == true)
-            {
-                RotateToMouseDirection();
-            }
-
-            if (skill?.DefaultVFXPrefab != null)
-            {
-                if (skill.DefaultVFXPrefab is ProjectileSkillPrefab)
-                {
-                    location = Loc1;
-                } else if(skill.DefaultVFXPrefab is MeleeSkillPrefab)
-                {
-                    location = transform;
+                    _primaryWeaponSkillRechargeTimer -= _elapsedTimeWeaponSkills;
                 }
 
-            }
-
-            cooldowns[number] = skill.RechargeTime;
-            yield return new WaitForSeconds(skill.PlayerAnimation.ImpactPointSeconds()/_playerAnimationController.Animator.speed);
-            skill?.Activate(_playerCore.Player, location);
-            
-        }
-
-        private void HandleInput()
-        {
-            for (int i = 0; i < Player.Skills.Count; i++)
-            {
-                if (Input.GetKeyDown((KeyCode)49 + i))
+                if (secondaryWeaponSkillCheck)
                 {
-                    ActivateSkill(i);
+                    _secondaryWeaponSkillRechargeTimer -= _elapsedTimeWeaponSkills;
                 }
+
+                _elapsedTimeWeaponSkills = 0f;
             }
-        }
 
-
-        private void HandleCooldown()
-        {
-            skillCheckTimer -= Time.deltaTime;
-            if (skillCheckTimer <= 0)
-            {
-                for (int i = 0; i < cooldowns.Length; i++)
-                {
-                    cooldowns[i] -= SkillCooldownCheckRate - skillCheckTimer;
-                }
-                skillCheckTimer = SkillCooldownCheckRate;
-            }
-        }
-
-        /// <summary>
-        /// Returns skill cooldown progress. Values 0 to 1 or -1 for incorrect input.
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
-        public float SkillRecharge(int number)
-        {
-            /* if (number > cooldowns.Length || Player.Skills.Count <= number || Player.Skills[number] == null)
-             {
-                 return -1f;
-             }
-             float recharge = Player.Skills[number].RechargeTime;
-
-             if (recharge == 0)
-             {
-                 return 1f;
-             }
-
-             return Mathf.Clamp((recharge - cooldowns[number]) / recharge, 0f , 1f);*/
-
-            return 0f;
         }
     }
 
-    
-    
 
 }

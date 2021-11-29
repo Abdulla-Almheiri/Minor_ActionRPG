@@ -10,41 +10,56 @@ namespace Harvesting
         protected Dictionary<Skill, float> _skillRechargeTimes = new Dictionary<Skill, float>();
         protected List<SkillRechargeData> _usedSkills = new List<SkillRechargeData>();
 
-        protected float _elapsedTime;
+        protected float _elapsedTimeAbilities;
+
         protected virtual void Initialize(CombatSettings combatSettings)
         {
-            _combatSettings = _combatSettings ? combatSettings : FindObjectOfType<CombatSettings>();
+            _combatSettings = combatSettings;
         }
 
-        public virtual bool ActivateSkill(Skill skill)
+        public abstract bool ActivateSkill(Skill skill);
+
+        protected abstract bool CanActivateSkill(Skill skill, bool ignoreRecharge);
+
+        protected void HandleAbilityCooldownTimers()
         {
-            if(CanActivateSkill(skill) == false)
+            _elapsedTimeAbilities += Time.deltaTime;
+             if (_elapsedTimeAbilities >= _combatSettings.AbilityCooldownCheckRate)
+             {
+                 for(int i = _usedSkills.Count -1; i >= 0; i--)
+                 {
+                     var skill = _usedSkills[i];
+                     skill.RemainingRechargeTime -= _elapsedTimeAbilities;
+                     if (skill.RemainingRechargeTime <= MyMaths.NearZero)
+                     {
+                        skill.RemainingRechargeTime = 0f;
+                     }
+                 }
+
+                 _elapsedTimeAbilities = 0f;
+             }
+
+        }
+
+        public virtual float SkillRecharge(Skill skill, out float seconds)
+        {
+            if (skill.RechargeTime == 0)
             {
-                return false;
+                seconds = 0f;
+                return 0f;
             }
 
-            return false;
-        }
-
-        protected virtual bool CanActivateSkill(Skill skill)
-        {
-            return false;
-        }
-
-        protected void HandleCooldownTimers()
-        {
-            _elapsedTime += Time.deltaTime;
-            if (_elapsedTime >= _combatSettings.AbilityCooldownCheckRate)
+            var usedSkill = _usedSkills.Find(x => x.Skill == skill);
+            if (usedSkill == null)
             {
-                for(int i = _usedSkills.Count; i >= 0; i--)
-                {
-                    _usedSkills[i].RemainingRechargeTime -= _elapsedTime;
-                    _usedSkills.RemoveAt(i);
-                }
-                _elapsedTime = 0f;
+                Debug.Log("USED SKILL = NULL and _usedSkills.Count : " + _usedSkills.Count);
+                seconds = 0f;
+                return 0f;
             }
+
+            Debug.Log("END OF SKILLRECHARGE METHOD.");
+            seconds = skill.RechargeTime - usedSkill.RemainingRechargeTime;
+            return usedSkill.RemainingRechargeTime / skill.RechargeTime;
         }
-
-
     }
 }
