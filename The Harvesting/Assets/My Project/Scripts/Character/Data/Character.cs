@@ -11,11 +11,17 @@ namespace Harvesting
     {
         public CoreAttributes CoreAttributes;
         protected bool dead = false;
-        protected int _level;
+        protected CharacterModifier _level;
         protected CharacterModifier _health;
         protected float _currentHealth;
         protected CharacterModifier _mana;
         protected float _currentMana;
+
+        protected CharacterModifier _strength;
+        protected CharacterModifier _intellect;
+        protected CharacterModifier _dexterity;
+        protected CharacterModifier _faith;
+        protected CharacterModifier _power;
 
         protected CharacterModifier _healthRegen;
         protected CharacterModifier _manaRegen;
@@ -26,19 +32,75 @@ namespace Harvesting
         protected CharacterModifier _criticalChance;
         protected CharacterModifier _criticalDamage;
 
-        protected CharacterModifier _damageTakenReduction;
-        protected CharacterModifier _damageDoneIncrease;
+        protected CharacterModifier _allDamageTakenReduction;
+        protected CharacterModifier _allDamageDoneIncrease;
 
 
-        public Dictionary<Attribute, CharacterModifier> Attributes;
-        protected Dictionary<SkillAction, StatusEffectSource> _statusEffects;
+        private Dictionary<Attribute, CharacterModifier> _attributes = new Dictionary<Attribute, CharacterModifier>();
+        protected Dictionary<SkillAction, SkillActionSource> _statusEffects;
+
+        protected CharacterModifier Level { get => _level; }
+        public Dictionary<Attribute, CharacterModifier> Attributes { get => _attributes; }
+
         protected Character(CharacterCore characterCore, CoreAttributes coreAttributes, CharacterTemplate characterTemplate)
         {
-            coreAttributes.InitializeCharacter(this, characterTemplate);
+            //coreAttributes.InitializeCharacter(this, characterTemplate);
+
+            /*_attributes[coreAttributes.Level] = new CharacterModifier(characterTemplate.Level, coreAttributes.Level);
+            _attributes[coreAttributes.Health] = new CharacterModifier(characterTemplate.Health, coreAttributes.Health);
+            _attributes[coreAttributes.Mana] = new CharacterModifier(characterTemplate.Mana, coreAttributes.Mana);
+
+            _attributes[coreAttributes.Strength] = new CharacterModifier(characterTemplate.Strength, coreAttributes.Strength);
+            _attributes[coreAttributes.Intellect] = new CharacterModifier(characterTemplate.Intellect, coreAttributes.Intellect);
+            _attributes[coreAttributes.Dexterity] = new CharacterModifier(characterTemplate.Dexterity, coreAttributes.Dexterity);
+            _attributes[coreAttributes.Faith] = new CharacterModifier(characterTemplate.Faith, coreAttributes.Faith);
+            _attributes[coreAttributes.Power] = new CharacterModifier(characterTemplate.Power, coreAttributes.Power);
+
+            _attributes[coreAttributes.HealthRegen] = new CharacterModifier(characterTemplate.HealthRegen, coreAttributes.HealthRegen);
+            _attributes[coreAttributes.ManaRegen] = new CharacterModifier(characterTemplate.ManaRegen, coreAttributes.ManaRegen);
+
+            _attributes[coreAttributes.CriticalChance] = new CharacterModifier(characterTemplate.CriticalChance, coreAttributes.CriticalChance);
+            _attributes[coreAttributes.CriticalDamage] = new CharacterModifier(characterTemplate.CriticalDamage, coreAttributes.CriticalDamage);
+
+            _attributes[coreAttributes.AttackSpeed] = new CharacterModifier(characterTemplate.AttackSpeed, coreAttributes.AttackSpeed);
+            _attributes[coreAttributes.MovementSpeed] = new CharacterModifier(characterTemplate.MovementSpeed, coreAttributes.MovementSpeed);
+
+            _attributes[coreAttributes.AllDamageTakenReduction] = new CharacterModifier(characterTemplate.AllDamageTakenReduction, coreAttributes.AllDamageTakenReduction);
+            _attributes[coreAttributes.AllDamageDoneIncrease] = new CharacterModifier(characterTemplate.AllDamageDoneIncrease, coreAttributes.AllDamageDoneIncrease);*/
+
+
+            _level = new CharacterModifier(characterTemplate.Level, coreAttributes.Level);
+            _health = new CharacterModifier(characterTemplate.Health, coreAttributes.Health);
+            _mana = new CharacterModifier(characterTemplate.Mana, coreAttributes.Mana);
+
+            _currentHealth = _health.FinalValue();
+            _currentMana = _mana.FinalValue();
+            Debug.Log("Health  :   " + _currentHealth + " / " + _health.FinalValue());
+            _strength = new CharacterModifier(characterTemplate.Strength, coreAttributes.Strength);
+            _intellect = new CharacterModifier(characterTemplate.Intellect, coreAttributes.Intellect);
+            _dexterity = new CharacterModifier(characterTemplate.Dexterity, coreAttributes.Dexterity);
+            _faith = new CharacterModifier(characterTemplate.Faith, coreAttributes.Faith);
+            _power = new CharacterModifier(characterTemplate.Power, coreAttributes.Power);
+
+            _healthRegen = new CharacterModifier(characterTemplate.HealthRegen, coreAttributes.HealthRegen);
+            _manaRegen = new CharacterModifier(characterTemplate.ManaRegen, coreAttributes.ManaRegen);
+
+            _criticalChance = new CharacterModifier(characterTemplate.CriticalChance, coreAttributes.CriticalChance);
+            _criticalDamage = new CharacterModifier(characterTemplate.CriticalDamage, coreAttributes.CriticalDamage);
+
+            _attackSpeed = new CharacterModifier(characterTemplate.AttackSpeed, coreAttributes.AttackSpeed);
+            _movementSpeed = new CharacterModifier(characterTemplate.MovementSpeed, coreAttributes.MovementSpeed);
+
+            _allDamageTakenReduction = new CharacterModifier(characterTemplate.AllDamageTakenReduction, coreAttributes.AllDamageTakenReduction);
+            _allDamageDoneIncrease = new CharacterModifier(characterTemplate.AllDamageDoneIncrease, coreAttributes.AllDamageDoneIncrease);
+
+
+            BoundHealth();
+            BoundMana();
         }
-        
- 
-       
+
+
+
         public void ReceiveSkillAction(Character performer, SkillAction skillAction)
         {
            
@@ -48,7 +110,7 @@ namespace Harvesting
 
         public float AttributeValue(Attribute attribute)
         {
-            CharacterModifier mod = Attributes[attribute];
+            CharacterModifier mod = _attributes[attribute];
             return mod.FinalValue();
         }
 
@@ -58,12 +120,9 @@ namespace Harvesting
             BoundHealth();
         }
 
-        public bool Equip(Item item)
-        {
-            return false;
-        }
 
-        protected void GetHealed(float amount)
+
+        public void GetHealed(float amount)
         {
             _currentHealth += amount;
             BoundHealth();
@@ -101,9 +160,14 @@ namespace Harvesting
             return _currentHealth / _health.FinalValue();
         }
 
+        public float ManaPercentage()
+        {
+            return _currentMana / _mana.FinalValue();
+        }
+
         public bool AddStatusEffect(StatusEffect statusEffect, Character character, SkillAction skillAction)
         {
-            StatusEffectSource source = new StatusEffectSource(character, skillAction);
+            SkillActionSource source = new SkillActionSource(character, skillAction);
 
             return false;
         }

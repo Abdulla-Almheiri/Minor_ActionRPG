@@ -21,9 +21,10 @@ namespace Harvesting
             return value;
         }
 
-        public CharacterModifier(float baseValue)
+        public CharacterModifier(float baseValue, Attribute attribute)
         {
             BaseAdd = baseValue;
+            Attribute = attribute;
         }
 
         public CharacterModifier()

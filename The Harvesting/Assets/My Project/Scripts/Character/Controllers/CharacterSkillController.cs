@@ -4,18 +4,47 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public class CharacterSkillController : MonoBehaviour
+    public abstract class CharacterSkillController : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        protected CombatSettings _combatSettings;
+        protected Dictionary<Skill, float> _skillRechargeTimes = new Dictionary<Skill, float>();
+        protected List<SkillRechargeData> _usedSkills = new List<SkillRechargeData>();
 
+        protected float _elapsedTime;
+        protected virtual void Initialize(CombatSettings combatSettings)
+        {
+            _combatSettings = _combatSettings ? combatSettings : FindObjectOfType<CombatSettings>();
         }
 
-        // Update is called once per frame
-        void Update()
+        public virtual bool ActivateSkill(Skill skill)
         {
+            if(CanActivateSkill(skill) == false)
+            {
+                return false;
+            }
 
+            return false;
         }
+
+        protected virtual bool CanActivateSkill(Skill skill)
+        {
+            return false;
+        }
+
+        protected void HandleCooldownTimers()
+        {
+            _elapsedTime += Time.deltaTime;
+            if (_elapsedTime >= _combatSettings.AbilityCooldownCheckRate)
+            {
+                for(int i = _usedSkills.Count; i >= 0; i--)
+                {
+                    _usedSkills[i].RemainingRechargeTime -= _elapsedTime;
+                    _usedSkills.RemoveAt(i);
+                }
+                _elapsedTime = 0f;
+            }
+        }
+
+
     }
 }

@@ -5,13 +5,32 @@ using UnityEngine;
 namespace Harvesting
 {
     [RequireComponent(typeof(PlayerCore))]
+    [RequireComponent(typeof(PlayerCombatController))]
+
     public class PlayerUIController : MonoBehaviour
     {
+        private PlayerCore _playerCore;
         [SerializeField] private PlayerStatsUIScript _playerStatsUI;
         [SerializeField] private GameObject _characterScreen;
+        [SerializeField] private SkillUIScript _skillUIScript;
 
         public GameObject CharacterScreen { get => _characterScreen; }
 
+        private void Start()
+        {
+            Initialize();
+        }
+        private void Update()
+        {
+            UpdateHealthPercentage(_playerCore.Player.HealthPercentage());
+            UpdateManaPercentage(_playerCore.Player.ManaPercentage());
+
+        }
+
+        private void Initialize()
+        {
+            _playerCore = GetComponent<PlayerCore>();
+        }
         public void UpdateHealthPercentage(float percentage)
         {
             _playerStatsUI.UpdateHealthPercentage(percentage);
@@ -25,6 +44,11 @@ namespace Harvesting
         public void ToggleCharacterScreen()
         {
             _characterScreen?.SetActive(!_characterScreen.activeSelf);
+        }
+
+        public void DisplaySkillsUI()
+        {
+            _skillUIScript.DisplaySkillIcons();
         }
     }
 }

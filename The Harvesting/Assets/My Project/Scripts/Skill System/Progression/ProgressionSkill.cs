@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
+    [System.Serializable]
     public class ProgressionSkill 
     {
         public Skill Skill;

@@ -9,35 +9,34 @@ namespace Harvesting
     /// CharacterMovementController Monobehavior. Controlls Character movement. Requires NavMeshAgent component.
     /// </summary>
     [RequireComponent(typeof(NavMeshAgent))]
-    public class CharacterMovementController : MonoBehaviour
+    [RequireComponent(typeof(CharacterCombatController))]
+
+    public abstract class CharacterMovementController : MonoBehaviour
     {
-        private NavMeshAgent navMeshAgent;
+        protected NavMeshAgent _navMeshAgent;
 
-        public NavMeshAgent NavMeshAgent { get => navMeshAgent; }
+        public NavMeshAgent NavMeshAgent { get => _navMeshAgent; }
 
-        void Start()
+        protected void Initialize()
         {
-            Initialize();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        /// <summary>
-        /// Caching commponents.
-        /// </summary>
-        public void Initialize()
-        {
-            navMeshAgent = GetComponent<NavMeshAgent>();
-            if(navMeshAgent == null)
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+            if (_navMeshAgent == null)
             {
                 Debug.Log("No NavMeshAgent component found on CharacterCore: CharacterMovementController.");
+                return;
             }
 
+            _navMeshAgent.updateRotation = true;
+            _navMeshAgent.autoRepath = true;
+        }
+        public bool MoveToPoint(Vector3 targetPoint)
+        {
+           return  _navMeshAgent.SetDestination(targetPoint);
+        }
 
+        public bool IsRunning()
+        {
+            return (_navMeshAgent.remainingDistance >= _navMeshAgent.stoppingDistance);
         }
     }
 }

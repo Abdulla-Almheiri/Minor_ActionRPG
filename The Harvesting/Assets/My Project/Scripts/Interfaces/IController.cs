@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public interface IInitializable 
+    public interface IController : IInitializable
     {
-        void Initialize();
+        Core Core { get; }
+        void Initialize(Core core);
+
     }
 }

@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: f29192d7bfc7a7840810c6101e18bcc2, type: 2}
 --- !u!1 &16066228 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 22bf6f8e182d27047a0d8f95b269be20, type: 3}
@@ -415,7 +415,6 @@ GameObject:
   - component: {fileID: 62671095}
   - component: {fileID: 62671094}
   - component: {fileID: 62671093}
-  - component: {fileID: 62671097}
   - component: {fileID: 62671098}
   - component: {fileID: 62671100}
   - component: {fileID: 62671099}
@@ -549,18 +548,6 @@ MonoBehaviour:
   MovementController: {fileID: 0}
   SkillController: {fileID: 0}
   MonsterCore: {fileID: 62671092}
---- !u!114 &62671097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62671089}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b54ef59fec0cf2747a0f606e14cac416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &62671098
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8299,6 +8286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab34251e6e08a384a82b0e9366104b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerCore: {fileID: 1923106486}
   DefaultSprite: {fileID: 21300000, guid: 4577422e0179c3c4bb926c5afc0e1dfc, type: 3}
   Icons:
   - {fileID: 1116181941}
@@ -9045,7 +9033,7 @@ NavMeshAgent:
   m_AngularSpeed: 15000000
   m_StoppingDistance: 0.48
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: -0.12
@@ -9063,7 +9051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4523386a76f130d44bfdae47f1ddf2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Layer:
+  _layer:
     serializedVersion: 2
     m_Bits: 256
 --- !u!114 &1923106482
@@ -9096,7 +9084,6 @@ MonoBehaviour:
   Loc1: {fileID: 1539446287}
   Loc2: {fileID: 1502944946}
   Loc3: {fileID: 485620417}
-  SkillUI: {fileID: 0}
   SkillCooldownCheckRate: 0
   GlobalCooldown: 0.5
 --- !u!114 &1923106484
@@ -9126,10 +9113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StateCheckRate: 0.1
-  TestState1: {fileID: 11400000, guid: 4eee0666cc406c34e885284e3e66359e, type: 2}
-  TestDuration1: 2
-  TestState2: {fileID: 11400000, guid: fda32bbbebb8a5c438709538b65e7c91, type: 2}
-  TestDuration2: 8
 --- !u!114 &1923106486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9142,6 +9125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc6c798706480d49b2960c4f8f8a02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coreAttributes: {fileID: 11400000, guid: beada438842288946a90f73d13deb753, type: 2}
+  _characterTemplate: {fileID: 0}
+  BaseCharacter: {fileID: 0}
   _playerTemplate: {fileID: 11400000, guid: 7dfc2b069f2aa5641acfb8a46216fa7b, type: 2}
   CharacterScreen: {fileID: 845669238}
   ItemUILayer:
@@ -9165,6 +9151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerStatsUI: {fileID: 1719979653}
   _characterScreen: {fileID: 845669238}
+  _skillUIScript: {fileID: 1748561909}
 --- !u!114 &1923106488
 MonoBehaviour:
   m_ObjectHideFlags: 0

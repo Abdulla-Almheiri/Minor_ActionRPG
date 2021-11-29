@@ -5,34 +5,21 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    
-    public class CharacterAnimationController : MonoBehaviour
+    public abstract class CharacterAnimationController : MonoBehaviour
     {
-        private Animator animator;
+        protected Animator _animator;
 
-        public Animator Animator { get => animator; }
+        public Animator Animator { get => _animator; }
 
-        void Start()
+        protected virtual void Initialize(Animator animator)
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        /// <summary>
-        /// Caching required components.
-        /// </summary>
-        private void Initialize()
-        {
-            animator = GetComponentInChildren<Animator>();
-            if(animator == null)
+            _animator = animator ? animator : GetComponentInChildren<Animator>();
+            if(_animator == null)
             {
                 Debug.Log("Animator not found in children of CharacterCore: CharacterAnimationController.");
             }
         }
+
+        protected abstract void HandleRunningAnimation();
     }
 }

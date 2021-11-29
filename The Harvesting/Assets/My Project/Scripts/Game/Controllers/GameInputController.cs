@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    [RequireComponent(typeof(GameCore))]
+    [RequireComponent(typeof(GameManager))]
     public class GameInputController : MonoBehaviour
     {
         [SerializeField] private InputKeyData _inputKeyData;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    [RequireComponent(typeof(GameCore))]
+    [RequireComponent(typeof(GameManager))]
     public class GameDialogueController : MonoBehaviour
     {
         // Start is called before the first frame update

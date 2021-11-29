@@ -8,7 +8,6 @@ namespace Harvesting
     public class PlayerTemplate : CharacterTemplate
     {
         public List<ProgressionSkill> Progression;
-        public CharacterTemplate CharacterTemplate;
 
     }
 }

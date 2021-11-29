@@ -5,17 +5,15 @@ using UnityEngine;
 namespace Harvesting
 {
     [RequireComponent(typeof(PlayerCore))]
-    public class PlayerCombatController : MonoBehaviour
+    public class PlayerCombatController : CharacterCombatController
     {
+        private PlayerCore _playerCore;
+        private Player _player;
+
         public float StateCheckRate = 0.2f;
         private float stateCheckTimer = 0f;
-        private PlayerCore _playerCore;
         private PlayerAnimationController animationController;
         private PlayerSkillController skillController;
-        public CharacterState TestState1;
-        public float TestDuration1;
-        public CharacterState TestState2;
-        public float TestDuration2;
 
         private CharacterState currentState;
         private float[] currentStateDurations;
@@ -43,36 +41,20 @@ namespace Harvesting
             stateCheckTimer = StateCheckRate;
         }
 
+        private void Initialize(CombatSettings combatSettings)
+        {
+
+        }
       
         void Update()
         {
-
-            // TESTING
-
-            if(Input.GetKeyDown(KeyCode.S))
-            {
-                AddState(TestState1, TestDuration1);
-                //currentState.PrintDebugValues();
-            }
-
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                currentState = CurrentCharacterState();
-                currentState.PrintDebugValues();
-
-            }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                AddState(TestState2, TestDuration2);
-
-            }
-
-
-           // HandleStates();
             HandleStates();
         }
 
+        public PlayerCombatController()
+        {
+            print("CONSTRUCTED");
+        }
 
         /// <summary>
         /// Returns the current CharacterState.

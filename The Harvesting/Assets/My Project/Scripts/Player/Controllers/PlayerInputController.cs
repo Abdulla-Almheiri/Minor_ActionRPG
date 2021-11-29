@@ -5,71 +5,82 @@ using UnityEngine;
 namespace Harvesting
 {
     [RequireComponent(typeof(PlayerCore))]
+    [RequireComponent(typeof(PlayerMovementController))]
+    [RequireComponent(typeof(PlayerUIController))]
+    [RequireComponent(typeof(PlayerSkillController))]
+
     public class PlayerInputController : MonoBehaviour
     {
         private PlayerCore _playerCore;
+        private PlayerMovementController _playerMovementController;
+        private PlayerUIController _playerUIController;
         private PlayerSkillController _playerSkillController;
 
         [SerializeField] private InputKeyData _inputKeyData;
 
-        private KeyCode _characterScreenKeyCode = KeyCode.I;
         private void Start()
         {
             Initialize();
-
         }
-        
+
         private void Update()
         {
             HandleInput();
+
+            //TEST
+            if(Input.GetKeyDown(KeyCode.Q))
+            {
+                _playerCore.Player.TakeDamage(5f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _playerCore.Player.GetHealed(5f);
+            }
+            //TEST
         }
         private void HandleInput()
         {
-            if(Input.GetKeyDown(_characterScreenKeyCode))
-            {
-                _playerCore.PlayerUIController.ToggleCharacterScreen();
-            }
-
-            if(Input.GetKeyDown(_inputKeyData.Skill1))
-            {
-                _playerSkillController.ActivateSkill(1);
-            }
-
-           /* if (Input.GetKeyDown(_inputKeyData.Skill2))
-            {
-                _playerCore.PlayerSkillController.ActivateSkill(2);
-            }
-
-            if (Input.GetKeyDown(_inputKeyData.Skill3))
-            {
-                _playerCore.PlayerSkillController.ActivateSkill(3);
-            }
-
-            if (Input.GetKeyDown(_inputKeyData.Skill4))
-            {
-                _playerCore.PlayerSkillController.ActivateSkill(4);
-            }
-
-            if (Input.GetKeyDown(_inputKeyData.Skill5))
-            {
-                _playerCore.PlayerSkillController.ActivateSkill(5);
-            }
-
-            if (Input.GetKeyDown(_inputKeyData.Skill6))
-            {
-                _playerCore.PlayerSkillController.ActivateSkill(6);
-            }
-
-            if (Input.GetKeyDown(_inputKeyData.Skill7))
-            {
-                _playerCore.PlayerSkillController.ActivateSkill(7);
-            }*/
+            WaitForMouseClickToMove();
+            HandleUIInput();
+            HandleSkillInput();
         }
 
         public void Initialize()
         {
             _playerCore = GetComponent<PlayerCore>();
             _playerSkillController = GetComponent<PlayerSkillController>();
+            _playerMovementController = GetComponent<PlayerMovementController>();
+            _playerUIController = GetComponent<PlayerUIController>();
+        }
+
+        private void WaitForMouseClickToMove()
+        {
+            if (Input.GetMouseButton(0))
+            {
+                _playerMovementController.MoveToMousePosition();
+            }
+        }
+
+        private void HandleUIInput()
+        {
+            if (Input.GetKeyDown(_inputKeyData.CharacterScreen))
+            {
+                _playerUIController.ToggleCharacterScreen();
+            }
+        }
+
+        private void HandleSkillInput()
+        {
+            for(int i = 0; i<_inputKeyData.AbilityInputKeyList.Length; i++) 
+            {
+
+                if(Input.GetKeyDown(_inputKeyData.AbilityInputKeyList[i]))
+                {
+                    _playerSkillController.ActivateSkill(i);
+                }
+
+            }
         }
     }
 }

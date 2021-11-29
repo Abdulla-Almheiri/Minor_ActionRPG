@@ -6,76 +6,66 @@ using UnityEngine.AI;
 namespace Harvesting
 {
     [RequireComponent(typeof(PlayerCore))]
-    public class PlayerMovementController : MonoBehaviour
+    [RequireComponent(typeof(PlayerCombatController))]
+    [RequireComponent(typeof(PlayerSkillController))]
+    [RequireComponent(typeof(PlayerAnimationController))]
+
+    public class PlayerMovementController : CharacterMovementController
     {
-        
+        [SerializeField] private LayerMask _layer;
         private PlayerCore _playerCore;
-        private PlayerCombatController combatController;
-        private PlayerSkillController skillController;
-        private PlayerAnimationController animationController;
-        private Animator animator;
-        private NavMeshAgent _navMeshAgent;
 
-        public LayerMask Layer;
+        private PlayerCombatController _playerCombatController;
+        private PlayerSkillController _playerSkillController;
+        private PlayerAnimationController _playerAnimationController;
 
-        public NavMeshAgent NavMeshAgent { get => _navMeshAgent;}
+        private Animator _animator;
+
+
+        private void Start()
+        {
+            Initialize(_playerCore);
+        }
 
         private void Awake()
         {
-            Initialize();
+
         }
 
         private void Update()
         {
-            MoveToMouse();
+           // MoveToMousePosition();
         }
 
-        public void MoveToMouse()
+        public void MoveToMousePosition()
         {
-            var currentState = _playerCore?.PlayerCombatController?.CurrentCharacterState();
-
-            //currentState.PrintDebugValues();
-           /* if(!currentState.CanMove)
+            if(_playerCombatController.CanMove() == false)
             {
                 return;
-            }*/
-
-
-
-            if (Input.GetMouseButton(0))
-            {
-                //navAgent.isStopped = false;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                RaycastHit rayHit;
-
-                if (Physics.Raycast(ray, out rayHit, Layer))
-                {
-                    _navMeshAgent.SetDestination(rayHit.point);
-                }
             }
 
-            
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+            RaycastHit rayHit;
+
+            if (Physics.Raycast(ray, out rayHit, _layer))
+            {
+               MoveToPoint(rayHit.point);
+            }
 
         }
 
-        public bool IsRunning()
+        public void Initialize(PlayerCore playerCore)
         {
-            return (_navMeshAgent.remainingDistance >= _navMeshAgent.stoppingDistance);
-        }
+            Initialize();
 
-        private void Initialize()
-        {
-            _playerCore = GetComponent<PlayerCore>();
-            _navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
-            _navMeshAgent.updateRotation = true;
-            _navMeshAgent.autoRepath = true;
-            combatController = _playerCore.PlayerCombatController;
-            skillController = GetComponent<PlayerSkillController>();
-            animationController = GetComponent<PlayerAnimationController>();
+            _playerCore = playerCore ? playerCore:  GetComponent<PlayerCore>();
 
-            animator = GetComponentInChildren<Animator>();
+            _playerCombatController = GetComponent<PlayerCombatController>();
+            _playerSkillController = GetComponent<PlayerSkillController>();
+            _playerAnimationController = GetComponent<PlayerAnimationController>();
+
+            _animator = GetComponentInChildren<Animator>();
         }
     }
 }

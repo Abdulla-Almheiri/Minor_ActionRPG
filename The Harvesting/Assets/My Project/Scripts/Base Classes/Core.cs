@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public interface IInitializable 
+    public abstract class Core : MonoBehaviour
     {
-        void Initialize();
+        public abstract void Initialize(GameManager gameManager);
+
     }
 }

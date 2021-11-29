@@ -7,14 +7,11 @@ namespace Harvesting
     /// <summary>
     /// CharacterCore class. This is used as the Core for the player and monsters. All necessary components will be added automatically.
     /// </summary>
-    [RequireComponent(typeof(CharacterAnimationController))]
-    [RequireComponent(typeof(CharacterCombatController))]
-    [RequireComponent(typeof(CharacterSkillController))]
-    [RequireComponent(typeof(CharacterMovementController))]
-
-    public class CharacterCore : MonoBehaviour
+    public abstract class CharacterCore : Core
     {
-        //Skills
+        [SerializeField] protected CoreAttributes _coreAttributes;
+        [SerializeField] private CharacterTemplate _characterTemplate;
+
         public CharacterTemplate BaseCharacter;
 
 

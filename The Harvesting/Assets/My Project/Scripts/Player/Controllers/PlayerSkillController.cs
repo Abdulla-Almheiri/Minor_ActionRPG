@@ -9,17 +9,18 @@ namespace Harvesting {
     [RequireComponent(typeof(PlayerCombatController))]
     [RequireComponent(typeof(PlayerMovementController))]
 
-    public class PlayerSkillController : MonoBehaviour
+    public class PlayerSkillController : CharacterSkillController
     {
         private PlayerCore _playerCore;
         private PlayerCombatController _playerCombatController;
         private PlayerAnimationController _playerAnimationController;
         private PlayerMovementController _playerMovementController;
 
+
         public PlayerData Player;
         public LayerMask Layer;
         public Transform Loc1, Loc2, Loc3;
-        public SkillUIScript SkillUI;
+        //public SkillUIScript SkillUI;
         public float SkillCooldownCheckRate = 0.2f;
         private float skillCheckTimer;
         public float GlobalCooldown = 0.5f;
@@ -232,18 +233,20 @@ namespace Harvesting {
         /// <returns></returns>
         public float SkillRecharge(int number)
         {
-            if (number > cooldowns.Length || Player.Skills.Count <= number || Player.Skills[number] == null)
-            {
-                return -1f;
-            }
-            float recharge = Player.Skills[number].RechargeTime;
+            /* if (number > cooldowns.Length || Player.Skills.Count <= number || Player.Skills[number] == null)
+             {
+                 return -1f;
+             }
+             float recharge = Player.Skills[number].RechargeTime;
 
-            if (recharge == 0)
-            {
-                return 1f;
-            }
+             if (recharge == 0)
+             {
+                 return 1f;
+             }
 
-            return Mathf.Clamp((recharge - cooldowns[number]) / recharge, 0f , 1f);
+             return Mathf.Clamp((recharge - cooldowns[number]) / recharge, 0f , 1f);*/
+
+            return 0f;
         }
     }
 

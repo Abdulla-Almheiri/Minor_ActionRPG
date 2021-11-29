@@ -13,8 +13,4 @@ MonoBehaviour:
   m_Name: InputKeyData
   m_EditorClassIdentifier: 
   CharacterScreen: 105
-  Skill1: 49
-  Skill2: 50
-  Skill3: 51
-  Skill4: 52
-  Skill5: 53
+  AbilityInputKeyList: 310000003200000033000000340000003500000036000000

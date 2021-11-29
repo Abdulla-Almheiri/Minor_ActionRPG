@@ -6,7 +6,7 @@ namespace Harvesting
 {
     [RequireComponent(typeof(FloatingCombatTextManager))]
 
-    public class GameCore : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private Canvas _staticCanvas;

@@ -11,29 +11,14 @@ namespace Harvesting
         [SerializeField] private Slider _healthSlider;
         [SerializeField] private Slider _manaSlider;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        private void Initialize()
-        {
-        }
         public void UpdateHealthPercentage(float percentage)
         {
-            _healthSlider.value = Mathf.Clamp(percentage, 0f, 100f) / 100f;
+            _healthSlider.value = Mathf.Clamp(percentage, 0f, 1f);
         }
 
         public void UpdateManaPercentage(float percentage)
         {
-            _manaSlider.value = Mathf.Clamp(percentage, 0f, 100f) / 100f;
+            _manaSlider.value = Mathf.Clamp(percentage, 0f, 1f);
         }
     }
 }

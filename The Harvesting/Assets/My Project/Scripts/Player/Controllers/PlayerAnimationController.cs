@@ -7,22 +7,20 @@ using UnityEngine.AI;
 namespace Harvesting
 {
     [RequireComponent(typeof(PlayerCore))]
-    public class PlayerAnimationController : MonoBehaviour
+    [RequireComponent(typeof(PlayerMovementController))]
+    [RequireComponent(typeof(PlayerCombatController))]
+
+    public class PlayerAnimationController : CharacterAnimationController
     {
         private PlayerCore _playerCore;
-        private Animator _animator;
         private PlayerCombatController combatController;
         private PlayerSkillController skillController;
-        private PlayerMovementController movementController;
+        private PlayerMovementController _playerMovementController;
 
-        private NavMeshAgent navMeshAgent;
-
-        public Animator Animator { get => _animator; }
 
         void Awake()
         {
-
-            Initialize();
+            Initialize(null);
         }
 
         void Update()
@@ -30,19 +28,19 @@ namespace Harvesting
             HandleRunningAnimation();
         }
 
-        private void Initialize()
+        protected override void Initialize(Animator animator)
         {
-            _animator = GetComponentInChildren<Animator>();
+            base.Initialize(animator);
+
             _playerCore = GetComponent<PlayerCore>();
             combatController = GetComponent<PlayerCombatController>();
             skillController = GetComponent<PlayerSkillController>();
-            navMeshAgent = GetComponent<NavMeshAgent>();
-            movementController = GetComponent<PlayerMovementController>();
+            _playerMovementController = GetComponent<PlayerMovementController>();
         }
 
-        private void HandleRunningAnimation()
+        protected override void HandleRunningAnimation()
         {
-            if (movementController.IsRunning())
+            if (_playerMovementController.IsRunning())
             {
                 Animator.SetBool("Running", true);
             }

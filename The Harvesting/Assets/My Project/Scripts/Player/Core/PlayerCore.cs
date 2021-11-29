@@ -7,18 +7,18 @@ using FMODUnity;
 
 namespace Harvesting {
 
-    [RequireComponent(typeof(PlayerAnimationController))]
+   /* [RequireComponent(typeof(PlayerAnimationController))]
     [RequireComponent(typeof(PlayerCombatController))]
     [RequireComponent(typeof(PlayerSkillController))]
     [RequireComponent(typeof(PlayerItemController))]
     [RequireComponent(typeof(PlayerMovementController))]
     [RequireComponent(typeof(PlayerUIController))]
-    [RequireComponent(typeof(PlayerSFXController))]
+    [RequireComponent(typeof(PlayerSFXController))]*/
 
-    public class PlayerCore : MonoBehaviour
+    public class PlayerCore : CharacterCore
     {
         [SerializeField] private PlayerTemplate _playerTemplate;
-        private GameCore _gameCore;
+        private GameManager _gameManager;
         private PlayerAnimationController _playerAnimationController;
         private PlayerCombatController _playerCombatController;
         private PlayerSkillController _playerSkillController;
@@ -55,13 +55,7 @@ namespace Harvesting {
 
         public void Update()
         {
-            if(!_initialized)
-            {
-                Initialize();
-                _initialized = true;
-            }
             UpdatePlayerUI();
-
 
         }
 
@@ -72,10 +66,17 @@ namespace Harvesting {
             //print("Health Percentage is  :   " + _player.HealthPercentage());
         }
 
+        public override void Initialize(GameManager gameManager)
+        {
+            _gameManager = gameManager;
+            //_player = new Player (_playerTemplate.CharacterTemplate);
+
+
+            //_player.TakeDamage(30f);
+        }
+
         private void Initialize()
         {
-            _gameCore = FindObjectOfType<GameCore>();
-            //_player = new Player (_playerTemplate.CharacterTemplate);
             _playerAnimationController = GetComponent<PlayerAnimationController>();
             _playerCombatController = GetComponent<PlayerCombatController>();
             _playerSkillController = GetComponent<PlayerSkillController>();
@@ -84,7 +85,11 @@ namespace Harvesting {
             _playerUIController = GetComponent<PlayerUIController>();
             _playerSFXController = GetComponent<PlayerSFXController>();
 
-            //_player.TakeDamage(30f);
+            _player = new Player(this, _coreAttributes, _playerTemplate);
+
+            _playerUIController.DisplaySkillsUI();
+
+            //_coreAttributes.InitializeCharacter(_player, _playerTemplate);
         }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 namespace Harvesting
 {
     [RequireComponent(typeof(PlayerCore))]
+    [RequireComponent(typeof(PlayerUIController))]
     public class PlayerItemController : MonoBehaviour
     {
         private PlayerCore _playerCore;
@@ -80,7 +81,7 @@ namespace Harvesting
         private void Initialize()
         {
             _playerCore = GetComponent<PlayerCore>();
-            _playerUIController = _playerCore.PlayerUIController;
+            _playerUIController = GetComponent<PlayerUIController>();
             _characterScreen = _playerUIController.CharacterScreen;
             _SFXController = _playerCore.PlayerSFXController;
             itemPickupTimer = itemPickupCooldown;

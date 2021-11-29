@@ -7,37 +7,38 @@ namespace Harvesting
 {
     public class SkillUIScript : MonoBehaviour
     {
-        public PlayerData PlayerData;
+        public PlayerCore PlayerCore;
         public Sprite DefaultSprite;
         public List<Image> Icons;
         public PlayerSkillController SkillController;
         void Start()
         {
-            var skills = PlayerData.Skills;
-            for (int i = 0; i < skills.Count; i++)
-            {
-                if(skills[i]?.Icon != null)
-                {
-                    Icons[i].sprite = skills[i].Icon;
-                } else
-                {
-                    Icons[i].sprite = DefaultSprite;
-                }
-            }
-
+            //DisplaySkillIcons();
         }
 
         public void Update()
         {
-            UpdateSkillsRechargeUI();
+            //UpdateSkillsRechargeUI();
+        }
+
+        public void DisplaySkillIcons()
+        {
+            int index = 0;
+            foreach(Skill skill in PlayerCore.Player.Abilities)
+            {
+                Icons[index].sprite = skill.Icon;
+                index++;
+                print("SKILL IS : " + skill.Name);
+            }
         }
 
         private void UpdateSkillsRechargeUI()
         {
-            for(int i =0; i< Icons.Count; i++)
+            for(int i = 0; i< Icons.Count; i++)
             {
                 Icons[i].fillAmount = SkillController.SkillRecharge(i);
             }
         }
+
     }
 }
