@@ -13,14 +13,13 @@ namespace Harvesting
     public class PlayerAnimationController : CharacterAnimationController
     {
         private PlayerCore _playerCore;
-        private PlayerCombatController combatController;
-        private PlayerSkillController skillController;
-        private PlayerMovementController _playerMovementController;
-        
+        [SerializeField] private CharacterAnimationData _defaultSkillAnimation;
 
-        void Awake()
+        public CharacterAnimationData DefaultSkillAnimation { get => _defaultSkillAnimation; }
+
+        void Start()
         {
-            Initialize(null);
+            Initialize(null, null);
         }
 
         void Update()
@@ -28,32 +27,56 @@ namespace Harvesting
             HandleRunningAnimation();
         }
 
-        protected override void Initialize(Animator animator)
+        public void Initialize(PlayerCore playerCore, Animator animator)
         {
-            base.Initialize(animator);
+            Initialize(animator);
 
-            _playerCore = GetComponent<PlayerCore>();
-            combatController = GetComponent<PlayerCombatController>();
-            skillController = GetComponent<PlayerSkillController>();
-            _playerMovementController = GetComponent<PlayerMovementController>();
-            _layer = _playerMovementController.Layer;
+            _playerCore = playerCore ?? GetComponent<PlayerCore>();
         }
 
-        protected override void HandleRunningAnimation()
+        public void PlayPlayerSkillAnimation(Skill skill)
         {
-            if (_playerMovementController.IsRunning())
+            if (skill.PlayerAnimation != null)
             {
-                Animator.SetBool("Running", true);
+                Animator.SetTrigger(skill.PlayerAnimation.AnimationHash());
+            } else if(_defaultSkillAnimation != null)
+            {
+                Animator.SetTrigger(_defaultSkillAnimation.AnimationHash());
+            } else
+            {
+                Animator.SetTrigger("Cast3");
+            }
+        }
+
+        public void HandleRunningAnimation()
+        {
+            if (_playerCore.MovementController.IsRunning())
+            {
+                _animator.SetBool("Running", true);
             }
             else
             {
-                Animator.SetBool("Running", false);
+                _animator.SetBool("Running", false);
             }
         }
 
-        public void PlaySkillAnimation(Skill skill)
+        public void RotateToMouseDirection()
         {
-            Animator.SetTrigger(skill.PlayerAnimation.AnimationHash());
+            _animator.SetBool("Running", false);
+            if (/*!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()*/ true)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                RaycastHit rayHit;
+
+                if (Physics.Raycast(ray, out rayHit, _playerCore.MovementController.Layer))
+                {
+                    var direction = (rayHit.point - transform.position);
+                    direction.y = 0;
+                    direction = direction.normalized;
+                    transform.rotation = Quaternion.LookRotation(direction);
+                }
+            }
         }
     }
 }

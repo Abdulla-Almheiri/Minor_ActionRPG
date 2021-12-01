@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public interface IPlayer : ICombatCharacter, IItemPicker, IEquipper, IExperiencePointsReceiver, IInteractor
+    public interface IPlayer : ICharacterCombatController, IItemPicker, IEquipper, IExperiencePointsReceiver, IInteractor
     {
 
     }

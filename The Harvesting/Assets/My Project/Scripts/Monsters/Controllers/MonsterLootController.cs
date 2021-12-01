@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Harvesting {
+    [RequireComponent(typeof(MonsterAnimationController))]
     public class MonsterLootController : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        protected MonsterCore _monsterCore;
+
+
+        public List<GameObject> SpawnLoot(List<ItemDrop> additionalLoot = null)
         {
+            List<GameObject> listOfSpawnedItemPrefabs = new List<GameObject>();
 
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            return listOfSpawnedItemPrefabs;
         }
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public class MonsterUIController : MonoBehaviour
+    public interface ICore
     {
-
+        void Initialize();
     }
 }

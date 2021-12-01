@@ -10,15 +10,15 @@ namespace Harvesting
     public class PlayerItemController : MonoBehaviour
     {
         private PlayerCore _playerCore;
+
+
         private float itemPickupTimer = 0.2f;
         private float itemPickupCooldown = 0.2f;
-        private PlayerUIController _playerUIController;
         private GameObject _characterScreen;
-        private PlayerSFXController _SFXController;
 
-        private void Awake()
+        private void Start()
         {
-            Initialize();
+            Initialize(null);
         }
 
         private void Update()
@@ -53,7 +53,7 @@ namespace Harvesting
                             {
                                 _characterScreen.GetComponentInChildren<InventoryUIScript>().UpdateUI();
                                 itemPickupTimer = itemPickupCooldown;
-                                _SFXController.PlayItemSound();
+                                _playerCore.SFXController.PlayItemSound();
                                 return true;
                             }
                             return false;
@@ -78,12 +78,10 @@ namespace Harvesting
             return false;
         }
 
-        private void Initialize()
+        private void Initialize(PlayerCore playerCore)
         {
-            _playerCore = GetComponent<PlayerCore>();
-            _playerUIController = GetComponent<PlayerUIController>();
-            _characterScreen = _playerUIController.CharacterScreen;
-            _SFXController = _playerCore.PlayerSFXController;
+            _playerCore = playerCore ?? GetComponent<PlayerCore>();
+            _characterScreen = _playerCore.UIController.CharacterScreen;
             itemPickupTimer = itemPickupCooldown;
         }
     }

@@ -6,6 +6,8 @@ namespace Harvesting
 {
     public abstract class CharacterCombatController : MonoBehaviour
     {
+        protected CharacterCore _core;
+        
         protected CombatSettings _combatSettings;
         protected Dictionary<CharacterState, float> _characterStates = new Dictionary<CharacterState, float>();
         protected float[] _characterStateTimers = new float[7];
@@ -14,6 +16,8 @@ namespace Harvesting
 
         
         protected float _characterStateCheckTimer;
+
+        public CharacterCore CharacterCore { get => _core; }
         public Dictionary<Attribute, float> Attributes;
 
         protected virtual void Start()
@@ -21,7 +25,6 @@ namespace Harvesting
             SetUpTimers();
         }
 
-        // Update is called once per frame
         protected virtual void Update()
         {
             HandleTimers();
@@ -29,6 +32,7 @@ namespace Harvesting
 
         protected bool SetUpTimers()
         {
+            print("SETUP TIMERS CALLED");
             if(_combatSettings == null)
             {
                 return false;
@@ -145,14 +149,8 @@ namespace Harvesting
                 if (_characterStateTimers[i] > 0)
                 {
                     _characterStateTimers[i] -= Time.deltaTime;
-                    //Debug.Log("TIMERS    :   " + _timers[i]);
                 }
             }
-
-            /*foreach(float duration in _characterStates.Values)
-            {
-
-            }*/
         }
 
         protected void RemoveAllStatesOfType(CharacterState characterState)

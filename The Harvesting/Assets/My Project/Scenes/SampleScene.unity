@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: f29192d7bfc7a7840810c6101e18bcc2, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &16066228 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 22bf6f8e182d27047a0d8f95b269be20, type: 3}
@@ -289,8 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722cd7c775d24404faf72e9212f93ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCore: {fileID: 0}
-  PlayerCore: {fileID: 1923106486}
+  _gameManager: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -359,10 +358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15959aeb2b132d741975fec3bff4bcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatController: {fileID: 0}
-  MovementController: {fileID: 0}
-  SkillController: {fileID: 0}
-  MonsterCore: {fileID: 57994967}
 --- !u!195 &57994972
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -474,8 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722cd7c775d24404faf72e9212f93ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCore: {fileID: 0}
-  PlayerCore: {fileID: 1923106486}
+  _gameManager: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -544,10 +538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15959aeb2b132d741975fec3bff4bcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatController: {fileID: 0}
-  MovementController: {fileID: 0}
-  SkillController: {fileID: 0}
-  MonsterCore: {fileID: 62671092}
 --- !u!135 &62671098
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1245,8 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722cd7c775d24404faf72e9212f93ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCore: {fileID: 0}
-  PlayerCore: {fileID: 1923106486}
+  _gameManager: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -1315,10 +1304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15959aeb2b132d741975fec3bff4bcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatController: {fileID: 0}
-  MovementController: {fileID: 0}
-  SkillController: {fileID: 0}
-  MonsterCore: {fileID: 164765895}
 --- !u!195 &164765900
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2279,8 +2264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722cd7c775d24404faf72e9212f93ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCore: {fileID: 0}
-  PlayerCore: {fileID: 1923106486}
+  _gameManager: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -2349,10 +2333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15959aeb2b132d741975fec3bff4bcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatController: {fileID: 0}
-  MovementController: {fileID: 0}
-  SkillController: {fileID: 0}
-  MonsterCore: {fileID: 388522814}
 --- !u!195 &388522819
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2826,8 +2806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722cd7c775d24404faf72e9212f93ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCore: {fileID: 0}
-  PlayerCore: {fileID: 1923106486}
+  _gameManager: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -2896,10 +2875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15959aeb2b132d741975fec3bff4bcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatController: {fileID: 0}
-  MovementController: {fileID: 0}
-  SkillController: {fileID: 0}
-  MonsterCore: {fileID: 571605718}
 --- !u!195 &571605723
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3103,6 +3078,10 @@ MonoBehaviour:
   _playerCore: {fileID: 1923106486}
   _coreAttributes: {fileID: 11400000, guid: beada438842288946a90f73d13deb753, type: 2}
   _combatSettings: {fileID: 11400000, guid: d0efeb5d4369de942a0e78ff624a3f6a, type: 2}
+  _layer:
+    serializedVersion: 2
+    m_Bits: 256
+  _playerTemplate: {fileID: 11400000, guid: 7dfc2b069f2aa5641acfb8a46216fa7b, type: 2}
 --- !u!114 &640071638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5687,8 +5666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722cd7c775d24404faf72e9212f93ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCore: {fileID: 0}
-  PlayerCore: {fileID: 1923106486}
+  _gameManager: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -5757,10 +5735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15959aeb2b132d741975fec3bff4bcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatController: {fileID: 0}
-  MovementController: {fileID: 0}
-  SkillController: {fileID: 0}
-  MonsterCore: {fileID: 1064599318}
 --- !u!195 &1064599323
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6015,8 +5989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722cd7c775d24404faf72e9212f93ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCore: {fileID: 0}
-  PlayerCore: {fileID: 1923106486}
+  _gameManager: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -6085,10 +6058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15959aeb2b132d741975fec3bff4bcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatController: {fileID: 0}
-  MovementController: {fileID: 0}
-  SkillController: {fileID: 0}
-  MonsterCore: {fileID: 1140117710}
 --- !u!195 &1140117715
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6353,8 +6322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722cd7c775d24404faf72e9212f93ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameCore: {fileID: 0}
-  PlayerCore: {fileID: 1923106486}
+  _gameManager: {fileID: 0}
   DynamicCanvas: {fileID: 1381770594}
   ItemGroundUIPrefab: {fileID: 216606284310116779, guid: cf759cd1d1ed6b741a429f4f87ffed4e, type: 3}
   Loot:
@@ -6423,10 +6391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15959aeb2b132d741975fec3bff4bcab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatController: {fileID: 0}
-  MovementController: {fileID: 0}
-  SkillController: {fileID: 0}
-  MonsterCore: {fileID: 1310579161}
 --- !u!195 &1310579166
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8287,7 +8251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab34251e6e08a384a82b0e9366104b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCore: {fileID: 1923106486}
+  _gameManager: {fileID: 640071637}
   DefaultSprite: {fileID: 21300000, guid: 4577422e0179c3c4bb926c5afc0e1dfc, type: 3}
   Icons:
   - {fileID: 1116181941}
@@ -8297,7 +8261,6 @@ MonoBehaviour:
   - {fileID: 789719109}
   - {fileID: 428726499}
   - {fileID: 112714211}
-  SkillController: {fileID: 1923106483}
 --- !u!1001 &1783414063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9052,9 +9015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4523386a76f130d44bfdae47f1ddf2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &1923106482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9113,7 +9073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b6064f4c615654092fec3c006622be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StateCheckRate: 0.1
 --- !u!114 &1923106486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9126,16 +9085,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc6c798706480d49b2960c4f8f8a02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTemplate: {fileID: 11400000, guid: 7dfc2b069f2aa5641acfb8a46216fa7b, type: 2}
   _gameManager: {fileID: 640071637}
-  CharacterScreen: {fileID: 845669238}
-  ItemUILayer:
-    serializedVersion: 2
-    m_Bits: 524288
-  Inventory:
-    MaxSize: 10
-    DirtySlot: -1
-  StartingItem: {fileID: 0}
+  _template: {fileID: 11400000, guid: 7dfc2b069f2aa5641acfb8a46216fa7b, type: 2}
 --- !u!114 &1923106487
 MonoBehaviour:
   m_ObjectHideFlags: 0

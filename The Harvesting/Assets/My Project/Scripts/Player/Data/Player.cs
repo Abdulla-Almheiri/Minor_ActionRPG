@@ -19,14 +19,11 @@ namespace Harvesting
         public Skill PrimaryWeaponSkill { get => primaryWeaponSkill; }
         public Skill SecondaryWeaponSkill { get => secondaryWeaponSkill; }
 
-        public Player(PlayerCore playerCore, CoreAttributes coreAttributes, PlayerTemplate playerTemplate) : base(playerCore, coreAttributes, playerTemplate)
+        public Player(PlayerCore playerCore, CoreAttributes coreAttributes, PlayerTemplate playerTemplate) : base(coreAttributes, playerTemplate)
         {
             _playerCore = playerCore;
             _playerTemplate = playerTemplate;
-
             UpdateAbilities();
-
-
         }
 
         public bool Equip(Item item)
@@ -37,17 +34,22 @@ namespace Harvesting
         public void LevelUp(int newLevel)
         {
             var attribute = _attributes[_coreAttributes.Level];
-
             if (newLevel <= attribute.FinalValue())
             {
                 return;
             }
 
             attribute.BaseAdd = newLevel;
+            
+            UpdateAbilities();
+
+            _playerCore.UIController.DisplaySkillsUI();
         }
 
         protected void UpdateAbilities()
         {
+            _abilities.Clear();
+
             foreach (ProgressionSkill progressionSkill in _playerTemplate.Progression)
             {
                 if(progressionSkill.Level <= _attributes[_coreAttributes.Level].FinalValue())
@@ -55,6 +57,7 @@ namespace Harvesting
                     _abilities.Add(progressionSkill.Skill);
                 }
             }
+
         }
     }
 }

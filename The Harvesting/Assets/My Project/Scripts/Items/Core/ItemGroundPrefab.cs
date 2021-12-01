@@ -42,7 +42,7 @@ namespace Harvesting
 
         public bool PickUp(PlayerCore playerCore)
         {
-            if (playerCore.Inventory.AddItem(Item, 1) != -1)
+            /*if (playerCore.Inventory.AddItem(Item, 1) != -1)
             {
                 Debug.Log("INVENTORY ADD IS FINE");
                 if (Vector3.Distance(playerCore.transform.position, WorldPosition) < 2f)
@@ -52,6 +52,7 @@ namespace Harvesting
                     return true;
                 }
             }
+            */
             return false;
         }
     }

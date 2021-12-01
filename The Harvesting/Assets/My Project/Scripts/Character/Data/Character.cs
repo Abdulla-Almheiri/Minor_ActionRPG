@@ -45,7 +45,7 @@ namespace Harvesting
         public Dictionary<Attribute, CharacterModifier> Attributes { get => _attributes; }
         public CoreAttributes CoreAttributes { get => _coreAttributes; }
 
-        protected Character(CharacterCore characterCore, CoreAttributes coreAttributes, CharacterTemplate characterTemplate)
+        protected Character(CoreAttributes coreAttributes, CharacterTemplate characterTemplate)
         {
             //coreAttributes.InitializeCharacter(this, characterTemplate);
             _coreAttributes = coreAttributes;

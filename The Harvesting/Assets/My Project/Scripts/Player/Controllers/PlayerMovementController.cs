@@ -12,7 +12,6 @@ namespace Harvesting
 
     public class PlayerMovementController : CharacterMovementController
     {
-        [SerializeField] private LayerMask _layer;
         private PlayerCore _playerCore;
 
         private PlayerCombatController _playerCombatController;
@@ -21,7 +20,6 @@ namespace Harvesting
 
         private Animator _animator;
 
-        public LayerMask Layer { get => _layer; }
 
         private void Start()
         {

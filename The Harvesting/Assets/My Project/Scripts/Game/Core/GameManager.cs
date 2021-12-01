@@ -14,7 +14,8 @@ namespace Harvesting
         [SerializeField] private PlayerCore _playerCore;
         [SerializeField] private CoreAttributes _coreAttributes;
         [SerializeField] private CombatSettings _combatSettings;
-
+        [SerializeField] private LayerMask _layer;
+        [SerializeField] private PlayerTemplate _playerTemplate;
 
         private FloatingCombatTextManager _combatTextManager;
 
@@ -37,6 +38,7 @@ namespace Harvesting
         public PlayerCore PlayerCore { get => _playerCore; }
         public CoreAttributes CoreAttributes { get => _coreAttributes; }
 
+        public LayerMask Layer { get => _layer; }
 
         public GameDialogueController GameDialogueController { get => _gameDialogueController; }
         public GameInputController GameInputController { get => _gameInputController; }
@@ -49,34 +51,11 @@ namespace Harvesting
         public GameTutorialController GameTutorialController { get => _gameTutorialController; }
         public GameUIController GameUIController { get => _gameUIController; }
         public CombatSettings CombatSettings { get => _combatSettings; }
+        public PlayerTemplate PlayerTemplate { get => _playerTemplate; }
 
         void Awake()
         {
-            //InitializeAwake();
-        }
-
-        private void Start()
-        {
             Initialize();
-            //InitializeStart();
-        }
-
-        void Update()
-        {
-
-        }
-
-        private void InitializeAwake()
-        {
-            _camera = _camera ? _camera : Camera.main;
-            _combatTextManager = GetComponent<FloatingCombatTextManager>();
-            _coreAttributes = _coreAttributes ? _coreAttributes : FindObjectOfType<CoreAttributes>();
-
-        }
-
-        private void InitializeStart()
-        {
-            _playerCore = _playerCore ? _playerCore : FindObjectOfType<PlayerCore>();
         }
 
         private void Initialize()

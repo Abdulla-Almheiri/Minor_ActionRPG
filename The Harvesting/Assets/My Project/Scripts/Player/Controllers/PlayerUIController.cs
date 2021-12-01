@@ -22,8 +22,8 @@ namespace Harvesting
         }
         private void Update()
         {
-            UpdateHealthPercentage(_playerCore.Player.HealthPercentage());
-            UpdateManaPercentage(_playerCore.Player.ManaPercentage());
+            UpdateHealthPercentage(_playerCore.Data.HealthPercentage());
+            UpdateManaPercentage(_playerCore.Data.ManaPercentage());
 
         }
 

@@ -40,5 +40,11 @@ MonoBehaviour:
   Progression:
   - Skill: {fileID: 11400000, guid: 1fbd50631c7a37642ba5e346c0206c89, type: 2}
     Level: 1
-  - Skill: {fileID: 11400000, guid: 96b6f5e31d0b06241b627968791aa7cc, type: 2}
+  - Skill: {fileID: 11400000, guid: 4010c75d19a96714f9cc457692e04894, type: 2}
     Level: 2
+  - Skill: {fileID: 11400000, guid: 96b6f5e31d0b06241b627968791aa7cc, type: 2}
+    Level: 3
+  - Skill: {fileID: 11400000, guid: 634ec154e4c3da3418070e502290d01b, type: 2}
+    Level: 4
+  - Skill: {fileID: 11400000, guid: 02657eef768282d4691e3d11b520933d, type: 2}
+    Level: 5

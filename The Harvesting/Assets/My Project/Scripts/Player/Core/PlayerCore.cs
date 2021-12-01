@@ -15,87 +15,50 @@ namespace Harvesting {
     [RequireComponent(typeof(PlayerUIController))]
     [RequireComponent(typeof(PlayerSFXController))]*/
 
-    public class PlayerCore : CharacterCore
+    public class PlayerCore: MonoBehaviour
     {
-        [SerializeField] private PlayerTemplate _playerTemplate;
         [SerializeField] private GameManager _gameManager;
-        private PlayerAnimationController _playerAnimationController;
-        private PlayerCombatController _playerCombatController;
-        private PlayerSkillController _playerSkillController;
-        private PlayerItemController _playerItemController;
-        private PlayerMovementController _playerMovementController;
-        private PlayerUIController _playerUIController;
-        private PlayerSFXController _playerSFXController;
+        [SerializeField] private PlayerTemplate _template;
 
-        private Player _player;
-
-        public PlayerData PlayerData;
-        public GameObject CharacterScreen;
-        public LayerMask ItemUILayer;
-
-        public Inventory Inventory;
-        public ItemTemplate StartingItem;
-
-        private bool _initialized = false;
-
-        public PlayerAnimationController PlayerAnimationController { get => _playerAnimationController; }
-        public PlayerCombatController PlayerCombatController { get => _playerCombatController; }
-        public PlayerSkillController PlayerSkillController { get => _playerSkillController; }
-        public PlayerItemController PlayerItemController { get => _playerItemController; }
-        public PlayerMovementController PlayerMovementController { get => _playerMovementController; }
-        public PlayerUIController PlayerUIController { get => _playerUIController; }
-        public PlayerSFXController PlayerSFXController { get => _playerSFXController; }
-        public Player Player { get => _player; }
+        public PlayerAnimationController AnimationController { get; private set; }
+        public PlayerCombatController CombatController { get; private set; }
+        public PlayerSkillController SkillController { get; private set; }
+        public PlayerItemController ItemController { get; private set; }
+        public PlayerMovementController MovementController { get; private set; }
+        public PlayerUIController UIController { get; private set; }
+        public PlayerSFXController SFXController { get; private set; }
+        public Player Data { get; private set; }
         public GameManager GameManager { get => _gameManager; }
 
-        protected void Awake()
+        public void Initialize(GameManager gameManager, PlayerTemplate template)
         {
-            _player = new Player(this, _gameManager.CoreAttributes, _playerTemplate);
+            _gameManager = _gameManager ?? gameManager ?? FindObjectOfType<GameManager>();
+            _template = _template ?? template ?? _gameManager.PlayerTemplate;
+
+            AnimationController = GetComponent<PlayerAnimationController>();
+            CombatController = GetComponent<PlayerCombatController>();
+            SkillController = GetComponent<PlayerSkillController>();
+            ItemController = GetComponent<PlayerItemController>();
+            MovementController = GetComponent<PlayerMovementController>();
+            UIController = GetComponent<PlayerUIController>();
+            SFXController = GetComponent<PlayerSFXController>();
+
+            Data = new Player(this, _gameManager.CoreAttributes, _template);
         }
-        public void Start()
+
+        public void Awake()
         {
-            Initialize();
+            Initialize(null, null);
         }
 
 
         public void Update()
         {
-            UpdatePlayerUI();
-
-        }
-
-
-        private void UpdatePlayerUI()
-        {
-            //UIController.UpdateHealthPercentage(_character.HealthPercentage());
-            //print("Health Percentage is  :   " + _player.HealthPercentage());
-        }
-
-        public override void Initialize(GameManager gameManager)
-        {
-            _gameManager = gameManager;
-            //_player = new Player (_playerTemplate.CharacterTemplate);
-
-
-            //_player.TakeDamage(30f);
-        }
-
-        private void Initialize()
-        {
-            
-            _playerAnimationController = GetComponent<PlayerAnimationController>();
-            _playerCombatController = GetComponent<PlayerCombatController>();
-            _playerSkillController = GetComponent<PlayerSkillController>();
-            _playerItemController = GetComponent<PlayerItemController>();
-            _playerMovementController = GetComponent<PlayerMovementController>();
-            _playerUIController = GetComponent<PlayerUIController>();
-            _playerSFXController = GetComponent<PlayerSFXController>();
-
-            
-
-            _playerUIController.DisplaySkillsUI();
-
-            //_coreAttributes.InitializeCharacter(_player, _playerTemplate);
+            //TEST
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Data.LevelUp(5);
+            }
         }
     }
 }

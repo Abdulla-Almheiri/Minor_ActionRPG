@@ -15,6 +15,12 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 41064aed4c574404aa01612fe13862ad, type: 3}
   Name: Tornado
   Description: Tornado!
+  ManaCost: 0
+  RechargeTime: 8
+  DefaultVFXPrefab: {fileID: 4199924403130360902, guid: 71d5867aa7435974eb3e67679b90fdcb, type: 3}
+  PlayerSpawnLocation: 3
+  TriggerChance: 100
+  TriggerCondition: {fileID: 0}
   FaceDirection: 1
   IsMelee: 0
   IsSpell: 1
@@ -25,19 +31,17 @@ MonoBehaviour:
   RemovesSilence: 0
   IsCastOnSelf: 0
   PlayerAnimation: {fileID: 0}
-  Cost: 0
-  RechargeTime: 8
-  TriggerChance: 100
-  TriggerCondition: {fileID: 0}
   ImpactSkill: {fileID: 0}
-  DefaultVFXPrefab: {fileID: 0}
   Actions:
-  - ContinousDamage: 1
-    TickRatePerSecond: 2
-    TriggerCondition: {fileID: 0}
+  - TriggerCondition: {fileID: 0}
     TriggerChance: 100
+    ContinousDamage: 1
+    TickRatePerSecond: 2
     ActionType: 0
-    StatusEffect: {fileID: 0}
+    Element: {fileID: 0}
+    CharacterStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
     Modifier:
       Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
       MaxValue: 0

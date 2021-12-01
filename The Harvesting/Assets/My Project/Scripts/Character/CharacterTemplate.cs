@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public class CharacterTemplate : ScriptableObject
+    public abstract class CharacterTemplate : ScriptableObject
     {
         [Header("Primary Attributes")]
         public int Level = 1;
@@ -44,6 +44,7 @@ namespace Harvesting
         public List<CharacterAnimationData> HitAnimations;
         public List<CharacterAnimationData> BlockAnimations;
 
+        public abstract ICharacter Character();
     }
 
     [System.Serializable]

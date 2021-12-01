@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Harvesting {
-    public class MonsterSkillController : MonoBehaviour
+    public class MonsterSkillController : CharacterSkillController
     {
-        // Start is called before the first frame update
-        void Start()
+        public override bool ActivateSkill(Skill skill)
         {
-
+            throw new System.NotImplementedException();
         }
 
-        // Update is called once per frame
-        void Update()
+        protected override bool CanActivateSkill(Skill skill, bool ignoreRecharge)
         {
-
+            throw new System.NotImplementedException();
         }
     }
 }

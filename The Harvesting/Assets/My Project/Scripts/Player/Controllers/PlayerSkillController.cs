@@ -6,22 +6,12 @@ using System.Threading.Tasks;
 
 namespace Harvesting {
     [RequireComponent(typeof(PlayerCore))]
-    [RequireComponent(typeof(PlayerAnimationController))]
-    [RequireComponent(typeof(PlayerCombatController))]
-    [RequireComponent(typeof(PlayerMovementController))]
-    [RequireComponent(typeof(PlayerInputController))]
-
     public class PlayerSkillController : CharacterSkillController
     {
         private PlayerCore _playerCore;
         private Player _player;
         private CoreAttributes _coreAttributes;
         [SerializeField] private List<SkillSpawnLocationData> _skillSpawnLocations;
-
-        private PlayerInputController _playerInputController;
-        private PlayerCombatController _playerCombatController;
-        private PlayerAnimationController _playerAnimationController;
-        private PlayerMovementController _playerMovementController;
 
         protected float _elapsedTimeWeaponSkills;
         private float _primaryWeaponSkillRechargeTimer;
@@ -33,7 +23,7 @@ namespace Harvesting {
 
         void Start()
         {
-            Initialize();
+            Initialize(null);
         }
 
         protected void Update()
@@ -42,20 +32,14 @@ namespace Harvesting {
             HandleWeaponSkillsCooldownTimers();
         }
 
-        protected void Initialize()
+        protected void Initialize(PlayerCore playerCore)
         {
-
-            _playerCore = GetComponent<PlayerCore>();
+            _playerCore = playerCore ?? GetComponent<PlayerCore>();
             
             _coreAttributes = _playerCore.GameManager.CoreAttributes;
             _combatSettings = _playerCore.GameManager.CombatSettings;
 
-            _playerCombatController = GetComponent<PlayerCombatController>();
-            _playerAnimationController = GetComponent<PlayerAnimationController>();
-            _playerMovementController = GetComponent<PlayerMovementController>();
-            _playerInputController = GetComponent<PlayerInputController>();
-
-            _player = _playerCore.Player;
+            _player = _playerCore.Data;
 
         }
 
@@ -71,11 +55,25 @@ namespace Harvesting {
 
             if (skill.FaceDirection)
             {
-                _playerAnimationController.RotateToMouseDirection();
+                _playerCore.AnimationController.RotateToMouseDirection();
             }
 
-            _playerAnimationController.PlaySkillAnimation(skill);
-            StartCoroutine(ActivateSkillCoroutine(skill, skill.PlayerAnimation.AnimationHitFrameInSeconds()));
+            _playerCore.AnimationController.PlayPlayerSkillAnimation(skill);
+
+            var playerAnimation = skill.PlayerAnimation;
+
+            if (playerAnimation == null)
+            {
+                StartCoroutine(ActivateSkillCoroutine(skill, 0f));
+
+            } else if(_playerCore.AnimationController.DefaultSkillAnimation != null)
+            {
+                StartCoroutine(ActivateSkillCoroutine(skill, _playerCore.AnimationController.DefaultSkillAnimation.AnimationHitFrameInSeconds()));
+
+            } else
+            {
+                StartCoroutine(ActivateSkillCoroutine(skill, skill.PlayerAnimation.AnimationHitFrameInSeconds()));
+            }
 
             return true;
         }
@@ -135,19 +133,23 @@ namespace Harvesting {
                 return false;
             }
             
-            if(skill.IsMovementSkill == true && _playerCombatController.CanMove() == false)
+            if(skill.IsMovementSkill == true && _playerCore.CombatController.CanMove() == false)
             {
                 return false;
             }
 
             var isSkillReady =  SkillRecharge(skill, out _) <= MyMaths.NearZero;
-            var isPlayerAble = _playerCombatController.CanAttack();
+            var isPlayerAble = _playerCore.CombatController.CanAttack();
             return (isSkillReady || ignoreRecharge) && isPlayerAble;
         }
 
         public override float SkillRecharge(Skill skill, out float seconds)
         {
-
+            if(_player == null)
+            {
+                //_player = _playerCore.Data;
+                print("_player is null inside PlayerSkillController");
+            }
             if (skill == _player.PrimaryWeaponSkill)
             {
                 seconds = skill.RechargeTime - _primaryWeaponSkillRechargeTimer;

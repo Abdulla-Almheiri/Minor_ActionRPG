@@ -13,12 +13,17 @@ namespace Harvesting
 
     public abstract class CharacterMovementController : MonoBehaviour
     {
+        protected GameManager _gameManager;
+        protected LayerMask _layer;
         protected NavMeshAgent _navMeshAgent;
 
         public NavMeshAgent NavMeshAgent { get => _navMeshAgent; }
+        public LayerMask Layer { get => _layer; }
 
         protected void Initialize()
         {
+            _gameManager = FindObjectOfType<GameManager>();
+            _layer = _gameManager.Layer;
             _navMeshAgent = GetComponent<NavMeshAgent>();
             if (_navMeshAgent == null)
             {

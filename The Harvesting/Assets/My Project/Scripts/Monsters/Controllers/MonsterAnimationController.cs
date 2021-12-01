@@ -5,20 +5,17 @@ using UnityEngine.AI;
 
 namespace Harvesting
 {
-    public class MonsterAnimationController : MonoBehaviour
+    [RequireComponent(typeof(MonsterCore))]
+    public class MonsterAnimationController : CharacterAnimationController
     {
-        public MonsterCombatController CombatController;
-        public MonsterMovementController MovementController;
-        public MonsterSkillController SkillController;
-        public MonsterCore MonsterCore;
-        private Animator animator;
+        private MonsterCore _core;
+
         private bool deathAnimationPlayed = false;
-        void Start()
+
+        protected void Initialize(MonsterCore monsterCore, Animator animator)
         {
-            animator = GetComponentInChildren<Animator>();
-            CombatController = GetComponent<MonsterCombatController>();
-            MovementController = GetComponent<MonsterMovementController>();
-            SkillController = GetComponent<MonsterSkillController>();
+            base.Initialize(animator);
+            _core = monsterCore ?? GetComponent<MonsterCore>();
         }
 
         // Update is called once per frame
@@ -27,29 +24,33 @@ namespace Harvesting
             HandleAnimations();
 
         }
-
+        private void Start()
+        {
+            Initialize(null, null);
+        }
         private void HandleAnimations()
         {
-            if(deathAnimationPlayed == true)
+           /* if(deathAnimationPlayed == true)
             {
                 return;
             }
 
-            if(CombatController.Dead(CombatController.CurrentCharacterState()))
+            if(_combatController.Dead(_combatController.CurrentCharacterState()))
             {
                 var monsterNavMesh = GetComponent<NavMeshAgent>();
                 monsterNavMesh.enabled = false;
-                /*var rigidBody = GetComponentInChildren<Rigidbody>();
+                var rigidBody = GetComponentInChildren<Rigidbody>();
                 var collider = GetComponentInChildren<Collider>();
                 Destroy(rigidBody);
-                Destroy(collider);*/
-                animator.SetTrigger("Death");
+                Destroy(collider);
+                _animator.SetTrigger("Death");
                 deathAnimationPlayed = true;
                 return;
             }
 
-            animator.SetBool("Stunned", CombatController.Stunned(CombatController.CurrentCharacterState()));
-            animator.SetBool("Running", MovementController.IsRunning());
+            _animator.SetBool("Stunned", _combatController.Stunned(_combatController.CurrentCharacterState()));
+            _animator.SetBool("Running", _movementController.IsRunning());
+           */
             
         }
 
@@ -61,6 +62,5 @@ namespace Harvesting
                 Destroy(spawn, duration);
             }
         }
-
     }
 }

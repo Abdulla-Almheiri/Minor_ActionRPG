@@ -9,5 +9,9 @@ namespace Harvesting
     {
         public List<ProgressionSkill> Progression;
 
+        public override ICharacter Character()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

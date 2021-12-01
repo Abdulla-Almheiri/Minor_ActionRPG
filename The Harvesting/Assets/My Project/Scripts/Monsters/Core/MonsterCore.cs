@@ -13,8 +13,8 @@ namespace Harvesting
 
     public class MonsterCore : MonoBehaviour
     {
-        [SerializeField] private GameManager _gameCore;
-        public PlayerCore PlayerCore;
+        [SerializeField] private GameManager _gameManager;
+        private PlayerCore _playerCore;
         public CharacterStats MonsterData;
         public Canvas DynamicCanvas;
         public ItemGroundPrefab ItemGroundUIPrefab;
@@ -62,14 +62,22 @@ namespace Harvesting
 
         private void Initialize()
         {
-            _gameCore = _gameCore ? _gameCore : FindObjectOfType<GameManager>();
+            _gameManager = _gameManager ? _gameManager : FindObjectOfType<GameManager>();
 
+
+            _playerCore = _gameManager.PlayerCore;
             _animationController = GetComponent<MonsterAnimationController>();
             _combatController = GetComponent<MonsterCombatController>();
             _skillController = GetComponent<MonsterSkillController>();
             _movementController = GetComponent<MonsterMovementController>();
             _UIController = GetComponent<MonsterUIController>();
             _SFXController = GetComponent<MonsterSFXController>();
+        }
+
+        public void Initialize(GameManager gameManager)
+        {
+            Initialize();
+            _gameManager = gameManager ? gameManager : FindObjectOfType<GameManager>(); 
         }
     }
 }

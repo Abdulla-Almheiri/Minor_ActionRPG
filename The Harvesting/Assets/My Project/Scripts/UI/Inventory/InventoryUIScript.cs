@@ -12,7 +12,7 @@ namespace Harvesting
 
         void Start()
         {
-            Inventory = PlayerCore.Inventory;
+            //Inventory = PlayerCore.Inventory;
             slots = GetComponentsInChildren<InventorySlotUiScript>();
             UpdateUI();
         }

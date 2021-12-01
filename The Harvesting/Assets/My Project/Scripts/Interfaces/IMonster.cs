@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public interface IMonster : ICombatCharacter, ILootDropper, IExperiencePointsGiver
+    public interface IMonster : ICharacterCombatController, ILootDropper, IExperiencePointsGiver
     {
         float Level { get; }
         float Size { get; }

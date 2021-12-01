@@ -7,13 +7,12 @@ namespace Harvesting
 {
     public class SkillUIScript : MonoBehaviour
     {
-        public PlayerCore PlayerCore;
+        [SerializeField] GameManager _gameManager;
         public Sprite DefaultSprite;
         public List<Image> Icons;
-        public PlayerSkillController SkillController;
         void Start()
         {
-            //DisplaySkillIcons();
+            DisplaySkillIcons();
         }
 
         public void Update()
@@ -24,7 +23,7 @@ namespace Harvesting
         public void DisplaySkillIcons()
         {
             int index = 0;
-            foreach(Skill skill in PlayerCore.Player.Abilities)
+            foreach(Skill skill in _gameManager.PlayerCore.Data.Abilities)
             {
                 Icons[index].sprite = skill.Icon;
                 index++;

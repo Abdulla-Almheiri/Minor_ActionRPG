@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public interface IController : IInitializable
+    public interface ICharacterTemplate
     {
-        Core Core { get; }
-        void Initialize(Core core);
-
+        ICharacter Character();
     }
 }

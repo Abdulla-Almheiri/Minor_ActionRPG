@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public class MonsterCombatController : MonoBehaviour
+    public class MonsterCombatController : CharacterCombatController
     {
         public CharacterStats MonsterData;
         public MonsterCore MonsterCore;
@@ -31,17 +31,10 @@ namespace Harvesting
             SkillController = GetComponent<MonsterSkillController>();
         }
 
-        // Update is called once per frame
         void Update()
         {
             HandleStates();
-            if (CanMove(CurrentCharacterState()))
-            {
-                MovementController.MoveToPoint(MonsterAI.CalculatedDestination(MonsterCore.PlayerCore, MonsterCore));
-            }
 
-
-           
         }
 
         public bool Stunned(CharacterState state)

@@ -50,15 +50,15 @@ namespace Harvesting
             }
 
             var usedSkill = _usedSkills.Find(x => x.Skill == skill);
+
             if (usedSkill == null)
             {
-                Debug.Log("USED SKILL = NULL and _usedSkills.Count : " + _usedSkills.Count);
                 seconds = 0f;
                 return 0f;
             }
 
-            Debug.Log("END OF SKILLRECHARGE METHOD.");
             seconds = skill.RechargeTime - usedSkill.RemainingRechargeTime;
+
             return usedSkill.RemainingRechargeTime / skill.RechargeTime;
         }
     }

@@ -5,40 +5,32 @@ using UnityEngine;
 namespace Harvesting
 {
     /// <summary>
-    /// CharacterCore class. This is used as the Core for the player and monsters. All necessary components will be added automatically.
+    /// CharacterCore class. This is used as the Core for the player and monsters.
     /// </summary>
-    public abstract class CharacterCore : Core
+    public abstract class CharacterCore : MonoBehaviour
     {
-        protected CoreAttributes _coreAttributes;
-        private CharacterTemplate _characterTemplate;
+        [SerializeField] protected GameManager _gameManager;
+        [SerializeField] protected CharacterTemplate _template;
+        protected Character _data;
 
-        public CharacterAnimationController AnimationController { get => animationController;  }
-        public CharacterCombatController CombatController { get => combatController;  }
-        public CharacterSkillController SkillController { get => skillController;  }
-        public CharacterMovementController MovementController { get => movementController;  }
+        protected CharacterAnimationController _animationController;
+        protected CharacterCombatController _combatController;
+        protected CharacterSkillController _skillController;
+        protected CharacterMovementController _movementController;
 
-        private CharacterAnimationController animationController;
-        private CharacterCombatController combatController;
-        private CharacterSkillController skillController;
-        private CharacterMovementController movementController;
+        public CharacterAnimationController AnimationController { get => _animationController; }
+        public CharacterCombatController CombatController { get => _combatController; set => _combatController = value; }
+        public CharacterSkillController SkillController { get => _skillController; set => _skillController = value; }
+        public CharacterMovementController MovementController { get => _movementController; set => _movementController = value; }
+        public GameManager GameManager { get => _gameManager;}
 
-        void Start()
+        public virtual void Initialize(GameManager gameManager)
         {
-            Initialize();
-        }
-
-
-        void Update()
-        {
-
-        }
-
-        private void Initialize()
-        {
-            animationController = GetComponent<CharacterAnimationController>();
-            combatController = GetComponent<CharacterCombatController>();
-            skillController = GetComponent<CharacterSkillController>();
-            movementController = GetComponent<CharacterMovementController>();
+            
+            _animationController = GetComponent<CharacterAnimationController>();
+            _combatController = GetComponent<CharacterCombatController>();
+            _skillController = GetComponent<CharacterSkillController>();
+            _movementController = GetComponent<CharacterMovementController>();
 
         }
     }
