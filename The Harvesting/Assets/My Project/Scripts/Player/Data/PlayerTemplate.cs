@@ -8,10 +8,5 @@ namespace Harvesting
     public class PlayerTemplate : CharacterTemplate
     {
         public List<ProgressionSkill> Progression;
-
-        public override ICharacter Character()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

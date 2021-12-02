@@ -7,10 +7,10 @@ namespace Harvesting
 {
     public interface ICharacterAnimationController
     {
-        CharacterCore CharacterCore { get; }
+        ICharacterCore Core { get; }
         Animator Animator { get; }
-        CharacterMovementController MovementController {get; }
-        void Initialize(CharacterCore characterCore, Animator animator);
+        ICharacterMovementController MovementController {get; }
+        void Initialize(ICharacterCore core, Animator animator);
 
         void HandleRunningAnimation();
     }

@@ -11,15 +11,12 @@ namespace Harvesting
     [RequireComponent(typeof(MonsterUIController))]
     [RequireComponent(typeof(MonsterSFXController))]
 
-    public class MonsterCore : MonoBehaviour
+    public class MonsterCore : CharacterCore
     {
         [SerializeField] private GameManager _gameManager;
-        private PlayerCore _playerCore;
-        public CharacterStats MonsterData;
-        public Canvas DynamicCanvas;
-        public ItemGroundPrefab ItemGroundUIPrefab;
-        public List<ItemDrop> Loot = new List<ItemDrop>();
-        private int level;
+        [SerializeField] private MonsterTemplate _template;
+
+        public MonsterData Data { get; private set; }
 
         private MonsterAnimationController _animationController;
         private MonsterCombatController _combatController;
@@ -28,8 +25,6 @@ namespace Harvesting
         private MonsterUIController _UIController;
         private MonsterSFXController _SFXController;
 
-
-        public CharacterState DeadState;
 
         public MonsterAnimationController AnimationController { get => _animationController; }
         public MonsterCombatController CombatController { get => _combatController;}
@@ -40,44 +35,23 @@ namespace Harvesting
 
         public void Start()
         {
-            Initialize();
+            Initialize(null, null);
         }
 
 
-        public void DropItems()
+        private void Initialize(GameManager gameManager, MonsterTemplate template)
         {
-            int i = 0;
-            foreach (ItemDrop item in Loot)
-            {
-                if (Random.Range(0, 100) <= item.Chance)
-                {
-                    var spawn = Instantiate(ItemGroundUIPrefab, DynamicCanvas.transform);
-                    spawn.GetComponent<ItemGroundPrefab>().Item = item.Item.Generate(level, level);
-                    //spawn.transform.SetParent(null);
-                    spawn.WorldPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                    i++;
-                }
-            }
-        }
+            _gameManager = _gameManager ?? gameManager ?? FindObjectOfType<GameManager>();
+            _template = _template ?? template ?? FindObjectOfType<MonsterTemplate>();
 
-        private void Initialize()
-        {
-            _gameManager = _gameManager ? _gameManager : FindObjectOfType<GameManager>();
-
-
-            _playerCore = _gameManager.PlayerCore;
             _animationController = GetComponent<MonsterAnimationController>();
             _combatController = GetComponent<MonsterCombatController>();
             _skillController = GetComponent<MonsterSkillController>();
             _movementController = GetComponent<MonsterMovementController>();
             _UIController = GetComponent<MonsterUIController>();
             _SFXController = GetComponent<MonsterSFXController>();
-        }
 
-        public void Initialize(GameManager gameManager)
-        {
-            Initialize();
-            _gameManager = gameManager ? gameManager : FindObjectOfType<GameManager>(); 
+            Data = new MonsterData(this, _gameManager.CoreAttributes, _template);
         }
     }
 }

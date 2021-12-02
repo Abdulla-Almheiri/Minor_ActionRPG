@@ -12,7 +12,6 @@ namespace Harvesting
 
     public class PlayerAnimationController : CharacterAnimationController
     {
-        private PlayerCore _playerCore;
         [SerializeField] private CharacterAnimationData _defaultSkillAnimation;
 
         public CharacterAnimationData DefaultSkillAnimation { get => _defaultSkillAnimation; }
@@ -27,12 +26,7 @@ namespace Harvesting
             HandleRunningAnimation();
         }
 
-        public void Initialize(PlayerCore playerCore, Animator animator)
-        {
-            Initialize(animator);
 
-            _playerCore = playerCore ?? GetComponent<PlayerCore>();
-        }
 
         public void PlayPlayerSkillAnimation(Skill skill)
         {
@@ -48,28 +42,18 @@ namespace Harvesting
             }
         }
 
-        public void HandleRunningAnimation()
-        {
-            if (_playerCore.MovementController.IsRunning())
-            {
-                _animator.SetBool("Running", true);
-            }
-            else
-            {
-                _animator.SetBool("Running", false);
-            }
-        }
+
 
         public void RotateToMouseDirection()
         {
-            _animator.SetBool("Running", false);
+            Animator.SetBool("Running", false);
             if (/*!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()*/ true)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                 RaycastHit rayHit;
 
-                if (Physics.Raycast(ray, out rayHit, _playerCore.MovementController.Layer))
+                if (Physics.Raycast(ray, out rayHit, Core.GameManager.Layer))
                 {
                     var direction = (rayHit.point - transform.position);
                     direction.y = 0;

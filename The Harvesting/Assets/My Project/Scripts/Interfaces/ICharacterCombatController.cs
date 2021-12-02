@@ -6,9 +6,22 @@ namespace Harvesting
 {
     public interface ICharacterCombatController
     {
-        CharacterCore CharacterCore { get; }
+        ICharacterCore Core { get; }
         CombatSettings CombatSettings { get; }
-
-        void Initialize(CharacterCore characterCore, CombatSettings combatSettings);
+        float CurrentHealth { get; }
+        float CurrentMana { get; }
+        bool IsAlive { get; }
+        void Initialize(ICharacterCore core, CombatSettings combatSettings);
+        bool AddCharacterState(CharacterState characterState, float rawDuration);
+        float AttributeValue(Attribute attribute);
+        void ReceiveSkillAction(SkillAction skillAction, ICharacterCore performer, out SkillActionEventData skillActionEventData);
+        bool CanMove();
+        bool CanAttack();
+        bool CanCast();
+        bool CanBlock();
+        bool CanInteract();
+        bool CanBeDamaged();
+        bool CanBeHealed();
+        void LevelUp(int newLevel);
     }
 }

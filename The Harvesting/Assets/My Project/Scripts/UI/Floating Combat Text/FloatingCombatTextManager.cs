@@ -5,20 +5,30 @@ using UnityEngine.UI;
 using TMPro;
 
 namespace Harvesting {
-    public class FloatingCombatTextManager : MonoBehaviour
+    public class FloatingCombatTextManager
     {
-        public GameObjectPool Pool;
-        public Canvas Canvas;
+        public GameObjectPool _pool;
+        private Canvas _canvas;
+        private Camera _camera;
         private float averageDamage = 0;
         private float fontSize = 0;
 
-        public void Start()
+        public FloatingCombatTextManager(GameObjectPool pool, Canvas canvas, Camera camera)
         {
-            Pool.Init();
+            _pool = pool;
+            _canvas = canvas;
+            _camera = camera;
+
+            _pool?.Init();
+            if(_pool == null)
+            {
+                Debug.Log("Pooling system null in FloatingCombatTextManager.");
+            }
         }
+
         public void PlaceDamageText(Vector3 pos, float amount, float spreadAmount, bool isCritical)
         {
-            if (Pool == null)
+            if (_pool == null)
             {
                 return;
             }
@@ -45,7 +55,7 @@ namespace Harvesting {
             }
 
             pos.Set(pos.x + Random.Range(-spreadAmount/2f, spreadAmount/2f), pos.y, pos.z);
-            var spawn = Pool.SpawnObject();
+            var spawn = _pool.SpawnObject();
             spawn.gameObject.GetComponent<FloatingTextVariationScript>().PlayAnimation(isCritical);
             if (fontSize == 0)
             {
@@ -55,7 +65,7 @@ namespace Harvesting {
             component.WorldPosition = pos;
             component.MaintainPosition();
             
-            spawn.gameObject.transform.SetParent(Canvas.transform);
+            spawn.gameObject.transform.SetParent(_canvas.transform);
             spawn.gameObject.GetComponent<TMP_Text>().SetText(((int)amount).ToString());
             spawn.gameObject.GetComponent<TMP_Text>().fontSize = fontSize * scaleMultiplier;
             

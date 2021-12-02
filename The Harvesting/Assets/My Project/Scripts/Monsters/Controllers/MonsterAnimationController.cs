@@ -8,15 +8,9 @@ namespace Harvesting
     [RequireComponent(typeof(MonsterCore))]
     public class MonsterAnimationController : CharacterAnimationController
     {
-        private MonsterCore _core;
+       
 
         private bool deathAnimationPlayed = false;
-
-        protected void Initialize(MonsterCore monsterCore, Animator animator)
-        {
-            base.Initialize(animator);
-            _core = monsterCore ?? GetComponent<MonsterCore>();
-        }
 
         // Update is called once per frame
         void Update()

@@ -9,17 +9,14 @@ namespace Harvesting {
     public class PlayerSkillController : CharacterSkillController
     {
         private PlayerCore _playerCore;
-        private Player _player;
-        private CoreAttributes _coreAttributes;
+        private PlayerSkillData _player;
+        private CoreAttributesTemplate _coreAttributes;
         [SerializeField] private List<SkillSpawnLocationData> _skillSpawnLocations;
 
         protected float _elapsedTimeWeaponSkills;
         private float _primaryWeaponSkillRechargeTimer;
         private float _secondaryWeaponSkillRechargeTimer;
         private bool _bothWeaponSkillsReady;
-
-        public PlayerData Player;
-        public LayerMask Layer;
 
         void Start()
         {
@@ -39,7 +36,7 @@ namespace Harvesting {
             _coreAttributes = _playerCore.GameManager.CoreAttributes;
             _combatSettings = _playerCore.GameManager.CombatSettings;
 
-            _player = _playerCore.Data;
+            _player = _playerCore.PlayerSkillData;
 
         }
 

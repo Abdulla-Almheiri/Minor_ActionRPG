@@ -26,12 +26,12 @@ namespace Harvesting
             //TEST
             if(Input.GetKeyDown(KeyCode.Q))
             {
-                _playerCore.Data.TakeDamage(5f);
+                _playerCore.PlayerSkillData.TakeDamage(5f);
             }
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                _playerCore.Data.GetHealed(5f);
+                _playerCore.PlayerSkillData.GetHealed(5f);
             }
             //TEST
         }
@@ -65,11 +65,11 @@ namespace Harvesting
 
         private void HandleSkillInput()
         {
-            for(int i = 0;  i < Mathf.Min(_inputKeyData.AbilityInputKeyList.Length, _playerCore.Data.Abilities.Count);  i++ )
+            for(int i = 0;  i < Mathf.Min(_inputKeyData.AbilityInputKeyList.Length, _playerCore.PlayerSkillData.Abilities.Count);  i++ )
             {
                 if (Input.GetKeyDown(_inputKeyData.AbilityInputKeyList[i]))
                 {
-                    _playerCore.SkillController.ActivateSkill(_playerCore.Data.Abilities[i]);
+                    _playerCore.SkillController.ActivateSkill(_playerCore.PlayerSkillData.Abilities[i]);
                 }
             }
         }

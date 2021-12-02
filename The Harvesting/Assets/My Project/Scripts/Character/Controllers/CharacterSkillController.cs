@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public abstract class CharacterSkillController : MonoBehaviour
+    public abstract class CharacterSkillController : MonoBehaviour, ICharacterSkillController
     {
+        
         protected CombatSettings _combatSettings;
         protected Dictionary<Skill, float> _skillRechargeTimes = new Dictionary<Skill, float>();
         protected List<SkillRechargeData> _usedSkills = new List<SkillRechargeData>();
@@ -18,7 +19,7 @@ namespace Harvesting
         }
 
         public abstract bool ActivateSkill(Skill skill);
-
+        
         protected abstract bool CanActivateSkill(Skill skill, bool ignoreRecharge);
 
         protected void HandleAbilityCooldownTimers()

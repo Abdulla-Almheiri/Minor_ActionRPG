@@ -7,7 +7,7 @@ namespace Harvesting
     [CreateAssetMenu(fileName ="new combat settings", menuName ="Data/Combat/Combat Settings")]
     public class CombatSettings : ScriptableObject
     {
-        [SerializeField] private CoreAttributes _coreAttributes;
+        [SerializeField] private CoreAttributesTemplate _coreAttributes;
         [SerializeField] private float _characterStateCheckRate = 0.1f;
         [SerializeField] private float _globalWeaponSkillCooldown = 0.2f;
         [SerializeField] private float _weaponSkillCooldownCheckRate = 0.1f;
@@ -16,7 +16,7 @@ namespace Harvesting
         [SerializeField] private float _abilityCooldownCheckRate = 0.1f;
 
         [SerializeField] private GameObject _targetedSkillEffectPrefab;
-        public CoreAttributes CoreAttributes { get => _coreAttributes; }
+        public CoreAttributesTemplate CoreAttributes { get => _coreAttributes; }
         public float CharacterStateCheckRate { get => _characterStateCheckRate; }
         public float GlobalWeaponSkillCooldown { get => _globalWeaponSkillCooldown; }
         public float GlobalAbilitycooldown { get => _globalAbilitycooldown; }

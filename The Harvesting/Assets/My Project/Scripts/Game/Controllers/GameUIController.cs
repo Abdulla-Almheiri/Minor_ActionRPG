@@ -10,7 +10,7 @@ namespace Harvesting
         private FloatingCombatTextManager _combatTextManager;
         [SerializeField] private Canvas _dynamicCanvas;
         [SerializeField] private Canvas _staticCanvas;
-
+        
         public FloatingCombatTextManager CombatTextManager { get => _combatTextManager; }
         public Canvas DynamicCanvas { get => _dynamicCanvas; }
         public Canvas StaticCanvas { get => _staticCanvas; }

@@ -46,7 +46,7 @@ namespace Harvesting
         [Header("If Action's VFX Prefab is empty, then default one is used.")]
         public List<SkillAction> Actions;
         
-        public void Spawn(Character activator, Transform location)
+        public void Spawn(CharacterData activator, Transform location)
         {
             if(Random.Range(0,100) > TriggerChance && !TriggerCondition.Evaluate(activator))
             {

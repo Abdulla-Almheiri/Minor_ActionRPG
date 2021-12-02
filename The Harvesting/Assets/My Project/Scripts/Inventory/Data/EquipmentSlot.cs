@@ -13,7 +13,7 @@ namespace Harvesting
         private ItemTemplate equipedItem;
         public EquipmentSlotType EquipmentSlotType;
 
-        public bool Equip(ItemTemplate item, PlayerData player)
+        public bool Equip(ItemTemplate item, IPlayerCore playerCore)
         {
             if(EquipmentSlotType != null && EquipmentSlotType == item.EquipmentSlotType)
             {

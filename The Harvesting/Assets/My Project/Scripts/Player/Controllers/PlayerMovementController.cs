@@ -12,28 +12,15 @@ namespace Harvesting
 
     public class PlayerMovementController : CharacterMovementController
     {
-        private PlayerCore _playerCore;
-
+        public IPlayerData PlayerData { get; private set; }
         private PlayerCombatController _playerCombatController;
         private PlayerSkillController _playerSkillController;
         private PlayerAnimationController _playerAnimationController;
 
-        private Animator _animator;
-
 
         private void Start()
         {
-            Initialize(_playerCore);
-        }
-
-        private void Awake()
-        {
-
-        }
-
-        private void Update()
-        {
-           // MoveToMousePosition();
+            Initialize(Core);
         }
 
         public void MoveToMousePosition()
@@ -47,24 +34,22 @@ namespace Harvesting
 
             RaycastHit rayHit;
 
-            if (Physics.Raycast(ray, out rayHit, _layer))
+            if (Physics.Raycast(ray, out rayHit, Core.GameManager.Layer))
             {
                MoveToPoint(rayHit.point);
             }
 
         }
 
-        public void Initialize(PlayerCore playerCore)
+        public void Initialize(ICharacterCore core)
         {
+            //PlayerData = new PlayerItemData() as IPlayerData;
             Initialize();
-
-            _playerCore = playerCore ? playerCore:  GetComponent<PlayerCore>();
+            Core = core;
 
             _playerCombatController = GetComponent<PlayerCombatController>();
             _playerSkillController = GetComponent<PlayerSkillController>();
             _playerAnimationController = GetComponent<PlayerAnimationController>();
-
-            _animator = GetComponentInChildren<Animator>();
         }
     }
 }

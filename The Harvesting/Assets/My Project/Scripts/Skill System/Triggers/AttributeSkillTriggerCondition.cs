@@ -12,7 +12,7 @@ namespace Harvesting
         public float AttributeAmount;
         public bool IsPercentage = true;
         public Attribute Attribute;
-        public override bool Evaluate(Character character)
+        public override bool Evaluate(CharacterData character)
         {
             if(IsPercentage)
             {
@@ -27,7 +27,7 @@ namespace Harvesting
                 }
             } else
             {
-                var amount = character.Attributes[Attribute].FinalValue();
+                var amount = character.PrimaryAttributes[Attribute].FinalValue();
 
                 if (AttributeComparison == AttributeComparison.Above)
                 {

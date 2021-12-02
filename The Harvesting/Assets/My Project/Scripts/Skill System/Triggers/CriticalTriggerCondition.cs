@@ -6,7 +6,7 @@ namespace Harvesting
 {
     public class CriticalTriggerCondition : SkillActionTriggerCondition
     {
-        public override bool Evaluate(SkillAction action, Character performer)
+        public override bool Evaluate(SkillAction action, CharacterData performer)
         {
             return true;
         }

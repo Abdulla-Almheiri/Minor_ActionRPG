@@ -15,25 +15,33 @@ namespace Harvesting {
     [RequireComponent(typeof(PlayerUIController))]
     [RequireComponent(typeof(PlayerSFXController))]*/
 
-    public class PlayerCore: MonoBehaviour
+    public class PlayerCore: CharacterCore, IPlayerCore
     {
-        [SerializeField] private GameManager _gameManager;
-        [SerializeField] private PlayerTemplate _template;
-
+        public IPlayerData PlayerData { get; protected set; }
         public PlayerAnimationController AnimationController { get; private set; }
-        public PlayerCombatController CombatController { get; private set; }
+        public ICharacterCombatController CombatController { get; private set; }
         public PlayerSkillController SkillController { get; private set; }
         public PlayerItemController ItemController { get; private set; }
         public PlayerMovementController MovementController { get; private set; }
         public PlayerUIController UIController { get; private set; }
         public PlayerSFXController SFXController { get; private set; }
-        public Player Data { get; private set; }
-        public GameManager GameManager { get => _gameManager; }
 
-        public void Initialize(GameManager gameManager, PlayerTemplate template)
+
+        public PlayerSkillData PlayerSkillData { get; private set; }
+        public PlayerItemData PlayerItemData { get; private set; }
+
+        public PlayerTemplate PlayerTemplate { get; protected set; }
+
+        public void Initialize(IGameManager gameManager)
         {
-            _gameManager = _gameManager ?? gameManager ?? FindObjectOfType<GameManager>();
-            _template = _template ?? template ?? _gameManager.PlayerTemplate;
+            
+            Initialize(gameManager, GameManager.PlayerTemplate);
+            PlayerTemplate = GameManager.PlayerTemplate;
+            
+            if(PlayerTemplate == null)
+            {
+                Debug.Log("GameManager.PlayerTemplate is null.");
+            }
 
             AnimationController = GetComponent<PlayerAnimationController>();
             CombatController = GetComponent<PlayerCombatController>();
@@ -43,7 +51,7 @@ namespace Harvesting {
             UIController = GetComponent<PlayerUIController>();
             SFXController = GetComponent<PlayerSFXController>();
 
-            Data = new Player(this, _gameManager.CoreAttributes, _template);
+            //PlayerSkillData = new PlayerSkillData(CharacterCombatData, GameManager.CoreAttributes, PlayerTemplate);
         }
 
         public void Awake()
@@ -57,8 +65,32 @@ namespace Harvesting {
             //TEST
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Data.LevelUp(5);
+                CombatController.LevelUp(5);
             }
+        }
+
+        public void ActivateSkill(Skill skill)
+        {
+            SkillController.ActivateSkill(skill);
+        }
+
+        public void ReceiveSkillAction(CharacterCore performer, SkillAction skillAction)
+        {
+            
+        }
+
+        protected void UpdateAbilities()
+        {
+            PlayerData.Abilities.Clear();
+
+            foreach (ProgressionSkill progressionSkill in PlayerTemplate.Progression)
+            {
+                if (progressionSkill.Level <= CombatController.AttributeValue(GameManager.CoreAttributesTemplate.Level))
+                {
+                    PlayerData.Abilities.Add(progressionSkill.Skill);
+                }
+            }
+
         }
     }
 }

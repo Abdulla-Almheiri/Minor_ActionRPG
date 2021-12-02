@@ -44,7 +44,7 @@ namespace Harvesting
         public List<CharacterAnimationData> HitAnimations;
         public List<CharacterAnimationData> BlockAnimations;
 
-        public abstract ICharacter Character();
+        //public abstract ICharacter Character();
     }
 
     [System.Serializable]

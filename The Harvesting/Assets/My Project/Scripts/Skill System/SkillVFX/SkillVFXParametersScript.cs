@@ -52,7 +52,7 @@ namespace Harvesting
 
         public void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<MonsterNEW>())
+            if (other.GetComponent<MonsterCore>() != null)
             {
                 //other.gameObject.GetComponent<Monster>().TakeDamage(Random.Range(2f, 20f));
 

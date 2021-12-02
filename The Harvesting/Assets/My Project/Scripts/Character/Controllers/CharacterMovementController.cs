@@ -11,37 +11,31 @@ namespace Harvesting
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(CharacterCombatController))]
 
-    public abstract class CharacterMovementController : MonoBehaviour
+    public abstract class CharacterMovementController : MonoBehaviour, ICharacterMovementController
     {
-        protected GameManager _gameManager;
-        protected LayerMask _layer;
-        protected NavMeshAgent _navMeshAgent;
-
-        public NavMeshAgent NavMeshAgent { get => _navMeshAgent; }
-        public LayerMask Layer { get => _layer; }
+        public ICharacterCore Core { get; protected set; }
+        public NavMeshAgent NavMeshAgent { get; protected set; }
 
         protected void Initialize()
         {
-            _gameManager = FindObjectOfType<GameManager>();
-            _layer = _gameManager.Layer;
-            _navMeshAgent = GetComponent<NavMeshAgent>();
-            if (_navMeshAgent == null)
+            NavMeshAgent = GetComponent<NavMeshAgent>();
+            if (NavMeshAgent == null)
             {
                 Debug.Log("No NavMeshAgent component found on CharacterCore: CharacterMovementController.");
                 return;
             }
 
-            _navMeshAgent.updateRotation = true;
-            _navMeshAgent.autoRepath = true;
+            NavMeshAgent.updateRotation = true;
+            NavMeshAgent.autoRepath = true;
         }
         public bool MoveToPoint(Vector3 targetPoint)
         {
-           return  _navMeshAgent.SetDestination(targetPoint);
+           return  NavMeshAgent.SetDestination(targetPoint);
         }
 
         public bool IsRunning()
         {
-            return (_navMeshAgent.remainingDistance >= _navMeshAgent.stoppingDistance);
+            return (NavMeshAgent.remainingDistance >= NavMeshAgent.stoppingDistance);
         }
     }
 }

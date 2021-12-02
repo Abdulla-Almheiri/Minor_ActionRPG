@@ -6,6 +6,6 @@ namespace Harvesting
 {
     public interface ICharacterTemplate
     {
-        ICharacter Character();
+        ICharacterData Character();
     }
 }

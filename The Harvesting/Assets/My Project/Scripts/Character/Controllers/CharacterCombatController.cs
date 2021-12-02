@@ -4,11 +4,17 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public abstract class CharacterCombatController : MonoBehaviour
+    public abstract class CharacterCombatController : MonoBehaviour, ICharacterCombatController
     {
-        protected CharacterCore _core;
-        
-        protected CombatSettings _combatSettings;
+        public bool IsAlive { get; protected set; }
+        public float CurrentHealth { get; protected set; }
+        public float CurrentMana { get; protected set; }
+
+        public ICharacterCore Core { get; protected set; }
+        public ICharacterData CharacterData { get; protected set; }
+        public CombatSettings CombatSettings { get; protected set; }
+
+
         protected Dictionary<CharacterState, float> _characterStates = new Dictionary<CharacterState, float>();
         protected float[] _characterStateTimers = new float[7];
 
@@ -17,7 +23,7 @@ namespace Harvesting
         
         protected float _characterStateCheckTimer;
 
-        public CharacterCore CharacterCore { get => _core; }
+
         public Dictionary<Attribute, float> Attributes;
 
         protected virtual void Start()
@@ -33,12 +39,12 @@ namespace Harvesting
         protected bool SetUpTimers()
         {
             print("SETUP TIMERS CALLED");
-            if(_combatSettings == null)
+            if(CombatSettings == null)
             {
                 return false;
             }
 
-            _characterStateCheckTimer = _combatSettings.CharacterStateCheckRate;
+            _characterStateCheckTimer = CombatSettings.CharacterStateCheckRate;
 
             for (int i = 0; i < _characterStateTimers.Length; i++)
             {
@@ -46,12 +52,6 @@ namespace Harvesting
             }
 
             return true;
-        }
-
-        protected void Initiliaze(CombatSettings combatSettings)
-        {
-            _combatSettings = combatSettings;
-
         }
 
         protected void HandleCombat()
@@ -158,9 +158,166 @@ namespace Harvesting
             _characterStates[characterState] = 0f;
         }
 
-        protected void ReceiveSkillAction(SkillAction skillAction, Character character)
+
+        public void ReceiveSkillAction(SkillAction skillAction, ICharacterCore performer, out SkillActionEventData skillActionData)
         {
-            
+            //skillActionData = new SkillActionEventData(false, 0f, false, false, null);
+
+            bool isCritical = false;
+            if (skillAction.Type == Core.GameManager.CoreAttributesTemplate.SkillActionDamage)
+            {
+                float damageAmount = (skillAction.Modifier.Value) + (100f + skillAction.Modifier.Percentage / 100f) * performer.CharacterData.CoreAttributes[skillAction.Modifier.Attribute].FinalValue();
+                if (damageAmount <= 0f)
+                {
+                    damageAmount = 0f;
+                }
+                //Critical Damage Check
+                if (Random.Range(0, 100) <= performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalChance].FinalValue())
+                {
+                    damageAmount *= Core.GameManager.CoreAttributesTemplate.CriticalMultiplier;
+                    damageAmount += performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalDamage].FinalValue();
+                    isCritical = true;
+                }
+
+                if (Core.CharacterData.ResistanceAttributes.TryGetValue(skillAction.Element, out CharacterModifier charModifier) == true)
+                {
+                    damageAmount -= (charModifier.FinalValue());
+                }
+
+
+                skillActionData = new SkillActionEventData(true, Mathf.Max(1f, damageAmount), isCritical, false, skillAction.Element);
+                TakeDamage(Mathf.Max(1f, damageAmount));
+
+            }
+            else if (skillAction.Type == Core.GameManager.CoreAttributesTemplate.SkillActionHeal)
+            {
+                float healAmount = (skillAction.Modifier.Value) + (100f + skillAction.Modifier.Percentage / 100f) * Core.CharacterData.CoreAttributes[skillAction.Modifier.Attribute].FinalValue();
+
+                //Critical Heal Check
+                if (Random.Range(0, 100) <= performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalChance].FinalValue())
+                {
+                    healAmount *= Core.GameManager.CoreAttributesTemplate.CriticalMultiplier;
+                    //healAmount += performer.PrimaryAttributes[_coreAttributesTemplate.CriticalDamage].FinalValue();
+                    isCritical = true;
+                }
+
+                skillActionData = new SkillActionEventData(true, healAmount, isCritical, false, skillAction.Element);
+                GetHealed(healAmount);
+            }
+            else if (skillAction.Type == Core.GameManager.CoreAttributesTemplate.SkillActionStatusEffect)
+            {
+                //AddStatusEffect(skillAction.CharacterStatusEffect, skillAction.Modifier.Duration, performer, skillAction);
+                skillActionData = new SkillActionEventData(false, 0f, false, false, skillAction.Element);
+            }
+            else
+            {
+                skillActionData = new SkillActionEventData(false, 0f, isCritical, false, skillAction.Element);
+            }
+
+
+
+        }
+
+
+        public virtual void LevelUp(int newLevel)
+        {
+            var attribute = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Level];
+            if (newLevel <= attribute.FinalValue())
+            {
+                return;
+            }
+
+            attribute.BaseAdd = newLevel;
+
+        }
+
+        public float AttributeValue(Attribute attribute)
+        {
+            CharacterModifier mod = Core.CharacterData.CoreAttributes[attribute];
+            return mod.FinalValue();
+        }
+
+        protected void TakeDamage(float amount)
+        {
+            CurrentHealth -= amount;
+            BoundHealth();
+        }
+
+
+
+        protected void GetHealed(float amount)
+        {
+            CurrentHealth += amount;
+            BoundHealth();
+        }
+
+        protected void BoundHealth()
+        {
+            var value = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].FinalValue();
+
+            if (CurrentHealth > value)
+            {
+                CurrentHealth = value;
+            }
+            else if (CurrentHealth < 0f)
+            {
+                CurrentHealth = 0f;
+            }
+        }
+
+        protected void BoundMana()
+        {
+            var value = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue();
+
+            if (CurrentMana > value)
+            {
+                CurrentMana= value;
+            }
+            else if (CurrentMana < 0f)
+            {
+                CurrentMana = 0f;
+            }
+        }
+
+        public float HealthPercentage()
+        {
+            return CurrentHealth / Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].FinalValue();
+        }
+
+        public float ManaPercentage()
+        {
+            return CurrentMana / Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue();
+        }
+
+        public bool AddStatusEffect(CharacterState statusEffect, float duration, CharacterData character, SkillAction skillAction)
+        {
+            SkillActionSource source = new SkillActionSource(character, skillAction);
+
+            return false;
+        }
+
+        protected virtual void UpdateStats()
+        {
+            Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].BaseAdd += Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Strength].FinalValue() * Core.GameManager.CoreAttributesTemplate.StrengthToHealth;
+            CurrentHealth = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].FinalValue();
+
+            Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].BaseAdd += Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue() * Core.GameManager.CoreAttributesTemplate.IntellectToMaximumMana;
+            CurrentMana = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue();
+
+            Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.HealthRegen].BaseAdd += Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Faith].FinalValue() * Core.GameManager.CoreAttributesTemplate.FaithToHealthRegen;
+            Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.ManaRegen].BaseAdd += Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Faith].FinalValue() * Core.GameManager.CoreAttributesTemplate.FaithToManaRegen;
+
+            Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalDamage].BaseAdd += Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Intellect].FinalValue() * Core.GameManager.CoreAttributesTemplate.IntellectToCriticalDamage;
+
+            BoundHealth();
+            BoundMana();
+        }
+
+
+        public void Initialize(ICharacterCore core, CombatSettings combatSettings)
+        {
+            Core = core;
+            CombatSettings = combatSettings;
         }
     }
 }

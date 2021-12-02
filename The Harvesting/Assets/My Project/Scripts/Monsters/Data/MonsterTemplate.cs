@@ -11,11 +11,9 @@ namespace Harvesting
         public float Size = 1;
         public float DetectRange = 10;
         public List<ItemDrop> itemDrop;
-        public CharacterTemplate CharacterTemplate;
 
-        public override ICharacter Character()
-        {
-            throw new System.NotImplementedException();
-        }
+        public Skill MainAbility;
+        public Skill SecondaryAbility;
+        public Skill DefensiveAbility;
     }
 }

@@ -4,10 +4,23 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public class SkillActionEventData
+    public struct SkillActionEventData
     {
-        public Skill Skill;
-        public CharacterCore Performer;
+        public float FinalValue;
+        public bool Displayed;
+        public bool IsCritical;
+        public bool IsCastOnSelf;
+        public SkillActionElement Element;
+
+        public SkillActionEventData(bool displayed, float finalValue, bool isCritical, bool isCastOnSelf, SkillActionElement element)
+        {
+            Displayed = displayed;
+            IsCastOnSelf = isCastOnSelf;
+            FinalValue = finalValue;
+            IsCritical = isCritical;
+            Element = element;
+        }
+
     }
 }
 

@@ -9,50 +9,54 @@ namespace Harvesting
     public abstract class SkillPrefab : MonoBehaviour
     {
         [HideInInspector]
-        public Character Performer;
+        public ICharacterCore Performer;
         public List<Skill> ImpactSkills;
-        protected List<MonsterNEW> monstersInCollider = new List<MonsterNEW>();
+        protected List<ICharacterCore> charactersInCollider = new List<ICharacterCore>();
         protected int NumberOfEnemiesHit = 0;
 
         [HideInInspector]
         public List<SkillAction> SkillActions = new List<SkillAction>();
 
-        public void TriggerSkillActions(Character attacker, MonsterNEW monster)
+        public void TriggerSkillActions(CharacterCore attacker, CharacterCore receiver)
         {
-            if (monster != null)
+            if (SkillActions.Count != 0)
             {
-                if (SkillActions.Count != 0)
+                foreach (SkillAction action in SkillActions)
                 {
-                    
-                    foreach (SkillAction action in SkillActions)
-                    {
-                        action.Trigger(attacker, monster);
-                        NumberOfEnemiesHit++;
-                        print("Enemies hit :  " + NumberOfEnemiesHit);
+                    TriggerSkillAction(attacker, receiver, action);
+                    NumberOfEnemiesHit++;
+                    print("Enemies hit :  " + NumberOfEnemiesHit);
 
-                        if(action.ContinousDamage)
-                        {
-                            StartCoroutine(TriggerContinuous(action));
-                        }
+                    if (action.ContinousDamage)
+                    {
+                        StartCoroutine(TriggerContinuous(action));
                     }
                 }
-
             }
         }
 
-        public void TriggerSkillAction(SkillAction action, Character attacker, MonsterNEW monster)
+        public void TriggerSkillAction(ICharacterCore attacker, ICharacterCore receiver, SkillAction action)
         {
-            action.Trigger(attacker, monster);
+            receiver.CombatController.ReceiveSkillAction(action, attacker, out _);
+
         }
 
         public IEnumerator TriggerContinuous(SkillAction action)
         {
             float tickRate = action.TickRatePerSecond;
+            if(tickRate == 0f)
+            {
+                yield break;
+            }
             while (true)
             {
-                foreach (MonsterNEW monster in monstersInCollider)
+                foreach (ICharacterCore receiver in charactersInCollider)
                 {
-                    if(Performer != null && monster != null) action?.Trigger(Performer, monster);
+                    // FIX HERE FOR CONTINUOUS HEALS OR ENHANCEMENTS
+                    if (Performer != receiver)
+                    {
+                        receiver.CombatController.ReceiveSkillAction(action, Performer, out _);
+                    }
                 }
                 yield return new WaitForSeconds(1f / tickRate);
 

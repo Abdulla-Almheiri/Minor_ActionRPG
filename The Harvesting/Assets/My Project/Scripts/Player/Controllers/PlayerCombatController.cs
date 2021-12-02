@@ -7,9 +7,7 @@ namespace Harvesting
     [RequireComponent(typeof(PlayerCore))]
     public class PlayerCombatController : CharacterCombatController
     {
-        private PlayerCore _playerCore;
-        private Player _player;
-
+        public IPlayerCore Core { get; protected set; }
         protected override void Start()
         {
             base.Start();
@@ -17,7 +15,8 @@ namespace Harvesting
         }
         public void Initialize(PlayerCore playerCore)
         {
-            _playerCore = playerCore ?? GetComponent<PlayerCore>();
+            Core = playerCore ?? GetComponent<PlayerCore>();
         }
+
     }
 }

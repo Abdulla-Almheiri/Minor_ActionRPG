@@ -23,7 +23,7 @@ namespace Harvesting
 
         }
 
-        public void Equip(PlayerData player)
+        public void Equip(IPlayerCore playerCore)
         {
             //player.Equip(this, EquipmentSlotthis.EquipmentSlotType);
         }

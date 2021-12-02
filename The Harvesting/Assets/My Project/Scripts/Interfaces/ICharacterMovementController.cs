@@ -7,8 +7,9 @@ namespace Harvesting
 {
     public interface ICharacterMovementController
     {
+        ICharacterCore Core { get; }
         NavMeshAgent NavMeshAgent { get; }
-        LayerMask Layer { get; }
-        void Initialize(CharacterCore characterCore, NavMeshAgent navMeshAgent, LayerMask layer);
+        bool IsRunning();
+        bool MoveToPoint(Vector3 targetPoint);
     }
 }
