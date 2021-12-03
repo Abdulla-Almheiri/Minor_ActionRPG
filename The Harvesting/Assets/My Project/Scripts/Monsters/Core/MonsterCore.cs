@@ -11,27 +11,21 @@ namespace Harvesting
     [RequireComponent(typeof(MonsterUIController))]
     [RequireComponent(typeof(MonsterSFXController))]
 
-    public class MonsterCore : CharacterCore
+    public class MonsterCore : CharacterCore, IMonsterCore
     {
-        [SerializeField] private GameManager _gameManager;
-        [SerializeField] private MonsterTemplate _template;
+        [SerializeField] private MonsterTemplate _monsterTemplate;
 
-        public MonsterData Data { get; private set; }
-
-        private MonsterAnimationController _animationController;
-        private MonsterCombatController _combatController;
-        private MonsterSkillController _skillController;
-        private MonsterMovementController _movementController;
-        private MonsterUIController _UIController;
-        private MonsterSFXController _SFXController;
+        public new IMonsterTemplate Template { get => _monsterTemplate;  }
+        public IMonsterData MonsterData { get; protected set; }
 
 
-        public MonsterAnimationController AnimationController { get => _animationController; }
-        public MonsterCombatController CombatController { get => _combatController;}
-        public MonsterSkillController SkillController { get => _skillController; }
-        public MonsterMovementController MovementController { get => _movementController; }
-        public MonsterUIController UIController { get => _UIController; }
-        public MonsterSFXController SFXController { get => _SFXController; }
+        public new IMonsterAnimationController AnimationController { get; protected set; }
+        public new IMonsterCombatController CombatController { get; protected set; }
+        public new IMonsterSkillController SkillController { get; protected set; }
+        public new IMonsterMovementController MovementController { get; protected set; }
+        public new IMonsterUIController UIController { get; protected set; }
+        public new IMonsterSFXController SFXController { get; protected set; }
+
 
         public void Start()
         {
@@ -39,19 +33,20 @@ namespace Harvesting
         }
 
 
-        private void Initialize(GameManager gameManager, MonsterTemplate template)
+        private void Initialize(IGameManager gameManager, IMonsterTemplate template)
         {
-            _gameManager = _gameManager ?? gameManager ?? FindObjectOfType<GameManager>();
-            _template = _template ?? template ?? FindObjectOfType<MonsterTemplate>();
+            GameManager = gameManager ?? FindObjectOfType<GameManager>();
+            base.Template = _monsterTemplate ?? template ?? FindObjectOfType<MonsterTemplate>();
 
-            _animationController = GetComponent<MonsterAnimationController>();
-            _combatController = GetComponent<MonsterCombatController>();
-            _skillController = GetComponent<MonsterSkillController>();
-            _movementController = GetComponent<MonsterMovementController>();
-            _UIController = GetComponent<MonsterUIController>();
-            _SFXController = GetComponent<MonsterSFXController>();
+            AnimationController = GetComponent<IMonsterAnimationController>();
+            CombatController = GetComponent<IMonsterCombatController>();
+            SkillController = GetComponent<IMonsterSkillController>();
+            MovementController = GetComponent<IMonsterMovementController>();
+            UIController = GetComponent<IMonsterUIController>();
+            SFXController = GetComponent<IMonsterSFXController>();
 
-            Data = new MonsterData(this, _gameManager.CoreAttributes, _template);
+            MonsterData = new MonsterData();
+            MonsterData.Initialize(Template);
         }
     }
 }

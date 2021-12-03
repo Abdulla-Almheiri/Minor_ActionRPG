@@ -10,22 +10,13 @@ namespace Harvesting
     [RequireComponent(typeof(PlayerSkillController))]
     [RequireComponent(typeof(PlayerAnimationController))]
 
-    public class PlayerMovementController : CharacterMovementController
+    public class PlayerMovementController : CharacterMovementController, IPlayerMovementController
     {
-        public IPlayerData PlayerData { get; private set; }
-        private PlayerCombatController _playerCombatController;
-        private PlayerSkillController _playerSkillController;
-        private PlayerAnimationController _playerAnimationController;
-
-
-        private void Start()
-        {
-            Initialize(Core);
-        }
+        public new IPlayerCore Core { get; protected set; }
 
         public void MoveToMousePosition()
         {
-            if(_playerCombatController.CanMove() == false)
+            if(Core.CombatController.CanMove() == false)
             {
                 return;
             }
@@ -41,15 +32,10 @@ namespace Harvesting
 
         }
 
-        public void Initialize(ICharacterCore core)
+        public void Initialize(IPlayerCore core, NavMeshAgent navMeshAgent)
         {
-            //PlayerData = new PlayerItemData() as IPlayerData;
-            Initialize();
+            Initialize(navMeshAgent);
             Core = core;
-
-            _playerCombatController = GetComponent<PlayerCombatController>();
-            _playerSkillController = GetComponent<PlayerSkillController>();
-            _playerAnimationController = GetComponent<PlayerAnimationController>();
         }
     }
 }

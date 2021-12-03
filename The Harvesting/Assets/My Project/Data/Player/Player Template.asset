@@ -12,23 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968f88253f9608b488cc29d220026d28, type: 3}
   m_Name: Player Template
   m_EditorClassIdentifier: 
-  Level: 1
-  AttributePercentageIncrementPerLevel: 20
-  Health: 100
-  Mana: 30
-  HealthRegen: 0
-  ManaRegen: 0
-  Strength: 5
-  Intellect: 5
-  Faith: 5
-  Dexterity: 5
-  Power: 5
-  AttackSpeed: 100
-  MovementSpeed: 1
-  CriticalChance: 5
-  CriticalDamage: 100
-  AllDamageTakenReduction: 0
-  AllDamageDoneIncrease: 0
+  level: 1
+  attributePercentageIncrementPerLevel: 20
+  health: 100
+  mana: 30
+  healthRegen: 0
+  manaRegen: 0
+  strength: 5
+  intellect: 5
+  faith: 5
+  dexterity: 5
+  power: 5
+  attackSpeed: 100
+  movementSpeed: 1
+  criticalChance: 5
+  criticalDamage: 100
+  allDamageTakenReduction: 0
+  allDamageDoneIncrease: 0
+  _abilities:
+  - Skill: {fileID: 11400000, guid: 1fbd50631c7a37642ba5e346c0206c89, type: 2}
+    Level: 1
   Attributes: []
   InteractAnimation: {fileID: 0}
   WalkAnimation: {fileID: 0}
@@ -37,14 +40,14 @@ MonoBehaviour:
   CastAnimations: []
   HitAnimations: []
   BlockAnimations: []
-  Progression:
+  _skillProgression:
   - Skill: {fileID: 11400000, guid: 1fbd50631c7a37642ba5e346c0206c89, type: 2}
-    Level: 1
+    Level: 0
   - Skill: {fileID: 11400000, guid: 4010c75d19a96714f9cc457692e04894, type: 2}
-    Level: 2
-  - Skill: {fileID: 11400000, guid: 96b6f5e31d0b06241b627968791aa7cc, type: 2}
-    Level: 3
+    Level: 0
+  - Skill: {fileID: 11400000, guid: b4c19fffaa6ed7742a3fedbe14edca1b, type: 2}
+    Level: 0
   - Skill: {fileID: 11400000, guid: 634ec154e4c3da3418070e502290d01b, type: 2}
-    Level: 4
+    Level: 0
   - Skill: {fileID: 11400000, guid: 02657eef768282d4691e3d11b520933d, type: 2}
-    Level: 5
+    Level: 0

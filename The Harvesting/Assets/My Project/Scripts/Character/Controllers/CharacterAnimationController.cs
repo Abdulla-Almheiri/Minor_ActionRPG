@@ -8,14 +8,13 @@ namespace Harvesting
     public abstract class CharacterAnimationController : MonoBehaviour, ICharacterAnimationController
     {
         public ICharacterCore Core { get; protected set; }
-        public ICharacterMovementController MovementController { get; protected set; }
         public Animator Animator { get; protected set; }
-
-        public void Initialize(ICharacterCore core, Animator animator)
+        public Transform Transform { get; protected set; }
+        public void Initialize(ICharacterCore core, Animator animator, Transform transform)
         {
-            Core = core ?? GetComponent<ICharacterCore>() as ICharacterCore;
-            Animator = animator ?? GetComponentInChildren<Animator>(); ;
-
+            Core = core;
+            Animator = animator;
+            Transform = transform;
             if (Animator == null)
             {  
                 Debug.Log("Animator not found in children of CharacterCore: CharacterAnimationController.");
@@ -24,7 +23,7 @@ namespace Harvesting
 
         public void HandleRunningAnimation()
         {
-            if (MovementController.IsRunning())
+            if (Core.MovementController.IsRunning())
             {
                 Animator.SetBool("Running", true);
             }
@@ -35,5 +34,20 @@ namespace Harvesting
             }
         }
 
+        public void SpawnVisualEffect(CharacterVisualEffect characterVisualEffect, float duration)
+        {
+            
+        }
+
+        public void FaceDirection(Vector3 direction)
+        {
+            Animator.SetBool("Running", false);
+            var dir = (direction - Transform.position);
+            dir.y = 0;
+            dir = dir.normalized;
+            Transform.rotation = Quaternion.LookRotation(dir);
+        }
+
+        public abstract void PlaySkillAnimation(Skill skill, out float impactPointInSeconds);
     }
 }

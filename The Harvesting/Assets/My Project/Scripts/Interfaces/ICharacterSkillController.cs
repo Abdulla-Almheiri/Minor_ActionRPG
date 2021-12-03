@@ -6,7 +6,11 @@ namespace Harvesting
 {
     public interface ICharacterSkillController 
     {
-        bool ActivateSkill(Skill skill);
+        ICharacterCore Core { get; }
+        CombatSettings CombatSettings { get; }
+        List<SkillSpawnLocationData> SkillSpawnLocations { get; }
+        bool ActivateSkill(Skill skill, Vector3 direction);
         float SkillRecharge(Skill skill, out float seconds);
+        void Initialize(ICharacterCore core, CombatSettings combatSettings, List<SkillSpawnLocationData> skillSpawnLocations);
     }
 }

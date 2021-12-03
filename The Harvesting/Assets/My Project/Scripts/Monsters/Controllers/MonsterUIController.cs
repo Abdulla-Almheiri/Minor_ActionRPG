@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public class MonsterUIController : MonoBehaviour
+    public class MonsterUIController : CharacterUIController
     {
-
+        public new IMonsterCore Core { get; protected set; }
     }
 }

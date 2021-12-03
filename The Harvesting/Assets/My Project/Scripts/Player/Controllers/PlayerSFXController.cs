@@ -5,15 +5,18 @@ using FMODUnity;
 
 namespace Harvesting
 {
-    public class PlayerSFXController : MonoBehaviour
+    public class PlayerSFXController : CharacterSFXController, IPlayerSFXController
     {
-        private PlayerCore _playerCore;
+        public new IPlayerCore Core { get; protected set; }
+
         [EventRef, SerializeField]
         public string FootStepsSound = default;
         [EventRef, SerializeField]
         public string ItemPickupSound = default;
         private FMOD.Studio.EventInstance footstepSoundEvent;
         private FMOD.Studio.EventInstance itemPickupSoundEvent;
+
+        
 
         // Start is called before the first frame update
         void Awake()
@@ -54,8 +57,8 @@ namespace Harvesting
 
         private void Initialize()
         {
-            _playerCore = GetComponent<PlayerCore>();
-            if (_playerCore == null) print("Player Core is NULL!!!!!!");
+            Core = GetComponent<PlayerCore>();
+            if (Core == null) print("Player Core is NULL!!!!!!");
 
             footstepSoundEvent = RuntimeManager.CreateInstance(FootStepsSound);
             itemPickupSoundEvent = RuntimeManager.CreateInstance(ItemPickupSound);

@@ -6,10 +6,9 @@ using UnityEngine.AI;
 namespace Harvesting
 {
     [RequireComponent(typeof(MonsterCore))]
-    public class MonsterAnimationController : CharacterAnimationController
+    public class MonsterAnimationController : CharacterAnimationController, IMonsterAnimationController
     {
-       
-
+        new public IMonsterCore Core { get; }
         private bool deathAnimationPlayed = false;
 
         // Update is called once per frame
@@ -18,10 +17,7 @@ namespace Harvesting
             HandleAnimations();
 
         }
-        private void Start()
-        {
-            Initialize(null, null);
-        }
+
         private void HandleAnimations()
         {
            /* if(deathAnimationPlayed == true)
@@ -55,6 +51,11 @@ namespace Harvesting
                 var spawn = Instantiate(effect, transform);
                 Destroy(spawn, duration);
             }
+        }
+
+        public override void PlaySkillAnimation(Skill skill, out float impactPointInSeconds)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

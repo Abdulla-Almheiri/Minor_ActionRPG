@@ -7,48 +7,54 @@ namespace Harvesting
     [RequireComponent(typeof(PlayerCore))]
     [RequireComponent(typeof(PlayerCombatController))]
 
-    public class PlayerUIController : MonoBehaviour
+    public class PlayerUIController : CharacterUIController, IPlayerUIController
     {
-        private PlayerCore _playerCore;
         [SerializeField] private PlayerStatsUIScript _playerStatsUI;
         [SerializeField] private GameObject _characterScreen;
         [SerializeField] private SkillUIScript _skillUIScript;
 
         public GameObject CharacterScreen { get => _characterScreen; }
 
+        public new IPlayerCore Core { get; protected set; }
+
         private void Start()
         {
-            Initialize();
+            Initialize(null);
         }
         private void Update()
         {
-            UpdateHealthPercentage(_playerCore.PlayerSkillData.HealthPercentage());
-            UpdateManaPercentage(_playerCore.PlayerSkillData.ManaPercentage());
+            UpdateHealthPercentage(Core.CombatController.HealthPercentage());
+            UpdateManaPercentage(Core.CombatController.ManaPercentage());
 
         }
 
-        private void Initialize()
+        private void Initialize(IPlayerCore core)
         {
-            _playerCore = GetComponent<PlayerCore>();
+            Core = core ?? GetComponent<IPlayerCore>();
         }
         public void UpdateHealthPercentage(float percentage)
         {
-            _playerStatsUI.UpdateHealthPercentage(percentage);
+            //_playerStatsUI.UpdateHealthPercentage(percentage);
         }
 
         public void UpdateManaPercentage(float percentage)
         {
-            _playerStatsUI.UpdateManaPercentage(percentage);
+           // _playerStatsUI.UpdateManaPercentage(percentage);
         }
 
         public void ToggleCharacterScreen()
         {
-            _characterScreen?.SetActive(!_characterScreen.activeSelf);
+            //_characterScreen?.SetActive(!_characterScreen.activeSelf);
         }
 
         public void DisplaySkillsUI()
         {
-            _skillUIScript.DisplaySkillIcons();
+            Core.GameManager.SkillUI.DisplaySkillIcons();
+        }
+
+        public void UpdateStatsUI()
+        {
+
         }
     }
 }

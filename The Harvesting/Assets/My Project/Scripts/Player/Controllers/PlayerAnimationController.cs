@@ -10,24 +10,22 @@ namespace Harvesting
     [RequireComponent(typeof(PlayerMovementController))]
     [RequireComponent(typeof(PlayerCombatController))]
 
-    public class PlayerAnimationController : CharacterAnimationController
+    public class PlayerAnimationController : CharacterAnimationController, IPlayerAnimationController
     {
         [SerializeField] private CharacterAnimationData _defaultSkillAnimation;
 
         public CharacterAnimationData DefaultSkillAnimation { get => _defaultSkillAnimation; }
-
-        void Start()
-        {
-            Initialize(null, null);
-        }
 
         void Update()
         {
             HandleRunningAnimation();
         }
 
-
-
+        public void Initialize(IPlayerCore playerCore, Animator animator)
+        {
+            Core = playerCore;
+            Initialize(Core, animator, Transform);
+        }
         public void PlayPlayerSkillAnimation(Skill skill)
         {
             if (skill.PlayerAnimation != null)
@@ -41,8 +39,6 @@ namespace Harvesting
                 Animator.SetTrigger("Cast3");
             }
         }
-
-
 
         public void RotateToMouseDirection()
         {
@@ -62,5 +58,11 @@ namespace Harvesting
                 }
             }
         }
+
+        public override void PlaySkillAnimation(Skill skill, out float impactPoint)
+        {
+            impactPoint = 0f;
+        }
+
     }
 }

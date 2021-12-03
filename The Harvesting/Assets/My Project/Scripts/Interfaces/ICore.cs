@@ -6,6 +6,6 @@ namespace Harvesting
 {
     public interface ICore
     {
-        void Initialize();
+        void UpdateCore();
     }
 }

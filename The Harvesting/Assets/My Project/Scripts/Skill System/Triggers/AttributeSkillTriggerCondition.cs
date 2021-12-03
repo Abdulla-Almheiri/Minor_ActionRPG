@@ -12,22 +12,22 @@ namespace Harvesting
         public float AttributeAmount;
         public bool IsPercentage = true;
         public Attribute Attribute;
-        public override bool Evaluate(CharacterData character)
+        public override bool Evaluate(ICharacterCore character)
         {
             if(IsPercentage)
             {
-                var percent = character.HealthPercentage();
+                var percent = character.CombatController.HealthPercentage();
 
                 if (AttributeComparison == AttributeComparison.Above)
                 {
                     return percent >= AttributeAmount;
                 } else
                 {
-                    return character.HealthPercentage() < AttributeAmount;
+                    return character.CombatController.HealthPercentage() < AttributeAmount;
                 }
             } else
             {
-                var amount = character.PrimaryAttributes[Attribute].FinalValue();
+                var amount = character.CombatController.AttributeValue(Attribute);
 
                 if (AttributeComparison == AttributeComparison.Above)
                 {

@@ -40,7 +40,7 @@ namespace Harvesting
             transform.position = Camera.main.WorldToScreenPoint(WorldPosition);
         }
 
-        public bool PickUp(PlayerCore playerCore)
+        public bool PickUp(IPlayerCore playerCore)
         {
             /*if (playerCore.Inventory.AddItem(Item, 1) != -1)
             {

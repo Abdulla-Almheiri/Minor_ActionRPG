@@ -6,9 +6,13 @@ namespace Harvesting {
     public interface IGameManager
     {
         CoreAttributesTemplate CoreAttributesTemplate {get ; }
-        PlayerTemplate PlayerTemplate { get; }
+        CombatSettings CombatSettings { get; }
+        InputKeyData InputKeyData { get; }
+        IPlayerTemplate PlayerTemplate { get; }
         LayerMask Layer { get; }
         IGameUIController UIController { get; }
+        SkillUIScript SkillUI { get; }
+        PlayerCore PlayerCore { get; }
     }
 
 }

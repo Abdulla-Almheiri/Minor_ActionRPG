@@ -11,7 +11,7 @@ namespace Harvesting
         float CurrentHealth { get; }
         float CurrentMana { get; }
         bool IsAlive { get; }
-        void Initialize(ICharacterCore core, CombatSettings combatSettings);
+        void Initialize(ICharacterCore core);
         bool AddCharacterState(CharacterState characterState, float rawDuration);
         float AttributeValue(Attribute attribute);
         void ReceiveSkillAction(SkillAction skillAction, ICharacterCore performer, out SkillActionEventData skillActionEventData);
@@ -23,5 +23,7 @@ namespace Harvesting
         bool CanBeDamaged();
         bool CanBeHealed();
         void LevelUp(int newLevel);
+        float HealthPercentage();
+        float ManaPercentage();
     }
 }

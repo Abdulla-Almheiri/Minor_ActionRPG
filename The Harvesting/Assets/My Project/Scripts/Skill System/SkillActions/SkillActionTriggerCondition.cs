@@ -8,6 +8,6 @@ namespace Harvesting
     public abstract class SkillActionTriggerCondition : ScriptableObject
     {
 
-        public abstract bool Evaluate(SkillAction action, CharacterData performer);
+        public abstract bool Evaluate(SkillAction action, ICharacterCore performer);
     }
 }

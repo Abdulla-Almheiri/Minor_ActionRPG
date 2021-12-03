@@ -4,18 +4,8 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public class MonsterAIController : MonoBehaviour
+    public class MonsterAIController : CharacterAIController, IMonsterAIController
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        public new IMonsterCore Core { get; protected set; }
     }
 }

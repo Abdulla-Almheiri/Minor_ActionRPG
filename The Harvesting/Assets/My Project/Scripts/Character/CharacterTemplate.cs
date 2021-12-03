@@ -5,32 +5,36 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public abstract class CharacterTemplate : ScriptableObject
+    public abstract class CharacterTemplate : ScriptableObject, ICharacterTemplate
     {
         [Header("Primary Attributes")]
-        public int Level = 1;
-        public float AttributePercentageIncrementPerLevel = 20f;
+        [SerializeField] private int level = 1;
+        [SerializeField] private float attributePercentageIncrementPerLevel = 20f;
 
-        public float Health = 100f;
-        public float Mana = 30f;
+        [SerializeField] private float health = 100f;
+        [SerializeField] private float mana = 30f;
 
-        public float HealthRegen;
-        public float ManaRegen;
+        [SerializeField] private float healthRegen;
+        [SerializeField] private float manaRegen;
 
-        public float Strength = 5;
-        public float Intellect = 5;
-        public float Faith = 5;
-        public float Dexterity = 5;
-        public float Power = 5;
+        [SerializeField] private float strength = 5;
+        [SerializeField] private float intellect = 5;
+        [SerializeField] private float faith = 5;
+        [SerializeField] private float dexterity = 5;
+        [SerializeField] private float power = 5;
 
-        public float AttackSpeed = 100;
-        public float MovementSpeed = 1f;
+        [SerializeField] private float attackSpeed = 100;
+        [SerializeField] private float movementSpeed = 1f;
 
-        public float CriticalChance = 5f;
-        public float CriticalDamage = 100f;
+        [SerializeField] private float criticalChance = 5f;
+        [SerializeField] private float criticalDamage = 100f;
 
-        public float AllDamageTakenReduction = 0f;
-        public float AllDamageDoneIncrease = 0f;
+        [SerializeField] private float allDamageTakenReduction = 0f;
+        [SerializeField] private float allDamageDoneIncrease = 0f;
+
+        [Header("Abilities")]
+        [SerializeField] private List<ProgressionSkill> _abilities; 
+        public List<ProgressionSkill> Abilities { get => _abilities; }
 
         [Header("Secondary Attributes")]
         public List<AttributeFloat> Attributes;
@@ -44,7 +48,24 @@ namespace Harvesting
         public List<CharacterAnimationData> HitAnimations;
         public List<CharacterAnimationData> BlockAnimations;
 
-        //public abstract ICharacter Character();
+        public int Level { get => level; }
+        public float AttributePercentageIncrementPerLevel { get => attributePercentageIncrementPerLevel; }
+        public float Health { get => health; }
+        public float Mana { get => mana; }
+        public float HealthRegen { get => healthRegen; }
+        public float ManaRegen { get => manaRegen; }
+        public float Strength { get => strength; }
+        public float Intellect { get => intellect; }
+        public float Faith { get => faith; }
+        public float Dexterity { get => dexterity; }
+        public float Power { get => power; }
+        public float AttackSpeed { get => attackSpeed; }
+        public float MovementSpeed { get => movementSpeed; }
+        public float CriticalChance { get => criticalChance; }
+        public float CriticalDamage { get => criticalDamage; }
+        public float AllDamageTakenReduction { get => allDamageTakenReduction; }
+        public float AllDamageDoneIncrease { get => allDamageDoneIncrease; }
+
     }
 
     [System.Serializable]

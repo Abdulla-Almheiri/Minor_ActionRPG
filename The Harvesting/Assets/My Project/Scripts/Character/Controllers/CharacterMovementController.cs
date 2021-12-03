@@ -9,16 +9,15 @@ namespace Harvesting
     /// CharacterMovementController Monobehavior. Controlls Character movement. Requires NavMeshAgent component.
     /// </summary>
     [RequireComponent(typeof(NavMeshAgent))]
-    [RequireComponent(typeof(CharacterCombatController))]
 
     public abstract class CharacterMovementController : MonoBehaviour, ICharacterMovementController
     {
         public ICharacterCore Core { get; protected set; }
         public NavMeshAgent NavMeshAgent { get; protected set; }
 
-        protected void Initialize()
+        public void Initialize(NavMeshAgent navMeshAgent)
         {
-            NavMeshAgent = GetComponent<NavMeshAgent>();
+            NavMeshAgent = navMeshAgent ?? GetComponent<NavMeshAgent>();
             if (NavMeshAgent == null)
             {
                 Debug.Log("No NavMeshAgent component found on CharacterCore: CharacterMovementController.");

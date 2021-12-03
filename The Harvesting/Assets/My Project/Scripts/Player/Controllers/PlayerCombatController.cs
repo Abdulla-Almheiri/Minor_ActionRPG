@@ -5,17 +5,14 @@ using UnityEngine;
 namespace Harvesting
 {
     [RequireComponent(typeof(PlayerCore))]
-    public class PlayerCombatController : CharacterCombatController
+    public class PlayerCombatController : CharacterCombatController, IPlayerCombatController
     {
-        public IPlayerCore Core { get; protected set; }
-        protected override void Start()
+        public new IPlayerCore Core { get; protected set; }
+
+        public void Initialize(IPlayerCore core)
         {
-            base.Start();
-            Initialize(null);
-        }
-        public void Initialize(PlayerCore playerCore)
-        {
-            Core = playerCore ?? GetComponent<PlayerCore>();
+            Core = core;
+            base.Initialize(core);
         }
 
     }

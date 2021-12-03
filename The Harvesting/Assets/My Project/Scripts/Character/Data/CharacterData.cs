@@ -12,14 +12,16 @@ namespace Harvesting
         public bool Alive { get; protected set; } = false;
         public float CurrentHealth { get; set; }
         public float CurrentMana { get; set; }
-
+        public List<Skill> Abilities { get; protected set; } = new List<Skill>();
         public Dictionary<Attribute, CharacterModifier> CoreAttributes { get; protected set; } = new Dictionary<Attribute, CharacterModifier>();
         public Dictionary<Attribute, CharacterModifier> SecondaryAttributes { get; protected set; } = new Dictionary<Attribute, CharacterModifier>();
         public Dictionary<SkillActionElement, CharacterModifier> ResistanceAttributes { get; protected set; } = new Dictionary<SkillActionElement, CharacterModifier>();
         public Dictionary<SkillActionSource, SkillActionSource> StatusEffects { get; protected set; } = new Dictionary<SkillActionSource, SkillActionSource>();
         public Dictionary<Skill, CharacterModifier> SkillBonusAttributes { get; protected set; } = new Dictionary<Skill, CharacterModifier>();
 
-        public void Initialize(ICharacterCore core, CharacterTemplate characterTemplate)
+        
+
+        public void Initialize(ICharacterCore core, ICharacterTemplate characterTemplate)
         {
             //CHANGE NAME WHEN NOT LAZY
             CoreAttributesTemplate coreAttributesTemplate = core.GameManager.CoreAttributesTemplate;
@@ -49,7 +51,11 @@ namespace Harvesting
             CurrentHealth = CoreAttributes[coreAttributesTemplate.Health].FinalValue();
             CurrentMana = CoreAttributes[coreAttributesTemplate.Mana].FinalValue();
 
-
+            foreach (ProgressionSkill skill in characterTemplate.Abilities)
+            {
+                Abilities.Add(skill.Skill);
+                Debug.Log("Ability Added  :   " + skill.Skill.Name);
+            }
             Alive = true;
         }
     }

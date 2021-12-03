@@ -34,7 +34,7 @@ namespace Harvesting
             if (other.gameObject.GetComponentInChildren<MonsterCore>() != null)
             {
                 charactersInCollider.Add(other.gameObject.GetComponentInChildren<MonsterCore>());
-                TriggerSkillActions(Performer, other.gameObject.GetComponentInChildren<MonsterCore>().Data);
+                TriggerSkillActions(Performer, other.gameObject.GetComponentInChildren<MonsterCore>());
             }
             
         }

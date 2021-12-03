@@ -23,13 +23,14 @@ namespace Harvesting
         public void DisplaySkillIcons()
         {
             int index = 0;
-            foreach(Skill skill in _gameManager.PlayerCore.PlayerSkillData.Abilities)
+            foreach(Skill skill in _gameManager.PlayerCore.SkillController.Abilities)
             {
                 Icons[index].sprite = skill.Icon;
                 index++;
                 print("SKILL IS : " + skill.Name);
             }
         }
+
 
         /*private void UpdateSkillsRechargeUI()
         {

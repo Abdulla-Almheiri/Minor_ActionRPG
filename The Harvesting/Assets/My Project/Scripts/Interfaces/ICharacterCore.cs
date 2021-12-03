@@ -7,9 +7,16 @@ namespace Harvesting
     public interface ICharacterCore
     {
         IGameManager GameManager { get; }
-        ICharacterData CharacterData { get; }
+        ICharacterTemplate Template { get; }
+        ICharacterData Data { get; }
         ICharacterAnimationController AnimationController { get; }
         ICharacterCombatController CombatController { get; }
-        void Initialize(IGameManager gameManager, CharacterTemplate characterTemplate);
+        ICharacterSkillController SkillController { get;  }
+        ICharacterMovementController MovementController { get;  }
+        ICharacterAIController AIController { get; }
+        ICharacterUIController UIController { get; }
+        ICharacterItemController ItemController { get; }
+        ICharacterSFXController SFXController { get; }
+        ICharacterInputController InputController { get; }
     }
 }

@@ -60,7 +60,7 @@ namespace Harvesting {
             var monster = other.GetComponent<MonsterCore>();
             if (monster != null)
             {
-                TriggerSkillActions(Performer, monster.Data);
+                TriggerSkillActions(Performer, monster);
             }
         }
     }

@@ -8,7 +8,8 @@ namespace Harvesting
     public class ItemDrop
     {
 
-        public ItemTemplate Item;
+        public ItemTemplate ItemTemplate;
+        public Item Item;
         [Range(0,100)]
         public float Chance;
 
@@ -19,7 +20,7 @@ namespace Harvesting
                 return null;
             }
 
-            return Item.Generate(level, requiredLevel);
+            return ItemTemplate.Generate(level, requiredLevel);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Harvesting
         [HideInInspector]
         public List<SkillAction> SkillActions = new List<SkillAction>();
 
-        public void TriggerSkillActions(CharacterCore attacker, CharacterCore receiver)
+        public void TriggerSkillActions(ICharacterCore attacker, ICharacterCore receiver)
         {
             if (SkillActions.Count != 0)
             {

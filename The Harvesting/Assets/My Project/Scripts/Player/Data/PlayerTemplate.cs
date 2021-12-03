@@ -5,8 +5,9 @@ using UnityEngine;
 namespace Harvesting
 {
     [CreateAssetMenu(fileName = "new player template", menuName = "Data/Player/Player Template")]
-    public class PlayerTemplate : CharacterTemplate
+    public class PlayerTemplate : CharacterTemplate, IPlayerTemplate
     {
-        public List<ProgressionSkill> Progression;
+        [SerializeField] protected List<ProgressionSkill> _skillProgression;
+        public List<ProgressionSkill> SkillProgression { get => _skillProgression; }
     }
 }

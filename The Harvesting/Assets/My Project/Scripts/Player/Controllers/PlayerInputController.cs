@@ -9,29 +9,24 @@ namespace Harvesting
     [RequireComponent(typeof(PlayerUIController))]
     [RequireComponent(typeof(PlayerSkillController))]
 
-    public class PlayerInputController : MonoBehaviour
+    public class PlayerInputController : CharacterInputController, IPlayerInputController
     {
-        private PlayerCore _playerCore;
-        [SerializeField] private InputKeyData _inputKeyData;
 
-        private void Start()
-        {
-            Initialize(null);
-        }
+        public new IPlayerCore Core { get; protected set; }
 
         private void Update()
         {
             HandleInput();
-
+            
             //TEST
             if(Input.GetKeyDown(KeyCode.Q))
             {
-                _playerCore.PlayerSkillData.TakeDamage(5f);
+                //Core.CombatController.TakeDamage(5f);
             }
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                _playerCore.PlayerSkillData.GetHealed(5f);
+                //Core.CombatController.GetHealed(5f);
             }
             //TEST
         }
@@ -42,37 +37,40 @@ namespace Harvesting
             HandleSkillInput();
         }
 
-        public void Initialize(PlayerCore playerCore)
-        {
-            _playerCore = playerCore ?? GetComponent<PlayerCore>();
-        }
-
         private void WaitForMouseClickToMove()
         {
             if (Input.GetMouseButton(0))
             {
-                _playerCore.MovementController.MoveToMousePosition();
+                Core.MovementController.MoveToMousePosition();
             }
         }
 
         private void HandleUIInput()
         {
-            if (Input.GetKeyDown(_inputKeyData.CharacterScreen))
+            if (Input.GetKeyDown(InputKeyData.CharacterScreen))
             {
-                _playerCore.UIController.ToggleCharacterScreen();
+                Core.UIController.ToggleCharacterScreen();
             }
         }
 
         private void HandleSkillInput()
         {
-            for(int i = 0;  i < Mathf.Min(_inputKeyData.AbilityInputKeyList.Length, _playerCore.PlayerSkillData.Abilities.Count);  i++ )
+            for(int i = 0;  i < Mathf.Min(InputKeyData.AbilityInputKeyList.Length, Core.SkillController.Abilities.Count);  i++ )
             {
-                if (Input.GetKeyDown(_inputKeyData.AbilityInputKeyList[i]))
+                if (Input.GetKeyDown(InputKeyData.AbilityInputKeyList[i]))
                 {
-                    _playerCore.SkillController.ActivateSkill(_playerCore.PlayerSkillData.Abilities[i]);
+                    if (Core.SkillController.Abilities[i].FaceDirection)
+                    {
+                        Core.SkillController.ActivateSkill(Core.SkillController.Abilities[i], Input.mousePosition);
+                    }
                 }
             }
         }
 
+        public void Initialize(IPlayerCore core, InputKeyData inputKeyData)
+        {
+            Core = core;
+            InputKeyData = inputKeyData;
+        }
     }
 }

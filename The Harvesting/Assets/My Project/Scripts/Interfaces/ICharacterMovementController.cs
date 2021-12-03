@@ -11,5 +11,6 @@ namespace Harvesting
         NavMeshAgent NavMeshAgent { get; }
         bool IsRunning();
         bool MoveToPoint(Vector3 targetPoint);
+        void Initialize(NavMeshAgent navMeshAgent);
     }
 }

@@ -7,6 +7,6 @@ namespace Harvesting
 {
     public abstract class SkillTriggerCondition : ScriptableObject
     {
-        public abstract bool Evaluate(CharacterData character);
+        public abstract bool Evaluate(ICharacterCore character);
     }
 }

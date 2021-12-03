@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterSFXController : MonoBehaviour
+namespace Harvesting
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MonsterSFXController : CharacterSFXController
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

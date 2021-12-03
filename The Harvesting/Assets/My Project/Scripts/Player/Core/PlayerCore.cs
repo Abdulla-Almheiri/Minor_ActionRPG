@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
-using FMODUnity;
 
 namespace Harvesting {
 
@@ -13,51 +12,72 @@ namespace Harvesting {
     [RequireComponent(typeof(PlayerItemController))]
     [RequireComponent(typeof(PlayerMovementController))]
     [RequireComponent(typeof(PlayerUIController))]
-    [RequireComponent(typeof(PlayerSFXController))]*/
+    [RequireComponent(typeof(PlayerSFXController))]
+    [RequireComponent(typeof(PlayerInputController))]*/
+  
 
     public class PlayerCore: CharacterCore, IPlayerCore
     {
-        public IPlayerData PlayerData { get; protected set; }
-        public PlayerAnimationController AnimationController { get; private set; }
-        public ICharacterCombatController CombatController { get; private set; }
-        public PlayerSkillController SkillController { get; private set; }
-        public PlayerItemController ItemController { get; private set; }
-        public PlayerMovementController MovementController { get; private set; }
-        public PlayerUIController UIController { get; private set; }
-        public PlayerSFXController SFXController { get; private set; }
-
+        public new IPlayerData Data { get; protected set; }
+        public new IPlayerAnimationController AnimationController { get; protected set; }
+        public new IPlayerCombatController CombatController { get; protected set; }
+        public new IPlayerSkillController SkillController { get; protected set; }
+        public new IPlayerItemController ItemController { get; protected set; }
+        public new IPlayerMovementController MovementController { get; protected set; }
+        public new IPlayerUIController UIController { get; protected set; }
+        public new IPlayerSFXController SFXController { get; protected set; }
+        public new IPlayerInputController InputController { get; protected set; }
 
         public PlayerSkillData PlayerSkillData { get; private set; }
         public PlayerItemData PlayerItemData { get; private set; }
 
-        public PlayerTemplate PlayerTemplate { get; protected set; }
+        public new IPlayerTemplate Template { get; protected set; }
 
-        public void Initialize(IGameManager gameManager)
+        [SerializeField] private List<SkillSpawnLocationData> _skillSpawnLocations;
+        public void Initialize(IGameManager gameManager, IPlayerTemplate playerTemplate)
         {
             
-            Initialize(gameManager, GameManager.PlayerTemplate);
-            PlayerTemplate = GameManager.PlayerTemplate;
-            
-            if(PlayerTemplate == null)
+            GameManager = gameManager;
+            Template = playerTemplate;
+
+            Initialize(gameManager, (CharacterTemplate)Template, GetComponent<Animator>(), GetComponent<NavMeshAgent>(), transform,  _skillSpawnLocations) ;
+
+            Data = new PlayerData();
+            Data.Initialize(this, Template);
+
+            if (Template == null)
             {
                 Debug.Log("GameManager.PlayerTemplate is null.");
             }
 
-            AnimationController = GetComponent<PlayerAnimationController>();
-            CombatController = GetComponent<PlayerCombatController>();
-            SkillController = GetComponent<PlayerSkillController>();
-            ItemController = GetComponent<PlayerItemController>();
             MovementController = GetComponent<PlayerMovementController>();
-            UIController = GetComponent<PlayerUIController>();
-            SFXController = GetComponent<PlayerSFXController>();
+            MovementController.Initialize(this, GetComponent<NavMeshAgent>());
 
-            //PlayerSkillData = new PlayerSkillData(CharacterCombatData, GameManager.CoreAttributes, PlayerTemplate);
+
+
+            AnimationController = GetComponent<PlayerAnimationController>();
+            AnimationController.Initialize(this, GetComponentInChildren<Animator>());
+
+            CombatController = GetComponent<PlayerCombatController>();
+            CombatController.Initialize(this);
+
+            SkillController = GetComponent<PlayerSkillController>();
+
+            SkillController.Initialize(this, GameManager.CombatSettings, _skillSpawnLocations);
+
+            InputController = GetComponent<PlayerInputController>();
+            InputController.Initialize(this, GameManager.InputKeyData);
+
+
+
         }
 
-        public void Awake()
+        /*public void Awake()
         {
-            Initialize(null, null);
-        }
+            //TESTING. REMOVE LATER
+            var gManager = FindObjectOfType<GameManager>();
+            Initialize(gManager, gManager.PlayerTemplate);
+        }*/
 
 
         public void Update()
@@ -69,11 +89,6 @@ namespace Harvesting {
             }
         }
 
-        public void ActivateSkill(Skill skill)
-        {
-            SkillController.ActivateSkill(skill);
-        }
-
         public void ReceiveSkillAction(CharacterCore performer, SkillAction skillAction)
         {
             
@@ -81,13 +96,13 @@ namespace Harvesting {
 
         protected void UpdateAbilities()
         {
-            PlayerData.Abilities.Clear();
+            Data.Abilities.Clear();
 
-            foreach (ProgressionSkill progressionSkill in PlayerTemplate.Progression)
+            foreach (ProgressionSkill progressionSkill in Template.SkillProgression)
             {
                 if (progressionSkill.Level <= CombatController.AttributeValue(GameManager.CoreAttributesTemplate.Level))
                 {
-                    PlayerData.Abilities.Add(progressionSkill.Skill);
+                    Data.Abilities.Add(progressionSkill.Skill);
                 }
             }
 

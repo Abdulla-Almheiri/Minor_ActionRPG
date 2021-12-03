@@ -7,19 +7,11 @@ namespace Harvesting
 {
     [RequireComponent(typeof(PlayerCore))]
     [RequireComponent(typeof(PlayerUIController))]
-    public class PlayerItemController : MonoBehaviour
+    public class PlayerItemController : CharacterItemController, IPlayerItemController
     {
-        private PlayerCore _playerCore;
-
-
+        public new IPlayerCore Core { get; protected set; }
         private float itemPickupTimer = 0.2f;
         private float itemPickupCooldown = 0.2f;
-        private GameObject _characterScreen;
-
-        private void Start()
-        {
-            Initialize(null);
-        }
 
         private void Update()
         {
@@ -28,10 +20,10 @@ namespace Harvesting
         }
         public bool HandleItemsPickup()
         {
-            if (itemPickupTimer > 0)
-            {
-                return false;
-            }
+            /* if (itemPickupTimer > 0)
+             {
+                 return false;
+             }
 
             if (Input.GetMouseButton(0))
             {
@@ -49,11 +41,11 @@ namespace Harvesting
                         if (result.gameObject.GetComponentInChildren<ItemGroundPrefab>() != null && Vector3.Distance(result.gameObject.GetComponent<ItemGroundPrefab>().WorldPosition, transform.position) < 2f)
                         {
                             //Debug.Log("ITEM GROUND FOUND!!!!");
-                            if (result.gameObject.GetComponent<ItemGroundPrefab>().PickUp(_playerCore) == true)
+                            if (result.gameObject.GetComponent<ItemGroundPrefab>().PickUp(Core) == true)
                             {
-                                _characterScreen.GetComponentInChildren<InventoryUIScript>().UpdateUI();
+                                Core.UIController.UI.GetComponentInChildren<InventoryUIScript>().UpdateUI();
                                 itemPickupTimer = itemPickupCooldown;
-                                _playerCore.SFXController.PlayItemSound();
+                                Core.SFXController.PlayItemSound();
                                 return true;
                             }
                             return false;
@@ -61,6 +53,7 @@ namespace Harvesting
                     }
 
                 }
+
                 /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                 RaycastHit rayHit;
@@ -74,14 +67,12 @@ namespace Harvesting
                         return itemPrefab.PickUp(this);
                     }
                 }*/
-            }
             return false;
         }
-
-        private void Initialize(PlayerCore playerCore)
+        public void Initialize(IPlayerCore playerCore)
         {
-            _playerCore = playerCore ?? GetComponent<PlayerCore>();
-            _characterScreen = _playerCore.UIController.CharacterScreen;
+            Core = playerCore ?? GetComponent<PlayerCore>();
+            //_characterScreen = Core.UIController.CharacterScreen;
             itemPickupTimer = itemPickupCooldown;
         }
     }
