@@ -5,15 +5,22 @@ using UnityEngine;
 namespace Harvesting
 {
     [RequireComponent(typeof(GameManager))]
-    public class GameUIController : MonoBehaviour
+    public class GameUIController : MonoBehaviour, IGameUIController
     {
-        private FloatingCombatTextManager _combatTextManager;
+        public IGameManager GameManager { get; protected set; }
         [SerializeField] private Canvas _dynamicCanvas;
         [SerializeField] private Canvas _staticCanvas;
         
-        public FloatingCombatTextManager CombatTextManager { get => _combatTextManager; }
+        public FloatingCombatTextManager CombatTextManager { get; protected set; }
         public Canvas DynamicCanvas { get => _dynamicCanvas; }
         public Canvas StaticCanvas { get => _staticCanvas; }
+
+        [SerializeField] private GameObjectPool _combatTextPool;
+        public void Initialize(IGameManager gameManager)
+        {
+            GameManager = gameManager;
+            CombatTextManager = new FloatingCombatTextManager(_combatTextPool, DynamicCanvas, GameManager.Camera);
+        }
 
         protected void Start()
         {

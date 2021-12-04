@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public class PlayerData : CharacterData, IPlayerData
+    public class PlayerData 
     {
-        public List<Skill> Abilities { get; protected set; } = new List<Skill>();
 
         public Skill PrimaryWeaponSkill { get; protected set; }
 
@@ -16,13 +15,10 @@ namespace Harvesting
 
         public Inventory Inventory { get; protected set; }
 
-        public void Initialize(ICharacterCore core, IPlayerTemplate playerTemplate)
+        public PlayerData(Inventory inventory, Dictionary<EquipmentSlotType, Item> equipment)
         {
-            //FIX HERE. INITIALIZE ABILITIES
-            foreach(ProgressionSkill skill in playerTemplate.SkillProgression)
-            {
-                Abilities.Add(skill.Skill);
-            }
+            Inventory = inventory;
+            Equipment = equipment;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Harvesting {
 
         public Skill SecondaryWeaponSkill { get; protected set; }
 
-        private CoreAttributesTemplate _coreAttributes;
+       // private CoreAttributesTemplate _coreAttributes;
 
         public new List<SkillSpawnLocationData> SkillSpawnLocations { get; protected set; }
 
@@ -26,8 +26,25 @@ namespace Harvesting {
             SkillSpawnLocations = skillSpawnLocations;
             Core = core;
             base.Initialize(core, combatSettings, skillSpawnLocations);
-            Abilities = Core.Data.Abilities;
+            Abilities = Core.CharacterData.Abilities;
         }
 
+       /* private void Update()
+        {
+            HandleWeaponSkills();
+            base.Update();
+        }*/
+
+
+        protected void HandleWeaponSkills()
+        {
+            if(Core.InputController.MouseClick(out RaycastHit other) == true)
+            {
+                if (other.collider.gameObject.layer == Core.GameManager.CombatSettings.EnemyLayer)
+                {
+
+                }
+            }
+        }
     }
 }

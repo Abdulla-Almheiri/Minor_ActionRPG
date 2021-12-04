@@ -9,10 +9,9 @@ namespace Harvesting
     {
         ICharacterCore Core { get; }
         Animator Animator { get; }
-        Transform Transform { get; }
         void HandleRunningAnimation();
         void SpawnVisualEffect(CharacterVisualEffect characterVisualEffect, float duration);
-        void Initialize(ICharacterCore characterCore, Animator animator, Transform transform);
+        void Initialize(ICharacterCore characterCore, Animator animator);
         void FaceDirection(Vector3 direction);
         void PlaySkillAnimation(Skill skill, out float impactPointInSeconds);
     }

@@ -6,7 +6,7 @@ namespace Harvesting
 {
     public interface IPlayerCore : ICharacterCore
     {
-        new IPlayerData Data { get; }
+        PlayerData PlayerData { get; }
         new IPlayerAnimationController AnimationController { get; }
         new IPlayerCombatController CombatController { get; }
         new IPlayerSkillController SkillController { get; }

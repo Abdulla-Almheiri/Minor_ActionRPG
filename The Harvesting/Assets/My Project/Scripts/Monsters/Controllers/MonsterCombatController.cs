@@ -8,5 +8,10 @@ namespace Harvesting
     {
         new public IMonsterCore Core { get; protected set; }
 
+        public void Initialize(IMonsterCore core)
+        {
+            Core = core;
+            base.Initialize(core);
+        }
     }
 }

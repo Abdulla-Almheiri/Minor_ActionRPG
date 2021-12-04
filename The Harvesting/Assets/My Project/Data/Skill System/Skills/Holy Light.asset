@@ -37,15 +37,18 @@ MonoBehaviour:
     TriggerChance: 100
     ContinousDamage: 0
     TickRatePerSecond: 1
-    ActionType: 0
-    Element: {fileID: 0}
-    CharacterStatusEffect: {fileID: 0}
-    DamageStatusEffect: {fileID: 0}
-    OnMonsterEffect: {fileID: 0}
+    Type: {fileID: 0}
     Modifier:
       Attribute: {fileID: 11400000, guid: d44ad0cb712860f48a976b6890183737, type: 2}
       MaxValue: 0
       Value: 0
       Duration: 0
       Percentage: 300
-    SkillVFX: {fileID: 7332391563094322810, guid: b2fb5438b1fce6646b9109628ccececa, type: 3}
+    Element: {fileID: 0}
+    CharacterStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
+    ResourceToDrain: {fileID: 0}
+    DrainAmount: 0
+    IsDrainAmountPercentage: 0
+    SkillVFX: {fileID: 0}

@@ -6,6 +6,6 @@ namespace Harvesting
 {
     public interface IPlayerCombatController : ICharacterCombatController
     {
-
+        void Initialize(IPlayerCore playerCore);
     }
 }

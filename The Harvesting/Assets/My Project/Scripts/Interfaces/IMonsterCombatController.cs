@@ -7,5 +7,6 @@ namespace Harvesting
     public interface IMonsterCombatController : ICharacterCombatController
     {
         new IMonsterCore Core { get; }
+        void Initialize(IMonsterCore core);
     }
 }

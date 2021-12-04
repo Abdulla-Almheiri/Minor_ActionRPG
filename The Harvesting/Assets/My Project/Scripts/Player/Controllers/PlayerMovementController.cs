@@ -32,10 +32,11 @@ namespace Harvesting
 
         }
 
-        public void Initialize(IPlayerCore core, NavMeshAgent navMeshAgent)
+        public void Initialize(IPlayerCore core, NavMeshAgent navMeshAgent, Transform transform)
         {
-            Initialize(navMeshAgent);
             Core = core;
+            base.Initialize(core, navMeshAgent, transform);
+            
         }
     }
 }

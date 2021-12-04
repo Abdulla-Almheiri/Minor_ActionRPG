@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public interface IMonsterUIController : ICharacterUIController
+    public interface IMonsterInputController : ICharacterInputController
     {
         new IMonsterCore Core { get; }
-        public void Initialize(IMonsterCore core);
+        void Initialize(IMonsterCore core, InputKeyData inputKeyData);
+
     }
 }

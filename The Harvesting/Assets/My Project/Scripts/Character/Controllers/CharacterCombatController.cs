@@ -6,10 +6,10 @@ namespace Harvesting
 {
     public abstract class CharacterCombatController : MonoBehaviour, ICharacterCombatController
     {
-        public bool IsAlive { get; protected set; }
+        public bool IsAlive { get; protected set; } = true;
         public float CurrentHealth { get; protected set; }
         public float CurrentMana { get; protected set; }
-
+        public float Size { get; protected set; } = 1f;
         public ICharacterCore Core { get; protected set; }
         public ICharacterData CharacterData { get; protected set; }
         public CombatSettings CombatSettings { get; protected set; }
@@ -33,7 +33,7 @@ namespace Harvesting
 
         protected bool SetUpTimers()
         {
-            print("SETUP TIMERS CALLED");
+            //print("SETUP TIMERS CALLED");
             if(CombatSettings == null)
             {
                 return false;
@@ -157,39 +157,41 @@ namespace Harvesting
         public void ReceiveSkillAction(SkillAction skillAction, ICharacterCore performer, out SkillActionEventData skillActionData)
         {
             //skillActionData = new SkillActionEventData(false, 0f, false, false, null);
-
+            
             bool isCritical = false;
             if (skillAction.Type == Core.GameManager.CoreAttributesTemplate.SkillActionDamage)
             {
-                float damageAmount = (skillAction.Modifier.Value) + (100f + skillAction.Modifier.Percentage / 100f) * performer.Data.CoreAttributes[skillAction.Modifier.Attribute].FinalValue();
+                
+                float damageAmount = (skillAction.Modifier.Value) + skillAction.Modifier.Percentage / 100f * performer.CharacterData.CoreAttributes[skillAction.Modifier.Attribute].FinalValue();
+                Debug.Log("Mod     =   " );
                 if (damageAmount <= 0f)
                 {
                     damageAmount = 0f;
                 }
                 //Critical Damage Check
-                if (Random.Range(0, 100) <= performer.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalChance].FinalValue())
+                if (Random.Range(0, 100) <= performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalChance].FinalValue())
                 {
-                    damageAmount *= Core.GameManager.CoreAttributesTemplate.CriticalMultiplier;
-                    damageAmount += performer.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalDamage].FinalValue();
+                    var critMulti = Core.GameManager.CoreAttributesTemplate.CriticalMultiplier + (performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalDamage].FinalValue() / 100f);
+                    damageAmount *= critMulti;
                     isCritical = true;
                 }
 
-                if (Core.Data.ResistanceAttributes.TryGetValue(skillAction.Element, out CharacterModifier charModifier) == true)
+                if (skillAction.Element != null && Core.CharacterData.ResistanceAttributes.TryGetValue(skillAction.Element, out CharacterModifier charModifier) == true)
                 {
                     damageAmount -= (charModifier.FinalValue());
                 }
 
 
                 skillActionData = new SkillActionEventData(true, Mathf.Max(1f, damageAmount), isCritical, false, skillAction.Element);
-                TakeDamage(Mathf.Max(1f, damageAmount));
+                TakeDamage(Mathf.Max(1f, damageAmount), isCritical);
 
             }
             else if (skillAction.Type == Core.GameManager.CoreAttributesTemplate.SkillActionHeal)
             {
-                float healAmount = (skillAction.Modifier.Value) + (100f + skillAction.Modifier.Percentage / 100f) * Core.Data.CoreAttributes[skillAction.Modifier.Attribute].FinalValue();
+                float healAmount = (skillAction.Modifier.Value) + (100f + skillAction.Modifier.Percentage / 100f) * Core.CharacterData.CoreAttributes[skillAction.Modifier.Attribute].FinalValue();
 
                 //Critical Heal Check
-                if (Random.Range(0, 100) <= performer.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalChance].FinalValue())
+                if (Random.Range(0, 100) <= performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalChance].FinalValue())
                 {
                     healAmount *= Core.GameManager.CoreAttributesTemplate.CriticalMultiplier;
                     //healAmount += performer.PrimaryAttributes[_coreAttributesTemplate.CriticalDamage].FinalValue();
@@ -216,7 +218,7 @@ namespace Harvesting
 
         public virtual void LevelUp(int newLevel)
         {
-            var attribute = Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Level];
+            var attribute = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Level];
             if (newLevel <= attribute.FinalValue())
             {
                 return;
@@ -228,14 +230,15 @@ namespace Harvesting
 
         public float AttributeValue(Attribute attribute)
         {
-            CharacterModifier mod = Core.Data.CoreAttributes[attribute];
+            CharacterModifier mod = Core.CharacterData.CoreAttributes[attribute];
             return mod.FinalValue();
         }
 
-        protected void TakeDamage(float amount)
+        protected void TakeDamage(float amount, bool isCritical)
         {
             CurrentHealth -= amount;
             BoundHealth();
+            Core.GameManager.UIController.CombatTextManager.PlaceDamageText(Core.MovementController.Transform.position, amount, 2f, isCritical);
         }
 
 
@@ -248,7 +251,7 @@ namespace Harvesting
 
         protected void BoundHealth()
         {
-            var value = Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].FinalValue();
+            var value = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].FinalValue();
 
             if (CurrentHealth > value)
             {
@@ -262,7 +265,7 @@ namespace Harvesting
 
         protected void BoundMana()
         {
-            var value = Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue();
+            var value = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue();
 
             if (CurrentMana > value)
             {
@@ -276,12 +279,12 @@ namespace Harvesting
 
         public float HealthPercentage()
         {
-            return CurrentHealth / Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].FinalValue();
+            return CurrentHealth / Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].FinalValue();
         }
 
         public float ManaPercentage()
         {
-            return CurrentMana / Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue();
+            return CurrentMana / Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue();
         }
 
         public bool AddStatusEffect(CharacterState statusEffect, float duration, CharacterData character, SkillAction skillAction)
@@ -293,16 +296,16 @@ namespace Harvesting
 
         protected virtual void UpdateStats()
         {
-            Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].BaseAdd += Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Strength].FinalValue() * Core.GameManager.CoreAttributesTemplate.StrengthToHealth;
-            CurrentHealth = Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].FinalValue();
+            Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].BaseAdd += Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Strength].FinalValue() * Core.GameManager.CoreAttributesTemplate.StrengthToHealth;
+            CurrentHealth = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].FinalValue();
 
-            Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].BaseAdd += Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue() * Core.GameManager.CoreAttributesTemplate.IntellectToMaximumMana;
-            CurrentMana = Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue();
+            Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].BaseAdd += Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue() * Core.GameManager.CoreAttributesTemplate.IntellectToMaximumMana;
+            CurrentMana = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue();
 
-            Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.HealthRegen].BaseAdd += Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Faith].FinalValue() * Core.GameManager.CoreAttributesTemplate.FaithToHealthRegen;
-            Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.ManaRegen].BaseAdd += Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Faith].FinalValue() * Core.GameManager.CoreAttributesTemplate.FaithToManaRegen;
+            Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.HealthRegen].BaseAdd += Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Faith].FinalValue() * Core.GameManager.CoreAttributesTemplate.FaithToHealthRegen;
+            Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.ManaRegen].BaseAdd += Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Faith].FinalValue() * Core.GameManager.CoreAttributesTemplate.FaithToManaRegen;
 
-            Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalDamage].BaseAdd += Core.Data.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Intellect].FinalValue() * Core.GameManager.CoreAttributesTemplate.IntellectToCriticalDamage;
+            Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalDamage].BaseAdd += Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Intellect].FinalValue() * Core.GameManager.CoreAttributesTemplate.IntellectToCriticalDamage;
 
             BoundHealth();
             BoundMana();
@@ -311,9 +314,24 @@ namespace Harvesting
 
         public void Initialize(ICharacterCore core)
         {
+            Debug.Log("CharacterCORe Initialized");
             Core = core;
             CombatSettings = Core.GameManager.CombatSettings;
+            Size = Core.Template.Size;
             SetUpTimers();
+        }
+
+        public bool IsWithinMeleeRange(ICharacterCore character)
+        {
+            //OPTIMIZE CALCULATIONS HERE
+            var meleeRange = (Core.GameManager.CombatSettings.DefaultMeleeRange * Core.CombatController.Size) + (character.GameManager.CombatSettings.DefaultMeleeRange * character.CombatController.Size);
+            if (Vector3.Distance(Core.MovementController.Transform.position, character.MovementController.Transform.position) <= meleeRange)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
     }
 }

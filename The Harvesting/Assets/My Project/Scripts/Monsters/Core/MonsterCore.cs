@@ -1,22 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Harvesting
 {
-    [RequireComponent(typeof(MonsterAnimationController))]
+    /*[RequireComponent(typeof(MonsterAnimationController))]
     [RequireComponent(typeof(MonsterCombatController))]
     [RequireComponent(typeof(MonsterSkillController))]
     [RequireComponent(typeof(MonsterMovementController))]
     [RequireComponent(typeof(MonsterUIController))]
     [RequireComponent(typeof(MonsterSFXController))]
-
+    */
     public class MonsterCore : CharacterCore, IMonsterCore
     {
         [SerializeField] private MonsterTemplate _monsterTemplate;
 
         public new IMonsterTemplate Template { get => _monsterTemplate;  }
-        public IMonsterData MonsterData { get; protected set; }
+        public MonsterData MonsterData { get; protected set; }
 
 
         public new IMonsterAnimationController AnimationController { get; protected set; }
@@ -27,26 +28,34 @@ namespace Harvesting
         public new IMonsterSFXController SFXController { get; protected set; }
 
 
-        public void Start()
+        public void Initialize(IGameManager gameManager, IMonsterTemplate template)
         {
-            Initialize(null, null);
-        }
+            GameManager = gameManager;
 
+            var animator = GetComponentInChildren<Animator>();
+            var navMeshAgent = GetComponent<NavMeshAgent>();
 
-        private void Initialize(IGameManager gameManager, IMonsterTemplate template)
-        {
-            GameManager = gameManager ?? FindObjectOfType<GameManager>();
-            base.Template = _monsterTemplate ?? template ?? FindObjectOfType<MonsterTemplate>();
+            MonsterData = new MonsterData(template);
 
-            AnimationController = GetComponent<IMonsterAnimationController>();
-            CombatController = GetComponent<IMonsterCombatController>();
-            SkillController = GetComponent<IMonsterSkillController>();
-            MovementController = GetComponent<IMonsterMovementController>();
-            UIController = GetComponent<IMonsterUIController>();
-            SFXController = GetComponent<IMonsterSFXController>();
+            base.Initialize(gameManager, template, animator, navMeshAgent, transform, null);
 
-            MonsterData = new MonsterData();
-            MonsterData.Initialize(Template);
+            MovementController = GetComponent<MonsterMovementController>();
+            MovementController.Initialize(this, navMeshAgent, transform);
+
+            AnimationController = GetComponent<MonsterAnimationController>();
+            AnimationController.Initialize(this, animator);
+
+            CombatController = GetComponent<MonsterCombatController>();
+            CombatController.Initialize(this);
+
+            SkillController = GetComponent<MonsterSkillController>();
+            SkillController.Initialize(this, GameManager.CombatSettings, null);
+
+            UIController = GetComponent<MonsterUIController>();
+            UIController.Initialize(this);
+
+            SFXController = GetComponent<MonsterSFXController>();
+            SFXController.Initialize(this);
         }
     }
 }

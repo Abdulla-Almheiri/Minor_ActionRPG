@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Harvesting
@@ -10,6 +11,7 @@ namespace Harvesting
 
         public CombatSettings CombatSettings { get; protected set; }
         protected Dictionary<Skill, float> _skillRechargeTimes = new Dictionary<Skill, float>();
+
         protected List<SkillRechargeData> _usedSkills = new List<SkillRechargeData>();
 
         protected float _elapsedTimeAbilities = 0f;
@@ -18,7 +20,7 @@ namespace Harvesting
 
         //public Skill SecondaryWeaponSkill { get; protected set; }
 
-        private CoreAttributesTemplate _coreAttributes;
+        protected CoreAttributesTemplate _coreAttributes;
         public List<SkillSpawnLocationData> SkillSpawnLocations { get; protected set; }
         protected float _elapsedTimeWeaponSkills;
         protected float _primaryWeaponSkillRechargeTimer;
@@ -29,7 +31,7 @@ namespace Harvesting
         {
             Core = core;
             CombatSettings = combatSettings;
-            Abilities = Core.Data.Abilities;
+            Abilities = Core.CharacterData.Abilities;
             SkillSpawnLocations = skillSpawnLocations;
         }
 
@@ -38,18 +40,21 @@ namespace Harvesting
         protected void HandleAbilityCooldownTimers()
         {
             _elapsedTimeAbilities += Time.deltaTime;
-             if (_elapsedTimeAbilities >= CombatSettings?.AbilityCooldownCheckRate)
+            if (_elapsedTimeAbilities >= CombatSettings.AbilityCooldownCheckRate)
              {
-                if (_usedSkills.Count != 0)
+                //Debug.Log("IN LOOP -elapsedTime and count is :  " + _skillRechargeTimes.Count);
+                foreach (Skill skill in _skillRechargeTimes.Keys.ToList())
                 {
-                    for (int i = _usedSkills.Count - 1; i >= 0; i--)
+                    
+                    if (_skillRechargeTimes[skill] <= MyMaths.NearZero)
                     {
-                        var skill = _usedSkills[i];
-                        skill.RemainingRechargeTime -= _elapsedTimeAbilities;
-                        if (skill.RemainingRechargeTime <= MyMaths.NearZero)
-                        {
-                            skill.RemainingRechargeTime = 0f;
-                        }
+                        _skillRechargeTimes[skill] = 0f;
+
+                    }
+                    else
+                    {
+                        _skillRechargeTimes[skill] -= _elapsedTimeAbilities;
+                        
                     }
                 }
 
@@ -83,17 +88,14 @@ namespace Harvesting
                 return 0f;
             }
 
-            var usedSkill = _usedSkills.Find(x => x.Skill == skill);
-
-            if (usedSkill == null)
+            if (_skillRechargeTimes.TryGetValue(skill, out float time) == false)
             {
                 seconds = 0f;
                 return 0f;
             }
 
-            seconds = skill.RechargeTime - usedSkill.RemainingRechargeTime;
-
-            return usedSkill.RemainingRechargeTime / skill.RechargeTime;
+            seconds = time;
+            return time / skill.RechargeTime;
         }
 
 
@@ -106,19 +108,27 @@ namespace Harvesting
         }
 
 
-        public bool ActivateSkill(Skill skill, Vector3 direction)
+        public bool ActivateSkill(Skill skill)
         {
-            if (CanActivateSkill(skill) == false)
+            if (CanActivateSkill(skill, false) == false)
             {
+               // Debug.Log("CANNOT ACTIVATE  :   " + SkillRecharge(skill, out _));
                 return false;
             }
 
             PutSkillOnRecharge(skill);
 
-            if (skill.FaceDirection)
+            if (skill.FaceDirection == true)
             {
-
-                Core.AnimationController.FaceDirection(direction);
+                //FIX HERE FOR MONSTER TARGET PLAYER
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit rayHit;
+                if (Physics.Raycast(ray, out rayHit))
+                {
+                    Core.AnimationController.FaceDirection(rayHit.point);
+                    //Debug.Log("POINT IS   :   " + rayHit.point);
+                }
+                
             }
 
             Core.AnimationController.PlaySkillAnimation(skill, out float impactPoint);
@@ -148,48 +158,47 @@ namespace Harvesting
 
         }*/
 
-
+        
         protected void PutSkillOnRecharge(Skill skill)
         {
-            var rechargeData = _usedSkills.Find(x => x.Skill == skill);
-            if (rechargeData == null)
+            if (_skillRechargeTimes.TryGetValue(skill, out _) == false)
             {
-                _usedSkills.Add(new SkillRechargeData(skill, skill.RechargeTime));
-                return;
+                _skillRechargeTimes.Add(skill, skill.RechargeTime);
+                //Debug.Log("KEYS ADDED and count is :   " +  _skillRechargeTimes.Count);
             }
-
-            rechargeData.Skill = skill;
-            rechargeData.RemainingRechargeTime = skill.RechargeTime;
+            else
+            {
+                _skillRechargeTimes[skill] = skill.RechargeTime;
+            }
+            
         }
 
         protected void MakeSkillReady(Skill skill)
         {
-            if (SkillRecharge(skill, out _) > MyMaths.NearZero)
-            {
-                return;
-            }
-
-            var result = _usedSkills.Find(x => x.Skill == skill);
-            if (result != null)
-            {
-                result.RemainingRechargeTime = 0f;
-            }
+            _skillRechargeTimes[skill] = 0f;
         }
 
         protected  bool CanActivateSkill(Skill skill, bool ignoreRecharge = false)
         {
             if (skill == null)
             {
+                
                 return false;
             }
 
             if (skill.IsMovementSkill == true && Core.CombatController.CanMove() == false)
             {
+                
                 return false;
             }
 
             var isSkillReady = SkillRecharge(skill, out _) <= MyMaths.NearZero;
+
             var isPlayerAble = Core.CombatController.CanAttack();
+
+            //Debug.Log("Skill is Ready  :   " + isSkillReady + " and skill recharge is:   " + SkillRecharge(skill, out _));
+            //Debug.Log("Player can attack  :   " + isPlayerAble);
+
             return (isSkillReady || ignoreRecharge) && isPlayerAble;
         }
 

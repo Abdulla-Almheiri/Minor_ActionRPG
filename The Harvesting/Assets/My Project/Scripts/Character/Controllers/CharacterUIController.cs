@@ -6,6 +6,11 @@ namespace Harvesting
 {
     public class CharacterUIController : MonoBehaviour, ICharacterUIController
     {
-        public ICharacterCore Core { get; }
+        public ICharacterCore Core { get; protected set; }
+
+        public void Initialize(ICharacterCore core)
+        {
+            Core = core;
+        }
     }
 }

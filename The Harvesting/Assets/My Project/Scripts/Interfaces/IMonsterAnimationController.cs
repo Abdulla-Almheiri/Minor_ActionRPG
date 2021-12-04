@@ -7,5 +7,6 @@ namespace Harvesting
     public interface IMonsterAnimationController : ICharacterAnimationController
     {
         new IMonsterCore Core { get; }
+        void Initialize(IMonsterCore core, Animator animator);
     }
 }

@@ -17,7 +17,8 @@ MonoBehaviour:
   Description: 
   ManaCost: 2
   RechargeTime: 3
-  DefaultVFXPrefab: {fileID: 0}
+  DefaultVFXPrefab: {fileID: 970903457720997364, guid: 17e326763c668c84a9d74462b6c5db2e, type: 3}
+  PlayerSpawnLocation: 3
   TriggerChance: 100
   TriggerCondition: {fileID: 0}
   FaceDirection: 1
@@ -29,22 +30,25 @@ MonoBehaviour:
   CanBeUsedWhileStunned: 0
   RemovesSilence: 0
   IsCastOnSelf: 0
-  PlayerAnimation: {fileID: 11400000, guid: 5cdfb96ef14ade94791cd5a579168b61, type: 2}
+  PlayerAnimation: {fileID: 0}
   ImpactSkill: {fileID: 0}
   Actions:
   - TriggerCondition: {fileID: 0}
     TriggerChance: 100
     ContinousDamage: 0
     TickRatePerSecond: 0
-    ActionType: 0
-    Element: {fileID: 11400000, guid: bf78762d8c80eee49a895e97acfb34f7, type: 2}
-    CharacterStatusEffect: {fileID: 0}
-    DamageStatusEffect: {fileID: 0}
-    OnMonsterEffect: {fileID: 0}
+    Type: {fileID: 0}
     Modifier:
       Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
       MaxValue: 0
       Value: 7
       Duration: 0
       Percentage: 50
+    Element: {fileID: 11400000, guid: bf78762d8c80eee49a895e97acfb34f7, type: 2}
+    CharacterStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
+    ResourceToDrain: {fileID: 0}
+    DrainAmount: 0
+    IsDrainAmountPercentage: 0
     SkillVFX: {fileID: 0}

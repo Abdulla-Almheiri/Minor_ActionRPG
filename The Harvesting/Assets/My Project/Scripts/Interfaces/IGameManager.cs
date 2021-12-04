@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Harvesting {
     public interface IGameManager
     {
+        Camera Camera { get; } 
         CoreAttributesTemplate CoreAttributesTemplate {get ; }
         CombatSettings CombatSettings { get; }
         InputKeyData InputKeyData { get; }

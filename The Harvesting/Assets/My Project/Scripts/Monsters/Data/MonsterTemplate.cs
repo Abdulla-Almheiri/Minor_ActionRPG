@@ -8,7 +8,6 @@ namespace Harvesting
     public class MonsterTemplate : CharacterTemplate, IMonsterTemplate
     {
         [Header("Monster Data")]
-        [SerializeField] protected float size = 1;
         [SerializeField] protected float detectRange = 10;
         [SerializeField] protected List<ItemDrop> itemDrop;
 
@@ -18,7 +17,6 @@ namespace Harvesting
         [SerializeField] protected Skill eliteAbility;
         [SerializeField] protected Skill bossAbility;
 
-        public float Size { get => size; }
         public float DetectRange { get => detectRange; }
         public List<ItemDrop> ItemDrop { get => itemDrop;  }
         public Skill MainAbility { get => mainAbility;  }

@@ -7,5 +7,6 @@ namespace Harvesting
     public interface ICharacterSFXController
     {
         ICharacterCore Core { get;  }
+        void Initialize(ICharacterCore core);
     }
 }

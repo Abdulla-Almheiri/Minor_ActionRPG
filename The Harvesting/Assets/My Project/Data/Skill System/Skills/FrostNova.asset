@@ -18,6 +18,7 @@ MonoBehaviour:
   ManaCost: 0
   RechargeTime: 8
   DefaultVFXPrefab: {fileID: 4821720722939792474, guid: 43ed69177e5d90a4c99c74732442da87, type: 3}
+  PlayerSpawnLocation: 3
   TriggerChance: 100
   TriggerCondition: {fileID: 0}
   FaceDirection: 0
@@ -36,31 +37,37 @@ MonoBehaviour:
     TriggerChance: 100
     ContinousDamage: 0
     TickRatePerSecond: 0
-    ActionType: 0
-    Element: {fileID: 0}
-    CharacterStatusEffect: {fileID: 0}
-    DamageStatusEffect: {fileID: 0}
-    OnMonsterEffect: {fileID: 0}
+    Type: {fileID: 11400000, guid: ebcb0d8ee220f8746ada4fd6b58ac2cd, type: 2}
     Modifier:
       Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
       MaxValue: 0
       Value: 0
       Duration: 0
       Percentage: 50
+    Element: {fileID: 0}
+    CharacterStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
+    ResourceToDrain: {fileID: 0}
+    DrainAmount: 0
+    IsDrainAmountPercentage: 0
     SkillVFX: {fileID: 0}
   - TriggerCondition: {fileID: 0}
     TriggerChance: 100
     ContinousDamage: 0
     TickRatePerSecond: 0
-    ActionType: 2
-    Element: {fileID: 0}
-    CharacterStatusEffect: {fileID: 11400000, guid: fda32bbbebb8a5c438709538b65e7c91, type: 2}
-    DamageStatusEffect: {fileID: 0}
-    OnMonsterEffect: {fileID: 6652502859638783591, guid: b0940ea9b7ef97543a7aa357a873036e, type: 3}
+    Type: {fileID: 11400000, guid: a8bc79ac5b16c3343ae0ec0ecdd051b0, type: 2}
     Modifier:
       Attribute: {fileID: 0}
       MaxValue: 0
       Value: 0
       Duration: 4
       Percentage: 0
+    Element: {fileID: 0}
+    CharacterStatusEffect: {fileID: 11400000, guid: fda32bbbebb8a5c438709538b65e7c91, type: 2}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 6652502859638783591, guid: b0940ea9b7ef97543a7aa357a873036e, type: 3}
+    ResourceToDrain: {fileID: 0}
+    DrainAmount: 0
+    IsDrainAmountPercentage: 0
     SkillVFX: {fileID: 0}

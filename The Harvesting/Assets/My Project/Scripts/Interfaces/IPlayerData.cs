@@ -6,7 +6,6 @@ namespace Harvesting
 {
     public interface IPlayerData : ICharacterData
     {
-        public List<Skill> Abilities { get; }
         public Skill PrimaryWeaponSkill { get; }
         public Skill SecondaryWeaponSkill { get; }
 

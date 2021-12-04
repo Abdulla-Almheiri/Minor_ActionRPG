@@ -59,10 +59,7 @@ namespace Harvesting
             {
                 if (Input.GetKeyDown(InputKeyData.AbilityInputKeyList[i]))
                 {
-                    if (Core.SkillController.Abilities[i].FaceDirection)
-                    {
-                        Core.SkillController.ActivateSkill(Core.SkillController.Abilities[i], Input.mousePosition);
-                    }
+                    Core.SkillController.ActivateSkill(Core.SkillController.Abilities[i]);
                 }
             }
         }

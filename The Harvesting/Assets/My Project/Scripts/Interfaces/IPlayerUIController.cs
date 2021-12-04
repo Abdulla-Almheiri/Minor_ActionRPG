@@ -11,5 +11,6 @@ namespace Harvesting
         void DisplaySkillsUI();
         void ToggleCharacterScreen();
         void UpdateStatsUI();
+        void Initialize(IPlayerCore core);
     }
 }

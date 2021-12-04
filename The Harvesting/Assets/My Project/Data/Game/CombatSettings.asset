@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eacc165c34a1f4f449d39c8578b89233, type: 3}
   m_Name: CombatSettings
   m_EditorClassIdentifier: 
-  _coreAttributes: {fileID: 0}
+  _coreAttributes: {fileID: 11400000, guid: 167d5351001e17d49be1c55366dfb60d, type: 2}
   _characterStateCheckRate: 0.1
   _globalWeaponSkillCooldown: 0.2
   _weaponSkillCooldownCheckRate: 0.1
   _globalAbilitycooldown: 0.2
   _abilityCooldownCheckRate: 0.1
   _targetedSkillEffectPrefab: {fileID: 1466408607058397385, guid: 1fb1ffdd486795f45aeb929a0adcfaa0, type: 3}
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  _defaultMeleeRange: 1

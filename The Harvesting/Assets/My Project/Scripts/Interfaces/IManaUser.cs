@@ -9,7 +9,7 @@ namespace Harvesting
         float Mana { get; }
         float ManaRegen { get; }
         bool ConsumeMana(Skill skill);
-        bool DrainMana(SkillAction skillAction, ISkillActivator drainer);
+        //bool DrainMana(SkillAction skillAction, ISkillActivator drainer);
 
         bool GainMana(float amount);
     }

@@ -17,10 +17,6 @@ namespace Harvesting
 
         public new IPlayerCore Core { get; protected set; }
 
-        private void Start()
-        {
-            Initialize(null);
-        }
         private void Update()
         {
             UpdateHealthPercentage(Core.CombatController.HealthPercentage());
@@ -28,9 +24,10 @@ namespace Harvesting
 
         }
 
-        private void Initialize(IPlayerCore core)
+        public void Initialize(IPlayerCore core)
         {
-            Core = core ?? GetComponent<IPlayerCore>();
+            Core = core;
+            base.Initialize(core);
         }
         public void UpdateHealthPercentage(float percentage)
         {

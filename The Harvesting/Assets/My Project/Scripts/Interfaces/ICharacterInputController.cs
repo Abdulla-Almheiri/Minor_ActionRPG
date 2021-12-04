@@ -8,6 +8,7 @@ namespace Harvesting
     {
         InputKeyData InputKeyData { get; }
         ICharacterCore Core { get; }
-        bool MouseClick(out Vector3 point);
+        bool MouseClick(out RaycastHit point);
+        void Initialize(ICharacterCore core, InputKeyData inputKeyData);
     }
 }

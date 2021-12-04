@@ -18,7 +18,7 @@ namespace Harvesting {
 
     public class PlayerCore: CharacterCore, IPlayerCore
     {
-        public new IPlayerData Data { get; protected set; }
+        public PlayerData PlayerData { get; protected set; }
         public new IPlayerAnimationController AnimationController { get; protected set; }
         public new IPlayerCombatController CombatController { get; protected set; }
         public new IPlayerSkillController SkillController { get; protected set; }
@@ -42,8 +42,7 @@ namespace Harvesting {
 
             Initialize(gameManager, (CharacterTemplate)Template, GetComponent<Animator>(), GetComponent<NavMeshAgent>(), transform,  _skillSpawnLocations) ;
 
-            Data = new PlayerData();
-            Data.Initialize(this, Template);
+            PlayerData = new PlayerData(null, null);
 
             if (Template == null)
             {
@@ -51,7 +50,7 @@ namespace Harvesting {
             }
 
             MovementController = GetComponent<PlayerMovementController>();
-            MovementController.Initialize(this, GetComponent<NavMeshAgent>());
+            MovementController.Initialize(this, GetComponent<NavMeshAgent>(), transform);
 
 
 
@@ -68,6 +67,8 @@ namespace Harvesting {
             InputController = GetComponent<PlayerInputController>();
             InputController.Initialize(this, GameManager.InputKeyData);
 
+            UIController = GetComponent<PlayerUIController>();
+            UIController.Initialize(this);
 
 
         }
@@ -96,13 +97,13 @@ namespace Harvesting {
 
         protected void UpdateAbilities()
         {
-            Data.Abilities.Clear();
+            CharacterData.Abilities.Clear();
 
             foreach (ProgressionSkill progressionSkill in Template.SkillProgression)
             {
                 if (progressionSkill.Level <= CombatController.AttributeValue(GameManager.CoreAttributesTemplate.Level))
                 {
-                    Data.Abilities.Add(progressionSkill.Skill);
+                    CharacterData.Abilities.Add(progressionSkill.Skill);
                 }
             }
 

@@ -6,6 +6,8 @@ namespace Harvesting
 {
     public interface IGameUIController 
     {
+        IGameManager GameManager { get; }
         FloatingCombatTextManager CombatTextManager { get; }
+        void Initialize(IGameManager gameManager);
     }
 }

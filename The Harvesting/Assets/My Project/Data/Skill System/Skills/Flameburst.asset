@@ -15,6 +15,12 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 43c7bfc380f193b4493e2f32eaf2844c, type: 3}
   Name: Flameburst
   Description: Send fireballs in all directions
+  ManaCost: 0
+  RechargeTime: 8
+  DefaultVFXPrefab: {fileID: 7859346219454047193, guid: 08cc3ec6549e6094da74407b79c3a119, type: 3}
+  PlayerSpawnLocation: 3
+  TriggerChance: 100
+  TriggerCondition: {fileID: 0}
   FaceDirection: 0
   IsMelee: 0
   IsSpell: 1
@@ -24,37 +30,44 @@ MonoBehaviour:
   CanBeUsedWhileStunned: 0
   RemovesSilence: 0
   IsCastOnSelf: 0
-  PlayerAnimation: {fileID: 0}
-  Cost: 0
-  RechargeTime: 8
-  TriggerChance: 100
-  TriggerCondition: {fileID: 0}
+  PlayerAnimation: {fileID: 11400000, guid: d9d1563a9e2cbb44081c2e873b238667, type: 2}
   ImpactSkill: {fileID: 0}
-  DefaultVFXPrefab: {fileID: 7859346219454047193, guid: 08cc3ec6549e6094da74407b79c3a119, type: 3}
   Actions:
-  - ContinousDamage: 0
-    TickRatePerSecond: 1
-    TriggerCondition: {fileID: 0}
+  - TriggerCondition: {fileID: 0}
     TriggerChance: 100
-    ActionType: 0
-    StatusEffect: {fileID: 0}
+    ContinousDamage: 0
+    TickRatePerSecond: 1
+    Type: {fileID: 11400000, guid: ebcb0d8ee220f8746ada4fd6b58ac2cd, type: 2}
     Modifier:
       Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
       MaxValue: 0
       Value: 0
       Duration: 0
       Percentage: 200
+    Element: {fileID: 0}
+    CharacterStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
+    ResourceToDrain: {fileID: 0}
+    DrainAmount: 0
+    IsDrainAmountPercentage: 0
     SkillVFX: {fileID: 0}
-  - ContinousDamage: 0
-    TickRatePerSecond: 1
-    TriggerCondition: {fileID: 0}
+  - TriggerCondition: {fileID: 0}
     TriggerChance: 100
-    ActionType: 2
-    StatusEffect: {fileID: 11400000, guid: 4eee0666cc406c34e885284e3e66359e, type: 2}
+    ContinousDamage: 0
+    TickRatePerSecond: 1
+    Type: {fileID: 0}
     Modifier:
       Attribute: {fileID: 0}
       MaxValue: 0
       Value: 0
       Duration: 3
       Percentage: 0
+    Element: {fileID: 0}
+    CharacterStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
+    ResourceToDrain: {fileID: 0}
+    DrainAmount: 0
+    IsDrainAmountPercentage: 0
     SkillVFX: {fileID: 0}

@@ -6,6 +6,7 @@ namespace Harvesting
 {
     public interface IMonsterCore : ICharacterCore
     {
-        IMonsterData MonsterData { get; }
+        MonsterData MonsterData { get; }
+        void Initialize(IGameManager gameManager, IMonsterTemplate template);
     }
 }

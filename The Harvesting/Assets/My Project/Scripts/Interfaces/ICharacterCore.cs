@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Harvesting
 {
@@ -8,7 +9,7 @@ namespace Harvesting
     {
         IGameManager GameManager { get; }
         ICharacterTemplate Template { get; }
-        ICharacterData Data { get; }
+        CharacterData CharacterData { get; }
         ICharacterAnimationController AnimationController { get; }
         ICharacterCombatController CombatController { get; }
         ICharacterSkillController SkillController { get;  }
@@ -18,5 +19,6 @@ namespace Harvesting
         ICharacterItemController ItemController { get; }
         ICharacterSFXController SFXController { get; }
         ICharacterInputController InputController { get; }
+        void Initialize(IGameManager gameManager, ICharacterTemplate template, Animator animator, NavMeshAgent navMeshAgent, Transform transform, List<SkillSpawnLocationData> skillSpawnLocations);
     }
 }

@@ -7,7 +7,7 @@ using TMPro;
 namespace Harvesting {
     public class FloatingCombatTextManager
     {
-        public GameObjectPool _pool;
+        private GameObjectPool _pool;
         private Canvas _canvas;
         private Camera _camera;
         private float averageDamage = 0;

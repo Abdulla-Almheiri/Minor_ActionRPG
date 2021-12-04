@@ -7,5 +7,9 @@ namespace Harvesting
     public class CharacterAIController : MonoBehaviour, ICharacterAIController
     {
         public ICharacterCore Core { get; protected set; }
+        public void Initialize(ICharacterCore core)
+        {
+            Core = core;
+        }
     }
 }

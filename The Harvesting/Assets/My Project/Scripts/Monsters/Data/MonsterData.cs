@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace Harvesting
 {
-    public class MonsterData : IMonsterData
+    public class MonsterData
     {
         public float Size { get; protected set; } = 1f;
         public float DetectRange { get; protected set; } = 10f;
@@ -21,7 +21,7 @@ namespace Harvesting
 
         public Skill BossAbility { get; protected set; }
 
-        public void Initialize(IMonsterTemplate template)
+        public MonsterData(IMonsterTemplate template)
         {
             Size = template.Size;
             DetectRange = template.DetectRange;

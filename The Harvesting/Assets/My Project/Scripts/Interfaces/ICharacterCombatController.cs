@@ -8,6 +8,7 @@ namespace Harvesting
     {
         ICharacterCore Core { get; }
         CombatSettings CombatSettings { get; }
+        public float Size { get; }
         float CurrentHealth { get; }
         float CurrentMana { get; }
         bool IsAlive { get; }

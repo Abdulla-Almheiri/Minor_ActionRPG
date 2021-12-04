@@ -18,7 +18,9 @@ namespace Harvesting
         [SerializeField] private LayerMask _layer;
         [SerializeField] private PlayerTemplate _playerTemplate;
         [SerializeField] private SkillUIScript _skillUI;
-
+        [SerializeField] private MonsterTemplate _monsterTemplate;
+        [SerializeField] private GameObject _monsterPrefab;
+        [SerializeField] private Transform _monsterSpawnPoint;
 
         private GameDialogueController _gameDialogueController;
         private GameInputController _gameInputController;
@@ -59,12 +61,14 @@ namespace Harvesting
         public IGameUIController UIController { get; protected set; }
 
         public SkillUIScript SkillUI { get => _skillUI; }
+        public IMonsterTemplate MonsterTemplate { get => _monsterTemplate;  }
 
         void Awake()
         {
             Initialize();
             SpawnPlayer(_playerCheckPoint);
             InitializeCamera();
+            SpawnMonster(_monsterPrefab, _monsterSpawnPoint, (IMonsterTemplate) MonsterTemplate);
         }
 
         private void Initialize()
@@ -83,7 +87,8 @@ namespace Harvesting
             _gameQuestController = GetComponent<GameQuestController>();
             _gameSaveLoadController = GetComponent<GameSaveLoadController>();
             _gameTutorialController = GetComponent<GameTutorialController>();
-            _gameUIController = GetComponent<GameUIController>();
+            UIController = GetComponent<GameUIController>();
+            UIController.Initialize(this);
         }
 
         public void SpawnPlayer(Transform checkPoint)
@@ -97,6 +102,15 @@ namespace Harvesting
             PlayerCore.transform.SetParent(null);
             PlayerCore.Initialize(this, PlayerTemplate);
             
+        }
+
+        public IMonsterCore SpawnMonster(GameObject monsterPrefab, Transform spawnPoint, IMonsterTemplate template)
+        {
+            var monster = Instantiate(monsterPrefab, spawnPoint).GetComponent<MonsterCore>();
+            monster.transform.SetParent(null);
+            monster.Initialize(this, template);
+
+            return monster;
         }
 
         protected void InitializeCamera()

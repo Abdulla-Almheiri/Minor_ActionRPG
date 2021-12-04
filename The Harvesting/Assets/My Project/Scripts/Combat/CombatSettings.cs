@@ -16,11 +16,15 @@ namespace Harvesting
         [SerializeField] private float _abilityCooldownCheckRate = 0.1f;
 
         [SerializeField] private GameObject _targetedSkillEffectPrefab;
+        [SerializeField] private LayerMask _enemyLayer;
+        [SerializeField] private float _defaultMeleeRange = 1f;
         public CoreAttributesTemplate CoreAttributes { get => _coreAttributes; }
         public float CharacterStateCheckRate { get => _characterStateCheckRate; }
         public float GlobalWeaponSkillCooldown { get => _globalWeaponSkillCooldown; }
         public float GlobalAbilitycooldown { get => _globalAbilitycooldown; }
         public float AbilityCooldownCheckRate { get => _abilityCooldownCheckRate; }
         public float WeaponSkillCooldownCheckRate { get => _weaponSkillCooldownCheckRate; }
+        public LayerMask EnemyLayer { get => _enemyLayer ;  }
+        public float DefaultMeleeRange { get => _defaultMeleeRange;  }
     }
 }

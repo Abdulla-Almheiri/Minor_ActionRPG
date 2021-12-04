@@ -7,5 +7,6 @@ namespace Harvesting
     public interface ICharacterItemController 
     {
         ICharacterCore Core { get; }
+        void Initialize(ICharacterCore core);
     }
 }

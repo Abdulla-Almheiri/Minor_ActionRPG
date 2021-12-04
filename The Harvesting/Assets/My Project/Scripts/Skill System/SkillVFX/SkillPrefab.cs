@@ -10,8 +10,8 @@ namespace Harvesting
     {
         [HideInInspector]
         public ICharacterCore Performer;
-        public List<Skill> ImpactSkills;
-        protected List<ICharacterCore> charactersInCollider = new List<ICharacterCore>();
+        public List<Skill> ImpactSkills = new List<Skill>();
+        protected List<ICharacterCore> monstersInCollider = new List<ICharacterCore>();
         protected int NumberOfEnemiesHit = 0;
 
         [HideInInspector]
@@ -19,6 +19,7 @@ namespace Harvesting
 
         public void TriggerSkillActions(ICharacterCore attacker, ICharacterCore receiver)
         {
+            Debug.Log("SKILLactions count   : " + SkillActions.Count);
             if (SkillActions.Count != 0)
             {
                 foreach (SkillAction action in SkillActions)
@@ -50,7 +51,7 @@ namespace Harvesting
             }
             while (true)
             {
-                foreach (ICharacterCore receiver in charactersInCollider)
+                foreach (ICharacterCore receiver in monstersInCollider)
                 {
                     // FIX HERE FOR CONTINUOUS HEALS OR ENHANCEMENTS
                     if (Performer != receiver)
@@ -68,5 +69,9 @@ namespace Harvesting
             StopAllCoroutines();
         }
 
+        public void Initialize(ICharacterCore performer)
+        {
+            Performer = performer;
+        }
     }
 }

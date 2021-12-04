@@ -7,5 +7,6 @@ namespace Harvesting
     public interface IMonsterSFXController : ICharacterSFXController
     {
         new IMonsterCore Core { get; }
+        void Initialize(IMonsterCore core);
     }
 }

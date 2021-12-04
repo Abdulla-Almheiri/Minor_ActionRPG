@@ -24,7 +24,7 @@ namespace Harvesting
         public void Initialize(IPlayerCore playerCore, Animator animator)
         {
             Core = playerCore;
-            Initialize(Core, animator, Transform);
+            Initialize(Core, animator);
         }
         public void PlayPlayerSkillAnimation(Skill skill)
         {

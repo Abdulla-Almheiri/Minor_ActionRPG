@@ -9,12 +9,10 @@ namespace Harvesting
     {
         public ICharacterCore Core { get; protected set; }
         public Animator Animator { get; protected set; }
-        public Transform Transform { get; protected set; }
-        public void Initialize(ICharacterCore core, Animator animator, Transform transform)
+        public void Initialize(ICharacterCore core, Animator animator)
         {
             Core = core;
             Animator = animator;
-            Transform = transform;
             if (Animator == null)
             {  
                 Debug.Log("Animator not found in children of CharacterCore: CharacterAnimationController.");
@@ -42,10 +40,10 @@ namespace Harvesting
         public void FaceDirection(Vector3 direction)
         {
             Animator.SetBool("Running", false);
-            var dir = (direction - Transform.position);
+            var dir = (direction - Core.MovementController.Transform.position);
             dir.y = 0;
             dir = dir.normalized;
-            Transform.rotation = Quaternion.LookRotation(dir);
+            Core.MovementController.Transform.rotation = Quaternion.LookRotation(dir);
         }
 
         public abstract void PlaySkillAnimation(Skill skill, out float impactPointInSeconds);

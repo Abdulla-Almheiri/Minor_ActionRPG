@@ -15,19 +15,20 @@ namespace Harvesting
             Core = core;
             InputKeyData = inputKeyData;
         }
-        public bool MouseClick(out Vector3 point)
+        public bool MouseClick(out RaycastHit point)
         {
             
             if (/*!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()*/ true)
             {
-                point = Input.mousePosition;
+                point = new RaycastHit();
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                 RaycastHit rayHit;
-                point.y = 0f;
+                //point.y = 0f;
 
-                if (Physics.Raycast(ray, out rayHit, Core.GameManager.Layer))
+                if (Physics.Raycast(ray, out rayHit, 0))
                 {
+                    point = rayHit;
                     return true;
                 } else
                 {

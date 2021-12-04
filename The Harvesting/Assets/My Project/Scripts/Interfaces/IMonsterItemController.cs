@@ -6,6 +6,9 @@ namespace Harvesting
 {
     public interface IMonsterItemController : ICharacterItemController
     {
+        new IMonsterCore Core { get; }
         void SpawnLoot();
+
+        void Initialize(IMonsterCore core);
     }
 }

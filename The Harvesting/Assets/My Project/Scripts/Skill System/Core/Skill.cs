@@ -42,7 +42,6 @@ namespace Harvesting
 
         public Skill ImpactSkill;
 
-        private SkillPrefab defaultVFX = null;
         [Header("If Action's VFX Prefab is empty, then default one is used.")]
         public List<SkillAction> Actions;
         
@@ -53,47 +52,35 @@ namespace Harvesting
                 return;
             }
 
+            SkillPrefab spawn;
             if (DefaultVFXPrefab != null)
             {
-
-                defaultVFX = Instantiate(DefaultVFXPrefab, location);
+                spawn = Instantiate(DefaultVFXPrefab, location);
                 if (!IsCastOnSelf)
                 {
-                    defaultVFX.transform.SetParent(null);
+                    spawn.gameObject.transform.SetParent(null);
                 }
-                defaultVFX.Performer = activator;
-                defaultVFX.ImpactSkills.Add(ImpactSkill);
-            }
+                spawn.Initialize(activator);
 
-            foreach (SkillAction action in Actions)
-            {
-                if (action.TriggerCondition == null || Random.Range(0, 100) > action.TriggerChance && !action.TriggerCondition.Evaluate(action, activator ))
+                foreach(SkillAction action in Actions)
                 {
-                    continue;
-                }
-                if (action.SkillVFX != null)
-                {
-                    var vfx = Instantiate(action.SkillVFX, location);
-                    if (!IsCastOnSelf)
+                    /*if (action.TriggerCondition == null || Random.Range(0, 100) > action.TriggerChance && !action.TriggerCondition.Evaluate(action, activator))
                     {
-                        vfx.transform.parent = null;
-                    }
+                        continue;
+                    }*/
 
-                    vfx.SkillActions.Add(action);
-                    vfx.Performer = activator;
-                    vfx.ImpactSkills.Add(ImpactSkill);
-                } else if(defaultVFX != null)
-                {
-                    defaultVFX.SkillActions.Add(action);
+                    if (action.SkillVFX == null)
+                    {
+                        spawn.SkillActions.Add(action);
+                    } else
+                    {
+                        var vfxSpawn = Instantiate(action.SkillVFX, location);
+                        vfxSpawn.transform.parent = null;
+                        vfxSpawn.SkillActions.Add(action);
+                        vfxSpawn.Initialize(activator);
+                    }
                 }
             }
-
-
-        }
-
-
-        public void Initialize()
-        {
 
         }
     }

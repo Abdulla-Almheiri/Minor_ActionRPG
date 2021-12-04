@@ -18,19 +18,6 @@ namespace Harvesting
         public float TriggerChance = 100f;
         [Space(20)]
 
-
-        //Execution
-
-
-        //Impact Event
-
-
-        //VFX
-
-
-        //SFX
-
-
         public bool ContinousDamage = false;
         public float TickRatePerSecond = 1f;
 
@@ -45,43 +32,5 @@ namespace Harvesting
         public bool IsDrainAmountPercentage = false;
 
         public SkillPrefab SkillVFX;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="attacker"> Performer </param>
-        /// <param name="receiver"></param>
-        /// <returns></returns>
-        public float Value(CharacterStats attacker, MonsterData receiver)
-        {
-            if (attacker == null)
-            {
-                return 0;
-            }
-
-            var modifier = attacker.Attributes[Modifier.Attribute];
-            if (modifier != null)
-            {
-                return Modifier.Percentage * modifier.FinalValue() / 100f;
-            }
-            else
-            {
-                return 0;
-            }
-
-        }
-
-        public void Trigger(CharacterData performer, CharacterData monster)
-        {
-
-            if (Random.Range(0, 100) > TriggerChance)
-            {
-                return;
-            }
-
-            
-
-        }
     }
-
 }

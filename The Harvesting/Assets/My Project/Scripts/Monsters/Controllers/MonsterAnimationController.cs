@@ -8,7 +8,8 @@ namespace Harvesting
     [RequireComponent(typeof(MonsterCore))]
     public class MonsterAnimationController : CharacterAnimationController, IMonsterAnimationController
     {
-        new public IMonsterCore Core { get; }
+        new public IMonsterCore Core { get; protected set; }
+
         private bool deathAnimationPlayed = false;
 
         // Update is called once per frame
@@ -56,6 +57,12 @@ namespace Harvesting
         public override void PlaySkillAnimation(Skill skill, out float impactPointInSeconds)
         {
             throw new System.NotImplementedException();
+        }
+
+        public void Initialize(IMonsterCore core, Animator animator)
+        {
+            Core = core;
+            base.Initialize(core, animator);
         }
     }
 }

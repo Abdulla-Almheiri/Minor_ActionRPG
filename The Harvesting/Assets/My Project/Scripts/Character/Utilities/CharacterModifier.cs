@@ -21,6 +21,15 @@ namespace Harvesting
             return value;
         }
 
+        public float BaseTotal()
+        {
+            return BaseAdd + SkillsAdd + EquipmentAdd;
+        }
+
+        public float PercentageTotal()
+        {
+            return BaseMulti + SkillsMulti + EquipmentMulti;
+        }
         public CharacterModifier(float baseValue, Attribute attribute)
         {
             BaseAdd = baseValue;

@@ -27,7 +27,7 @@ namespace Harvesting
             {
                 Icons[index].sprite = skill.Icon;
                 index++;
-                print("SKILL IS : " + skill.Name);
+                //print("SKILL IS : " + skill.Name);
             }
         }
 

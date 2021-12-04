@@ -10,10 +10,9 @@ namespace Harvesting
     /// </summary>
     public abstract class CharacterCore : MonoBehaviour, ICharacterCore
     {
-        public ICharacterData Data { get; protected set; }
+        public CharacterData CharacterData { get; protected set; }
         public ICharacterTemplate Template { get; protected set; }
         public IGameManager GameManager { get; protected set; }
-
         public ICharacterAnimationController AnimationController { get; protected set; }
 
         public ICharacterCombatController CombatController { get; protected set; }
@@ -30,21 +29,25 @@ namespace Harvesting
         public ICharacterSFXController SFXController { get; protected set; }
         public ICharacterInputController InputController { get; protected set; }
 
-        protected void Initialize(IGameManager gameManager, CharacterTemplate template, Animator animator, NavMeshAgent navMeshAgent, Transform transform, List<SkillSpawnLocationData> skillSpawnLocations)
+        public void Initialize(IGameManager gameManager, ICharacterTemplate template, Animator animator, NavMeshAgent navMeshAgent, Transform transform, List<SkillSpawnLocationData> skillSpawnLocations)
         {
             GameManager = gameManager;
             Template = template;
+
+
             MovementController = GetComponent<CharacterMovementController>();
-            MovementController.Initialize(navMeshAgent);
+            MovementController.Initialize(this, navMeshAgent, transform);
+
+            InputController = GetComponent<CharacterInputController>();
+            InputController.Initialize(this, GameManager.InputKeyData);
 
             AnimationController = GetComponent<CharacterAnimationController>();
-            AnimationController.Initialize(this, animator, transform);
+            AnimationController.Initialize(this, animator);
 
             CombatController = GetComponent<CharacterCombatController>();
             CombatController.Initialize(this);
 
-            Data = new CharacterData();
-            Data.Initialize(this, Template);
+            CharacterData = new CharacterData(this, template);
 
             SkillController = GetComponent<CharacterSkillController>();
             SkillController.Initialize(this, GameManager.CombatSettings, skillSpawnLocations);

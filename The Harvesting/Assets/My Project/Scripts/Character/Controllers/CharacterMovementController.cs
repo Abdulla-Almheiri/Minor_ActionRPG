@@ -14,10 +14,16 @@ namespace Harvesting
     {
         public ICharacterCore Core { get; protected set; }
         public NavMeshAgent NavMeshAgent { get; protected set; }
+        public Transform Transform { get; protected set; }
 
-        public void Initialize(NavMeshAgent navMeshAgent)
+        protected Vector3 currentDestination;
+
+        public void Initialize(ICharacterCore core, NavMeshAgent navMeshAgent, Transform transform)
         {
-            NavMeshAgent = navMeshAgent ?? GetComponent<NavMeshAgent>();
+            Core = core;
+            NavMeshAgent = navMeshAgent;
+            Transform = transform;
+
             if (NavMeshAgent == null)
             {
                 Debug.Log("No NavMeshAgent component found on CharacterCore: CharacterMovementController.");
@@ -29,12 +35,28 @@ namespace Harvesting
         }
         public bool MoveToPoint(Vector3 targetPoint)
         {
-           return  NavMeshAgent.SetDestination(targetPoint);
+            NavMeshAgent.isStopped = false;
+            var navMeshMove = NavMeshAgent.SetDestination(targetPoint);
+            if(navMeshMove == true)
+            {
+                currentDestination = NavMeshAgent.destination;
+
+            }
+            return navMeshMove;
         }
 
         public bool IsRunning()
         {
             return (NavMeshAgent.remainingDistance >= NavMeshAgent.stoppingDistance);
+        }
+
+        public void StopMoving()
+        {
+            NavMeshAgent.isStopped = true;
+        }
+        public bool MoveToCharacter(ICharacterCore character)
+        {
+            return MoveToPoint(character.MovementController.Transform.position);
         }
     }
 }

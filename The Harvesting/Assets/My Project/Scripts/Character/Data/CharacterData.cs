@@ -7,7 +7,7 @@ namespace Harvesting
     /// <summary>
     /// Character Class. Contains Character game data.
     /// </summary>
-    public class CharacterData : ICharacterData
+    public class CharacterData
     {
         public bool Alive { get; protected set; } = false;
         public float CurrentHealth { get; set; }
@@ -17,11 +17,11 @@ namespace Harvesting
         public Dictionary<Attribute, CharacterModifier> SecondaryAttributes { get; protected set; } = new Dictionary<Attribute, CharacterModifier>();
         public Dictionary<SkillActionElement, CharacterModifier> ResistanceAttributes { get; protected set; } = new Dictionary<SkillActionElement, CharacterModifier>();
         public Dictionary<SkillActionSource, SkillActionSource> StatusEffects { get; protected set; } = new Dictionary<SkillActionSource, SkillActionSource>();
-        public Dictionary<Skill, CharacterModifier> SkillBonusAttributes { get; protected set; } = new Dictionary<Skill, CharacterModifier>();
+        public Dictionary<Skill, SkillBonusModifier> SkillBonusAttributes { get; protected set; } = new Dictionary<Skill, SkillBonusModifier>();
 
         
 
-        public void Initialize(ICharacterCore core, ICharacterTemplate characterTemplate)
+        public CharacterData(ICharacterCore core, ICharacterTemplate characterTemplate)
         {
             //CHANGE NAME WHEN NOT LAZY
             CoreAttributesTemplate coreAttributesTemplate = core.GameManager.CoreAttributesTemplate;
@@ -40,7 +40,7 @@ namespace Harvesting
             CoreAttributes[coreAttributesTemplate.ManaRegen] = new CharacterModifier(characterTemplate.ManaRegen, coreAttributesTemplate.ManaRegen);
 
             CoreAttributes[coreAttributesTemplate.CriticalChance] = new CharacterModifier(characterTemplate.CriticalChance, coreAttributesTemplate.CriticalChance);
-            CoreAttributes[coreAttributesTemplate.CriticalDamage] = new CharacterModifier(characterTemplate.CriticalDamage, coreAttributesTemplate.CriticalDamage);
+            CoreAttributes[coreAttributesTemplate.CriticalDamage] = new CharacterModifier(characterTemplate.CriticalDamageBonus, coreAttributesTemplate.CriticalDamage);
 
             CoreAttributes[coreAttributesTemplate.AttackSpeed] = new CharacterModifier(characterTemplate.AttackSpeed, coreAttributesTemplate.AttackSpeed);
             CoreAttributes[coreAttributesTemplate.MovementSpeed] = new CharacterModifier(characterTemplate.MovementSpeed, coreAttributesTemplate.MovementSpeed);
@@ -54,7 +54,7 @@ namespace Harvesting
             foreach (ProgressionSkill skill in characterTemplate.Abilities)
             {
                 Abilities.Add(skill.Skill);
-                Debug.Log("Ability Added  :   " + skill.Skill.Name);
+                //Debug.Log("Ability Added  :   " + skill.Skill.Name);
             }
             Alive = true;
         }

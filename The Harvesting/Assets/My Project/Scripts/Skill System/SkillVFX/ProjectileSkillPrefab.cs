@@ -44,7 +44,7 @@ namespace Harvesting {
 
         public void OnTriggerEnter(Collider other)
         {
-            if (ImpactSkills.Count != 0 && other.gameObject.GetComponent<MonsterCore>() != null)
+            if (ImpactSkills.Count != 0 && other.gameObject.GetComponent<IMonsterCore>() != null)
             {
                 foreach(Skill skill in ImpactSkills)
                 {
@@ -57,10 +57,14 @@ namespace Harvesting {
                 Destroy(gameObject);
             }
 
-            var monster = other.GetComponent<MonsterCore>();
+            var monster = other.gameObject.GetComponent<IMonsterCore>();
+            UnityEngine.Debug.Log("Monster's name is    :   " + other.gameObject.name);
             if (monster != null)
             {
                 TriggerSkillActions(Performer, monster);
+            } else
+            {
+                UnityEngine.Debug.Log("MONSTER IS NULL");
             }
         }
     }

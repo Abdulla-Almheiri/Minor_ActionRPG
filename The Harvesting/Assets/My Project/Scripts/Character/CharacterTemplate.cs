@@ -9,6 +9,8 @@ namespace Harvesting
     {
         [Header("Primary Attributes")]
         [SerializeField] private int level = 1;
+        [SerializeField] private float size = 1f;
+
         [SerializeField] private float attributePercentageIncrementPerLevel = 20f;
 
         [SerializeField] private float health = 100f;
@@ -27,7 +29,7 @@ namespace Harvesting
         [SerializeField] private float movementSpeed = 1f;
 
         [SerializeField] private float criticalChance = 5f;
-        [SerializeField] private float criticalDamage = 100f;
+        [SerializeField] private float criticalDamageBonus = 0f;
 
         [SerializeField] private float allDamageTakenReduction = 0f;
         [SerializeField] private float allDamageDoneIncrease = 0f;
@@ -49,6 +51,7 @@ namespace Harvesting
         public List<CharacterAnimationData> BlockAnimations;
 
         public int Level { get => level; }
+        public float Size { get => size; }
         public float AttributePercentageIncrementPerLevel { get => attributePercentageIncrementPerLevel; }
         public float Health { get => health; }
         public float Mana { get => mana; }
@@ -62,7 +65,7 @@ namespace Harvesting
         public float AttackSpeed { get => attackSpeed; }
         public float MovementSpeed { get => movementSpeed; }
         public float CriticalChance { get => criticalChance; }
-        public float CriticalDamage { get => criticalDamage; }
+        public float CriticalDamageBonus { get => criticalDamageBonus; }
         public float AllDamageTakenReduction { get => allDamageTakenReduction; }
         public float AllDamageDoneIncrease { get => allDamageDoneIncrease; }
 
