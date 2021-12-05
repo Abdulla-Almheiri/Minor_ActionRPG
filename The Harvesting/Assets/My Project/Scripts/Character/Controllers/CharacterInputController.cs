@@ -15,10 +15,10 @@ namespace Harvesting
             Core = core;
             InputKeyData = inputKeyData;
         }
-        public bool MouseClick(out RaycastHit point)
+        public bool MouseClick(out RaycastHit point, LayerMask layerMask)
         {
-            
-            if (/*!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()*/ true)
+            point = default;
+            if (Input.GetMouseButtonDown(0) == true)
             {
                 point = new RaycastHit();
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -26,15 +26,17 @@ namespace Harvesting
                 RaycastHit rayHit;
                 //point.y = 0f;
 
-                if (Physics.Raycast(ray, out rayHit, 0))
+                if (Physics.Raycast(ray, out rayHit, 100f, layerMask))
                 {
                     point = rayHit;
+                    Debug.Log("Raycast out  :" + point.collider.gameObject.name);
                     return true;
                 } else
                 {
                     return false;
                 }
             }
+            return false;
         }
 
     }

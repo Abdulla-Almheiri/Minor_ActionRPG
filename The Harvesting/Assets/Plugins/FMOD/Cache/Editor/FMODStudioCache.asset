@@ -61,10 +61,10 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637708086301076614
+  lastModified: 637742565940680065
   FileSizes:
   - Name: 
-    Value: 1172
+    Value: 1226
   Exists: 1
 --- !u!114 &-4816294755455937945
 MonoBehaviour:
@@ -161,12 +161,13 @@ MonoBehaviour:
   - {fileID: -3937266684335182914}
   - {fileID: -4667980924784980943}
   - {fileID: -9145777708106246320}
+  - {fileID: 2330341668397759436}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8198727982755841842}
   StringsBanks:
   - {fileID: -7052778325290694291}
-  stringsBankWriteTime: 637708086301076614
+  stringsBankWriteTime: 637742565940680065
   cacheVersion: 8
 --- !u!114 &130814885328174247
 MonoBehaviour:
@@ -191,6 +192,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5500
+--- !u!114 &2330341668397759436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Game SFX/Stormstrike
+  m_EditorClassIdentifier: 
+  Path: event:/Game SFX/Stormstrike
+  guid: 1b5beb6ab652944ea90adcbaf9307edd
+  Banks:
+  - {fileID: 8198727982755841842}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
 --- !u!114 &2854747107506587998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +322,6 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637708086301016620
+  lastModified: 637742565940620187
   FileSizes: []
   Exists: 1

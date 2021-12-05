@@ -13,11 +13,6 @@ namespace Harvesting
         private bool deathAnimationPlayed = false;
 
         // Update is called once per frame
-        void Update()
-        {
-            HandleAnimations();
-
-        }
 
         private void HandleAnimations()
         {
@@ -53,12 +48,6 @@ namespace Harvesting
                 Destroy(spawn, duration);
             }
         }
-
-        public override void PlaySkillAnimation(Skill skill, out float impactPointInSeconds)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void Initialize(IMonsterCore core, Animator animator)
         {
             Core = core;

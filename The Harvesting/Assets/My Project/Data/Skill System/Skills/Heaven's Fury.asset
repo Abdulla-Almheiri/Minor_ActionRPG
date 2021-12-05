@@ -15,7 +15,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: fd6da3f19724ef0429d47338e5a3abf4, type: 3}
   Name: Heaven's Fury
   Description: Holy light pierces through.
-  ManaCost: 0
+  ManaCost: 40
   RechargeTime: 15
   DefaultVFXPrefab: {fileID: 1892500994542042962, guid: 2c5842549831d194ab8aabf9f831b6b5, type: 3}
   PlayerSpawnLocation: 0
@@ -37,31 +37,37 @@ MonoBehaviour:
     TriggerChance: 100
     ContinousDamage: 0
     TickRatePerSecond: 0
-    ActionType: 0
-    Element: {fileID: 0}
-    CharacterStatusEffect: {fileID: 0}
-    DamageStatusEffect: {fileID: 0}
-    OnMonsterEffect: {fileID: 0}
+    Type: {fileID: 0}
     Modifier:
       Attribute: {fileID: 11400000, guid: d44ad0cb712860f48a976b6890183737, type: 2}
       MaxValue: 0
       Value: 0
       Duration: 0
       Percentage: 400
+    Element: {fileID: 0}
+    CharacterStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
+    ResourceToDrain: {fileID: 0}
+    DrainAmount: 0
+    IsDrainAmountPercentage: 0
     SkillVFX: {fileID: 0}
   - TriggerCondition: {fileID: 0}
     TriggerChance: 100
     ContinousDamage: 0
     TickRatePerSecond: 0
-    ActionType: 2
-    Element: {fileID: 0}
-    CharacterStatusEffect: {fileID: 11400000, guid: 4eee0666cc406c34e885284e3e66359e, type: 2}
-    DamageStatusEffect: {fileID: 0}
-    OnMonsterEffect: {fileID: 0}
+    Type: {fileID: 0}
     Modifier:
       Attribute: {fileID: 0}
       MaxValue: 0
       Value: 0
       Duration: 5
       Percentage: 0
+    Element: {fileID: 0}
+    CharacterStatusEffect: {fileID: 11400000, guid: 4eee0666cc406c34e885284e3e66359e, type: 2}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
+    ResourceToDrain: {fileID: 0}
+    DrainAmount: 0
+    IsDrainAmountPercentage: 0
     SkillVFX: {fileID: 0}

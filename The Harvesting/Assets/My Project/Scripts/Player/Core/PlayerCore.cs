@@ -40,7 +40,7 @@ namespace Harvesting {
             GameManager = gameManager;
             Template = playerTemplate;
 
-            Initialize(gameManager, (CharacterTemplate)Template, GetComponent<Animator>(), GetComponent<NavMeshAgent>(), transform,  _skillSpawnLocations) ;
+            Initialize(gameManager, (CharacterTemplate)Template, GetComponent<Animator>(), gameObject, GetComponent<NavMeshAgent>(), transform,  _skillSpawnLocations) ;
 
             PlayerData = new PlayerData(null, null);
 

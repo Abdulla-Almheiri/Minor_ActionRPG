@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163a2a3f6e8d8f741b86de3077d5ee1e, type: 3}
   m_Name: WarrokAI
   m_EditorClassIdentifier: 
-  DetectRange: 20
-  MeleeRange: 2
+  AttackInMelee:
+    Condition: 1
+    Weight: 84.5
+  RunWhenLowOnHealth:
+    Condition: 0
+    Weight: 0
+  CastSupportSpells:
+    Condition: 1
+    Weight: 0
+  AttackFromRange:
+    Condition: 1
+    Weight: 8.5

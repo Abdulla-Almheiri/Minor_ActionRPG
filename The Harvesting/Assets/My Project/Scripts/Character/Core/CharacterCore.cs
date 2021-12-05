@@ -28,12 +28,14 @@ namespace Harvesting
         public ICharacterItemController ItemController { get; protected set; }
         public ICharacterSFXController SFXController { get; protected set; }
         public ICharacterInputController InputController { get; protected set; }
+        public GameObject GameObject { get; protected set; }
 
-        public void Initialize(IGameManager gameManager, ICharacterTemplate template, Animator animator, NavMeshAgent navMeshAgent, Transform transform, List<SkillSpawnLocationData> skillSpawnLocations)
+        public void Initialize(IGameManager gameManager, ICharacterTemplate template, Animator animator, GameObject gameObject, NavMeshAgent navMeshAgent, Transform transform, List<SkillSpawnLocationData> skillSpawnLocations)
         {
             GameManager = gameManager;
             Template = template;
-
+            CharacterData = new CharacterData(this, template);
+            GameObject = gameObject;
 
             MovementController = GetComponent<CharacterMovementController>();
             MovementController.Initialize(this, navMeshAgent, transform);
@@ -47,7 +49,7 @@ namespace Harvesting
             CombatController = GetComponent<CharacterCombatController>();
             CombatController.Initialize(this);
 
-            CharacterData = new CharacterData(this, template);
+            
 
             SkillController = GetComponent<CharacterSkillController>();
             SkillController.Initialize(this, GameManager.CombatSettings, skillSpawnLocations);

@@ -26,18 +26,18 @@ namespace Harvesting
         public new IMonsterMovementController MovementController { get; protected set; }
         public new IMonsterUIController UIController { get; protected set; }
         public new IMonsterSFXController SFXController { get; protected set; }
+        public new IMonsterAIController AIController { get; protected set; }
 
-
-        public void Initialize(IGameManager gameManager, IMonsterTemplate template)
+        public void Initialize(IGameManager gameManager, IMonsterTemplate template, MonsterAI monsterAI)
         {
             GameManager = gameManager;
-
+            
             var animator = GetComponentInChildren<Animator>();
             var navMeshAgent = GetComponent<NavMeshAgent>();
 
             MonsterData = new MonsterData(template);
 
-            base.Initialize(gameManager, template, animator, navMeshAgent, transform, null);
+            base.Initialize(gameManager, template, animator, gameObject, navMeshAgent, transform, null);
 
             MovementController = GetComponent<MonsterMovementController>();
             MovementController.Initialize(this, navMeshAgent, transform);
@@ -56,6 +56,9 @@ namespace Harvesting
 
             SFXController = GetComponent<MonsterSFXController>();
             SFXController.Initialize(this);
+
+            AIController = GetComponent<MonsterAIController>();
+            AIController.Initialize(this, monsterAI);
         }
     }
 }

@@ -15,12 +15,14 @@ namespace Harvesting
         [SerializeField] private CoreAttributesTemplate _coreAttributesTemplate;
         [SerializeField] private CombatSettings _combatSettings;
         [SerializeField] private InputKeyData _inputKeyData;
-        [SerializeField] private LayerMask _layer;
+        [SerializeField] private LayerMask _walkableLayer;
+        [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private PlayerTemplate _playerTemplate;
         [SerializeField] private SkillUIScript _skillUI;
         [SerializeField] private MonsterTemplate _monsterTemplate;
         [SerializeField] private GameObject _monsterPrefab;
         [SerializeField] private Transform _monsterSpawnPoint;
+        [SerializeField] private MonsterAI _monsterAI;
 
         private GameDialogueController _gameDialogueController;
         private GameInputController _gameInputController;
@@ -42,7 +44,7 @@ namespace Harvesting
         public CoreAttributesTemplate CoreAttributes { get => _coreAttributesTemplate; }
 
         public InputKeyData InputKeyData { get => _inputKeyData; }
-        public LayerMask Layer { get => _layer; }
+        public LayerMask Layer { get => _walkableLayer; }
 
         public GameDialogueController GameDialogueController { get => _gameDialogueController; }
         public GameInputController GameInputController { get => _gameInputController; }
@@ -63,12 +65,13 @@ namespace Harvesting
         public SkillUIScript SkillUI { get => _skillUI; }
         public IMonsterTemplate MonsterTemplate { get => _monsterTemplate;  }
 
+        public LayerMask PlayerLayer { get => _playerLayer; }
         void Awake()
         {
             Initialize();
             SpawnPlayer(_playerCheckPoint);
             InitializeCamera();
-            SpawnMonster(_monsterPrefab, _monsterSpawnPoint, (IMonsterTemplate) MonsterTemplate);
+            SpawnMonster(_monsterPrefab, _monsterSpawnPoint, (IMonsterTemplate) MonsterTemplate, _monsterAI);
         }
 
         private void Initialize()
@@ -104,11 +107,11 @@ namespace Harvesting
             
         }
 
-        public IMonsterCore SpawnMonster(GameObject monsterPrefab, Transform spawnPoint, IMonsterTemplate template)
+        public IMonsterCore SpawnMonster(GameObject monsterPrefab, Transform spawnPoint, IMonsterTemplate template, MonsterAI monsterAI)
         {
             var monster = Instantiate(monsterPrefab, spawnPoint).GetComponent<MonsterCore>();
             monster.transform.SetParent(null);
-            monster.Initialize(this, template);
+            monster.Initialize(this, template, monsterAI);
 
             return monster;
         }

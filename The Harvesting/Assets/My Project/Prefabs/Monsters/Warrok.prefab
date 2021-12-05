@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8546835825399567935}
   - component: {fileID: 8479213991330808778}
   - component: {fileID: 5565647715312370613}
+  - component: {fileID: 139830257133632761}
   m_Layer: 14
   m_Name: Warrok
   m_TagString: Untagged
@@ -150,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2fbf976a6346c4c9ae832a09b5cc35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthBarPrefab: {fileID: 5501370499518389142, guid: e72c45726555e4f48a5c3a0ea4a97f00, type: 3}
 --- !u!114 &8546835825399567935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +190,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f83ee37e0c8d1e24c9383cb2f7f64929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &139830257133632761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8546835825399567925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98c0e98e7f8fe74aa26b39e9923f1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &8546835824502388930

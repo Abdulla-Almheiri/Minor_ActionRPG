@@ -12,7 +12,7 @@ namespace Harvesting {
         private Camera _camera;
         private float averageDamage = 0;
         private float fontSize = 0;
-
+        private Color originalColor;
         public FloatingCombatTextManager(GameObjectPool pool, Canvas canvas, Camera camera)
         {
             _pool = pool;
@@ -26,8 +26,9 @@ namespace Harvesting {
             }
         }
 
-        public void PlaceDamageText(Vector3 pos, float amount, float spreadAmount, bool isCritical)
+        public void PlaceDamageText(Vector3 pos, float amount, float spreadAmount, bool isCritical, bool isHeal, bool isHarm)
         {
+            
             if (_pool == null)
             {
                 return;
@@ -68,7 +69,23 @@ namespace Harvesting {
             spawn.gameObject.transform.SetParent(_canvas.transform);
             spawn.gameObject.GetComponent<TMP_Text>().SetText(((int)amount).ToString());
             spawn.gameObject.GetComponent<TMP_Text>().fontSize = fontSize * scaleMultiplier;
-            
+
+            if (originalColor == default)
+            {
+                originalColor = spawn.gameObject.GetComponent<TMP_Text>().faceColor;
+            }
+
+            if (!isHeal && !isHarm)
+            {
+                spawn.gameObject.GetComponent<TMP_Text>().faceColor = originalColor;
+                
+            } else if(isHeal)
+            {
+                spawn.gameObject.GetComponent<TMP_Text>().faceColor = Color.green;
+            } else if(isHarm)
+            {
+                spawn.gameObject.GetComponent<TMP_Text>().faceColor = Color.red;
+            }
 
         }
     }

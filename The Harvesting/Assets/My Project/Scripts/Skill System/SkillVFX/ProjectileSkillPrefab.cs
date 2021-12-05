@@ -52,20 +52,32 @@ namespace Harvesting {
                 }
             }
 
+            
+
+            if (MyUtility.CompareLayers(Performer.GameObject.layer, Performer.GameManager.PlayerLayer) == true)
+            {
+                if (MyUtility.CompareLayers(other.gameObject.layer, Performer.GameManager.CombatSettings.EnemyLayer) == true)
+                {
+                    TriggerSkillActions(Performer, other.GetComponent<ICharacterCore>());
+                }
+            }
+            else if (MyUtility.CompareLayers(Performer.GameObject.layer, Performer.GameManager.CombatSettings.EnemyLayer) == true)
+            {
+                
+                if (MyUtility.CompareLayers(other.gameObject.layer, Performer.GameManager.PlayerLayer) == true)
+                {
+                    UnityEngine.Debug.Log("ON trigger entered enemy and player");
+                    TriggerSkillActions(Performer, other.gameObject.GetComponent<ICharacterCore>());
+                }
+            }
+
             if (!Piercing)
             {
                 Destroy(gameObject);
             }
 
-            var monster = other.gameObject.GetComponent<IMonsterCore>();
-            UnityEngine.Debug.Log("Monster's name is    :   " + other.gameObject.name);
-            if (monster != null)
-            {
-                TriggerSkillActions(Performer, monster);
-            } else
-            {
-                UnityEngine.Debug.Log("MONSTER IS NULL");
-            }
+
+
         }
     }
 }

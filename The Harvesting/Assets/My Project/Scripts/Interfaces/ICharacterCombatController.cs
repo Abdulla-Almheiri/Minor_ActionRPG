@@ -26,5 +26,9 @@ namespace Harvesting
         void LevelUp(int newLevel);
         float HealthPercentage();
         float ManaPercentage();
+        void IncurManaCost(Skill skill);
+        void RefundManaCost(Skill skill);
+        bool HasManaForSkill(Skill skill);
+        bool IsWithinMeleeRange(ICharacterCore character);
     }
 }

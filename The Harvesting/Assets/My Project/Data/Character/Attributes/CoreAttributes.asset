@@ -30,13 +30,16 @@ MonoBehaviour:
   _allDamageTakenReduction: {fileID: 11400000, guid: 8dde60065ba9ba04185e6dda9c0d2204, type: 2}
   _allDamageDoneIncrease: {fileID: 11400000, guid: 560a8555c4f334448913afe5c33271c2, type: 2}
   _criticalDamageTakenReduction: {fileID: 0}
-  _faithToHealthRegen: 1
-  _faithToManaRegen: 1
+  _faithToHealthRegen: 0.1
+  _healthRegenTickRate: 0.5
+  _faithToManaRegen: 0.1
+  _manaRegenTickRate: 0.5
   _strengthToHealth: 5
   _strengthToWeaponSkillDamage: 1
   _intellectToMaximumMana: 3
   _intellectToCriticalDamage: 1
   _dexterityToAttackSpeed: 1
+  _criticalMultiplier: 2
   _skillActionDamage: {fileID: 11400000, guid: ebcb0d8ee220f8746ada4fd6b58ac2cd, type: 2}
   _skillActionHeal: {fileID: 11400000, guid: 32eb330140a7440459c02211b3def73c, type: 2}
   _skillActionStatusEffect: {fileID: 11400000, guid: a8bc79ac5b16c3343ae0ec0ecdd051b0, type: 2}

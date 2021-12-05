@@ -9,9 +9,7 @@ namespace Harvesting {
     public class PlayerSkillController : CharacterSkillController, IPlayerSkillController
     {
         public new IPlayerCore Core { get; protected set; }
-        public Skill PrimaryWeaponSkill { get; protected set; }
 
-        public Skill SecondaryWeaponSkill { get; protected set; }
 
        // private CoreAttributesTemplate _coreAttributes;
 
@@ -27,6 +25,7 @@ namespace Harvesting {
             Core = core;
             base.Initialize(core, combatSettings, skillSpawnLocations);
             Abilities = Core.CharacterData.Abilities;
+            //PrimaryWeaponSkill = Core.Template.PrimaryWeaponSkill;
         }
 
        /* private void Update()
@@ -36,7 +35,7 @@ namespace Harvesting {
         }*/
 
 
-        protected void HandleWeaponSkills()
+        /*protected void HandleWeaponSkills()
         {
             if(Core.InputController.MouseClick(out RaycastHit other) == true)
             {
@@ -45,6 +44,6 @@ namespace Harvesting {
 
                 }
             }
-        }
+        }*/
     }
 }

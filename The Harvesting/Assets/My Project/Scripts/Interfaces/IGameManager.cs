@@ -14,6 +14,9 @@ namespace Harvesting {
         IGameUIController UIController { get; }
         SkillUIScript SkillUI { get; }
         PlayerCore PlayerCore { get; }
+        Canvas StaticCanvas { get;  }
+        Canvas DynamicCanvas { get; }
+        LayerMask PlayerLayer { get; }
     }
 
 }

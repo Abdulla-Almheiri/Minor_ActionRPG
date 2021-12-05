@@ -19,6 +19,7 @@ namespace Harvesting
         ICharacterItemController ItemController { get; }
         ICharacterSFXController SFXController { get; }
         ICharacterInputController InputController { get; }
-        void Initialize(IGameManager gameManager, ICharacterTemplate template, Animator animator, NavMeshAgent navMeshAgent, Transform transform, List<SkillSpawnLocationData> skillSpawnLocations);
+        GameObject GameObject { get; }
+        void Initialize(IGameManager gameManager, ICharacterTemplate template, Animator animator, GameObject gameObject, NavMeshAgent navMeshAgent, Transform transform, List<SkillSpawnLocationData> skillSpawnLocations);
     }
 }

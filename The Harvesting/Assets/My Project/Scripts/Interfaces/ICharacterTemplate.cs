@@ -22,6 +22,8 @@ namespace Harvesting
         float MovementSpeed { get; }
         float Power { get; }
         float Strength { get; }
+        Skill PrimaryWeaponSkill { get; }
+        Skill SecondaryWeaponSkill { get; }
         List<ProgressionSkill> Abilities { get; } 
     }
 }

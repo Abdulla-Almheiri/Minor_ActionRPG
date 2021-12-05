@@ -9,11 +9,13 @@ namespace Harvesting
 
     public class PlayerUIController : CharacterUIController, IPlayerUIController
     {
-        [SerializeField] private PlayerStatsUIScript _playerStatsUI;
-        [SerializeField] private GameObject _characterScreen;
-        [SerializeField] private SkillUIScript _skillUIScript;
+        [SerializeField] private GameObject _playerStatsUIPrefab;
+        [SerializeField] private GameObject _characterScreenPrefab;
+        [SerializeField] private GameObject _playerSkillUIPrefab;
 
-        public GameObject CharacterScreen { get => _characterScreen; }
+        public PlayerStatsUIScript  PlayerStatsUIScript { get; protected set; }
+        public GameObject CharacterScreen { get => _characterScreenPrefab; }
+        public SkillUIScript PlayerSkillUIScript { get; protected set; }
 
         public new IPlayerCore Core { get; protected set; }
 
@@ -28,6 +30,7 @@ namespace Harvesting
         {
             Core = core;
             base.Initialize(core);
+            InitializeUI();
         }
         public void UpdateHealthPercentage(float percentage)
         {
@@ -46,12 +49,24 @@ namespace Harvesting
 
         public void DisplaySkillsUI()
         {
-            Core.GameManager.SkillUI.DisplaySkillIcons();
+            //Core.GameManager.SkillUI.DisplaySkillIcons();
         }
 
         public void UpdateStatsUI()
         {
 
+        }
+
+        private void InitializeUI()
+        {
+            var statsUI = Instantiate(_playerStatsUIPrefab, Core.GameManager.StaticCanvas.transform);
+            var skillUI = Instantiate(_playerSkillUIPrefab, Core.GameManager.StaticCanvas.transform);
+
+            PlayerStatsUIScript = statsUI.GetComponent<PlayerStatsUIScript>();
+            PlayerStatsUIScript.Initialize(Core);
+
+            PlayerSkillUIScript = skillUI.GetComponent<SkillUIScript>();
+            PlayerSkillUIScript.Initialize(Core);
         }
     }
 }

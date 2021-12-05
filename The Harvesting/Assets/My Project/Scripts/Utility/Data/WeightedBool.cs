@@ -9,7 +9,7 @@ namespace Harvesting
     public class WeightedBool
     {
         public bool Condition;
-        [Range(0,1)]
+        [Range(0,100)]
         public float Weight;
     }
 }

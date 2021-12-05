@@ -8,8 +8,10 @@ namespace Harvesting
     {
         ICharacterCore Core { get; }
         CombatSettings CombatSettings { get; }
+        Skill PrimaryWeaponSkill { get; }
+        Skill SecondaryWeaponSkill { get; }
         List<SkillSpawnLocationData> SkillSpawnLocations { get; }
-        bool ActivateSkill(Skill skill);
+        bool ActivateSkill(Skill skill, ICharacterCore target = default);
         float SkillRecharge(Skill skill, out float seconds);
         void Initialize(ICharacterCore core, CombatSettings combatSettings, List<SkillSpawnLocationData> skillSpawnLocations);
     }

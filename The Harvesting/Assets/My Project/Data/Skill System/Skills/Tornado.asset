@@ -15,7 +15,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 41064aed4c574404aa01612fe13862ad, type: 3}
   Name: Tornado
   Description: Tornado!
-  ManaCost: 0
+  ManaCost: 20
   RechargeTime: 8
   DefaultVFXPrefab: {fileID: 4199924403130360902, guid: 71d5867aa7435974eb3e67679b90fdcb, type: 3}
   PlayerSpawnLocation: 3

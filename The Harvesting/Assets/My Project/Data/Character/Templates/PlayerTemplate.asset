@@ -9,9 +9,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d2f7ccd1ac900b47921d09bc2eb53bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 968f88253f9608b488cc29d220026d28, type: 3}
   m_Name: PlayerTemplate
   m_EditorClassIdentifier: 
-  BaseAttributes: {fileID: 11400000, guid: beada438842288946a90f73d13deb753, type: 2}
-  Animations:
-  - {fileID: 11400000, guid: 4680b3bd397b0704da19eb9cbe003492, type: 2}
+  level: 1
+  size: 1
+  attributePercentageIncrementPerLevel: 20
+  health: 100
+  mana: 30
+  healthRegen: 0
+  manaRegen: 0
+  strength: 5
+  intellect: 30
+  faith: 30
+  dexterity: 5
+  power: 5
+  attackSpeed: 100
+  movementSpeed: 1
+  criticalChance: 5
+  criticalDamageBonus: 0
+  allDamageTakenReduction: 0
+  allDamageDoneIncrease: 0
+  _abilities:
+  - Skill: {fileID: 11400000, guid: 1fbd50631c7a37642ba5e346c0206c89, type: 2}
+    Level: 0
+  - Skill: {fileID: 11400000, guid: 4010c75d19a96714f9cc457692e04894, type: 2}
+    Level: 0
+  - Skill: {fileID: 11400000, guid: b4c19fffaa6ed7742a3fedbe14edca1b, type: 2}
+    Level: 0
+  - Skill: {fileID: 11400000, guid: 634ec154e4c3da3418070e502290d01b, type: 2}
+    Level: 0
+  - Skill: {fileID: 11400000, guid: 96b6f5e31d0b06241b627968791aa7cc, type: 2}
+    Level: 0
+  - Skill: {fileID: 11400000, guid: 02657eef768282d4691e3d11b520933d, type: 2}
+    Level: 0
+  _primaryWeaponSkill: {fileID: 11400000, guid: 677b5f5a23d2ff14aac813b38b474f64, type: 2}
+  _secondaryWeaponSkill: {fileID: 0}
+  Attributes: []
+  InteractAnimation: {fileID: 0}
+  WalkAnimation: {fileID: 0}
+  DeathAnimation: {fileID: 0}
+  AttackAnimations: []
+  CastAnimations: []
+  HitAnimations: []
+  BlockAnimations: []
+  _skillProgression: []

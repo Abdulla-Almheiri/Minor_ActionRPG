@@ -9,6 +9,7 @@ namespace Harvesting
     {
         public ICharacterCore Core { get; protected set; }
         public Animator Animator { get; protected set; }
+        
         public void Initialize(ICharacterCore core, Animator animator)
         {
             Core = core;
@@ -17,6 +18,11 @@ namespace Harvesting
             {  
                 Debug.Log("Animator not found in children of CharacterCore: CharacterAnimationController.");
             }
+        }
+
+        protected void Update()
+        {
+            HandleRunningAnimation();
         }
 
         public void HandleRunningAnimation()
@@ -46,6 +52,24 @@ namespace Harvesting
             Core.MovementController.Transform.rotation = Quaternion.LookRotation(dir);
         }
 
-        public abstract void PlaySkillAnimation(Skill skill, out float impactPointInSeconds);
+        public virtual void PlaySkillAnimation(Skill skill, out float impactPointInSeconds)
+        {
+            
+            impactPointInSeconds = 0;
+            if(skill == null)
+            {
+                return;
+            }
+
+            impactPointInSeconds = skill.PlayerAnimation ? skill.PlayerAnimation.AnimationHitFrameInSeconds() : 0f;
+
+            if(skill.PlayerAnimation?.Animation == null)
+            {
+                return;
+            }
+
+            Debug.Log("SKILL ANIMATION    :   " + skill.name + "      " + skill.PlayerAnimation.name);
+            Animator.SetTrigger(skill.PlayerAnimation.AnimationHash());
+        }
     }
 }

@@ -38,8 +38,10 @@ namespace Harvesting
         [SerializeField] private Attribute _criticalDamageTakenReduction;
 
         [Header("Stat Default Values")]
-        [SerializeField] private float _faithToHealthRegen = 1f;
+        [SerializeField] private float _faithToHealthRegen = 0.1f;
+        [SerializeField] private float _healthRegenTickRate = 1f;
         [SerializeField] private float _faithToManaRegen = 1f;
+        [SerializeField] private float _manaRegenTickRate = 1f;
         [SerializeField] private float _strengthToHealth = 5f;
         [SerializeField] private float _strengthToWeaponSkillDamage = 1f;
         [SerializeField] private float _intellectToMaximumMana = 3f;
@@ -88,5 +90,7 @@ namespace Harvesting
         public SkillActionType SkillActionStatusEffect { get => _skillActionStatusEffect; }
         public SkillActionType SkillActionResourceDrain { get => _skillActionResourceDrain;  }
         public float CriticalMultiplier { get => _criticalMultiplier; }
+        public float ManaRegenTickRate { get => _manaRegenTickRate; }
+        public float HealthRegenTickRate { get => _healthRegenTickRate;  }
     }
 }

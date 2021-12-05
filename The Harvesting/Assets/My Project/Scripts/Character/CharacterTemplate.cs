@@ -35,7 +35,11 @@ namespace Harvesting
         [SerializeField] private float allDamageDoneIncrease = 0f;
 
         [Header("Abilities")]
-        [SerializeField] private List<ProgressionSkill> _abilities; 
+        [SerializeField] private List<ProgressionSkill> _abilities;
+        [SerializeField] Skill _primaryWeaponSkill;
+        [SerializeField] Skill _secondaryWeaponSkill;
+        public Skill PrimaryWeaponSkill { get => _primaryWeaponSkill; }
+        public Skill SecondaryWeaponSkill { get => _secondaryWeaponSkill; }
         public List<ProgressionSkill> Abilities { get => _abilities; }
 
         [Header("Secondary Attributes")]

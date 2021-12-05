@@ -49,13 +49,23 @@ namespace Harvesting
         {
             return (NavMeshAgent.remainingDistance >= NavMeshAgent.stoppingDistance);
         }
-
+        private void Update()
+        {
+            if(Core.CombatController.CanMove() == false)
+            {
+                StopMoving();
+            }
+        }
         public void StopMoving()
         {
             NavMeshAgent.isStopped = true;
         }
         public bool MoveToCharacter(ICharacterCore character)
         {
+            if(character == null)
+            {
+                return false;
+            }
             return MoveToPoint(character.MovementController.Transform.position);
         }
     }

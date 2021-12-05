@@ -47,11 +47,9 @@ namespace Harvesting
 
             if ( layerMask == _player.GameManager.CombatSettings.EnemyLayer)
             {
-                Debug.Log("LAYERS CORRECT");
                 var monster = other.GetComponent<IMonsterCore>();
                 if (monster != null && monster.CombatController.IsAlive == true)
                 {
-                    Debug.Log("Monster ADDED" + monster);
                     monstersInRange.Add(monster);
                 }
                
@@ -70,7 +68,6 @@ namespace Harvesting
                 var monster = other.GetComponent<IMonsterCore>();
                 if (monster != null)
                 {
-                    Debug.Log("Monster REMOVED BECAUSE OUT RANGE" + monster);
                     monstersInRange.Remove(monster);
                 }
 

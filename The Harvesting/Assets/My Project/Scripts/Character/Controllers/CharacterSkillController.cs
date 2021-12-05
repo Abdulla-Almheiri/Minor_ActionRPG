@@ -16,9 +16,9 @@ namespace Harvesting
 
         protected float _elapsedTimeAbilities = 0f;
         public List<Skill> Abilities { get; protected set; } = new List<Skill>();
-        //public Skill PrimaryWeaponSkill { get; protected set; }
+        public Skill PrimaryWeaponSkill { get; protected set; }
 
-        //public Skill SecondaryWeaponSkill { get; protected set; }
+        public Skill SecondaryWeaponSkill { get; protected set; }
 
         protected CoreAttributesTemplate _coreAttributes;
         public List<SkillSpawnLocationData> SkillSpawnLocations { get; protected set; }
@@ -26,6 +26,8 @@ namespace Harvesting
         protected float _primaryWeaponSkillRechargeTimer;
         protected float _secondaryWeaponSkillRechargeTimer;
         protected bool _bothWeaponSkillsReady;
+        protected ICharacterCore _attackCommandTarget = null;
+        protected Skill _attackCommandSkill = null;
 
         public void Initialize(ICharacterCore core, CombatSettings combatSettings, List<SkillSpawnLocationData> skillSpawnLocations)
         {
@@ -33,6 +35,8 @@ namespace Harvesting
             CombatSettings = combatSettings;
             Abilities = Core.CharacterData.Abilities;
             SkillSpawnLocations = skillSpawnLocations;
+            PrimaryWeaponSkill = Core.Template.PrimaryWeaponSkill;
+            SecondaryWeaponSkill = Core.Template.SecondaryWeaponSkill;
         }
 
         
@@ -104,41 +108,106 @@ namespace Harvesting
         protected void Update()
         {
             HandleAbilityCooldownTimers();
-            HandleWeaponSkillsCooldownTimers();
+            HandleAttackCommands();
         }
 
+        protected void IssueAttackCommand(Skill skill, ICharacterCore target)
+        {
+            //Debug.Log("Attack command issued");
+            _attackCommandTarget = target;
+            _attackCommandSkill = skill;
+        }
 
-        public bool ActivateSkill(Skill skill)
+        protected void HandleAttackCommands()
+        {
+            if(_attackCommandSkill != null && _attackCommandTarget != null && _attackCommandTarget.CombatController.IsAlive == true)
+            {
+                if(Core.CombatController.IsWithinMeleeRange(_attackCommandTarget))
+                {
+                    //Debug.Log("Within melee range");
+                    ActivateSkill(_attackCommandSkill, _attackCommandTarget);
+                }
+            }
+        }
+
+        public bool ActivateSkill(Skill skill, ICharacterCore target = default)
         {
             if (CanActivateSkill(skill, false) == false)
             {
-               // Debug.Log("CANNOT ACTIVATE  :   " + SkillRecharge(skill, out _));
+              // Debug.Log("CANNOT ACTIVATE  :   " + SkillRecharge(skill, out _));
                 return false;
             }
+
+            if(skill.IsMelee)
+            {
+                int layerMask = -1; ;
+                if (target != null)
+                {
+                    layerMask = 1 << target.GameObject.layer;
+                }
+
+                if (MyUtility.CompareLayers(Core.GameObject.layer, Core.GameManager.PlayerLayer) == true)
+                {
+                    if (MyUtility.CompareLayers(target.GameObject.layer, Core.GameManager.CombatSettings.EnemyLayer) != true)
+                    {
+                        return false;
+                    }
+                }
+
+                if (MyUtility.CompareLayers(Core.GameObject.layer, Core.GameManager.CombatSettings.EnemyLayer) == true)
+                {
+                    if (MyUtility.CompareLayers(target.GameObject.layer, Core.GameManager.PlayerLayer) != true)
+                    {
+                        return false;
+                    }
+                }
+
+                if (Core.CombatController.IsWithinMeleeRange(target) != true)
+                {
+                    Core.MovementController.MoveToCharacter(target);
+                    IssueAttackCommand(skill, target);
+                    return false;
+                }
+
+                CancelCurrentattackCommand();
+
+            }
+            
 
             PutSkillOnRecharge(skill);
 
             if (skill.FaceDirection == true)
             {
-                //FIX HERE FOR MONSTER TARGET PLAYER
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit rayHit;
-                if (Physics.Raycast(ray, out rayHit))
+                if (MyUtility.CompareLayers(Core.GameObject.layer, Core.GameManager.PlayerLayer) == true)
+                {//FIX HERE FOR MONSTER TARGET PLAYER
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit rayHit;
+                    if (Physics.Raycast(ray, out rayHit))
+                    {
+                        Core.AnimationController.FaceDirection(rayHit.point);
+                        //Debug.Log("POINT IS   :   " + rayHit.point);
+                    }
+                } else if(target != null)
                 {
-                    Core.AnimationController.FaceDirection(rayHit.point);
-                    //Debug.Log("POINT IS   :   " + rayHit.point);
+                    Core.AnimationController.FaceDirection(target.MovementController.Transform.position);
                 }
                 
             }
 
             Core.AnimationController.PlaySkillAnimation(skill, out float impactPoint);
 
-            StartCoroutine(ActivateSkillCoroutine(skill, Mathf.Min(Mathf.Abs(impactPoint), 20f)));
+            StartCoroutine(ActivateSkillCoroutine(skill, Mathf.Min(Mathf.Abs(impactPoint), 20f), target));
 
             return true;
         }
 
-        protected IEnumerator ActivateSkillCoroutine(Skill skill, float delay)
+        protected void CancelCurrentattackCommand()
+        {
+            _attackCommandTarget = null;
+            _attackCommandSkill = null;
+        }
+
+        protected IEnumerator ActivateSkillCoroutine(Skill skill, float delay, ICharacterCore target = default)
         {
             yield return new WaitForSeconds(delay);
             if (CanActivateSkill(skill, true) == false)
@@ -146,17 +215,37 @@ namespace Harvesting
                 MakeSkillReady(skill);
                 yield break;
             }
+            if (skill.FaceDirection == true)
+            {
+                if (MyUtility.CompareLayers(Core.GameObject.layer, Core.GameManager.PlayerLayer) == true)
+                {//FIX HERE FOR MONSTER TARGET PLAYER
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit rayHit;
+                    if (Physics.Raycast(ray, out rayHit))
+                    {
+                        Core.AnimationController.FaceDirection(rayHit.point);
+                        //Debug.Log("POINT IS   :   " + rayHit.point);
+                    }
+                }
+                else if (target != null)
+                {
+                    Core.AnimationController.FaceDirection(target.MovementController.Transform.position);
+                }
 
-            var spawnLocation = SkillSpawnLocations.Find(x => x.LocationType == skill.PlayerSpawnLocation).Location;
-            skill.Spawn(Core, spawnLocation);
+            }
+
+            Core.CombatController.IncurManaCost(skill);
+
+            if (MyUtility.CompareLayers(Core.GameObject.layer, Core.GameManager.PlayerLayer) == true)
+            {
+                var spawnLocation = SkillSpawnLocations.Find(x => x.LocationType == skill.PlayerSpawnLocation).Location;
+                skill.Spawn(Core, spawnLocation);
+            } else
+            {
+                skill.Spawn(Core, Core.MovementController.Transform);
+            }
 
         }
-
-
-        /*private async Task WaitForTargetedSkillInput()
-        {
-
-        }*/
 
         
         protected void PutSkillOnRecharge(Skill skill)
@@ -164,7 +253,6 @@ namespace Harvesting
             if (_skillRechargeTimes.TryGetValue(skill, out _) == false)
             {
                 _skillRechargeTimes.Add(skill, skill.RechargeTime);
-                //Debug.Log("KEYS ADDED and count is :   " +  _skillRechargeTimes.Count);
             }
             else
             {
@@ -186,6 +274,11 @@ namespace Harvesting
                 return false;
             }
 
+            if(Core.CombatController.HasManaForSkill(skill) == false)
+            {
+                return false;
+            }
+
             if (skill.IsMovementSkill == true && Core.CombatController.CanMove() == false)
             {
                 
@@ -196,69 +289,8 @@ namespace Harvesting
 
             var isPlayerAble = Core.CombatController.CanAttack();
 
-            //Debug.Log("Skill is Ready  :   " + isSkillReady + " and skill recharge is:   " + SkillRecharge(skill, out _));
-            //Debug.Log("Player can attack  :   " + isPlayerAble);
-
             return (isSkillReady || ignoreRecharge) && isPlayerAble;
         }
 
-        /*public float SkillRecharge(Skill skill, out float seconds)
-        {
-            if (Core == null)
-            {
-                //_player = _playerCore.Data;
-                print("_player is null inside PlayerSkillController");
-            }
-            if (skill == PrimaryWeaponSkill)
-            {
-
-                seconds = skill.RechargeTime - _primaryWeaponSkillRechargeTimer;
-                return seconds / skill.RechargeTime;
-            }
-
-            if (skill == SecondaryWeaponSkill)
-            {
-                seconds = skill.RechargeTime - _primaryWeaponSkillRechargeTimer;
-                return seconds / skill.RechargeTime;
-            }
-
-            return base.SkillRecharge(skill, out seconds);
-        }*/
-
-        protected void HandleWeaponSkillsCooldownTimers()
-        {
-            if (_bothWeaponSkillsReady)
-            {
-                return;
-            }
-
-            var primaryWeaponSkillCheck = _primaryWeaponSkillRechargeTimer > 0f;
-            var secondaryWeaponSkillCheck = _secondaryWeaponSkillRechargeTimer > 0f;
-
-            if (primaryWeaponSkillCheck == false && secondaryWeaponSkillCheck == false)
-            {
-                _bothWeaponSkillsReady = true;
-                return;
-            }
-
-            _elapsedTimeWeaponSkills += Time.deltaTime;
-
-            if (_elapsedTimeWeaponSkills >= CombatSettings.WeaponSkillCooldownCheckRate)
-            {
-
-                if (primaryWeaponSkillCheck)
-                {
-                    _primaryWeaponSkillRechargeTimer -= _elapsedTimeWeaponSkills;
-                }
-
-                if (secondaryWeaponSkillCheck)
-                {
-                    _secondaryWeaponSkillRechargeTimer -= _elapsedTimeWeaponSkills;
-                }
-
-                _elapsedTimeWeaponSkills = 0f;
-            }
-
-        }
     }
 }

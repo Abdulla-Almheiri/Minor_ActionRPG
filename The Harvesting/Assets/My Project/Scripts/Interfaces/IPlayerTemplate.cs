@@ -6,6 +6,6 @@ namespace Harvesting
 {
     public interface IPlayerTemplate : ICharacterTemplate
     {
-        List<ProgressionSkill> SkillProgression { get; }
+       List<ProgressionSkill> SkillProgression { get; }
     }
 }

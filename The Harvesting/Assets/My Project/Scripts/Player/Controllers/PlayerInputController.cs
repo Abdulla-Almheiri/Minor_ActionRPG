@@ -62,6 +62,11 @@ namespace Harvesting
                     Core.SkillController.ActivateSkill(Core.SkillController.Abilities[i]);
                 }
             }
+
+            if(MouseClick(out RaycastHit target, Core.GameManager.CombatSettings.EnemyLayer))
+            {
+                Core.SkillController.ActivateSkill(Core.SkillController.PrimaryWeaponSkill, target.collider.gameObject.GetComponent<CharacterCore>());
+            }
         }
 
         public void Initialize(IPlayerCore core, InputKeyData inputKeyData)

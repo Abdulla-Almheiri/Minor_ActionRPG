@@ -19,14 +19,12 @@ namespace Harvesting
 
         public void TriggerSkillActions(ICharacterCore attacker, ICharacterCore receiver)
         {
-            Debug.Log("SKILLactions count   : " + SkillActions.Count);
             if (SkillActions.Count != 0)
             {
                 foreach (SkillAction action in SkillActions)
                 {
                     TriggerSkillAction(attacker, receiver, action);
                     NumberOfEnemiesHit++;
-                    print("Enemies hit :  " + NumberOfEnemiesHit);
 
                     if (action.ContinousDamage)
                     {

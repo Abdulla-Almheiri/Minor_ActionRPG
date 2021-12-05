@@ -10,6 +10,7 @@ namespace Harvesting
         void Start()
         {
             Destroy(gameObject, Duration);
+            TriggerSkillActions(Performer, Performer);
         }
 
     }

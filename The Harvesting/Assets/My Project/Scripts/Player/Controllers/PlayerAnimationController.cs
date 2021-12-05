@@ -16,10 +16,6 @@ namespace Harvesting
 
         public CharacterAnimationData DefaultSkillAnimation { get => _defaultSkillAnimation; }
 
-        void Update()
-        {
-            HandleRunningAnimation();
-        }
 
         public void Initialize(IPlayerCore playerCore, Animator animator)
         {
@@ -59,10 +55,6 @@ namespace Harvesting
             }
         }
 
-        public override void PlaySkillAnimation(Skill skill, out float impactPoint)
-        {
-            impactPoint = 0f;
-        }
 
     }
 }

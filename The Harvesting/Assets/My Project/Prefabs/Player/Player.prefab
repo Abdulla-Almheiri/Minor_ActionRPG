@@ -45,7 +45,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362413340034065786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.306}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 873501110151209497}
@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 873501109725606585}
-  m_Layer: 2
+  m_Layer: 6
   m_Name: SpawnPointHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873501109725606584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28, y: 1.397, z: 1.485}
+  m_LocalPosition: {x: 0.28, y: 1.397, z: 1.1790001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 873501110151209497}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 873501109762505220}
-  m_Layer: 2
+  m_Layer: 6
   m_Name: VFXLocation2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873501109762505223}
   m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -0.321, y: 1.353, z: 1.387}
+  m_LocalPosition: {x: -0.321, y: 1.353, z: 1.0810001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 873501110151209497}
@@ -155,7 +155,9 @@ GameObject:
   - component: {fileID: 873501110151209474}
   - component: {fileID: 873501110151209486}
   - component: {fileID: 873501110151209487}
-  m_Layer: 2
+  - component: {fileID: 6637865996506040958}
+  - component: {fileID: 6725974157218943101}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,9 +286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb862817ca6f674a864f90b10059a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerStatsUI: {fileID: 0}
-  _characterScreen: {fileID: 0}
-  _skillUIScript: {fileID: 0}
+  _playerStatsUIPrefab: {fileID: 235443718081514424, guid: 03b8d830f7187864e92a914c3b99c7ae, type: 3}
+  _characterScreenPrefab: {fileID: 1760616031391357464, guid: 51088fd1111230845952efdce371d7ab, type: 3}
+  _playerSkillUIPrefab: {fileID: 3005464220164541007, guid: 563b4300bcd774c409e3a2a2542b7a63, type: 3}
 --- !u!114 &873501110151209474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +327,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4989471b3cb2c4293d4bc19c29be6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &6637865996506040958
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873501110151209496}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.41
+  m_Height: 2.91
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.48, z: 0}
+--- !u!54 &6725974157218943101
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873501110151209496}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &873501110783532662
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 873501110783532663}
-  m_Layer: 2
+  m_Layer: 6
   m_Name: SpawnPointCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873501110783532662}
   m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0.979, z: 0}
+  m_LocalPosition: {x: 0, y: 0.979, z: -0.30600008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 873501110151209497}
@@ -384,7 +416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22bf6f8e182d27047a0d8f95b269be20, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.30600008
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22bf6f8e182d27047a0d8f95b269be20, type: 3}
       propertyPath: m_LocalRotation.w
