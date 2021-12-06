@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: WarrokAI
   m_EditorClassIdentifier: 
   AttackInMelee:
-    Condition: 1
-    Weight: 84.5
+    IsActive: 1
+    Weight: 100
   RunWhenLowOnHealth:
-    Condition: 0
+    IsActive: 0
     Weight: 0
   CastSupportSpells:
-    Condition: 1
+    IsActive: 0
     Weight: 0
   AttackFromRange:
-    Condition: 1
-    Weight: 8.5
+    IsActive: 0
+    Weight: 0

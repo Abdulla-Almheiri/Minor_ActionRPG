@@ -8,5 +8,6 @@ namespace Harvesting
     {
         MonsterData MonsterData { get; }
         void Initialize(IGameManager gameManager, IMonsterTemplate template, MonsterAI monsterAI);
+
     }
 }

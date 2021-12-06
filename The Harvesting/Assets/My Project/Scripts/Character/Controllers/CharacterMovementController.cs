@@ -35,34 +35,41 @@ namespace Harvesting
         }
         public bool MoveToPoint(Vector3 targetPoint)
         {
+            
+            if (Core.CombatController.CanMove() == false)
+            {
+                return false;
+            }
+
+            
             NavMeshAgent.isStopped = false;
             var navMeshMove = NavMeshAgent.SetDestination(targetPoint);
             if(navMeshMove == true)
             {
                 currentDestination = NavMeshAgent.destination;
-
+                Core.AnimationController.Animator.SetBool("Running", true);
             }
             return navMeshMove;
         }
 
         public bool IsRunning()
         {
-            return (NavMeshAgent.remainingDistance >= NavMeshAgent.stoppingDistance);
+            return (NavMeshAgent.remainingDistance >= NavMeshAgent.stoppingDistance) && Core.CombatController.CanMove();
         }
         private void Update()
         {
-            if(Core.CombatController.CanMove() == false)
-            {
-                StopMoving();
-            }
+
         }
         public void StopMoving()
         {
+            Core.AnimationController.Animator.SetBool("Running", false);
             NavMeshAgent.isStopped = true;
         }
+
         public bool MoveToCharacter(ICharacterCore character)
         {
-            if(character == null)
+
+            if (character == null || Core.CombatController.IsWithinMeleeRange(character))
             {
                 return false;
             }

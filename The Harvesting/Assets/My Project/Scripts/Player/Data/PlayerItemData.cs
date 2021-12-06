@@ -7,14 +7,14 @@ namespace Harvesting
     public class PlayerItemData
     {
         private PlayerCore _playerCore;
-        private Dictionary<EquipmentSlotType, Item> _equipment = new Dictionary<EquipmentSlotType, Item>();
+        private Dictionary<EquipmentSlotType, GameItem> _equipment = new Dictionary<EquipmentSlotType, GameItem>();
         private Inventory _inventory;
 
         public PlayerItemData()
         {
             _inventory = new Inventory();
         }
-        public bool Equip(EquipmentSlot slot, Item item)
+        public bool Equip(EquipmentSlot slot, GameItem item)
         {
             return false;
         }

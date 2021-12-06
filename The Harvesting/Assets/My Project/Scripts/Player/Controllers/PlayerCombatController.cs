@@ -13,6 +13,7 @@ namespace Harvesting
         public void Initialize(IPlayerCore core)
         {
             Core = core;
+
             _monsterDetector.Initialize(Core);
             base.Initialize(core);
             

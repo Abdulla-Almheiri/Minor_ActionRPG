@@ -6,6 +6,7 @@ namespace Harvesting
 {
     public interface IPlayerAnimationController : ICharacterAnimationController
     {
+        new IPlayerCore Core { get; }
         CharacterAnimationData DefaultSkillAnimation { get;  }
         void RotateToMouseDirection();
         void PlayPlayerSkillAnimation(Skill skill);

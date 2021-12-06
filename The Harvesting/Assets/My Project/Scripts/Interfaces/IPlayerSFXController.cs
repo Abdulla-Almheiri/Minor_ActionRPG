@@ -8,5 +8,6 @@ namespace Harvesting
     {
         new IPlayerCore Core { get; }
         void PlayItemSound();
+        void Initialize(IPlayerCore core);
     }
 }

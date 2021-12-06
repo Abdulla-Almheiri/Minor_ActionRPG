@@ -46,7 +46,7 @@ MonoBehaviour:
       Percentage: 50
     Element: {fileID: 11400000, guid: 13d6e1dc62ef47343843917b5faf12dc, type: 2}
     CharacterStatusEffect: {fileID: 0}
-    DamageStatusEffect: {fileID: 11400000, guid: a6c81f59cfc5ac6488dd02303d30010c, type: 2}
+    DamageStatusEffect: {fileID: 0}
     OnMonsterEffect: {fileID: 0}
     ResourceToDrain: {fileID: 0}
     DrainAmount: 0

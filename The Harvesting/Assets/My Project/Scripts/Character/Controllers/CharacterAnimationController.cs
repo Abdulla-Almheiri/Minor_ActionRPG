@@ -9,7 +9,7 @@ namespace Harvesting
     {
         public ICharacterCore Core { get; protected set; }
         public Animator Animator { get; protected set; }
-        
+
         public void Initialize(ICharacterCore core, Animator animator)
         {
             Core = core;
@@ -34,7 +34,6 @@ namespace Harvesting
             else
             {
                 Animator.SetBool("Running", false);
-                Animator.SetBool("Idle", true);
             }
         }
 
@@ -45,7 +44,7 @@ namespace Harvesting
 
         public void FaceDirection(Vector3 direction)
         {
-            Animator.SetBool("Running", false);
+            Core.MovementController.StopMoving();
             var dir = (direction - Core.MovementController.Transform.position);
             dir.y = 0;
             dir = dir.normalized;

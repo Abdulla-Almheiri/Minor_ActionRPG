@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
+   
     public abstract class SkillActionTriggerCondition : ScriptableObject
     {
 

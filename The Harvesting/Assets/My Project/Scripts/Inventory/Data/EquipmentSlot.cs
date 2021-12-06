@@ -10,25 +10,24 @@ namespace Harvesting
     {
         [SerializeField]
         private Image icon;
-        private ItemTemplate equipedItem;
         public EquipmentSlotType EquipmentSlotType;
 
-        public bool Equip(ItemTemplate item, IPlayerCore playerCore)
+        /*public bool Equip(ItemTemplate item, IPlayerCore playerCore)
         {
             if(EquipmentSlotType != null && EquipmentSlotType == item.EquipmentSlotType)
             {
                 if(equipedItem != null)
                 {
-                    /*if(!player.AddItemToInventory(equipedItem, 1))
+                    if(!player.AddItemToInventory(equipedItem, 1))
                     {
                         return false;
-                    }*/
+                    }
                 }
                 equipedItem = item;
                 return true;
 
             }
             return false;
-        }
+        }*/
     }
 }

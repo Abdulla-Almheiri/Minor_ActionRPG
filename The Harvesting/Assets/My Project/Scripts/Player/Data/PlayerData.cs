@@ -11,11 +11,11 @@ namespace Harvesting
 
         public Skill SecondaryWeaponSkill { get; protected set; }
 
-        public Dictionary<EquipmentSlotType, Item> Equipment { get; protected set; } = new Dictionary<EquipmentSlotType, Item>();
+        public Dictionary<EquipmentSlotType, GameItem> Equipment { get; protected set; } = new Dictionary<EquipmentSlotType, GameItem>();
 
         public Inventory Inventory { get; protected set; }
 
-        public PlayerData(Inventory inventory, Dictionary<EquipmentSlotType, Item> equipment)
+        public PlayerData(Inventory inventory, Dictionary<EquipmentSlotType, GameItem> equipment)
         {
             Inventory = inventory;
             Equipment = equipment;

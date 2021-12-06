@@ -12,6 +12,8 @@ namespace Harvesting
 
     public class PlayerAnimationController : CharacterAnimationController, IPlayerAnimationController
     {
+        public new IPlayerCore Core { get; protected set; }
+
         [SerializeField] private CharacterAnimationData _defaultSkillAnimation;
 
         public CharacterAnimationData DefaultSkillAnimation { get => _defaultSkillAnimation; }
@@ -20,7 +22,7 @@ namespace Harvesting
         public void Initialize(IPlayerCore playerCore, Animator animator)
         {
             Core = playerCore;
-            Initialize(Core, animator);
+            base.Initialize(Core, animator);
         }
         public void PlayPlayerSkillAnimation(Skill skill)
         {

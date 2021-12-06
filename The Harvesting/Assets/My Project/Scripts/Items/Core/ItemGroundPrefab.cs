@@ -9,12 +9,12 @@ namespace Harvesting
     public class ItemGroundPrefab : MonoBehaviour
     {
         public TMP_Text TextUI;
-        public Item Item;
+        public GameItem Item;
         public Vector3 WorldPosition;
         // Start is called before the first frame update
         void Start()
         {
-            if(Item != null)
+           /* if(Item != null)
             {
                 if (Item.Template().ItemData.UnidentifiedName != "")
                 {
@@ -26,7 +26,7 @@ namespace Harvesting
 
                 TextUI.color = Item.Template().Quality.Color;
             }
-            MaintainPosition();
+            MaintainPosition();*/
         }
 
         // Update is called once per frame

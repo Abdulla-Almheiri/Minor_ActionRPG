@@ -16,18 +16,11 @@ namespace Harvesting
         private FMOD.Studio.EventInstance footstepSoundEvent;
         private FMOD.Studio.EventInstance itemPickupSoundEvent;
 
-        
 
-        // Start is called before the first frame update
-        void Awake()
-        {
-            Initialize();
-        }
 
-        // Update is called once per frame
         void Update()
         {
-            /*if (_playerCore.PlayerMovementController.IsRunning())
+            if (Core.MovementController.IsRunning())
             {
                 footstepSoundEvent.setVolume(1f);
             }
@@ -35,11 +28,6 @@ namespace Harvesting
             {
                 footstepSoundEvent.setVolume(0f);
             }
-
-            if (_playerCore.PlayerMovementController.IsRunning())
-            {
-
-            }*/
         }
 
         private void InitializeSFX()
@@ -55,11 +43,11 @@ namespace Harvesting
             itemPickupSoundEvent.start();
         }
 
-        private void Initialize()
+        public void Initialize(IPlayerCore core)
         {
-            Core = GetComponent<PlayerCore>();
+            Core = core;
             if (Core == null) print("Player Core is NULL!!!!!!");
-
+            //InitializeSFX();
             footstepSoundEvent = RuntimeManager.CreateInstance(FootStepsSound);
             itemPickupSoundEvent = RuntimeManager.CreateInstance(ItemPickupSound);
             // FMODUnity.RuntimeManager.AttachInstanceToGameObject(sound, gameObject.transform);

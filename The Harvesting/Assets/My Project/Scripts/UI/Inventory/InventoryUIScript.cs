@@ -24,7 +24,7 @@ namespace Harvesting
         public void UpdateUI()
         {
             int i = 0;
-            foreach (Item item in Inventory.Items)
+            foreach (GameItem item in Inventory.Items)
             {
                 if(i >= slots.Length)
                 {

@@ -23,28 +23,28 @@ namespace Harvesting
             decisionCooldown -= Time.deltaTime + (1-Core.CombatController.HealthPercentage())/100f ;
             if (Random.Range(0, 10f) > decisionCooldown)
             {
-                if (MonsterAI.RunWhenLowOnHealth.Condition == true)
+                if (MonsterAI.RunWhenLowOnHealth.IsActive == true)
                 {
                     runAwayScore += (1f - Core.CombatController.HealthPercentage()) * (MonsterAI.RunWhenLowOnHealth.Weight + Random.Range(0, variation));
                     meleeScore -= (1f - Core.CombatController.HealthPercentage()) * (MonsterAI.RunWhenLowOnHealth.Weight + Random.Range(0, variation));
                     rangedScore += (1f - Core.CombatController.HealthPercentage()) * (MonsterAI.AttackFromRange.Weight + Random.Range(0, variation));
                 }
 
-                if (MonsterAI.AttackFromRange.Condition == true)
+                if (MonsterAI.AttackFromRange.IsActive == true)
                 {
                     runAwayScore += (MonsterAI.RunWhenLowOnHealth.Weight + Random.Range(0, variation));
                     meleeScore -= (MonsterAI.RunWhenLowOnHealth.Weight + Random.Range(0, variation));
                     rangedScore +=  (MonsterAI.AttackFromRange.Weight + Random.Range(0, variation));
                 }
 
-                if (MonsterAI.CastSupportSpells.Condition == true)
+                if (MonsterAI.CastSupportSpells.IsActive == true)
                 {
                     runAwayScore += (MonsterAI.CastSupportSpells.Weight + Random.Range(0, variation));
                     meleeScore -= (MonsterAI.CastSupportSpells.Weight + Random.Range(0, variation));
                     rangedScore += (MonsterAI.AttackFromRange.Weight/2 + Random.Range(0, variation));
                 }
 
-                if (MonsterAI.AttackInMelee.Condition == true)
+                if (MonsterAI.AttackInMelee.IsActive == true)
                 {
                     runAwayScore -= (MonsterAI.AttackInMelee.Weight + Random.Range(0, variation));
                     meleeScore += (MonsterAI.AttackInMelee.Weight + Random.Range(0, variation));

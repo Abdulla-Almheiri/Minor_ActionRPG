@@ -16,8 +16,8 @@ MonoBehaviour:
   Name: Stormstrike
   Description: 
   ManaCost: 2
-  RechargeTime: 3
-  DefaultVFXPrefab: {fileID: 970903457720997364, guid: 17e326763c668c84a9d74462b6c5db2e, type: 3}
+  RechargeTime: 1
+  DefaultVFXPrefab: {fileID: 5073232859804895075, guid: 29b4af649e3e2ba419f1abbfdce50c83, type: 3}
   PlayerSpawnLocation: 0
   TriggerChance: 100
   TriggerCondition: {fileID: 0}
@@ -30,7 +30,7 @@ MonoBehaviour:
   CanBeUsedWhileStunned: 0
   RemovesSilence: 0
   IsCastOnSelf: 0
-  PlayerAnimation: {fileID: 11400000, guid: 19694a192924abe418d6d368e7d4a781, type: 2}
+  PlayerAnimation: {fileID: 11400000, guid: 02b3b79d2cd45bc4691ba40913bdb69f, type: 2}
   ImpactSkill: {fileID: 0}
   Actions:
   - TriggerCondition: {fileID: 0}
@@ -52,3 +52,22 @@ MonoBehaviour:
     DrainAmount: 0
     IsDrainAmountPercentage: 0
     SkillVFX: {fileID: 0}
+  - TriggerCondition: {fileID: 0}
+    TriggerChance: 20
+    ContinousDamage: 0
+    TickRatePerSecond: 0
+    Type: {fileID: 11400000, guid: ebcb0d8ee220f8746ada4fd6b58ac2cd, type: 2}
+    Modifier:
+      Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
+      MaxValue: 0
+      Value: 0
+      Duration: 0
+      Percentage: 150
+    Element: {fileID: 0}
+    CharacterStatusEffect: {fileID: 0}
+    DamageStatusEffect: {fileID: 0}
+    OnMonsterEffect: {fileID: 0}
+    ResourceToDrain: {fileID: 0}
+    DrainAmount: 0
+    IsDrainAmountPercentage: 0
+    SkillVFX: {fileID: 970903457720997364, guid: 17e326763c668c84a9d74462b6c5db2e, type: 3}

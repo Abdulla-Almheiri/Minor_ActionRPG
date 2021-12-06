@@ -12,20 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778b2fde7d353a14ba6c473c93e30449, type: 3}
   m_Name: Stormcaller
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: da6971a9d9977034eb0132827d174a32, type: 3}
-  Name: Stormcaller
-  ItemData: {fileID: 11400000, guid: b5c81fb5a708a3f49b23108a04ecac77, type: 2}
-  EquipmentSlotType: {fileID: 11400000, guid: 21ad8ecceba37cb4586ebc9fe39ce12f, type: 2}
-  Price: 0
-  Quality: {fileID: 11400000, guid: 7593db7f440489d49aceaa2ca47a14ad, type: 2}
   WeaponSkill: {fileID: 11400000, guid: 677b5f5a23d2ff14aac813b38b474f64, type: 2}
   Attributes:
   - Attribute: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
-    BaseValue: 3
-    MaxValue: 5
-    PercentageIncrementPerLevel: 0
+    MinValue: 0
+    MaxValue: 10
+    PercentageIncrementPerLevel: 30
   - Attribute: {fileID: 11400000, guid: 57cd4647891c1574eab5f783414cae03, type: 2}
-    BaseValue: 2
-    MaxValue: 3
-    PercentageIncrementPerLevel: 0
-  EquipmenSlottType: {fileID: 0}
+    MinValue: 0
+    MaxValue: 15
+    PercentageIncrementPerLevel: 30
+  EquipmenSlottType: {fileID: 11400000, guid: 21ad8ecceba37cb4586ebc9fe39ce12f, type: 2}
+  BaseDamageValue:
+    Attribute: {fileID: 0}
+    MinValue: 10
+    MaxValue: 20
+    PercentageIncrementPerLevel: 30

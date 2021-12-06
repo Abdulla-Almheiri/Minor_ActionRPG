@@ -8,14 +8,14 @@ namespace Harvesting
     public class Inventory
     {
         public int MaxSize = 10;
-        public List<Item> Items;
+        public List<GameItem> Items;
 
-        public Inventory(int maxSize = 10, List<Item> items = null)
+        public Inventory(int maxSize = 10, List<GameItem> items = null)
         {
             MaxSize = maxSize;
             if (items != null)
             {
-                Items = new List<Item>(items);
+                Items = new List<GameItem>(items);
             }
         }
 

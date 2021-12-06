@@ -8,6 +8,6 @@ namespace Harvesting
     public struct ItemModifier
     {
         public Attribute Attribute;
-        public float BaseValue, MaxValue, PercentageIncrementPerLevel;
+        public float MinValue, MaxValue, PercentageIncrementPerLevel;
     }
 }

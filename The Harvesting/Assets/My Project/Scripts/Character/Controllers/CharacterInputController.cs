@@ -18,7 +18,7 @@ namespace Harvesting
         public bool MouseClick(out RaycastHit point, LayerMask layerMask)
         {
             point = default;
-            if (Input.GetMouseButtonDown(0) == true)
+            if (Input.GetMouseButton(0))
             {
                 point = new RaycastHit();
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

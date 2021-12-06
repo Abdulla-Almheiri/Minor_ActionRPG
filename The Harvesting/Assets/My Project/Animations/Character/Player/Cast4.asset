@@ -15,4 +15,4 @@ MonoBehaviour:
   AnimatorController: {fileID: 0}
   Animation: {fileID: 7400000, guid: 06f66e09add799d46aabb45ebd3e74d5, type: 2}
   SkillVFXSpawnPoint: {fileID: 0}
-  AnimationHitFramePoint: 0.264
+  AnimationHitFramePoint: 0.073

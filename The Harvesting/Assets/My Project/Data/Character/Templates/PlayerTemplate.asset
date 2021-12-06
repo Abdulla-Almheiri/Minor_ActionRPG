@@ -19,9 +19,9 @@ MonoBehaviour:
   mana: 30
   healthRegen: 0
   manaRegen: 0
-  strength: 5
-  intellect: 30
-  faith: 30
+  strength: 10
+  intellect: 15
+  faith: 10
   dexterity: 5
   power: 5
   attackSpeed: 100

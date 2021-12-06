@@ -70,6 +70,8 @@ namespace Harvesting {
             UIController = GetComponent<PlayerUIController>();
             UIController.Initialize(this);
 
+            SFXController = GetComponent<PlayerSFXController>();
+            SFXController.Initialize(this);
 
         }
 

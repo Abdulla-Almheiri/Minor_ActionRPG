@@ -8,7 +8,7 @@ namespace Harvesting
     [System.Serializable]
     public class WeightedBool
     {
-        public bool Condition;
+        public bool IsActive;
         [Range(0,100)]
         public float Weight;
     }

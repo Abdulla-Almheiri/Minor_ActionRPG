@@ -15,7 +15,7 @@ namespace Harvesting
 
         private void Update()
         {
-            HandleItemsPickup();
+            //HandleItemsPickup();
 
         }
         public bool HandleItemsPickup()

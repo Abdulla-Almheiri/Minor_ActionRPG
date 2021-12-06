@@ -34,6 +34,7 @@ namespace Harvesting
             
             HandleTimers();
             HandleRegen();
+            Debug.Log("Can move   :    " + CanMove());
         }
 
         protected bool SetUpTimers()
@@ -164,9 +165,17 @@ namespace Harvesting
 
         public void ReceiveSkillAction(SkillAction skillAction, ICharacterCore performer, out SkillActionEventData skillActionData)
         {
-            //skillActionData = new SkillActionEventData(false, 0f, false, false, null);
-            
-            bool isCritical = false;
+            skillActionData = new SkillActionEventData(false, 0f, false, false, null);
+
+            //Critical Damage Check
+            bool isCritical = Random.Range(0, 100) <= performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalChance].FinalValue();
+
+           /* if (!isCritical && skillAction.TriggerCondition is CriticalTriggerCondition)
+            {
+                return;
+            }*/
+
+
             if (skillAction.Type == Core.GameManager.CoreAttributesTemplate.SkillActionDamage)
             {
                 
@@ -175,12 +184,11 @@ namespace Harvesting
                 {
                     damageAmount = 0f;
                 }
-                //Critical Damage Check
-                if (Random.Range(0, 100) <= performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalChance].FinalValue())
+
+                if (isCritical)
                 {
                     var critMulti = Core.GameManager.CoreAttributesTemplate.CriticalMultiplier + (performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalDamage].FinalValue() / 100f);
                     damageAmount *= critMulti;
-                    isCritical = true;
                 }
 
                 if (skillAction.Element != null && Core.CharacterData.ResistanceAttributes.TryGetValue(skillAction.Element, out CharacterModifier charModifier) == true)
@@ -198,13 +206,11 @@ namespace Harvesting
                 Debug.Log("Healing spell checked");
                 float healAmount = (skillAction.Modifier.Value) + skillAction.Modifier.Percentage / 100f * Core.CharacterData.CoreAttributes[skillAction.Modifier.Attribute].FinalValue();
 
-                //Critical Heal Check
-                if (Random.Range(0, 100) <= performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalChance].FinalValue())
+                if (isCritical)
                 {
                     var critMulti = Core.GameManager.CoreAttributesTemplate.CriticalMultiplier + (performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalDamage].FinalValue() / 100f);
                     healAmount *= critMulti;
                     //healAmount += performer.PrimaryAttributes[_coreAttributesTemplate.CriticalDamage].FinalValue();
-                    isCritical = true;
                 }
 
                 skillActionData = new SkillActionEventData(true, healAmount, isCritical, false, skillAction.Element);
@@ -219,7 +225,6 @@ namespace Harvesting
             {
                 skillActionData = new SkillActionEventData(false, 0f, isCritical, false, skillAction.Element);
             }
-
 
 
         }

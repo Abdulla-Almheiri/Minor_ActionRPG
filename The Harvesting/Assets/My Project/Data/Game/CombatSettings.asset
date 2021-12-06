@@ -22,4 +22,4 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 16384
-  _defaultMeleeRange: 1
+  _defaultMeleeRange: 1.5

@@ -9,7 +9,7 @@ namespace Harvesting
     public class QuestTask
     {
         public string TaskDesciption;
-        public Item Item;
+        public GameItem Item;
         public MonsterTemplate Monster;
         public int TargetCount = 1;
         public QuestLocationScript QuestLocation;

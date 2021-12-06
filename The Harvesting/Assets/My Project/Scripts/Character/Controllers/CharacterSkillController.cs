@@ -179,20 +179,22 @@ namespace Harvesting
             if (skill.FaceDirection == true)
             {
                 if (MyUtility.CompareLayers(Core.GameObject.layer, Core.GameManager.PlayerLayer) == true)
-                {//FIX HERE FOR MONSTER TARGET PLAYER
+                {
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit rayHit;
                     if (Physics.Raycast(ray, out rayHit))
                     {
                         Core.AnimationController.FaceDirection(rayHit.point);
-                        //Debug.Log("POINT IS   :   " + rayHit.point);
                     }
-                } else if(target != null)
+                } 
+                if(target != null)
                 {
                     Core.AnimationController.FaceDirection(target.MovementController.Transform.position);
                 }
                 
             }
+
+            Core.MovementController.StopMoving();
 
             Core.AnimationController.PlaySkillAnimation(skill, out float impactPoint);
 
@@ -227,13 +229,14 @@ namespace Harvesting
                         //Debug.Log("POINT IS   :   " + rayHit.point);
                     }
                 }
-                else if (target != null)
+                 if (target != null)
                 {
                     Core.AnimationController.FaceDirection(target.MovementController.Transform.position);
                 }
 
             }
 
+            Core.MovementController.StopMoving();
             Core.CombatController.IncurManaCost(skill);
 
             if (MyUtility.CompareLayers(Core.GameObject.layer, Core.GameManager.PlayerLayer) == true)

@@ -9,7 +9,7 @@ namespace Harvesting
         public Skill PrimaryWeaponSkill { get; }
         public Skill SecondaryWeaponSkill { get; }
 
-        public Dictionary<EquipmentSlotType, Item> Equipment { get; }
+        public Dictionary<EquipmentSlotType, GameItem> Equipment { get; }
         public Inventory Inventory { get; }
 
     }

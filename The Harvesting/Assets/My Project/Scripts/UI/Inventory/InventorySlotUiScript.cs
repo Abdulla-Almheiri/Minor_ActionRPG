@@ -7,13 +7,13 @@ namespace Harvesting
 {
     public class InventorySlotUiScript : MonoBehaviour
     {
-        public Item Item;
+        public GameItem Item;
         public Image Image;
 
-        public void PutItem(Item item)
+        public void PutItem(GameItem item)
         {
             Item = item;
-            Image.sprite = Item.Icon;
+            Image.sprite = Item.Template.Icon;
         }
 
         public void Clear()

@@ -64,10 +64,11 @@ namespace Harvesting
 
                 foreach(SkillAction action in Actions)
                 {
-                    /*if (action.TriggerCondition == null || Random.Range(0, 100) > action.TriggerChance && !action.TriggerCondition.Evaluate(action, activator))
+                    if (Random.Range(0, 100) > action.TriggerChance && (action.TriggerCondition == null ||  !action.TriggerCondition.Evaluate(action, activator)) )
                     {
                         continue;
-                    }*/
+                    } 
+
 
                     if (action.SkillVFX == null)
                     {
