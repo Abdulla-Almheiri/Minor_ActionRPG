@@ -18,6 +18,7 @@ MonoBehaviour:
   _healthRegen: {fileID: 11400000, guid: 18424ae73539f2142b3ed868c1ea4176, type: 2}
   _mana: {fileID: 11400000, guid: 1f5ab68538f7edc46a0afcec22196e83, type: 2}
   _manaRegen: {fileID: 11400000, guid: a365f676c0ecb5743926539ac15f1dde, type: 2}
+  _weaponDamage: {fileID: 11400000, guid: d6d715fce68ce1748afd38c9af48936b, type: 2}
   _strength: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
   _intellect: {fileID: 11400000, guid: 091ab02529ab1e24eb5a7c24d28c9f81, type: 2}
   _dexterity: {fileID: 11400000, guid: 57cd4647891c1574eab5f783414cae03, type: 2}

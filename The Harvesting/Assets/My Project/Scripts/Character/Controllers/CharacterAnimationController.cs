@@ -22,11 +22,16 @@ namespace Harvesting
 
         protected void Update()
         {
+            if (Core.CombatController?.IsAlive != true)
+            {
+                return;
+            }
             HandleRunningAnimation();
         }
 
         public void HandleRunningAnimation()
         {
+
             if (Core.MovementController.IsRunning())
             {
                 Animator.SetBool("Running", true);
@@ -44,6 +49,11 @@ namespace Harvesting
 
         public void FaceDirection(Vector3 direction)
         {
+            if(Core.CombatController.IsAlive != true)
+            {
+                return;
+            }
+
             Core.MovementController.StopMoving();
             var dir = (direction - Core.MovementController.Transform.position);
             dir.y = 0;
@@ -53,8 +63,14 @@ namespace Harvesting
 
         public virtual void PlaySkillAnimation(Skill skill, out float impactPointInSeconds)
         {
-            
             impactPointInSeconds = 0;
+
+            if (Core.CombatController.IsAlive != true)
+            {
+                return;
+            }
+
+            
             if(skill == null)
             {
                 return;
@@ -69,6 +85,11 @@ namespace Harvesting
 
             Debug.Log("SKILL ANIMATION    :   " + skill.name + "      " + skill.PlayerAnimation.name);
             Animator.SetTrigger(skill.PlayerAnimation.AnimationHash());
+        }
+
+        public void PlayDeathAnimation()
+        {
+            Animator.SetTrigger("Death");
         }
     }
 }

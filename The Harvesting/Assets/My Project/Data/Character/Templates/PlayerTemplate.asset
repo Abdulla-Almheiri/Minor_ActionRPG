@@ -15,18 +15,19 @@ MonoBehaviour:
   level: 1
   size: 1
   attributePercentageIncrementPerLevel: 20
-  health: 100
+  health: 150
   mana: 30
   healthRegen: 0
   manaRegen: 0
+  weaponDamage: 7
   strength: 10
   intellect: 15
-  faith: 10
+  faith: 5
   dexterity: 5
   power: 5
   attackSpeed: 100
   movementSpeed: 1
-  criticalChance: 5
+  criticalChance: 10
   criticalDamageBonus: 0
   allDamageTakenReduction: 0
   allDamageDoneIncrease: 0

@@ -13,3 +13,4 @@ namespace Harvesting
         T Generate(int level, int requiredLevel);
     }
 }
+

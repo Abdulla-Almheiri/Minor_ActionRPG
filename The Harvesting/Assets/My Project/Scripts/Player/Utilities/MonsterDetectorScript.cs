@@ -8,13 +8,6 @@ namespace Harvesting
     {
         private List<IMonsterCore> monstersInRange = new List<IMonsterCore>();
         private IPlayerCore _player;
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
         void Update()
         {
             if(_player == null)
@@ -24,7 +17,7 @@ namespace Harvesting
             // OPTIMIZE HERE!!!!
             foreach(IMonsterCore monster in monstersInRange)
             {
-                if(monster.CombatController.IsAlive != true)
+                if(monster.CombatController.IsAlive == false)
                 {
                     Debug.Log("Monster REmOVED because is dead!!!" + monster);
                     monstersInRange.Remove(monster);

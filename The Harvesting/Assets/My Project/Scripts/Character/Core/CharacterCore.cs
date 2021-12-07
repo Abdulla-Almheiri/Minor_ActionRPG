@@ -8,6 +8,7 @@ namespace Harvesting
     /// <summary>
     /// CharacterCore class. This is used as the Core for the player and monsters.
     /// </summary>
+    /// 
     public abstract class CharacterCore : MonoBehaviour, ICharacterCore
     {
         public CharacterData CharacterData { get; protected set; }
@@ -43,13 +44,15 @@ namespace Harvesting
             InputController = GetComponent<CharacterInputController>();
             InputController.Initialize(this, GameManager.InputKeyData);
 
+   
             AnimationController = GetComponent<CharacterAnimationController>();
             AnimationController.Initialize(this, animator);
 
             CombatController = GetComponent<CharacterCombatController>();
             CombatController.Initialize(this);
 
-            
+
+
 
             SkillController = GetComponent<CharacterSkillController>();
             SkillController.Initialize(this, GameManager.CombatSettings, skillSpawnLocations);

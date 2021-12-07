@@ -8,8 +8,8 @@ namespace Harvesting
     {
         List<Skill> Abilities { get; }
         new IPlayerCore Core { get; }
-        Skill PrimaryWeaponSkill { get; }
-        Skill SecondaryWeaponSkill { get; }
+        //Skill PrimaryWeaponSkill { get; }
+        //Skill SecondaryWeaponSkill { get; }
 
         void Initialize(IPlayerCore playerCore, CombatSettings combatSettings, List<SkillSpawnLocationData> skillSpawnLocations);
     }

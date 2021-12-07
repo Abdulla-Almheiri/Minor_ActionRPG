@@ -19,6 +19,7 @@ namespace Harvesting
         [SerializeField] private float healthRegen;
         [SerializeField] private float manaRegen;
 
+        [SerializeField] private float weaponDamage = 0f;
         [SerializeField] private float strength = 5;
         [SerializeField] private float intellect = 5;
         [SerializeField] private float faith = 5;
@@ -72,7 +73,7 @@ namespace Harvesting
         public float CriticalDamageBonus { get => criticalDamageBonus; }
         public float AllDamageTakenReduction { get => allDamageTakenReduction; }
         public float AllDamageDoneIncrease { get => allDamageDoneIncrease; }
-
+        public float WeaponDamage { get => weaponDamage; }
     }
 
     [System.Serializable]

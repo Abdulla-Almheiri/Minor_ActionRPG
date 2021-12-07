@@ -15,7 +15,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 27157ab3c623b7841b9ce7c8e2c7b560, type: 3}
   Name: Fireball
   Description: Throws a ball of fire that travels forward burning all in its path.
-  ManaCost: 5
+  ManaCost: 8
   RechargeTime: 2
   DefaultVFXPrefab: {fileID: -5410691425302844247, guid: e24bdfdb8d9e59e40b0cde62ce44dc08, type: 3}
   PlayerSpawnLocation: 0

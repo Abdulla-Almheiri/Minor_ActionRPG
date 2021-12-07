@@ -30,6 +30,7 @@ namespace Harvesting
             CoreAttributes[coreAttributesTemplate.Health] = new CharacterModifier(characterTemplate.Health, coreAttributesTemplate.Health);
             CoreAttributes[coreAttributesTemplate.Mana] = new CharacterModifier(characterTemplate.Mana, coreAttributesTemplate.Mana);
 
+            CoreAttributes[coreAttributesTemplate.WeaponDamage] = new CharacterModifier(characterTemplate.WeaponDamage, coreAttributesTemplate.WeaponDamage);
             CoreAttributes[coreAttributesTemplate.Strength] = new CharacterModifier(characterTemplate.Strength, coreAttributesTemplate.Strength);
             CoreAttributes[coreAttributesTemplate.Intellect] = new CharacterModifier(characterTemplate.Intellect, coreAttributesTemplate.Intellect);
             CoreAttributes[coreAttributesTemplate.Dexterity] = new CharacterModifier(characterTemplate.Dexterity, coreAttributesTemplate.Dexterity);

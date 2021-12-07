@@ -15,7 +15,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: fd6da3f19724ef0429d47338e5a3abf4, type: 3}
   Name: Heaven's Fury
   Description: Holy light pierces through.
-  ManaCost: 40
+  ManaCost: 50
   RechargeTime: 15
   DefaultVFXPrefab: {fileID: 1892500994542042962, guid: 2c5842549831d194ab8aabf9f831b6b5, type: 3}
   PlayerSpawnLocation: 0

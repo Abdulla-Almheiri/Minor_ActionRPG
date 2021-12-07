@@ -31,10 +31,9 @@ namespace Harvesting
 
         protected virtual void Update()
         {
-            
-            HandleTimers();
-            HandleRegen();
-            Debug.Log("Can move   :    " + CanMove());
+            HandleCombat();
+
+            //Debug.Log("Can move   :    " + CanMove());
         }
 
         protected bool SetUpTimers()
@@ -60,11 +59,21 @@ namespace Harvesting
 
         protected void HandleCombat()
         {
-
+            if (IsAlive == false)
+            {
+                return;
+            }
+            HandleTimers();
+            HandleRegen();
         }
 
         public bool AddCharacterState(CharacterState characterState, float rawDuration)
         {
+            if(IsAlive == false)
+            {
+                return false;
+            }
+
             if(_characterStates.TryGetValue(characterState, out float value) == true && value >= rawDuration)
             {
                 return false;
@@ -82,6 +91,12 @@ namespace Harvesting
 
         protected virtual bool IsCharacterStatePossible(CharacterState characterState, float duration, out float newDuration)
         {
+            newDuration = 0f;
+            if (IsAlive == false)
+            {
+                return false;
+            }
+
             newDuration = duration;
             return true;
         }
@@ -94,36 +109,36 @@ namespace Harvesting
 
         public bool CanMove()
         {
-            return _characterStateTimers[0] <= Time.deltaTime;
+            return _characterStateTimers[0] <= Time.deltaTime && IsAlive;
         }
 
         public bool CanInteract()
         {
-            return _characterStateTimers[1] <= Time.deltaTime;
+            return _characterStateTimers[1] <= Time.deltaTime && IsAlive;
         }
 
         public bool CanAttack()
         {
-            return _characterStateTimers[2] <= Time.deltaTime;
+            return _characterStateTimers[2] <= Time.deltaTime && IsAlive;
         }
 
         public bool CanCast()
         {
-            return _characterStateTimers[3] <= Time.deltaTime;
+            return _characterStateTimers[3] <= Time.deltaTime && IsAlive;
         }
 
         public bool CanBlock()
         {
-            return _characterStateTimers[4] <= Time.deltaTime;
+            return _characterStateTimers[4] <= Time.deltaTime && IsAlive;
         }
 
         public bool CanBeDamaged()
         {
-            return _characterStateTimers[5] <= Time.deltaTime;
+            return _characterStateTimers[5] <= Time.deltaTime && IsAlive;
         }
         public bool CanBeHealed()
         {
-            return _characterStateTimers[6] <= Time.deltaTime;
+            return _characterStateTimers[6] <= Time.deltaTime && IsAlive;
         }
 
         protected void UpdateTimersAdd(CharacterState characterState, float duration)
@@ -165,8 +180,12 @@ namespace Harvesting
 
         public void ReceiveSkillAction(SkillAction skillAction, ICharacterCore performer, out SkillActionEventData skillActionData)
         {
-            skillActionData = new SkillActionEventData(false, 0f, false, false, null);
 
+            skillActionData = new SkillActionEventData(false, 0f, false, false, null);
+            if (IsAlive == false)
+            {
+                return;
+            }
             //Critical Damage Check
             bool isCritical = Random.Range(0, 100) <= performer.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.CriticalChance].FinalValue();
 
@@ -232,6 +251,11 @@ namespace Harvesting
 
         public virtual void LevelUp(int newLevel)
         {
+            if (IsAlive == false)
+            {
+                return;
+            }
+
             var attribute = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Level];
             if (newLevel <= attribute.FinalValue())
             {
@@ -262,6 +286,11 @@ namespace Harvesting
 
         public void IncurManaCost(Skill skill)
         {
+            if(IsAlive == false)
+            {
+                return;
+            }
+
             CurrentMana -= skill.ManaCost;
             BoundMana();
 
@@ -277,6 +306,10 @@ namespace Harvesting
 
         protected void BoundHealth()
         {
+            if (IsAlive == false)
+            {
+                return;
+            }
             var value = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].FinalValue();
 
             if (CurrentHealth > value)
@@ -287,10 +320,21 @@ namespace Harvesting
             {
                 CurrentHealth = 0f;
             }
+
+            if(CurrentHealth <= 0f)
+            {
+                IsAlive = false;
+                Core.AnimationController.PlayDeathAnimation();
+            }
         }
 
         protected void BoundMana()
         {
+            if (IsAlive == false)
+            {
+                return;
+            }
+
             var value = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Mana].FinalValue();
 
             if (CurrentMana > value)
@@ -301,6 +345,7 @@ namespace Harvesting
             {
                 CurrentMana = 0f;
             }
+
         }
 
         public float HealthPercentage()
@@ -326,6 +371,7 @@ namespace Harvesting
 
         protected virtual void UpdateStats()
         {
+            IsAlive = true;
             Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].BaseAdd += Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Strength].FinalValue() * Core.GameManager.CoreAttributesTemplate.StrengthToHealth;
             CurrentHealth = Core.CharacterData.CoreAttributes[Core.GameManager.CoreAttributesTemplate.Health].FinalValue();
 
@@ -347,6 +393,7 @@ namespace Harvesting
             Core = core;
             CombatSettings = Core.GameManager.CombatSettings;
             Size = Core.Template.Size;
+
             SetUpTimers();
             UpdateStats();
         }
@@ -400,6 +447,11 @@ namespace Harvesting
 
         public void RefundManaCost(Skill skill)
         {
+            if (IsAlive == false)
+            {
+                return;
+            }
+
             CurrentMana += skill.ManaCost;
             BoundMana();
         }
@@ -415,5 +467,20 @@ namespace Harvesting
                 return false;
             }
         }
+
+        
+        public void TriggerOnHitEffects()
+        {
+            //Handle Lifeforce
+           // HandleLifeForce();
+        }
+
+        /*
+        private void HandleLifeForce()
+        {
+            float lifeForce = 0f;
+
+            Core.CharacterData.SecondaryAttributes.TryGetValue()
+        }*/
     }
 }

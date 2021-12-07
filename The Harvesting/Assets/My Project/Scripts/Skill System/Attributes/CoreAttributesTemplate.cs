@@ -20,6 +20,7 @@ namespace Harvesting
         [SerializeField] private Attribute _mana;
         [SerializeField] private Attribute _manaRegen;
 
+        [SerializeField] private Attribute _weaponDamage;
         [SerializeField] private Attribute _strength;
         [SerializeField] private Attribute _intellect;
         [SerializeField] private Attribute _dexterity;
@@ -92,5 +93,6 @@ namespace Harvesting
         public float CriticalMultiplier { get => _criticalMultiplier; }
         public float ManaRegenTickRate { get => _manaRegenTickRate; }
         public float HealthRegenTickRate { get => _healthRegenTickRate;  }
+        public Attribute WeaponDamage { get => _weaponDamage; }
     }
 }

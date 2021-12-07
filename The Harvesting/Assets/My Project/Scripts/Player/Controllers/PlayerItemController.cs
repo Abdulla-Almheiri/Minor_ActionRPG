@@ -75,5 +75,15 @@ namespace Harvesting
             //_characterScreen = Core.UIController.CharacterScreen;
             itemPickupTimer = itemPickupCooldown;
         }
+
+        public bool Equip(GameItem gameItem)
+        {
+            return false;
+        }
+
+        public bool Unequip(EquipmentSlotType equipmentSlot)
+        {
+            return false;
+        }
     }
 }

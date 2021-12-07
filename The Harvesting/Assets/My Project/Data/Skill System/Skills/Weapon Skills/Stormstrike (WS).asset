@@ -39,11 +39,11 @@ MonoBehaviour:
     TickRatePerSecond: 0
     Type: {fileID: 11400000, guid: ebcb0d8ee220f8746ada4fd6b58ac2cd, type: 2}
     Modifier:
-      Attribute: {fileID: 11400000, guid: fea4379fe7d69d74a9f320bdc465d62a, type: 2}
+      Attribute: {fileID: 11400000, guid: d6d715fce68ce1748afd38c9af48936b, type: 2}
       MaxValue: 0
-      Value: 7
+      Value: 0
       Duration: 0
-      Percentage: 50
+      Percentage: 100
     Element: {fileID: 0}
     CharacterStatusEffect: {fileID: 0}
     DamageStatusEffect: {fileID: 0}

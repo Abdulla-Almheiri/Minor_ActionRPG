@@ -132,6 +132,11 @@ namespace Harvesting
 
         public bool ActivateSkill(Skill skill, ICharacterCore target = default)
         {
+            if(target?.CombatController.IsAlive == false)
+            {
+                return false;
+            }
+
             if (CanActivateSkill(skill, false) == false)
             {
               // Debug.Log("CANNOT ACTIVATE  :   " + SkillRecharge(skill, out _));

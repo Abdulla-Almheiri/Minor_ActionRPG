@@ -18,12 +18,22 @@ namespace Harvesting
 
         public void DisplayHealthBar()
         {
+            if(Core.CombatController.IsAlive == false)
+            {
+                return;
+            }
+
             _healthBarScript.AssignPosition(transform.position);
             _healthBarScript.UpdateHealth(Core.CombatController.HealthPercentage());
         }
 
         private void Update()
         {
+            if(_healthBarScript.gameObject.activeSelf == true && Core.CombatController.IsAlive == false)
+            {
+                _healthBarScript.gameObject.SetActive(false);
+                return;
+            }
             DisplayHealthBar();
         }
     }

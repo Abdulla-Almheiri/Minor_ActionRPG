@@ -40,7 +40,7 @@ namespace Harvesting {
             GameManager = gameManager;
             Template = playerTemplate;
 
-            Initialize(gameManager, (CharacterTemplate)Template, GetComponent<Animator>(), gameObject, GetComponent<NavMeshAgent>(), transform,  _skillSpawnLocations) ;
+            Initialize(gameManager, (CharacterTemplate)Template, GetComponentInChildren<Animator>(), gameObject, GetComponent<NavMeshAgent>(), transform,  _skillSpawnLocations) ;
 
             PlayerData = new PlayerData(null, null);
 
@@ -52,13 +52,13 @@ namespace Harvesting {
             MovementController = GetComponent<PlayerMovementController>();
             MovementController.Initialize(this, GetComponent<NavMeshAgent>(), transform);
 
+            CombatController = GetComponent<PlayerCombatController>();
+            CombatController.Initialize(this);
 
 
             AnimationController = GetComponent<PlayerAnimationController>();
             AnimationController.Initialize(this, GetComponentInChildren<Animator>());
 
-            CombatController = GetComponent<PlayerCombatController>();
-            CombatController.Initialize(this);
 
             SkillController = GetComponent<PlayerSkillController>();
 
@@ -90,11 +90,6 @@ namespace Harvesting {
             {
                 CombatController.LevelUp(5);
             }
-        }
-
-        public void ReceiveSkillAction(CharacterCore performer, SkillAction skillAction)
-        {
-            
         }
 
         protected void UpdateAbilities()

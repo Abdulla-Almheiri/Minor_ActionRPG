@@ -14,5 +14,6 @@ namespace Harvesting
         void Initialize(ICharacterCore characterCore, Animator animator);
         void FaceDirection(Vector3 direction);
         void PlaySkillAnimation(Skill skill, out float impactPointInSeconds);
+        void PlayDeathAnimation();
     }
 }

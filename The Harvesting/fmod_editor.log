@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000208F714B088 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000002B969A92C58 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -20,611 +20,642 @@
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002092ED85D38 : node = 0000020875814B70
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
+[LOG] SystemI::createSound                     : setdata soundi = 000002B885AC1BE8 : node = 000002B885B62F60
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
 [LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002092ED86FC8 : node = 00000208758125F0
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 1
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092ED85D38
+[LOG] SystemI::createSound                     : setdata soundi = 000002B885AC5548 : node = 000002B885B5E6E0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 1
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885AC1BE8
 [LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000020875814C80
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B885B63070
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
 [LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092ED85D38
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092ED86FC8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885AC1BE8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885AC5548
 [LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000020875812700
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B885B5E7F0
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
 [LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092ED86FC8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086D9A5748
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086D9A5748
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086D9A5AA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086D9A5AA8
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (00000208FCC96EE8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002079583CF38)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002086D9A5AA8)
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (00000208FCC9B268)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002079583D418)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002086D9A5748)
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610D58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610D58
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885AC5548
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885AC4CD8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885AC4CD8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A28DFC48
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A28DFC48
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885AC2CC8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885AC2CC8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A28E1748
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A28E1748
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B96901B948)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B87B563388)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B885AC2CC8)
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B96901B5E8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B87B563EE8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B885AC4CD8)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000FDF2D3F3C8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8D34F60E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8D34F60B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8D34F61B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8D34F6270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002B882094538
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='467777__sgak__thunder', format=5, channels=2, frequency=48000, lengthbytes=25696, lengthpcm=125401, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.998871.
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A28DFC48
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A28DFC48
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A28E1748
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A28E1748
 [LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 0000020888CAE748 : node = 000002086DB4D0B0
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020888CAE748
+[LOG] SystemI::createSound                     : setdata soundi = 000002B899C98078 : node = 000002B99F5BA720
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B899C983D8 : node = 000002B99F5B9820
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B899C98078
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B99F5BA830
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B899C98078
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B899C983D8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B99F5B9930
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B899C983D8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A28DFC48
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A28DFC48
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A28E1748
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A28E1748
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B885AC5548)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A5577198)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A28E1748)
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B885AC1BE8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A5576B18)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A28DFC48)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A28E04B8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A28E04B8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A28E0818
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A28E0818
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B899C98588 : node = 000002B99F5BC7A0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B899C98588
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSound                     :     setdata soundi = 000002B9642009C8 : node = 000002B99F5BCA20
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSound                     :     add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B99F5BC8B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B899C98588
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9642009C8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B99F5BCB30
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9642009C8
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B899C983D8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A5577678)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A28E0818)
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B899C98078)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A557A258)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A28E04B8)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000FDF2D3F3C8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8D34F60E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8D34F60B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8D34F61B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8D34F6270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002B92584A518
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='563662__eminyildirim__healing-spell(Attribute)', format=5, channels=2, frequency=48000, lengthbytes=120608, lengthpcm=432000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.889241.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000FDF2D3F3C8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8D34F60E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8D34F60B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8D34F61B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8D34F6270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002B92584A518
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='531082__ryusa__magic-spell-heal-bright-bell-brid-reverb(Attribute)', format=5, channels=2, frequency=48000, lengthbytes=29344, lengthpcm=108669, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.220856.
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B885AC1018 : node = 000002B885B62420
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B885AC42B8 : node = 000002B885B604E0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885AC1018
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B885B62530
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885AC1018
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885AC42B8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B885B605F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885AC42B8
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B885AC4468 : node = 000002B885B60DA0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885AC4468
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B885B60EB0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 1500
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885AC4468
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B9642009C8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8AD28E6F8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B98EE9CE38)
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B899C98588)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8AD2953D8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B98EE9D6A8)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B964200668
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B964200668
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B964200B78
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B964200B78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B964200668
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B964200668
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B964200B78
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B964200B78
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000FDF2D3F3C8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8D34F60E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8D34F60B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8D34F61B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8D34F6270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002B925822BD8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='427396__erokia__plasma-lazer-pistol-gun-shot-1(attribute)', format=5, channels=2, frequency=48000, lengthbytes=60480, lengthpcm=280428, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.957980.
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B8A2590F38 : node = 000002B8A56E5590
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A2590F38
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 000002B8A2590878 : node = 000002B8A56E7110
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B8A56E56A0
+[LOG] SystemI::createSound                     :     add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='197266__qubodup__wind-water-aura(Attribute)', format=5, channels=2, frequency=48000, lengthbytes=256992, lengthpcm=960000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.998850.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A2590F38
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A2590878
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B8A56E7220
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='333967__ihitokage__rasengan', format=5, channels=2, frequency=48000, lengthbytes=178016, lengthpcm=674586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A2590878
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B964201088
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B964201088
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9642009C8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9642009C8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B964200668
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B964200668
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B964200B78
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B964200B78
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B8A29BAEF8 : node = 000002B99ECD4330
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B8A29B8678 : node = 000002B99ECD2A30
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A29BAEF8
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B99ECD4440
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A29BAEF8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A29B8678
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B99ECD2B40
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A29B8678
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B885AC42B8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B969138038)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B964200B78)
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B885AC1018)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B969137B58)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B964200668)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B964200D28
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B964200D28
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9642013E8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9642013E8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B964200D28
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B964200D28
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B9642013E8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B9642013E8
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (000002B885AC4468)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (000002B969137E98)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (000002B964201238)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B964200668 : node = 000002B99F5BBB20
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B899C98A98 : node = 000002B99F5BD6A0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B964200668
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B99F5BBC30
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B964200668
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B899C98A98
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B99F5BD7B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B899C98A98
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B8A29B8678)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B92FE5A618)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B9642013E8)
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B8A29BAEF8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B92FE5C358)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B964200D28)
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B8A28E0818 : node = 000002B8853F7FD0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A28E0818
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B8853F80E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 3000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='333967__ihitokage__rasengan', format=5, channels=2, frequency=48000, lengthbytes=178016, lengthpcm=674586, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A28E0818
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000FDF2D3F3C8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8D34F60E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8D34F60B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8D34F61B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8D34F6270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002B9A8D21B28
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='556693__nachtmahrtv__metal-impact', format=5, channels=2, frequency=48000, lengthbytes=45376, lengthpcm=422519, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.538856.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000FDF2D3F3C8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF8D34F60E0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF8D34F60B0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF8D34F61B0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF8D34F6270
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002B9A8D21B28
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='540831__eminyildirim__fire-fuse-ignite-flame-mid(attribute)', format=5, channels=2, frequency=48000, lengthbytes=36672, lengthpcm=147200, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.304964.
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B885AC5398 : node = 000002B885B5FEA0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885AC5398
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B885B5FFB0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='234548__electroviolence__bonfire-flames', format=5, channels=2, frequency=48000, lengthbytes=202304, lengthpcm=690561, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441040.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885AC5398
+[LOG] SoundI::release                          : 333967__ihitokage__rasengan (000002B8A2590878)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (000002B969137CF8)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (000002B964201088)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B899C98588
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B899C98588
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B842CFB728
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B842CFB728
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B842CFBF98
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B842CFBF98
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B8A28E0ED8 : node = 000002B8853F6090
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A28E0ED8
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSound                     :     setdata soundi = 000002B8A28E1598 : node = 000002B8853F8110
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSound                     :     add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B8853F61A0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A28E0ED8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B8A28E1598
+[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B8853F8220
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B8A28E1598
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B899C98A98)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B87ED39748)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B842CFBF98)
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B964200668)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B87ED398E8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B842CFB728)
+[LOG] SoundI::release                          : 333967__ihitokage__rasengan (000002B8A28E0818)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (000002B842DD5998)
+[LOG] SoundI::release                          :     333967__ihitokage__rasengan (000002B899550278)
+[LOG] SoundI::release                          : 197266__qubodup__wind-water-aura(Attribute) (000002B8A2590F38)
+[LOG] SoundI::release                          :     197266__qubodup__wind-water-aura(Attribute) (000002B9691386B8)
+[LOG] SoundI::release                          :     197266__qubodup__wind-water-aura(Attribute) (000002B9642009C8)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B899550428
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B899550428
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B899550788
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B899550788
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002B885AC2CC8 : node = 000002B885B5EBE0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885AC2CC8
 [LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
 [LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSound                     :     setdata soundi = 0000020888CAEAA8 : node = 000002086DB4D1F0
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSound                     :     add node to async list : head = 000002081F067298.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
+[LOG] SystemI::createSound                     :     setdata soundi = 000002B885ABF008 : node = 000002B885B604E0
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002086DB4D1C0
+[LOG] SystemI::createSound                     :     add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B885B5ECF0
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
 [LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020888CAE748
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020888CAEAA8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885AC2CC8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885ABF008
 [LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002086DB4D300
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B885B605F0
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
 [LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020888CAEAA8
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002092ED86FC8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (0000020788352E48)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092F610D58)
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002092ED85D38)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (00000207883541C8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092F612F18)
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000208FCC9A188
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000208FCC9A188
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000208FCC9B268
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000208FCC9B268
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885ABF008
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B8A28E1598)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B842DD4FD8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B899550788)
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B8A28E0ED8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B842DD3F98)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B899550428)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B899C98A98
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B899C98A98
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B899C98078
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B899C98078
 [LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002092ED86248 : node = 0000020875811FB0
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002092ED85EE8 : node = 00000208758143F0
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092ED86248
+[LOG] SystemI::createSound                     : setdata soundi = 000002B885AC3898 : node = 000002B885B608A0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002B8A539FFD8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885AC3898
 [LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000208758120C0
+[LOG] SystemI::createSound                     :     setdata soundi = 000002B885AC5548 : node = 000002B885B609E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B885B609B0
+[LOG] SystemI::createSound                     :     add node to async list : head = 000002B8A539FFD8.  list count = 0
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
 [LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092ED86248
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092ED85EE8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885AC3898
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002B885AC5548
 [LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 33696
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000020875814500
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002B885B60AF0
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
 [LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092ED85EE8
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (0000020888CAEAA8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (00000208671E98E8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (00000208FCC9B268)
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (0000020888CAE748)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (00000208671E4128)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (00000208FCC9A188)
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F611268
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F611268
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612198
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612198
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F611268
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F611268
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612198
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612198
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F611268
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F611268
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F612198
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F612198
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 00000208FCC96168 : node = 000002078186E9D0
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 00000208FCC9A188 : node = 000002078186ED90
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000208FCC96168
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002078186EAE0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000208FCC96168
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000208FCC9A188
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002078186EEA0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000208FCC9A188
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002092ED85EE8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (0000020788350DC8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092F612198)
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002092ED86248)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002078834FF28)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092F611268)
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092ED863F8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092ED863F8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092ED865A8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092ED865A8
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002087578CFB8 : node = 00000208DD04FE40
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002087578CFB8
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSound                     : setdata soundi = 000002087578CAA8 : node = 000002083ABDD0D0
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSound                     :     add node to async list : head = 000002081F067298.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000208DD04FF50
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002087578CFB8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002087578CAA8
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002083ABDD1E0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002087578CAA8
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (00000208FCC9A188)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002089CE2FAD8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092ED865A8)
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (00000208FCC96168)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002089CE30498)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092ED863F8)
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002092ED86248 : node = 0000020875813130
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002092ED86908 : node = 00000208758157F0
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092ED86248
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000020875813240
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092ED86248
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092ED86908
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000020875815900
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092ED86908
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002087578CAA8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (0000020788354028)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092F612858)
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002087578CFB8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (00000207883512A8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092F612BB8)
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6109F8
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 00000208FCC9A188 : node = 000002078186E890
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 00000208FCC9B268 : node = 000002078186D5D0
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 1
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000208FCC9A188
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002078186E9A0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000208FCC9A188
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000208FCC9B268
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002078186D6E0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000208FCC9B268
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6130C8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6109F8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092ED86908)
-[LOG] SoundI::release                          :         388289__pan14__foley-footsteps-desert-boots-sand (0000020788351FA8)
-[LOG] SoundI::release                          :         388289__pan14__foley-footsteps-desert-boots-sand (000002092F6109F8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092ED86248)
-[LOG] SoundI::release                          :         388289__pan14__foley-footsteps-desert-boots-sand (00000207883508E8)
-[LOG] SoundI::release                          :         388289__pan14__foley-footsteps-desert-boots-sand (000002092F6130C8)
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002092F611928 : node = 000002092F4D34E0
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002092F613788 : node = 000002092F4D3B20
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 1
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F611928
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002092F4D35F0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F611928
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F613788
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002092F4D3C30
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F613788
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F6104E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002092F610848
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086760FFA8
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (00000208FCC9B268)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002078834FF28)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092F610848)
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (00000208FCC9A188)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (0000020788352628)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092F6104E8)
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086760FFA8
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 0000020888CAE3E8 : node = 000002086DB4D830
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] SystemI::createSound                     : filename = FMODbank/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 0000020888CAEAA8 : node = 000002086DB4D970
-[LOG] SystemI::createSound                     : add node to async list : head = 000002081F067298.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020888CAE3E8
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002086DB4D940
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 6959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020888CAE3E8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020888CAEAA8
-[LOG] SystemI::createSoundInternal             :     Create name='FMODbank/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4872896
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 29184
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002086DB4DA80
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 2959
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='388289__pan14__foley-footsteps-desert-boots-sand', format=5, channels=1, frequency=48000, lengthbytes=185760, lengthpcm=1113458, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.017769.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020888CAEAA8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000020867610818
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002086760FFA8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002086760FFA8
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002092F613788)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (00000208D5283AD8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002086760FFA8)
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002092F611928)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (00000208D52832B8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (0000020867610818)
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (0000020888CAEAA8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (00000207883512A8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092F612858)
-[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (0000020888CAE3E8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (00000207883541C8)
-[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002092F610D58)
-[LOG] SoundI::release                          : 427400__imjeax__forest-ambient-loop(Attribute) (00000208FCC99AC8)
-[LOG] SoundI::release                          :     427400__imjeax__forest-ambient-loop(Attribute) (000002079583D0D8)
-[LOG] SoundI::release                          :     427400__imjeax__forest-ambient-loop(Attribute) (000002086D9A6168)
-[LOG] SoundI::release                          :  (000002081DC6D898)
-[LOG] SoundI::release                          :     411178__silverillusionist__pick-up-item-2(Attribute) (00000207806CCBF8)
-[LOG] SoundI::release                          :  (000002081DC6C758)
-[LOG] SoundI::release                          :     512138__beezlefm__item-sound(Attribute) (00000207806CC238)
-[LOG] SoundI::release                          :  (000002081DC6E2A8)
-[LOG] SoundI::release                          :     422709__niamhd00145229__inspect-item (00000207806CC8B8)
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002B885AC5548
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B885ABF008)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B92FE5C358)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B899C98078)
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B885AC2CC8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B92FE59F98)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B899C98A98)
+[LOG] SoundI::release                          :  (000002B9BAB9D828)
+[LOG] SoundI::release                          :     427396__erokia__plasma-lazer-pistol-gun-shot-1(attribute) (000002B87ED390C8)
+[LOG] SoundI::release                          : 234548__electroviolence__bonfire-flames (000002B885AC5398)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (000002B92FE59DF8)
+[LOG] SoundI::release                          :     234548__electroviolence__bonfire-flames (000002B899C98588)
+[LOG] SoundI::release                          :  (000002B8A0CD87C8)
+[LOG] SoundI::release                          :     467777__sgak__thunder (000002B969138518)
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B885AC5548)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A19ADAE8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A5DFC048)
+[LOG] SoundI::release                          : 388289__pan14__foley-footsteps-desert-boots-sand (000002B885AC3898)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A19AA3A8)
+[LOG] SoundI::release                          :     388289__pan14__foley-footsteps-desert-boots-sand (000002B8A5DFB2C8)
+[LOG] SoundI::release                          : 427400__imjeax__forest-ambient-loop(Attribute) (000002B96901AF28)
+[LOG] SoundI::release                          :     427400__imjeax__forest-ambient-loop(Attribute) (000002B87B5636C8)
+[LOG] SoundI::release                          :     427400__imjeax__forest-ambient-loop(Attribute) (000002B885AC0958)
+[LOG] SoundI::release                          :  (000002B88FD74658)
+[LOG] SoundI::release                          :     531082__ryusa__magic-spell-heal-bright-bell-brid-reverb(Attribute) (000002B8A19ABA68)
+[LOG] SoundI::release                          :  (000002B8AD6106F8)
+[LOG] SoundI::release                          :     556693__nachtmahrtv__metal-impact (000002B842DD6018)
+[LOG] SoundI::release                          :  (000002B88FD73F28)
+[LOG] SoundI::release                          :     563662__eminyildirim__healing-spell(Attribute) (000002B8A19ABF48)
+[LOG] SoundI::release                          :  (000002B8AD610868)
+[LOG] SoundI::release                          :     540831__eminyildirim__fire-fuse-ignite-flame-mid(attribute) (000002B842DD5B38)
+[LOG] SoundI::release                          :  (000002B88FD72268)
+[LOG] SoundI::release                          :     411178__silverillusionist__pick-up-item-2(Attribute) (000002B8A19AD608)
+[LOG] SoundI::release                          :  (000002B88FD737F8)
+[LOG] SoundI::release                          :     512138__beezlefm__item-sound(Attribute) (000002B8A19AA6E8)
+[LOG] SoundI::release                          :  (000002B88FD74098)
+[LOG] SoundI::release                          :     422709__niamhd00145229__inspect-item (000002B8A19ADE28)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients

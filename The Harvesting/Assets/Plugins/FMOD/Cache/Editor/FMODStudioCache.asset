@@ -61,11 +61,34 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637743660121687961
+  lastModified: 637744382074917519
   FileSizes:
   - Name: 
-    Value: 1226
+    Value: 1280
   Exists: 1
+--- !u!114 &-6566711044633869790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Game SFX/HolyGroundEffect
+  m_EditorClassIdentifier: 
+  Path: event:/Game SFX/HolyGroundEffect
+  guid: 330d2e42575a7048a816d0fdce3b96b8
+  Banks:
+  - {fileID: 8198727982755841842}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7000
 --- !u!114 &-4816294755455937945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,12 +185,13 @@ MonoBehaviour:
   - {fileID: -4667980924784980943}
   - {fileID: -9145777708106246320}
   - {fileID: 2330341668397759436}
+  - {fileID: -6566711044633869790}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8198727982755841842}
   StringsBanks:
   - {fileID: -7052778325290694291}
-  stringsBankWriteTime: 637743660121687961
+  stringsBankWriteTime: 637744382074917519
   cacheVersion: 8
 --- !u!114 &130814885328174247
 MonoBehaviour:
@@ -322,6 +346,6 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637743660121618170
+  lastModified: 637744382074847723
   FileSizes: []
   Exists: 1

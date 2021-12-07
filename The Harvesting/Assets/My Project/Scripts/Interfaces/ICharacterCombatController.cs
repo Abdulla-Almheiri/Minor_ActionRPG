@@ -30,5 +30,6 @@ namespace Harvesting
         void RefundManaCost(Skill skill);
         bool HasManaForSkill(Skill skill);
         bool IsWithinMeleeRange(ICharacterCore character);
+        void TriggerOnHitEffects();
     }
 }
