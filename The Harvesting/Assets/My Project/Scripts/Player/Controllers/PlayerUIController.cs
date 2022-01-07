@@ -59,14 +59,14 @@ namespace Harvesting
 
         private void InitializeUI()
         {
-            var statsUI = Instantiate(_playerStatsUIPrefab, Core.GameManager.StaticCanvas.transform);
+            /*var statsUI = Instantiate(_playerStatsUIPrefab, Core.GameManager.StaticCanvas.transform);
             var skillUI = Instantiate(_playerSkillUIPrefab, Core.GameManager.StaticCanvas.transform);
 
             PlayerStatsUIScript = statsUI.GetComponent<PlayerStatsUIScript>();
             PlayerStatsUIScript.Initialize(Core);
 
             PlayerSkillUIScript = skillUI.GetComponent<SkillUIScript>();
-            PlayerSkillUIScript.Initialize(Core);
+            PlayerSkillUIScript.Initialize(Core);*/
         }
     }
 }

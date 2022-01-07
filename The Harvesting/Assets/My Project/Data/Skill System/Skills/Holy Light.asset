@@ -15,9 +15,9 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 63057396d58d9684a97809afea1d3808, type: 3}
   Name: Holy Light
   Description: Heals yourself!
-  ManaCost: 35
-  RechargeTime: 6
-  DefaultVFXPrefab: {fileID: 7332391563094322810, guid: b2fb5438b1fce6646b9109628ccececa, type: 3}
+  ManaCost: 1
+  RechargeTime: 0
+  DefaultVFXPrefab: {fileID: 1018607597841986662, guid: 4d13d0b15937a4048a7b691acf79a388, type: 3}
   PlayerSpawnLocation: 3
   TriggerChance: 100
   TriggerCondition: {fileID: 0}
@@ -70,4 +70,4 @@ MonoBehaviour:
     ResourceToDrain: {fileID: 0}
     DrainAmount: 0
     IsDrainAmountPercentage: 0
-    SkillVFX: {fileID: 5272097059557125606, guid: fd725c2f12db2a448851faca302e2433, type: 3}
+    SkillVFX: {fileID: 0}
