@@ -48,26 +48,26 @@ namespace Harvesting {
             {
                 foreach(Skill skill in ImpactSkills)
                 {
-                    skill?.Spawn(Performer, other.gameObject.transform);
+                    skill?.Spawn(_performer, other.gameObject.transform);
                 }
             }
 
             
 
-            if (MyUtility.CompareLayers(Performer.GameObject.layer, Performer.GameManager.PlayerLayer) == true)
+            if (MyUtility.CompareLayers(_performer.GameObject.layer, _performer.GameManager.PlayerLayer) == true)
             {
-                if (MyUtility.CompareLayers(other.gameObject.layer, Performer.GameManager.CombatSettings.EnemyLayer) == true)
+                if (MyUtility.CompareLayers(other.gameObject.layer, _performer.GameManager.CombatSettings.EnemyLayer) == true)
                 {
-                    TriggerSkillActions(Performer, other.GetComponent<ICharacterCore>());
+                    TriggerSkillActions(_performer, other.GetComponent<ICharacterCore>());
                 }
             }
-            else if (MyUtility.CompareLayers(Performer.GameObject.layer, Performer.GameManager.CombatSettings.EnemyLayer) == true)
+            else if (MyUtility.CompareLayers(_performer.GameObject.layer, _performer.GameManager.CombatSettings.EnemyLayer) == true)
             {
                 
-                if (MyUtility.CompareLayers(other.gameObject.layer, Performer.GameManager.PlayerLayer) == true)
+                if (MyUtility.CompareLayers(other.gameObject.layer, _performer.GameManager.PlayerLayer) == true)
                 {
                     UnityEngine.Debug.Log("ON trigger entered enemy and player");
-                    TriggerSkillActions(Performer, other.gameObject.GetComponent<ICharacterCore>());
+                    TriggerSkillActions(_performer, other.gameObject.GetComponent<ICharacterCore>());
                 }
             }
 

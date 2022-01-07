@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public class WeaponTester1 : MonoBehaviour
+   /* public class WeaponTester1 : MonoBehaviour
     {
         public WeaponTemplate WeaponTemplate;
         private WeaponItem _weapon;
@@ -19,5 +19,5 @@ namespace Harvesting
 
             Debug.Log("Damage is  :   " + _weapon.DamageValue);
         }
-    }
+    }*/
 }

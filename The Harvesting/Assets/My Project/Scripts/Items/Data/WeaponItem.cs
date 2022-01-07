@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public class WeaponItem : GameItem, IWeaponItem
+   /* public class WeaponItem : EquipmentItem, IWeaponItem
     {
         public int ItemLevel { get; protected set; }
-        public new WeaponTemplate Template { get; protected set; }
+        public new WeaponTemplate<WeaponItem> Template { get; protected set; }
         public int RequiredLevel { get; protected set; }
         public EquipmentSlotType EquipmentSlotType { get; protected set; }
         public float DamageValue { get; protected set; }
@@ -26,5 +26,5 @@ namespace Harvesting
         {
             //player.Equip(this, EquipmentSlotthis.EquipmentSlotType);
         }
-    }
+    }*/
 }

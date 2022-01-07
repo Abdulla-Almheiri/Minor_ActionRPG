@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public interface IEquipmentItem : IGameItem
+   /* public interface IEquipmentItem : IGameItem
     {
         int ItemLevel { get; }
         public new EquipmentItemTemplate Template { get; }
@@ -14,5 +14,5 @@ namespace Harvesting
 
         void Equip(IPlayerCore playerCore);
 
-    }
+    }*/
 }

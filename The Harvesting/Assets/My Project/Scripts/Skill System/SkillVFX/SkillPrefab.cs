@@ -9,7 +9,7 @@ namespace Harvesting
     public abstract class SkillPrefab : MonoBehaviour
     {
         [HideInInspector]
-        public ICharacterCore Performer;
+        protected ICharacterCore _performer;
         public List<Skill> ImpactSkills = new List<Skill>();
         protected List<ICharacterCore> monstersInCollider = new List<ICharacterCore>();
         protected int NumberOfEnemiesHit = 0;
@@ -52,9 +52,9 @@ namespace Harvesting
                 foreach (ICharacterCore receiver in monstersInCollider)
                 {
                     // FIX HERE FOR CONTINUOUS HEALS OR ENHANCEMENTS
-                    if (Performer != receiver)
+                    if (_performer != receiver)
                     {
-                        receiver.CombatController.ReceiveSkillAction(action, Performer, out _);
+                        receiver.CombatController.ReceiveSkillAction(action, _performer, out _);
                     }
                 }
                 yield return new WaitForSeconds(1f / tickRate);
@@ -69,7 +69,7 @@ namespace Harvesting
 
         public void Initialize(ICharacterCore performer)
         {
-            Performer = performer;
+            _performer = performer;
         }
     }
 }

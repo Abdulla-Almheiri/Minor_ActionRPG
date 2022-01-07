@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Harvesting
 {
-    public interface IWeaponTemplate : IGameItemTemplate<WeaponItem>
+    public interface IWeaponTemplate<T> : IGameItemTemplate<T> where T: IWeaponItem
     {
 
     }

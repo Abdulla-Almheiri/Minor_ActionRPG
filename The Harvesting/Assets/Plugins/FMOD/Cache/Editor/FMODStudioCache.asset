@@ -61,10 +61,10 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637750866952010206
+  lastModified: 637771138530570131
   FileSizes:
   - Name: 
-    Value: 1280
+    Value: 1316
   Exists: 1
 --- !u!114 &-6566711044633869790
 MonoBehaviour:
@@ -158,6 +158,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 87421
+--- !u!114 &-1469650725113915875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Game SFX/Smite
+  m_EditorClassIdentifier: 
+  Path: event:/Game SFX/Smite
+  guid: f3de55b489d72047ac23cc2183e95ae6
+  Banks:
+  - {fileID: 8198727982755841842}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1795
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,12 +209,13 @@ MonoBehaviour:
   - {fileID: -9145777708106246320}
   - {fileID: 2330341668397759436}
   - {fileID: -6566711044633869790}
+  - {fileID: -1469650725113915875}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8198727982755841842}
   StringsBanks:
   - {fileID: -7052778325290694291}
-  stringsBankWriteTime: 637750866952010206
+  stringsBankWriteTime: 637771138530570131
   cacheVersion: 8
 --- !u!114 &130814885328174247
 MonoBehaviour:
@@ -346,6 +370,6 @@ MonoBehaviour:
   Path: FMODbank/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637750866951910457
+  lastModified: 637771138530520248
   FileSizes: []
   Exists: 1
