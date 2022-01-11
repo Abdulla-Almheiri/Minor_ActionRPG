@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9092235552526067178}
   - component: {fileID: 8501618927894668697}
   - component: {fileID: 1920377797322668773}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Feathers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4892,7 +4892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3475010238455742052}
   - component: {fileID: 7118440865774179455}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4947,7 +4947,7 @@ GameObject:
   - component: {fileID: 6244861292316814822}
   - component: {fileID: 625459875810068205}
   - component: {fileID: 8170765947743332801}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9847,7 +9847,7 @@ GameObject:
   - component: {fileID: 128769365919788736}
   - component: {fileID: 3818831262522587429}
   - component: {fileID: 1264306817227467589}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14730,7 +14730,7 @@ GameObject:
   - component: {fileID: 6820445246708541171}
   - component: {fileID: 4825874627786699988}
   - component: {fileID: 2373365607150961569}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SmiteEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14800,7 +14800,7 @@ GameObject:
   - component: {fileID: 6820445246776034364}
   - component: {fileID: 6820445246776040386}
   - component: {fileID: 6820445246776040387}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SlashEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19673,7 +19673,7 @@ GameObject:
   - component: {fileID: 8991743124101490308}
   - component: {fileID: 3907762374270245752}
   - component: {fileID: 7875513914240449606}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Distortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24573,7 +24573,7 @@ GameObject:
   - component: {fileID: 3940123877580381612}
   - component: {fileID: 1486878270776215497}
   - component: {fileID: 1637846032109529295}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}

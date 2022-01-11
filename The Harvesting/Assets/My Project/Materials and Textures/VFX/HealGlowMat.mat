@@ -98,7 +98,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - Color1: {r: 20.865906, g: 18.571749, b: 14.748154, a: 1}
+    - Color1: {r: 9.734288, g: 8.664026, b: 6.880256, a: 1}
     - Color2: {r: 1.097003, g: 0.5226287, b: 0.2018071, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
