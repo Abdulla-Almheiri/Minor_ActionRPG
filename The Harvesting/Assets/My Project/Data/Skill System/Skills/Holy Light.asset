@@ -29,7 +29,7 @@ MonoBehaviour:
   RemovesStun: 0
   CanBeUsedWhileStunned: 0
   RemovesSilence: 0
-  IsCastOnSelf: 1
+  IsCastOnSelf: 0
   PlayerAnimation: {fileID: 11400000, guid: 4680b3bd397b0704da19eb9cbe003492, type: 2}
   ImpactSkill: {fileID: 0}
   Actions:

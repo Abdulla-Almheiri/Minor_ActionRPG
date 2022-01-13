@@ -64,7 +64,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Intensity: 56.65
+    - Intensity: 63.96
     - Scale: 1
     - _AddPrecomputedVelocity: 0
     - _AlphaCutoffEnable: 1
@@ -108,7 +108,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 3.4415908, g: 2.9550831, b: 1.4595228, a: 0}
+    - _Color: {r: 9.082411, g: 7.79851, b: 3.899255, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
