@@ -71,7 +71,7 @@ namespace Harvesting
             Initialize();
             SpawnPlayer(_playerCheckPoint);
             InitializeCamera();
-            //SpawnMonster(_monsterPrefab, _monsterSpawnPoint,  MonsterTemplate, _monsterAI);
+            SpawnMonster(_monsterPrefab, _monsterSpawnPoint,  MonsterTemplate, _monsterAI);
         }
 
         private void Initialize()
