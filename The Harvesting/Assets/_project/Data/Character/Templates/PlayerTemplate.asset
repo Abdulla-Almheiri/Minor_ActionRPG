@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968f88253f9608b488cc29d220026d28, type: 3}
+  m_Name: PlayerTemplate
+  m_EditorClassIdentifier: 
+  level: 1
+  size: 1
+  attributePercentageIncrementPerLevel: 20
+  health: 150
+  mana: 30
+  healthRegen: 0
+  manaRegen: 0
+  weaponDamage: 7
+  strength: 10
+  intellect: 15
+  faith: 5
+  dexterity: 5
+  power: 5
+  attackSpeed: 100
+  movementSpeed: 1
+  criticalChance: 10
+  criticalDamageBonus: 0
+  allDamageTakenReduction: 0
+  allDamageDoneIncrease: 0
+  _abilities:
+  - Skill: {fileID: 11400000, guid: b1fcab8a3fecd77439ef997dd87384bc, type: 2}
+    Level: 0
+  - Skill: {fileID: 11400000, guid: 4010c75d19a96714f9cc457692e04894, type: 2}
+    Level: 0
+  - Skill: {fileID: 11400000, guid: 1fbd50631c7a37642ba5e346c0206c89, type: 2}
+    Level: 0
+  - Skill: {fileID: 11400000, guid: 634ec154e4c3da3418070e502290d01b, type: 2}
+    Level: 0
+  - Skill: {fileID: 11400000, guid: 96b6f5e31d0b06241b627968791aa7cc, type: 2}
+    Level: 0
+  - Skill: {fileID: 11400000, guid: 02657eef768282d4691e3d11b520933d, type: 2}
+    Level: 0
+  _primaryWeaponSkill: {fileID: 11400000, guid: 677b5f5a23d2ff14aac813b38b474f64, type: 2}
+  _secondaryWeaponSkill: {fileID: 0}
+  Attributes: []
+  InteractAnimation: {fileID: 0}
+  WalkAnimation: {fileID: 0}
+  DeathAnimation: {fileID: 0}
+  AttackAnimations: []
+  CastAnimations: []
+  HitAnimations: []
+  BlockAnimations: []
+  _skillProgression: []
